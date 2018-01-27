@@ -46,7 +46,9 @@ $colors: (
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-
+.tabbar{
+  background: #fff!important;
+}
 
 
 
@@ -54,7 +56,7 @@ $colors: (
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
-
+$tabs-md-tab-color-active:#f53d3d;
 
 
 // App Windows Variables

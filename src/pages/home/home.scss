@@ -1,6 +1,17 @@
 page-home {
   ion-header{
     background: color($colors, danger);
+    ion-navbar{
+      background: transparent;
+    }
+    .toolbar-background{
+      background: transparent!important;
+    }
+    .toolbar-title{
+      color: #fff;
+      font-weight: normal;
+      font-size: 1.5rem;
+    }
   }
 
     ion-list {

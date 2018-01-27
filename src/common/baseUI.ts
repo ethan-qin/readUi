@@ -21,7 +21,7 @@ export abstract class BaseUI {
   protected showLoading(loadingCtrl: LoadingController, message?: string) {
     let loader = loadingCtrl.create({
       content: message,
-      duration: 15000,
+      duration: 1500,
       dismissOnPageChange: true
     });
     loader.present();
