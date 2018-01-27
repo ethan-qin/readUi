@@ -22,7 +22,7 @@ export class BookServicesProvider extends BaseUI {
   }
 
   getBookList(): Observable<any> {
-    super.showLoading(this.loaddingCtrl, "加载中");
+    // super.showLoading(this.loaddingCtrl, "加载中");
     let a = {
       user: '张三',
       age: '18'

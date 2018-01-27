@@ -1,12 +1,24 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title color="light">
+      我的书架
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="md-search" color="light"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end margin-left>
+      <button (click)="showPop($event)" ion-button icon-only>
+        <ion-icon name="md-more" color="light"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-list no-lines no-margin>
-    <ion-item (press)="openAbs()" >
+    <ion-item (press)="openAbs()">
       <ion-thumbnail item-start>
         <img src="http://placehold.it/380x500" alt="">
       </ion-thumbnail>
