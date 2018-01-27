@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list no-lines no-margin>
+    <ion-item (press)="openAbs()" >
+      <ion-thumbnail item-start>
+        <img src="http://placehold.it/380x500" alt="">
+      </ion-thumbnail>
+      <h2>幽灵骑士2</h2>
+      <p>崖画时&nbsp;&nbsp;著&nbsp;|&nbsp;未读</p>
+      <p>
+        连载至：第二十四章&nbsp;妖怪啊！
+      </p>
+      <button class="more" (click)="openAbs()">
+        <ion-icon name="md-more"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<book-modal (event)="getClose($event)" *ngIf="bookId" [bookId]="bookId"></book-modal>

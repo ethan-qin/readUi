@@ -1,0 +1,52 @@
+page-home {
+  ion-header{
+    background: color($colors, danger);
+  }
+
+    ion-list {
+        ion-item {
+            &::after {
+                content: "";
+                width: 190%;
+                position: absolute;
+                bottom: 0;
+                left: -45%;
+                height: 0;
+                border-bottom: 1px solid #c8c8cc;
+                transform: scale(0.5)
+            }
+            ion-thumbnail {
+                min-width: 40px!important;
+                min-height: 55px!important;
+                max-height: 55px!important;
+                img {
+                    width: 40px!important;
+                    height: 55px!important;
+                }
+            }
+            .item-inner {
+                background-image: none!important;
+            }
+            ion-item {
+                h2 {
+                    font-size: 1.4rem!important;
+                }
+                p {
+                    font-size: 1.2rem!important;
+                }
+                .author {
+                    padding: 0.3rem 0;
+                }
+            }
+            .more {
+                position: absolute;
+                bottom: 1rem;
+                right: 1rem;
+                background: transparent;
+            }
+        }
+    }
+    .popover-content {
+        width: 100%!important;
+    }
+}

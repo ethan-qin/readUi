@@ -1,0 +1,163 @@
+book-modal {
+    .bookContainer {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, .3);
+        z-index: 100;
+    }
+    .msk {
+        background: transparent;
+        width: 100%;
+        height: 100%;
+    }
+    .book {
+        position: absolute;
+        width: 100%;
+        bottom: -50%;
+        left: 0;
+        background: #fff;
+        transition: all 0.2s;
+    }
+    .show {
+        .book {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            background: #fff;
+        }
+    }
+    .bookHeadr {
+        background: #333;
+        padding: 0 1rem 0 1.4rem;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        .preview {
+            width: 12%;
+            position: absolute;
+            bottom: 0;
+            img {
+                width: 100%;
+                vertical-align: bottom;
+            }
+        }
+        p {
+            flex-grow: 1;
+            padding-left: 16%;
+            color: #d5b285;
+            font-size: 15px;
+        }
+        .more {
+            width: 10%;
+            padding-top: 0.4rem;
+            text-align: right;
+            font-size: 1.2rem;
+        }
+    }
+    .readerInfo {
+        position: relative;
+        display: flex;
+        padding: 0.8rem 1.5rem 0.1rem 1.5rem;
+        justify-content: space-between;
+        .avatar {
+            position: relative;
+            width: 13%;
+            display: flex;
+            .avatraContainer {
+                margin: auto;
+                img {
+                    width: 100%;
+                    border-radius: 50%;
+                }
+                span {
+                    position: absolute;
+                    font-size: 1.2rem;
+                    left: 50%;
+                    width: 100%;
+                    text-align: center;
+                    bottom: 0.2rem;
+                    margin-left: -50%;
+                    background: rgb(11, 216, 113);
+                    color: #fff;
+                    border-radius: 1rem;
+                    padding: 0.2rem 0.3rem;
+                    transform: scale(0.7) translateY(-0.8rem);
+                }
+            }
+        }
+        .user {
+            flex-grow: 1;
+            padding: 0.6rem 1rem; // padding: 0.6rem 0;
+            h3 {
+                font-size: 1.5rem;
+                margin: 0;
+                text-align: left;
+            }
+            p {
+                text-align: left;
+                font-size: 1.3rem;
+                margin: 0;
+                color: #5ba6ee;
+                &.fans {
+                    padding: 0.3rem 0;
+                    color: #666;
+                }
+                span {
+                    padding: 0 0.5rem;
+                }
+                em {
+                    font-style: normal;
+                }
+            }
+        }
+    }
+    ion-item {
+        min-height: 1rem!important;
+        font-size: 1.4rem!important;
+        background: transparent!important;
+        ion-label{
+          color: #333;
+        }
+    }
+    .item-inner {
+        border-bottom: none!important;
+    }
+    .handle {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 0 1rem 1rem 1rem;
+        button {
+            display: inline-block;
+            font-size: 1.3rem;
+            text-align: center;
+            width: 19%;
+            margin-bottom: 0.2rem;
+            padding: 1rem;
+            color: #4b4b4b;
+            &:active {
+                background: #e5e8eb;
+            }
+            ion-icon {
+                font-size: 3rem;
+                padding-bottom: 0.8rem;
+            }
+            background: transparent;
+        }
+    }
+    .fineLine {
+        height: 1px;
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 200%;
+        margin-left: -50%;
+        transform: scale(0.5);
+        background: rgb(225, 225, 225);
+    }
+}

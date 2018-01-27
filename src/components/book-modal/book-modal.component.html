@@ -1,0 +1,90 @@
+<!-- Generated template for the BookModalComponent component -->
+<div [ngClass]="{'show':isShow,'bookContainer':true}">
+  <div (click)="close()"  class="msk"></div>
+  <section class="book">
+    <div class="bookHeadr">
+      <div class="preview">
+        <img src="http://placehold.it/380x500" alt="">
+      </div>
+      <p>斗战狂潮</p>
+      <p class="more">
+        详情
+      </p>
+    </div>
+    <div class="readerInfo">
+      <div class="avatar">
+        <div class="avatraContainer">
+          <img src="http://placehold.it/100x100" alt="">
+          <span>学徒</span>
+        </div>
+      </div>
+      <div class="user">
+        <h3>青梅荐煮酒</h3>
+        <p class="fans">当前粉丝值0
+          <span>?</span>
+          <em>未上榜</em>
+        </p>
+        <p class="message">再获得500粉丝值升级为"学徒"</p>
+      </div>
+      <span class="fineLine"></span>
+    </div>
+    <div no-lines class="operation">
+      <ion-item no-padding>
+        <ion-label padding-left>自动订阅最新章节</ion-label>
+        <ion-toggle color="danger" checked="true"></ion-toggle>
+      </ion-item>
+      <div class="handle">
+        <button>
+          <ion-icon color=grayNess name="ios-download-outline"></ion-icon>
+          <br>
+          下载
+        </button>
+        <button>
+          <ion-icon color=grayNess name="ios-exit-outline"></ion-icon>
+          <br>
+          移动
+        </button>
+        <button>
+          <ion-icon color=grayNess name="ios-trash-outline"></ion-icon>
+          <br>
+          删除
+        </button>
+        <button>
+          <ion-icon color=grayNess name="ios-share-outline"></ion-icon>
+          <br>
+          置顶
+        </button>
+        <button>
+          <ion-icon color=grayNess name="ios-git-merge-outline"></ion-icon>
+          <br>
+          分享
+        </button>
+        <button>
+          <ion-icon color="danger" name="ios-boat-outline"></ion-icon>
+          <br>
+          月票
+        </button>
+        <button>
+          <ion-icon color="danger" name="ios-bonfire-outline"></ion-icon>
+          <br>
+          推荐票
+        </button>
+        <button>
+          <ion-icon color="danger" name="ios-beaker-outline"></ion-icon>
+          <br>
+          打赏
+        </button>
+        <button>
+          <ion-icon color="danger" name="ios-chatboxes-outline"></ion-icon>
+          <br>
+          书评
+        </button>
+        <button>
+          <ion-icon color="danger" name="ios-basket-outline"></ion-icon>
+          <br>
+          红包
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
