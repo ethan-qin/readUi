@@ -1,0 +1,39 @@
+page-find {
+    .header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after{
+        background-image: none!important;
+    }
+    .sexToggle{
+        vertical-align: middle;
+        box-shadow: none;
+        border-radius: 30px;
+        font-weight: normal;
+        background: #b32727;
+        letter-spacing: 0.2rem;
+        &.activated{
+            background: #b32727;
+            box-shadow: none;
+        }
+        ion-icon{
+            padding-left: 8px;
+        }
+    }
+    .card{
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    .rank{
+        button{
+            width: 100%;
+            height: 100%;
+            font-size: 1.1rem;
+            color: #4b4b4b;
+            background: transparent;
+            ion-icon{
+                font-size: 3.4rem;
+                margin-bottom: 0.5rem;
+                color:color($colors,danger)
+            }
+        }
+    }
+}

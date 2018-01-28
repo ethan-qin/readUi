@@ -1,5 +1,7 @@
 page-home {
-
+    ion-title{
+        padding-bottom:5px;
+    }
     ion-list {
         ion-item {
             &::after {

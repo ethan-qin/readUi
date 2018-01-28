@@ -1,0 +1,10 @@
+slides {
+    .swiper-pagination-bullet{
+        background: #fff;
+        width: 6px;
+        height: 6px;
+    }
+    .swiper-pagination-bullet-active{
+        background: color($colors,danger)
+    }
+}

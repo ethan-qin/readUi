@@ -15,10 +15,9 @@ import { HomePopComponent } from '../../components/home-pop/home-pop';
 
 
 export class HomePage {
-  tabBarElement: any;
   bookId: any;
-  count: any;
-  initialCount: number = 5;
+  tabBarElement: any;
+  title: string = '我的书架';
   constructor(
     public navCtrl: NavController,
     private bookCtrl: BookServicesProvider,

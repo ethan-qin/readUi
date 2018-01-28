@@ -32,15 +32,16 @@ page-contact {
     .user{
         background: color($colors,danger);
         padding: 0.3rem;
+        margin-top: -0.2rem;
         h4{
             color: color($colors,light)
         }
     }
     .userInfo{
-        padding: 1rem;
+        padding: 0.8rem;
         background: #f7f8f9;
         color: #ccc;
-        margin-top: -0.1rem;
+        margin-top: -0.2rem;
         span{
             color: #4b4b4b;
             padding-right: 0.3rem;

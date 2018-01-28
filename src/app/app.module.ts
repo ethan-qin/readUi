@@ -5,19 +5,19 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
-import { AboutPage } from '../pages/about/about';
+import { BookServicesProvider } from '../providers/book-services/book.services';
 import { ComponentsModule } from './../components/components.module';
 import { ContactPage } from '../pages/contact/contact';
+import { FindPage } from '../pages/find/find';
 import { HomePage } from '../pages/home/home';
+import { HttpProvider } from '../providers/http/http';
 import { MyApp } from './app.component';
 import { TabsPage } from '../pages/tabs/tabs';
-import { HttpProvider } from '../providers/http/http';
-import { BookServicesProvider } from '../providers/book-services/book.services';
 
 
 @NgModule({
   declarations: [
-    AboutPage,
+    FindPage,
     ContactPage,
     HomePage,
     MyApp,
@@ -31,7 +31,7 @@ import { BookServicesProvider } from '../providers/book-services/book.services';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    AboutPage,
+    FindPage,
     ContactPage,
     HomePage,
     MyApp,

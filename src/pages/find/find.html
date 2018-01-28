@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      {{title}}
+      <button (click)="toggleSex($event)" ion-button small margin-left class="sexToggle">
+        男生
+        <ion-icon name="md-arrow-dropdown"></ion-icon>
+      </button>
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon color="light" name="ios-search-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end margin-left>
+      <button ion-button icon-only>
+        <ion-icon color="light" name="ios-funnel-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card no-margin>
+    <slides></slides>
+  </ion-card>
+  <ion-grid>
+    <ion-row class="rank">
+      <ion-col text-center col-3>
+        <button>
+          <ion-icon name="ios-stats-outline"></ion-icon>
+          <br>
+          排行榜
+        </button>
+      </ion-col>
+      <ion-col text-center col-3>
+        <button>
+          <ion-icon name="ios-ribbon-outline"></ion-icon>
+          <br>
+          排行榜
+        </button>
+      </ion-col>
+      <ion-col text-center col-3>
+        <button>
+          <ion-icon name="ios-medal-outline"></ion-icon>
+          <br>
+          排行榜
+        </button>
+      </ion-col>
+      <ion-col text-center col-3>
+        <button>
+          <ion-icon name="ios-copy-outline"></ion-icon>
+          <br>
+          排行榜
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
