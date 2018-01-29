@@ -40,49 +40,38 @@ $colors: (
   dangerTrue: #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
-  grayNess:   rgb(165, 161, 161)
+  grayNess:   rgb(165, 161, 161),
+  fontBlack:  #4a4a4a,
 );
+
+// App Global Variables
+// --------------------------------------------------
+// Global Sass variables can go here
+$tabs-background:#fff;
+.toolbar-title{
+    font-weight: 400;
+    font-size: 1.6rem;
+}
+$text-input-placeholder-color:rgb(238, 234, 234);
 
 
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
 $toolbar-ios-height:5rem;
-.tabbar{
-  background: #fff!important;
-}
-
-
+$tabs-md-tab-color-active:color($colors,danger);
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
-$tabs-md-tab-color-active:color($colors,danger);
 $toolbar-md-height:5rem;
-.tabbar{
-  background: #fff!important;
-}
-ion-header{
-  background: color($colors, danger);
-  ion-navbar{
-    background: transparent;
-  }
-  .toolbar-background{
-    background: transparent!important;
-  }
-  .toolbar-title{
-    color: #fff;
-    font-weight: normal;
-    font-size: 1.6rem;
-  }
-  ion-icon.back-button-icon.icon {
-    color: color($colors, light);
-  }
-}
+$tabs-md-tab-color-active:color($colors,danger);
+
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here
+
 
 
 

@@ -5,6 +5,7 @@ import { BookServicesProvider } from '../../providers/book-services/book.service
 import { HttpProvider } from './../../providers/http/http';
 import { PopoverController } from 'ionic-angular/components/popover/popover-controller';
 import { HomePopComponent } from '../../components/home-pop/home-pop';
+import { SearchPage } from '../search/search';
 
 
 @Component({
@@ -52,5 +53,10 @@ export class HomePage {
       this.bookId = e;
       this.tabBarElement.style.display = "flex"
     }, 100);
+  }
+
+
+  goSearch(): void {
+    this.navCtrl.push(SearchPage);
   }
 }

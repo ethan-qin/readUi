@@ -1,8 +1,4 @@
 page-find {
-    .header-md::after,
-    .tabs-md[tabsPlacement="top"]>.tabbar::after {
-        background-image: none!important;
-    }
     .sexToggle {
         vertical-align: middle;
         box-shadow: none;
@@ -19,7 +15,7 @@ page-find {
         }
     }
     ion-content {
-        background-color: #f7f8f9!important;
+        background-color: #f0f1f3!important;
         .card {
             width: 100%;
             border-radius: 0;

@@ -1,16 +1,16 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title color="light">
+<ion-header no-border>
+  <ion-navbar color="danger">
+    <ion-title>
       {{title}}
     </ion-title>
     <ion-buttons end>
-      <button ion-button icon-only>
-        <ion-icon name="ios-search-outline" color="light"></ion-icon>
+      <button (click)="goSearch()" ion-button icon-only>
+        <ion-icon name="ios-search-outline"></ion-icon>
       </button>
     </ion-buttons>
     <ion-buttons end margin-left>
       <button (click)="showPop($event)" ion-button icon-only>
-        <ion-icon name="md-more" color="light"></ion-icon>
+        <ion-icon name="md-more"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>

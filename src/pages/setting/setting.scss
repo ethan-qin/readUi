@@ -1,6 +1,6 @@
 page-setting {
     ion-content {
-        background-color: #f7f8f9!important;
+        background-color: #f0f1f3!important;
     }
     ion-item {
         position: relative;
@@ -18,9 +18,15 @@ page-setting {
             left: -47%;
         }
         button.item {
-          &:last-child::after{
-            display: none;
-          }
+            color:color($colors,fontBlack);
+            font-size: 1.4rem!important;
+            min-height: 4rem;
+            &:last-child::after{
+                display: none;
+            }
+        }
+        .logout{
+            color: color($colors,danger)!important;
         }
     }
 }
