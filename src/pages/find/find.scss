@@ -1,39 +1,175 @@
 page-find {
-    .header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after{
+    .header-md::after,
+    .tabs-md[tabsPlacement="top"]>.tabbar::after {
         background-image: none!important;
     }
-    .sexToggle{
+    .sexToggle {
         vertical-align: middle;
         box-shadow: none;
         border-radius: 30px;
         font-weight: normal;
         background: #b32727;
         letter-spacing: 0.2rem;
-        &.activated{
+        &.activated {
             background: #b32727;
             box-shadow: none;
         }
-        ion-icon{
+        ion-icon {
             padding-left: 8px;
         }
     }
-    .card{
-        width: 100%;
-        border-radius: 0;
-        box-shadow: none;
-    }
-    .rank{
-        button{
+    ion-content {
+        background-color: #f7f8f9!important;
+        .card {
             width: 100%;
-            height: 100%;
-            font-size: 1.1rem;
-            color: #4b4b4b;
-            background: transparent;
-            ion-icon{
-                font-size: 3.4rem;
-                margin-bottom: 0.5rem;
-                color:color($colors,danger)
+            border-radius: 0;
+            box-shadow: none;
+        }
+        ion-grid {
+            background: #fff;
+            .rank {
+                margin-bottom: 0.2rem;
+                button {
+                    width: 100%;
+                    height: 100%;
+                    font-size: 1.1rem;
+                    color: #4b4b4b;
+                    background: transparent;
+                    &.activated {
+                        background: #f1f1f1;
+                    }
+                    ion-icon {
+                        font-size: 3.4rem;
+                        margin-bottom: 0.5rem;
+                        color: color($colors, danger)
+                    }
+                }
             }
+            .notice {
+                display: flex;
+                padding: 0.4rem 0.8rem;
+                overflow: hidden;
+                border-radius: 20px;
+                width: 100%;
+                background: #f6f7f9;
+                justify-content: flex-start;
+                &:active {
+                    background: #eee;
+                }
+                ion-icon {
+                    color: #a2b3ce;
+                    font-size: 2.4rem;
+                }
+                ion-col {
+                    display: flex;
+                    span {
+                        color: #4b4b4b;
+                        width: 100%;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        font-size: 1.3rem;
+                        margin: auto;
+                    }
+                }
+            }
+        }
+        .bookList {
+            button {
+                &:last-child {
+                    .fineLine {
+                        display: none;
+                    }
+                }
+            }
+            .listHead{
+              padding-top: 1rem;
+              min-height: 2rem!important;
+            }
+            .listTitle {
+                font-size: 1.6rem;
+                color: #2b2b2b;
+                border-left: 2px solid color($colors, danger);
+                padding-left: 0.5rem;
+            }
+            .more {
+                font-size: 1.3rem;
+                color: #9b9b9b;
+            }
+            .fineLine {
+              display: block;
+              position: absolute;
+              width: 200%;
+              bottom: 0;
+              left: -48%;
+              transform: scale(0.5);
+              background: #dce1e9;
+              height: 1px;
+          }
+        }
+        .bookListItem {
+            display: flex;
+            width: 100%;
+            padding-bottom: 0.5rem;
+            justify-content: space-between;
+            .bookPreview {
+                width: 20%;
+                padding-left: 0.1rem;
+                padding-top: 0.1rem;
+                img {
+                    box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+                    vertical-align: middle;
+                }
+            }
+            .bookContainer {
+                display: flex;
+                width: 80%;
+                flex-wrap: wrap;
+                padding-left: 0.8rem;
+                align-content: space-between;
+                >* {
+                    width: 100%;
+                }
+                h2 {
+                    font-size: 1.5rem;
+                    color: #2b2b2b;
+                    text-shadow: 0 1px 1px rgba(162, 179, 206, .4);
+                  }
+                  .intro {
+                    white-space: initial;
+                    font-size: 1.3rem;
+                    min-height: 3.4rem;
+                    text-shadow: 1px 1px 1px rgba(162, 179, 206, .4);
+
+                }
+                .tag {
+                    font-size: 1.3rem;
+                    height: 1.6rem;
+                    line-height: 1.6rem;
+                    padding-right: 10px;
+                    margin-bottom: 0;
+                    overflow: hidden;
+                    text-shadow: 0 1px 1px rgba(162, 179, 206, .4);
+                    ion-icon{
+                      font-size: 2rem;
+                      vertical-align: top;
+                      margin-top: -0.3rem;
+                      text-shadow: none;
+                    }
+                    span {
+                        float: right;
+                        text-shadow: none;
+                        transform: scale(0.5);
+                        font-size: 2rem;
+                        padding: 0.6rem 0.8rem;
+                        border: 1px solid rgba(162, 179, 206, .9);
+                        border-radius: 0.3rem;
+                        color: #a2b3ce;
+                        margin-top: -0.7rem;
+                        margin-right: -3rem;
+                    }
+                }
+            }
+
         }
     }
 }

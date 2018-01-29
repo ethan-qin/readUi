@@ -12,6 +12,7 @@ import { FindPage } from '../pages/find/find';
 import { HomePage } from '../pages/home/home';
 import { HttpProvider } from '../providers/http/http';
 import { MyApp } from './app.component';
+import { SettingPage } from './../pages/setting/setting';
 import { TabsPage } from '../pages/tabs/tabs';
 
 
@@ -22,12 +23,16 @@ import { TabsPage } from '../pages/tabs/tabs';
     HomePage,
     MyApp,
     TabsPage,
+    SettingPage
   ],
   imports: [
     BrowserModule,
     ComponentsModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      tabsHideOnSubPages: 'true',
+      backButtonText: ""
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -36,6 +41,7 @@ import { TabsPage } from '../pages/tabs/tabs';
     HomePage,
     MyApp,
     TabsPage,
+    SettingPage
   ],
   providers: [
     StatusBar,

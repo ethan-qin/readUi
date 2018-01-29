@@ -46,7 +46,7 @@ page-contact {
             color: #4b4b4b;
             padding-right: 0.3rem;
         }
- 
+
     }
     .personSet{
         .item{
@@ -62,5 +62,23 @@ page-contact {
         ion-note{
             font-size: 1.3rem;
         }
+        button{
+          position: relative;
+          &:last-child{
+            .fineLine{
+              display: none;
+            }
+          }
+          .fineLine{
+            height: 1px;
+            background: #dce1e9;
+            width: 400%;
+            position: absolute;
+            bottom: 0;
+            left: -125%;
+            transform: scale(0.3)
+          }
+        }
+
     }
 }

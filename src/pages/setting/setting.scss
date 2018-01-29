@@ -1,0 +1,26 @@
+page-setting {
+    ion-content {
+        background-color: #f7f8f9!important;
+    }
+    ion-item {
+        position: relative;
+    }
+    ion-list {
+        button.item::after {
+            content: "";
+            display: block;
+            width: 200%;
+            height: 1px;
+            background: #dce1e9;
+            transform: scale(0.5);
+            position: absolute;
+            bottom: 0;
+            left: -47%;
+        }
+        button.item {
+          &:last-child::after{
+            display: none;
+          }
+        }
+    }
+}

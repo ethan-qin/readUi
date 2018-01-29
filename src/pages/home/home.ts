@@ -43,8 +43,8 @@ export class HomePage {
   }
 
   openAbs(bookInfo?): void {
-    // this.tabBarElement.style.display = "none"
-    // this.bookId = 3;
+    this.tabBarElement.style.display = "none"
+    this.bookId = 3;
   }
 
   getClose(e): void {

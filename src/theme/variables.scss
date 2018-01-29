@@ -36,7 +36,8 @@ $app-direction: ltr;
 $colors: (
   primary:    #488aff,
   secondary:  #32db64,
-  danger:     #f53d3d,
+  danger:     #d23e3b,
+  dangerTrue: #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
   grayNess:   rgb(165, 161, 161)
@@ -46,6 +47,7 @@ $colors: (
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
+$toolbar-ios-height:5rem;
 .tabbar{
   background: #fff!important;
 }
@@ -56,7 +58,8 @@ $colors: (
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
-$tabs-md-tab-color-active:#f53d3d;
+$tabs-md-tab-color-active:color($colors,danger);
+$toolbar-md-height:5rem;
 .tabbar{
   background: #fff!important;
 }
@@ -72,6 +75,9 @@ ion-header{
     color: #fff;
     font-weight: normal;
     font-size: 1.6rem;
+  }
+  ion-icon.back-button-icon.icon {
+    color: color($colors, light);
   }
 }
 // App Windows Variables

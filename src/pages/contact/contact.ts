@@ -1,3 +1,4 @@
+import { SettingPage } from './../setting/setting';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
@@ -11,4 +12,7 @@ export class ContactPage {
 
   }
 
+  open(): void {
+    this.navCtrl.push(SettingPage)
+  }
 }
