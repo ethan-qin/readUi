@@ -47,26 +47,36 @@ $colors: (
 // App Global Variables
 // --------------------------------------------------
 // Global Sass variables can go here
+
 $tabs-background:#fff;
-.toolbar-title{
-    font-weight: 400;
-    font-size: 1.6rem;
-}
 $text-input-placeholder-color:rgb(238, 234, 234);
+
+
+
 
 
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
+
 $toolbar-ios-height:5rem;
-$tabs-md-tab-color-active:color($colors,danger);
+$tabs-ios-tab-color-active:color($colors,danger);
+$toolbar-ios-title-font-weight:400;
+
+
+
+
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
 $toolbar-md-height:5rem;
+$toolbar-md-title-font-size:1.8rem;
 $tabs-md-tab-color-active:color($colors,danger);
+
+
+
 
 // App Windows Variables
 // --------------------------------------------------
