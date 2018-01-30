@@ -8,7 +8,7 @@
 
   <ion-navbar color="danger">
     <ion-title>
-      <ion-input (input)="thisInput($event)" placeholder="请输入搜索内容">
+      <ion-input (ionChange)="thisInput($event)" placeholder="请输入搜索内容">
         <ion-icon type="search" name="ios-search-outline"></ion-icon>
       </ion-input>
     </ion-title>
@@ -110,10 +110,17 @@
 
 
     <!-- autoComple页 -->
-    <ion-slide>
-      <ion-list>
-        <ion-item *ngFor="let item of aotoCompleArr" >
-          aaaaaaaa
+    <ion-slide style="background:#fff">
+      <ion-list no-lines class="auto">
+        <ion-item *ngFor="let item of aotoCompleArr">
+          <ion-icon *ngIf="isBook(item)" name="ios-book-outline"></ion-icon>
+          <ion-icon *ngIf="isAuthor(item)" name="ios-person-outline"></ion-icon>
+          <ion-img *ngIf="isBookList(item)" src="http://placehold.it/300x500/000000"></ion-img>
+          <span class="autocontent">{{item.content}}</span>
+          <span class="tag" *ngIf="hasDes(item)">{{item.des}}</span>
+        </ion-item>
+        <ion-item class="more" text-center>
+          查看更多
         </ion-item>
       </ion-list>
     </ion-slide>

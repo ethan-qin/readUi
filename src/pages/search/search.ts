@@ -22,7 +22,7 @@ export class SearchPage extends BaseUI {
   @ViewChild('search') search: Slides;
 
   mockAuto = [
-    { id: 1, icon: '', type: 'bookList', des: '书单', preview: 'https://qidian.qpic.cn/qdbimg/349573/1006635077/150', content: '一本书，一壶酒，一曲长歌，一剑天涯' },  //书单格式
+    { id: 1, icon: '', type: 'bookList', des: '书单', preview: 'https://qidian.qpic.cn/qdbimg/349573/1006635077/150', content: '一本书，一壶酒，一曲长歌，一剑天涯,一本书，一壶酒，一曲长歌，一剑天涯' },  //书单格式
     { id: 2, icon: '', type: 'author', des: '作家', preview: '', content: '一剑霜' },  //作者格式
     { id: 3, icon: '', type: 'book', des: '书籍', preview: '', content: '一剑飞仙' },  //书籍格式
     { id: 4, icon: '', type: 'book', des: '书籍', preview: '', content: '一剑倾天' },
@@ -37,7 +37,7 @@ export class SearchPage extends BaseUI {
 
   searchString: string;                   //用户输入的字段
   hasKey: boolean = false;                //是否处于autoComple页面
-  aotoCompleArr: Array<any>=[];           //自动完成提示数据组
+  aotoCompleArr: Array<autoComplete> = [];           //自动完成提示数据组
 
   constructor(
     public navCtrl: NavController,
@@ -56,6 +56,66 @@ export class SearchPage extends BaseUI {
     this.navCtrl.push('HotRankPage')
   }
 
+
+  /**
+   * 是否展示描述 书籍不展示
+   * 
+   * @author qin
+   * @param {autoComplete} item 
+   * @returns {boolean} 
+   * @memberof SearchPage
+   */
+  hasDes(item: autoComplete): boolean {
+    if (item.type === 'book') {
+      return false
+    }
+    return true;
+  }
+
+  /**
+   * 类型是否是book
+   * 
+   * @author qin
+   * @param {autoComplete} item 
+   * @returns {boolean} 
+   * @memberof SearchPage
+   */
+  isBook(item: autoComplete): boolean {
+    if (item.type === 'book') {
+      return true
+    }
+    return false;
+  }
+
+  /**
+   *  类型是否是author
+   * 
+   * @author qin
+   * @param {autoComplete} item 
+   * @returns {boolean} 
+   * @memberof SearchPage
+   */
+  isAuthor(item: autoComplete): boolean {
+    if (item.type === 'author') {
+      return true
+    }
+    return false;
+  }
+
+  /**
+   * 类型是否是bookList
+   * 
+   * @author qin
+   * @param {autoComplete} item 
+   * @returns {boolean} 
+   * @memberof SearchPage
+   */
+  isBookList(item: autoComplete): boolean {
+    if (item.type === 'bookList') {
+      return true
+    }
+    return false;
+  }
 
   /**
    * 切换搜索页面
@@ -77,8 +137,8 @@ export class SearchPage extends BaseUI {
    * @memberof SearchPage
    */
   thisInput(e) {
-    this.searchString = e.target.value;
-    console.log('aaaaaaaaaaaa')
+    this.aotoCompleArr = [];
+    this.searchString = e.value;
     if (this.searchString.length > 0) {
       //此处做autoComple查询
       this.mockAuto.forEach(element => {
@@ -90,7 +150,6 @@ export class SearchPage extends BaseUI {
     } else {
       this.toggleSlides(0);
       this.hasKey = false;
-      this.aotoCompleArr=[];
     }
     // this.http.get('autoComplete', key).subscribe(f => {
     //   console.log(f)
@@ -117,4 +176,21 @@ export class SearchPage extends BaseUI {
     //此处做搜索请求
     console.log('请求搜索信息')
   }
+}
+
+
+/**
+ * 搜索自动完成接口格式
+ * 
+ * @author qin
+ * @export
+ * @class autoComplete
+ */
+export class autoComplete {
+  id: number;       //顺序id
+  icon: string;     //图标 默认为空
+  type: string;     //类型 bookList:书单; author:作者; book:书籍;
+  des: string;      //类型描述
+  preview: string;  //封面 只有书单含有封面
+  content: string   //内容 bookList：书单名; author:作者名; book:书籍名
 }
