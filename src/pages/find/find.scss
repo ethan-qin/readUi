@@ -15,7 +15,7 @@ page-find {
         }
     }
     ion-content {
-        background-color: #f0f1f3!important;
+        background-color: color($colors,backgroundColor)!important;
         .card {
             width: 100%;
             border-radius: 0;
@@ -98,7 +98,7 @@ page-find {
               bottom: 0;
               left: -48%;
               transform: scale(0.5);
-              background: #dce1e9;
+              background: color($colors,fineLineColor);
               height: 1px;
           }
         }

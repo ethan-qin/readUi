@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { IonicStorageModule } from '@ionic/storage';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -12,9 +13,8 @@ import { FindPage } from '../pages/find/find';
 import { HomePage } from '../pages/home/home';
 import { HttpProvider } from '../providers/http/http';
 import { MyApp } from './app.component';
-import { SearchPage } from '../pages/search/search';
-import { SettingPage } from './../pages/setting/setting';
 import { TabsPage } from '../pages/tabs/tabs';
+import { NativeProvider } from '../providers/native/native';
 
 
 @NgModule({
@@ -24,8 +24,6 @@ import { TabsPage } from '../pages/tabs/tabs';
     HomePage,
     MyApp,
     TabsPage,
-    SettingPage,
-    SearchPage
   ],
   imports: [
     BrowserModule,
@@ -34,7 +32,8 @@ import { TabsPage } from '../pages/tabs/tabs';
     IonicModule.forRoot(MyApp, {
       tabsHideOnSubPages: 'true',
       backButtonText: ""
-    })
+    }),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -42,9 +41,7 @@ import { TabsPage } from '../pages/tabs/tabs';
     ContactPage,
     HomePage,
     MyApp,
-    TabsPage,
-    SettingPage,
-    SearchPage
+    TabsPage
   ],
   providers: [
     StatusBar,
@@ -52,6 +49,7 @@ import { TabsPage } from '../pages/tabs/tabs';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     HttpProvider,
     BookServicesProvider,
+    NativeProvider,
   ]
 })
 export class AppModule { }

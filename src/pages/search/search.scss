@@ -1,18 +1,140 @@
 page-search {
-    ion-input{
-        font-size:1.4rem;
-        border-bottom: 2px solid #fff;
+    ion-content {
+        background-color: color($colors, backgroundColor)!important;
+    }
+    ion-input {
+        font-size: 1.3rem;
+        border-bottom: 1px solid #d2d3d5;
         vertical-align: bottom;
-        input{
+        margin-top: -0.5rem;
+        input {
             margin-bottom: 0.5rem!important;
         }
     }
-    .toolbar-content{
+    .toolbar-content {
         position: relative;
     }
-    ion-buttons{
+    .toolbar-title-md {
+        padding-left: 0;
+    }
+    ion-buttons {
         position: absolute;
-        right: 0.3rem;
-        top: 0.5rem;
+        right: 0.8rem;
+        top: 0rem;
+    }
+    ion-card {
+        width: 100%!important;
+        box-shadow: none!important;
+        ion-card-header {
+            font-size: 1.4rem!important;
+            position: relative;
+            padding-bottom: 8px!important;
+            color: color($colors, fontGray)!important;
+            button {
+                padding: 0.3rem 0.5rem;
+                float: right;
+                font-size: 1.3rem;
+                color: color($colors, fontBlack);
+                background: transparent;
+            }
+            ;
+            &:before {
+                content: "";
+                display: block;
+                background: color($colors, fineLineColor);
+                height: 1px;
+                width: 200%;
+                position: absolute;
+                transform: scale(0.5);
+                bottom: 0;
+                left: -50%;
+            }
+        }
+        ion-row {
+            ion-col {
+                button {
+                    position: relative;
+                    display: inline-block;
+                    padding: 5px 10px;
+                    white-space: nowrap;
+                    background: transparent;
+                    font-size: 12px;
+                    color: color($colors, fontGray);
+                    &:active::after {
+                        border-color: color($colors, dark)
+                    }
+                    ;
+                    &::after {
+                        content: "";
+                        display: block;
+                        width: 200%;
+                        height: 200%;
+                        border: 1px solid color($colors, fontGray);
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        transform: scale(0.5);
+                        transform-origin: left top;
+                        border-radius: 30px;
+                        transition: border-color 300ms;
+                    }
+                }
+                &:nth-child(-n+3) {
+                    button {
+                        color: color($colors, danger);
+                        &::after {
+                            border-color: color($colors, danger)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ion-list {
+        .fire {
+            font-size: 3rem;
+            vertical-align: middle;
+            margin-top: -0.4rem;
+            margin-right: 0.5rem;
+        }
+        .hotRank {
+            font-size: 1.4rem!important;
+        }
+        ion-thumbnail {
+            width: 3.5rem!important;
+            height: 3.5rem!important;
+            min-height: 3.5rem!important;
+            min-width: 3.5rem!important;
+            overflow: hidden;
+            margin-top: 0!important;
+            margin-bottom: 0!important;
+            img {
+                width: 100%!important;
+                height: auto!important;
+            }
+        }
+        ion-item {
+            position: relative;
+            &::before {
+                content: "";
+                display: block;
+                width: 200%;
+                height: 1px;
+                background: color($colors, fineLineColor);
+                transform: scale(0.5);
+                position: absolute;
+                left: -47%;
+                bottom: 0;
+            }
+            &:last-child::before {
+                display: none;
+            }
+        }
+        p {
+            color: color($colors, fontBlack)!important
+        }
+    }
+    .swiper-slide {
+      align-items: flex-start;
     }
 }

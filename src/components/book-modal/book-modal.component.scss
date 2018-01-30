@@ -158,6 +158,6 @@ book-modal {
         width: 200%;
         margin-left: -50%;
         transform: scale(0.5);
-        background: rgb(225, 225, 225);
+        background: color($colors,fineLineColor);
     }
 }

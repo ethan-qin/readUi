@@ -8,12 +8,12 @@
 
   <ion-navbar color="danger">
     <ion-title>
-      <ion-input placeholder="请输入搜索内容">
+      <ion-input (input)="thisInput($event)" placeholder="请输入搜索内容">
         <ion-icon type="search" name="ios-search-outline"></ion-icon>
       </ion-input>
     </ion-title>
     <ion-buttons>
-      <button ion-button icon-only>
+      <button (click)="serachDone()" ion-button icon-only>
         <ion-icon name="ios-search-outline"></ion-icon>
       </button>
     </ion-buttons>
@@ -22,6 +22,101 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <ion-slides #search>
+    <!-- 搜索首页 -->
+    <ion-slide>
+      <ion-card no-margin>
+        <ion-card-header>
+          搜索热词
+          <button end>
+            换一批
+          </button>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <button>召唤</button>
+              </ion-col>
+              <ion-col>
+                <button>奥特曼</button>
+              </ion-col>
+              <ion-col>
+                <button>神豪</button>
+              </ion-col>
+              <ion-col>
+                <button>奶爸</button>
+              </ion-col>
+              <ion-col>
+                <button>网游之</button>
+              </ion-col>
+              <ion-col>
+                <button>召唤</button>
+              </ion-col>
+              <ion-col>
+                <button>奥特曼</button>
+              </ion-col>
+              <ion-col>
+                <button>神豪</button>
+              </ion-col>
+              <ion-col>
+                <button>奶爸</button>
+              </ion-col>
+              <ion-col>
+                <button>网游之</button>
+              </ion-col>
+              <ion-col>
+                <button>召唤</button>
+              </ion-col>
+              <ion-col>
+                <button>奥特曼</button>
+              </ion-col>
+              <ion-col>
+                <button>神豪</button>
+              </ion-col>
+              <ion-col>
+                <button>奶爸</button>
+              </ion-col>
+              <ion-col>
+                <button>网游之</button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+      <ion-list margin-top no-lines>
+        <button (click)="goRank()" class="hotRank" ion-item>
+          <ion-icon large class="fire" color="danger" name="ios-flame"></ion-icon>
+          热搜作品榜
+          <ion-icon color="fontGray" item-end name="ios-arrow-forward-outline"></ion-icon>
+        </button>
+      </ion-list>
+      <ion-list no-lines>
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="http://placehold.it/300x300">
+          </ion-thumbnail>
+          <p>刚穿越就拥有一座地下城。</p>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="http://placehold.it/300x300">
+          </ion-thumbnail>
+          <p>奇迹MUI正版本授权《大天使之剑H5》点击即玩</p>
+        </ion-item>
+      </ion-list>
+    </ion-slide>
+
+
+    <!-- autoComple页 -->
+    <ion-slide>
+      <ion-list>
+        <ion-item *ngFor="let item of aotoCompleArr" >
+          aaaaaaaa
+        </ion-item>
+      </ion-list>
+    </ion-slide>
+  </ion-slides>
 
 </ion-content>

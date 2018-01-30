@@ -24,5 +24,7 @@ export class FindPage {
       ev: e
     })
   }
-
+  goSearch(): void {
+    this.navCtrl.push('SearchPage', {}, { animate: true, animation: 'transition', duration: 500, direction: 'forward' });
+  }
 }

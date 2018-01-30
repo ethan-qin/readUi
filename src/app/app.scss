@@ -1,6 +1,4 @@
 // http://ionicframework.com/docs/theming/
-
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -14,12 +12,18 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-.sexPop{
-    .popover-content{
+.sexPop {
+    .popover-content {
         width: 10rem!important;
         top: 1.3rem!important;
         left: 7rem!important;
-      }
+    }
 }
 
-
+.hotPop {
+    .popover-content {
+        width: 10rem!important;
+        top: 1.3rem!important;
+        right: 7rem!important;
+    }
+}
