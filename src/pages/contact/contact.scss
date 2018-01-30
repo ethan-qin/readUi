@@ -1,6 +1,6 @@
 page-contact {
     ion-content{
-        background-color: #f0f1f3!important;
+      background-color: color($colors,backgroundColor)!important;
 
     }
     .button-md{
@@ -12,18 +12,20 @@ page-contact {
         padding-right: 0.3rem;
     }
     .avatar{
-        width: 5.6rem;
-        height: 5.6rem;
+        width: 6rem;
+        height: 6rem;
         box-shadow:none;
         position: absolute;
-        top: -2.8rem;
+        top: -3rem;
         left: 1.6rem;
-        border-radius: 2.8rem;
+        border-radius: 3rem;
         overflow: hidden;
+        background: #fff;
+        padding: 1px;
         img{
             width: 100%;
             height: 100%;
-            border-radius: 2.8rem;
+            border-radius: 3rem;
         }
     }
     .user{
@@ -31,12 +33,13 @@ page-contact {
         padding: 0.3rem;
         margin-top: -0.2rem;
         h4{
-            color: color($colors,light)
+            color: color($colors,light);
+            font-size: 1.6rem;
         }
     }
     .userInfo{
         padding: 0.8rem;
-        background: #f0f1f3;
+        background-color: color($colors,backgroundColor);
         color: #ccc;
         margin-top: -0.2rem;
         span{
@@ -70,7 +73,7 @@ page-contact {
           }
           .fineLine{
             height: 1px;
-            background: #dce1e9;
+            background: color($colors,fineLineColor);
             width: 400%;
             position: absolute;
             bottom: 0;

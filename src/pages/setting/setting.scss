@@ -1,6 +1,6 @@
 page-setting {
     ion-content {
-        background-color: #f0f1f3!important;
+      background-color: color($colors,backgroundColor)!important;
     }
     ion-item {
         position: relative;
@@ -11,7 +11,7 @@ page-setting {
             display: block;
             width: 200%;
             height: 1px;
-            background: #dce1e9;
+            background: color($colors,fineLineColor);
             transform: scale(0.5);
             position: absolute;
             bottom: 0;

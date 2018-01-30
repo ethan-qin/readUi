@@ -5,7 +5,8 @@ import { BookServicesProvider } from '../../providers/book-services/book.service
 import { HttpProvider } from './../../providers/http/http';
 import { PopoverController } from 'ionic-angular/components/popover/popover-controller';
 import { HomePopComponent } from '../../components/home-pop/home-pop';
-import { SearchPage } from '../search/search';
+import { NativeProvider } from '../../providers/native/native';
+
 
 
 @Component({
@@ -23,20 +24,39 @@ export class HomePage {
     public navCtrl: NavController,
     private bookCtrl: BookServicesProvider,
     private http: HttpProvider,
-    private popCtrl: PopoverController
+    private popCtrl: PopoverController,
+    private native: NativeProvider
   ) {
 
   }
 
   ionViewDidEnter() {
     this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
-    this.bookCtrl.getBookList().subscribe(f => {
-      console.log('结果是', f)
+    // this.bookCtrl.getBookList().subscribe(f => {
+    //   console.log('结果是', f)
+    // }, err => {
+    //   console.log(err);
+    // })
+    this.getUserInfo()
+  }
+
+
+  /**
+   * 获取存储在本地的信息
+   *
+   * @author qin
+   * @protected
+   * @memberof HomePage
+   */
+  protected getUserInfo(): void {
+    this.native.getStorage('asdas').then(f => {
+      console.log('首页拿到的是', f)
     }, err => {
-      console.log(err);
+      console.log(err)
     })
   }
 
+  
   showPop(ev): void {
     this.popCtrl.create(HomePopComponent).present({
       ev: ev
@@ -57,6 +77,6 @@ export class HomePage {
 
 
   goSearch(): void {
-    this.navCtrl.push(SearchPage);
+    this.navCtrl.push('SearchPage', {}, { animate: true, animation: 'transition', duration: 500, direction: 'forward' });
   }
 }
