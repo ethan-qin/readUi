@@ -109,13 +109,16 @@
     </ion-slide>
 
 
-    <!-- autoComple页 -->
+    <!-- 搜索提示页 -->
     <ion-slide style="background:#fff">
       <ion-list no-lines class="auto">
         <ion-item *ngFor="let item of aotoCompleArr">
           <ion-icon *ngIf="isBook(item)" name="ios-book-outline"></ion-icon>
           <ion-icon *ngIf="isAuthor(item)" name="ios-person-outline"></ion-icon>
-          <ion-img *ngIf="isBookList(item)" src="http://placehold.it/300x500/000000"></ion-img>
+          <span class="listPreview" *ngIf="isBookList(item)">
+            <img class="face" src="{{item.preview.face}}">
+            <img class="back" src="{{item.preview.back}}">
+          </span>
           <span class="autocontent">{{item.content}}</span>
           <span class="tag" *ngIf="hasDes(item)">{{item.des}}</span>
         </ion-item>
@@ -124,6 +127,138 @@
         </ion-item>
       </ion-list>
     </ion-slide>
+
+    <!-- 搜索提示页 -->
+    <ion-slide>
+      <ion-list no-lines>
+        <ion-segment [(ngModel)]="target">
+          <ion-segment-button value="book">
+            作品
+          </ion-segment-button>
+          <ion-segment-button value="bookList">
+            书单
+          </ion-segment-button>
+        </ion-segment>
+
+        <div [ngSwitch]="target" (swipe)="toggleResult($event)">
+
+          <!-- 搜索书籍结果 -->
+          <ion-list class="bookResult" *ngSwitchCase="'book'">
+            <button ion-item>
+              <div class="bookListItem">
+                <div class="bookPreview">
+                  <img src="https://qidian.qpic.cn/qdbimg/349573/1006635077/150">
+                </div>
+                <div class="bookContainer">
+                  <h2>罪域的骨终为王</h2>
+                  <!-- <p text-wrap>民风淳朴的燕南真，热情</p> -->
+                  <p class="intro">民风淳朴的燕南真，热情好客的不死街，化身骷髅踏上传火之旅。</p>
+                  <p class="tag">
+                    <ion-icon name="ios-person-outline"></ion-icon>
+                    黑暗荔枝
+                    <span>
+                      147万字
+                    </span>
+
+                    <span>
+                      连载
+                    </span>
+                    <span>
+                      二次元
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div class="fineLine"></div>
+            </button>
+
+            <button ion-item>
+              <div class="bookListItem">
+                <div class="bookPreview">
+                  <img src="https://qidian.qpic.cn/qdbimg/349573/1006635077/150">
+                </div>
+                <div class="bookContainer">
+                  <h2>罪域的骨终为王</h2>
+                  <!-- <p text-wrap>民风淳朴的燕南真，热情</p> -->
+                  <p class="intro">民风淳朴的燕南真，热情好客的不死街，化身骷髅踏上传火之旅。</p>
+                  <p class="tag">
+                    <ion-icon name="ios-person-outline"></ion-icon>
+                    黑暗荔枝
+                    <span>
+                      147万字
+                    </span>
+
+                    <span>
+                      连载
+                    </span>
+                    <span>
+                      二次元
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div class="fineLine"></div>
+            </button>
+            <button ion-item>
+              <div class="bookListItem">
+                <div class="bookPreview">
+                  <img src="https://qidian.qpic.cn/qdbimg/349573/1006635077/150">
+                </div>
+                <div class="bookContainer">
+                  <h2>罪域的骨终为王</h2>
+                  <!-- <p text-wrap>民风淳朴的燕南真，热情</p> -->
+                  <p class="intro">民风淳朴的燕南真，热情好客的不死街，化身骷髅踏上传火之旅。</p>
+                  <p class="tag">
+                    <ion-icon name="ios-person-outline"></ion-icon>
+                    黑暗荔枝
+                    <span>
+                      147万字
+                    </span>
+
+                    <span>
+                      连载
+                    </span>
+                    <span>
+                      二次元
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div class="fineLine"></div>
+            </button>
+          </ion-list>
+
+          <!-- 搜索书单结果 -->
+          <ion-list *ngSwitchCase="'bookList'">
+            <ion-item>
+              <ion-thumbnail item-start>
+                <img src="assets/img/thumbnail-kitten-1.jpg">
+              </ion-thumbnail>
+              <h2>Luna</h2>
+            </ion-item>
+            <ion-item>
+              <ion-thumbnail item-start>
+                <img src="assets/img/thumbnail-kitten-3.jpg">
+              </ion-thumbnail>
+              <h2>Milo</h2>
+            </ion-item>
+            <ion-item>
+              <ion-thumbnail item-start>
+                <img src="assets/img/thumbnail-kitten-4.jpg">
+              </ion-thumbnail>
+              <h2>Bandit</h2>
+            </ion-item>
+            <ion-item>
+              <ion-thumbnail item-start>
+                <img src="assets/img/thumbnail-kitten-2.jpg">
+              </ion-thumbnail>
+              <h2>Nala</h2>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-list>
+    </ion-slide>
+
   </ion-slides>
 
 </ion-content>

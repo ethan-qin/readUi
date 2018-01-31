@@ -43,7 +43,8 @@ $colors: (
   fontBlack:       #4a4a4a,
   fontGray:        #8c8c8c,
   backgroundColor: #f0f1f3,
-  fineLineColor:   #e6e6e6
+  fineLineColor:   #e6e6e6,
+
 );
 
 // App Global Variables
@@ -76,10 +77,10 @@ $toolbar-ios-title-font-weight:400;
 $toolbar-md-height:5rem;
 $toolbar-md-title-font-size:1.8rem;
 $tabs-md-tab-color-active:color($colors,danger);
-
-
-
-
+$toolbar-md-active-color:color($colors,danger);
+$segment-button-md-border-bottom-width:3px;
+$segment-button-md-height:4.8rem;
+$segment-button-md-line-height:4.8rem;
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here

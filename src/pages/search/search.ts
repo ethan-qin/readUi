@@ -22,23 +22,23 @@ export class SearchPage extends BaseUI {
   @ViewChild('search') search: Slides;
 
   mockAuto = [
-    { id: 1, icon: '', type: 'bookList', des: '书单', preview: 'https://qidian.qpic.cn/qdbimg/349573/1006635077/150', content: '一本书，一壶酒，一曲长歌，一剑天涯,一本书，一壶酒，一曲长歌，一剑天涯' },  //书单格式
-    { id: 2, icon: '', type: 'author', des: '作家', preview: '', content: '一剑霜' },  //作者格式
-    { id: 3, icon: '', type: 'book', des: '书籍', preview: '', content: '一剑飞仙' },  //书籍格式
-    { id: 4, icon: '', type: 'book', des: '书籍', preview: '', content: '一剑倾天' },
-    { id: 5, icon: '', type: 'book', des: '书籍', preview: '', content: '一剑凌尘' },
-    { id: 6, icon: '', type: 'book', des: '书籍', preview: '', content: '一剑通天传' },
-    { id: 7, icon: '', type: 'book', des: '书籍', preview: '', content: '一剑风尊' },
-    { id: 8, icon: '', type: 'book', des: '书籍', preview: '', content: '一剑天途' },
-    { id: 9, icon: '', type: 'book', des: '书籍', preview: '', content: '一剑惊雷' },
-    { id: 10, icon: '', type: 'book', des: '书籍', preview: '', content: '一剑逍遥行' },
-    { id: 11, icon: '', type: 'book', des: '书籍', preview: '', content: '一剑娇仙' },
+    { id: 1, icon: '', type: 'bookList', des: '书单', preview: { face: 'https://qidian.qpic.cn/qdbimg/349573/1006635077/150', back: 'https://qidian.qpic.cn/qdbimg/349573/1010092001/150' }, content: '一本书，一壶酒，一曲长歌，一剑天涯,一本书，一壶酒，一曲长歌，一剑天涯' },  //书单格式
+    { id: 2, icon: '', type: 'author', des: '作家', preview: {}, content: '一剑霜' },  //作者格式
+    { id: 3, icon: '', type: 'book', des: '书籍', preview: {}, content: '一剑飞仙' },  //书籍格式
+    { id: 4, icon: '', type: 'book', des: '书籍', preview: {}, content: '一剑倾天' },
+    { id: 5, icon: '', type: 'book', des: '书籍', preview: {}, content: '一剑凌尘' },
+    { id: 6, icon: '', type: 'book', des: '书籍', preview: {}, content: '一剑通天传' },
+    { id: 7, icon: '', type: 'book', des: '书籍', preview: {}, content: '一剑风尊' },
+    { id: 8, icon: '', type: 'book', des: '书籍', preview: {}, content: '一剑天途' },
+    { id: 9, icon: '', type: 'book', des: '书籍', preview: {}, content: '一剑惊雷' },
+    { id: 10, icon: '', type: 'book', des: '书籍', preview: {}, content: '一剑逍遥行' },
+    { id: 11, icon: '', type: 'book', des: '书籍', preview: {}, content: '一剑娇仙' },
   ]
 
   searchString: string;                   //用户输入的字段
   hasKey: boolean = false;                //是否处于autoComple页面
   aotoCompleArr: Array<autoComplete> = [];           //自动完成提示数据组
-
+  target: string = "book";
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -59,10 +59,10 @@ export class SearchPage extends BaseUI {
 
   /**
    * 是否展示描述 书籍不展示
-   * 
+   *
    * @author qin
-   * @param {autoComplete} item 
-   * @returns {boolean} 
+   * @param {autoComplete} item
+   * @returns {boolean}
    * @memberof SearchPage
    */
   hasDes(item: autoComplete): boolean {
@@ -74,10 +74,10 @@ export class SearchPage extends BaseUI {
 
   /**
    * 类型是否是book
-   * 
+   *
    * @author qin
-   * @param {autoComplete} item 
-   * @returns {boolean} 
+   * @param {autoComplete} item
+   * @returns {boolean}
    * @memberof SearchPage
    */
   isBook(item: autoComplete): boolean {
@@ -89,10 +89,10 @@ export class SearchPage extends BaseUI {
 
   /**
    *  类型是否是author
-   * 
+   *
    * @author qin
-   * @param {autoComplete} item 
-   * @returns {boolean} 
+   * @param {autoComplete} item
+   * @returns {boolean}
    * @memberof SearchPage
    */
   isAuthor(item: autoComplete): boolean {
@@ -104,10 +104,10 @@ export class SearchPage extends BaseUI {
 
   /**
    * 类型是否是bookList
-   * 
+   *
    * @author qin
-   * @param {autoComplete} item 
-   * @returns {boolean} 
+   * @param {autoComplete} item
+   * @returns {boolean}
    * @memberof SearchPage
    */
   isBookList(item: autoComplete): boolean {
@@ -123,10 +123,19 @@ export class SearchPage extends BaseUI {
    * @author qin
    * @memberof SearchPage
    */
-  toggleSlides(index): void {
+  toggleSlides(index: number): void {
     this.search.lockSwipes(false)
     this.search.slideTo(index)
     this.search.lockSwipes(true)
+  }
+
+
+  toggleResult(e) {
+    if (e.direction == 2) {
+      this.target = "bookList"
+    } else if (e.direction == 4) {
+      this.target = "book"
+    }
   }
 
   /**
@@ -175,13 +184,15 @@ export class SearchPage extends BaseUI {
 
     //此处做搜索请求
     console.log('请求搜索信息')
+
+    this.toggleSlides(2);
   }
 }
 
 
 /**
  * 搜索自动完成接口格式
- * 
+ *
  * @author qin
  * @export
  * @class autoComplete
@@ -191,6 +202,9 @@ export class autoComplete {
   icon: string;     //图标 默认为空
   type: string;     //类型 bookList:书单; author:作者; book:书籍;
   des: string;      //类型描述
-  preview: string;  //封面 只有书单含有封面
-  content: string   //内容 bookList：书单名; author:作者名; book:书籍名
+  preview: {        //书单前两本书的封面
+    face?: string;
+    back?: string;
+  };
+  content: string;   //内容 bookList：书单名; author:作者名; book:书籍名
 }
