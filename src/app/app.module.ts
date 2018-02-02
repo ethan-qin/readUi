@@ -15,6 +15,7 @@ import { HttpProvider } from '../providers/http/http';
 import { MyApp } from './app.component';
 import { TabsPage } from '../pages/tabs/tabs';
 import { NativeProvider } from '../providers/native/native';
+import { UserServicesProvider } from '../providers/user-services/user-services';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { NativeProvider } from '../providers/native/native';
     HttpProvider,
     BookServicesProvider,
     NativeProvider,
+    UserServicesProvider,
   ]
 })
 export class AppModule { }

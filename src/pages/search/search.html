@@ -116,8 +116,8 @@
           <ion-icon *ngIf="isBook(item)" name="ios-book-outline"></ion-icon>
           <ion-icon *ngIf="isAuthor(item)" name="ios-person-outline"></ion-icon>
           <span class="listPreview" *ngIf="isBookList(item)">
-            <img class="face" src="{{item.preview.face}}">
-            <img class="back" src="{{item.preview.back}}">
+            <img class="face" src="{{item.preview.face}}" alt="地球山神">
+            <img class="back" src="{{item.preview.back}}" alt="我是大明星">
           </span>
           <span class="autocontent">{{item.content}}</span>
           <span class="tag" *ngIf="hasDes(item)">{{item.des}}</span>

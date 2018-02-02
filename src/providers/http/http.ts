@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class HttpProvider {
-  url = 'http://192.168.1.198/app/index.php/home';
+  url = 'http://localhost:8100/assets/mock';
 
   constructor(public http: HttpClient) {
   }
@@ -31,5 +31,11 @@ export class HttpProvider {
       }
     }
     return this.http.get(this.url + '/' + endpoint, reqOpts);
+  }
+
+
+
+  post(endpoint: string, body: any, reqOpts?: any) {
+    return this.http.post(this.url + '/' + endpoint, body, reqOpts)
   }
 }
