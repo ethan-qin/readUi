@@ -1,0 +1,267 @@
+    page-book-abstract {
+        ion-header {
+            background-size: cover;
+            ion-navbar {
+                padding-top: 25px!important;
+            }
+            .back-button {
+                color: #fff!important;
+            }
+            ion-item {
+                background: transparent!important;
+                color: #fff!important;
+                overflow: hidden;
+                h2 {
+                    font-weight: lighter!important;
+                    margin: 0!important;
+                    padding-bottom: 0.4rem
+                }
+                p {
+                    color: #fff!important;
+                    font-size: 1.2rem!important;
+                    font-weight: lighter!important;
+                    margin: 0!important;
+                    padding-bottom: 0.3rem;
+                }
+                ion-thumbnail {
+                    margin-top: 0!important;
+                    img {
+                        height: 10.5rem!important;
+                    }
+                }
+                .label-md {
+                    padding: 0;
+                    margin-top: 0px;
+                    display: flex;
+                    align-content: space-between;
+                    flex-wrap: wrap;
+                    >* {
+                        width: 100%;
+                    }
+                }
+                .authorRank {
+                    display: inline-block;
+                    font-size: 1.2rem;
+                    color: #67b2fb;
+                    transform: scale(0.6);
+                    border: 1px solid #67b2fb;
+                    padding: 1px 6px;
+                    border-radius: 1rem;
+                }
+            }
+        }
+        ion-content {
+            background-color: color($colors, backgroundColor)!important;
+            .dataList {
+                display: flex;
+                justify-content: space-between;
+                background: #fff;
+                .item {
+                    width: 25%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    h5 {
+                        width: 100%;
+                        font-size: 1.6rem;
+                        text-align: center;
+                        font-weight: normal;
+                        margin-top: 1.2rem;
+                        margin-bottom: 0.3rem;
+                        color: color($colors, fontBlack);
+                        small {
+                            font-size: 1.1rem;
+                        }
+                    }
+                    span {
+                        text-align: center;
+                        width: 100%;
+                        font-size: 1.3rem;
+                        font-weight: lighter;
+                        color: color($colors, fontGray);
+                        margin-bottom: 1.2rem;
+                    }
+                }
+            }
+            .bookAbstract {
+                background: #fff;
+                h6 {
+                    color: color($colors, fontBlack);
+                    font-size: 1.5rem;
+                    margin-bottom: 0rem;
+                }
+                article {
+                    position: relative;
+                    >p {
+                        font-size: 1.3rem;
+                        line-height: 2rem;
+                        height: 6rem;
+                        overflow: hidden;
+                        color: color($colors, fontGray);
+                        margin-top: 0.5rem;
+                    }
+                    ion-icon {
+                        position: absolute;
+                        color: color($colors, fontGray);
+                        right: 0;
+                        bottom: 0;
+                        height: 2rem;
+                        width: 6rem;
+                        line-height: 2rem;
+                        text-align: right;
+                        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 70%)
+                    }
+                }
+            }
+            .catelog {
+                position: relative;
+                color: color($colors, fontBlack);
+                &.hasLine {
+                    &::after {
+                        content: "";
+                        display: block;
+                        width: 200%;
+                        height: 1px;
+                        background: color($colors, fineLineColor);
+                        position: absolute;
+                        top: 0;
+                        transform: scale(0.5);
+                        left: -48%;
+                    }
+                }
+                ion-note {
+                    font-size: 1.3rem;
+                    ion-img {
+                        vertical-align: middle;
+                    }
+                }
+                ion-icon {
+                    display: flex;
+                    font-size: 1.8rem;
+                    color: color($colors, iconGray);
+                    &::before {
+                        margin: auto;
+                    }
+                }
+            }
+            ion-card.comment {
+                width: 100%!important;
+                box-shadow: none!important;
+                button {
+                    color: color($colors, fontBlack);
+                }
+                ion-card-header {
+                    ion-note {
+                        font-size: 1.3rem;
+                    }
+                    ion-icon {
+                        display: flex;
+                        font-size: 1.8rem!important;
+                        color: color($colors, iconGray);
+                        &::before {
+                            margin: auto;
+                        }
+                    }
+                }
+                ion-card-content {
+                    ion-item {
+                        position: relative;
+                        padding-top: 1rem!important;
+                        ion-label {
+                            margin-bottom: 0.3rem!important;
+                            margin-top: 0.3rem!important;
+                        }
+                        h2 {
+                            color: #4a90e2!important;
+                        }
+                        ion-avatar {
+                            align-self: flex-start;
+                            margin-right: 0rem!important;
+                            margin-top: 0rem!important;
+                            img {
+                                width: 30px!important;
+                                height: 30px!important;
+                            }
+                        }
+                        .platform {
+                            font-size: 1.2rem!important;
+                            padding-top: 0.5rem;
+                        }
+                        &:first-child {
+                            padding-top: 0rem!important;
+                        }
+                        &:last-child {
+                            &:before {
+                                display: none;
+                            }
+                        }
+                        &:before {
+                            content: "";
+                            width: 200%;
+                            height: 1px;
+                            background: color($colors, fineLineColor);
+                            transform: scale(0.5);
+                            display: block;
+                            position: absolute;
+                            bottom: 0;
+                            left: -37%
+                        }
+                    }
+                }
+            }
+            ion-card.author {
+                width: 100%!important;
+                box-shadow: none!important;
+                color: color($colors, fontBlack);
+                ion-card-header {
+                    ion-icon {
+                        display: flex;
+                        font-size: 1.8rem!important;
+                        color: color($colors, iconGray);
+                        &::before {
+                            margin: auto;
+                        }
+                    }
+                    ion-label {
+                        margin-bottom: 0!important;
+                    }
+                }
+                ion-card-content {}
+            }
+            ion-card.slides {
+                width: 100%!important;
+                box-shadow: none!important;
+                ion-item {
+                    color: color($colors, fontBlack);
+                    font-size: 1.6rem;
+                }
+                ion-icon {
+                    display: flex;
+                    font-size: 1.8rem!important;
+                    color: color($colors, iconGray);
+                    &::before {
+                        margin: auto;
+                    }
+                }
+                ion-img {
+                    background: transparent;
+                    max-width: 200px;
+                    max-height: 200px;
+                    width: 7rem;
+                    height: 7rem;
+                    img {
+                        box-shadow: -1px 0 5px rgba(0, 0, 0, .3);
+                    }
+                }
+            }
+            .footer {
+              width: 100%!important;
+                h4 {
+                    font-size: 1.6rem!important;
+                }
+                p {
+                    font-size: 1.2rem!important;
+                    color: color($colors, fontGray)
+                }
+            }
+        }
+    }

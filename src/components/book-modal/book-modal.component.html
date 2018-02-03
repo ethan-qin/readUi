@@ -2,7 +2,7 @@
 <div [ngClass]="{'show':isShow,'bookContainer':true}">
   <div (click)="close()"  class="msk"></div>
   <section class="book">
-    <div class="bookHeadr">
+    <div (click)="openBook(this.bookId)"  class="bookHeadr">
       <div class="preview">
         <img src="http://placehold.it/380x500" alt="">
       </div>

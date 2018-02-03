@@ -32,7 +32,7 @@ export class ContactPage {
 
 /**
  * 用户基本信息
- * 
+ *
  * @author qin
  * @export
  * @class User

@@ -11,7 +11,7 @@ import { SlidesComponent } from './slides/slides';
     BookModalComponent,
     HomePopComponent,
     SexPopComponent,
-    SlidesComponent
+    SlidesComponent,
   ],
   imports: [
     IonicModule,
@@ -24,7 +24,7 @@ import { SlidesComponent } from './slides/slides';
     BookModalComponent,
     HomePopComponent,
     SexPopComponent,
-    SlidesComponent
+    SlidesComponent,
   ]
 })
 export class ComponentsModule { }

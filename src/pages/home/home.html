@@ -18,19 +18,20 @@
 
 <ion-content>
   <ion-list no-lines no-margin>
-    <ion-item (press)="openAbs()">
+    <ion-item (press)="openAbs(3)">
       <ion-thumbnail item-start>
-        <img src="../../assets/imgs/booktest.jpg" alt="幽灵骑士">
+        <img src="https://qidian.qpic.cn/qdbimg/349573/1006635077/150" alt="幽灵骑士">
       </ion-thumbnail>
       <h2>幽灵骑士2</h2>
       <p>崖画时&nbsp;&nbsp;著&nbsp;|&nbsp;未读</p>
       <p>
         连载至：第二十四章&nbsp;妖怪啊！
       </p>
-      <button class="more" (click)="openAbs()">
+      <button class="more" (click)="clickBook(3)">
         <ion-icon name="md-more"></ion-icon>
       </button>
     </ion-item>
+    <button text-center ion-item color="danger">测试</button>
   </ion-list>
 </ion-content>
 

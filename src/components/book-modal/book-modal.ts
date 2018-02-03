@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'book-modal',
@@ -9,8 +10,9 @@ export class BookModalComponent implements OnInit {
   @Output() event = new EventEmitter<any>();
   @Input() bookId: any;
   isShow: boolean = false;
-  constructor() {
-
+  constructor(
+    private navCtrl: NavController
+  ) {
   }
 
   ngOnInit() {
@@ -25,5 +27,9 @@ export class BookModalComponent implements OnInit {
     this.event.emit("")
   }
 
+  private openBook(id) {
+    id = 3;
+    this.navCtrl.push('BookAbstractPage');
+  }
 }
 

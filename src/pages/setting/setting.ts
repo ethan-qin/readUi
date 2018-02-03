@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { NativeProvider } from '../../providers/native/native';
+
 /**
  * Generated class for the SettingPage page.
  *
@@ -15,11 +17,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SettingPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private native: NativeProvider
+  ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SettingPage');
   }
 
+  checkUpdate() {
+    this.native.sync()
+  }
 }

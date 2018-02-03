@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { PopoverController } from 'ionic-angular/components/popover/popover-controller';
 
 import { BookServicesProvider } from '../../providers/book-services/book.services';
 import { HttpProvider } from './../../providers/http/http';
-import { PopoverController } from 'ionic-angular/components/popover/popover-controller';
 import { HomePopComponent } from '../../components/home-pop/home-pop';
 import { NativeProvider } from '../../providers/native/native';
 
@@ -40,6 +40,9 @@ export class HomePage {
     this.getUserInfo()
   }
 
+  ionViewDidLeave() {
+    this.getClose('');
+  }
 
   /**
    * 获取存储在本地的信息
@@ -56,16 +59,23 @@ export class HomePage {
     })
   }
 
-  
+
   showPop(ev): void {
     this.popCtrl.create(HomePopComponent).present({
       ev: ev
     })
   }
 
-  openAbs(bookInfo?): void {
+
+  clickBook(bookInfo) {
     this.tabBarElement.style.display = "none"
     this.bookId = 3;
+  }
+
+  openAbs(bookInfo): void {
+    this.tabBarElement.style.display = "none"
+    this.bookId = 3;
+    this.native.shake()
   }
 
   getClose(e): void {
@@ -77,6 +87,6 @@ export class HomePage {
 
 
   goSearch(): void {
-    this.navCtrl.push('SearchPage', {}, { animate: true, animation: 'transition', duration: 500, direction: 'forward' });
+    this.navCtrl.push('SearchPage', {}, { animate: true, animation: 'transition', duration: 400, direction: 'forward' });
   }
 }
