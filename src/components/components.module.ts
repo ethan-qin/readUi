@@ -17,8 +17,10 @@ import { SlidesComponent } from './slides/slides';
     IonicModule,
   ],
   entryComponents: [
+    BookModalComponent,
     HomePopComponent,
-    SexPopComponent
+    SexPopComponent,
+
   ],
   exports: [
     BookModalComponent,

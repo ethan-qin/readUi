@@ -1,35 +1,44 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
+import { PopoverController } from 'ionic-angular/components/popover/popover-controller';
+import { ViewController } from 'ionic-angular/navigation/view-controller';
 
 @Component({
   selector: 'book-modal',
   templateUrl: 'book-modal.component.html'
 })
 
-export class BookModalComponent implements OnInit {
+export class BookModalComponent {
   @Output() event = new EventEmitter<any>();
-  @Input() bookId: any;
+  bookId: any;
   isShow: boolean = false;
   constructor(
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private viewCtrl: ViewController,
+    private popCtrl: PopoverController,
+    private navParams: NavParams
   ) {
+    this.bookId = this.navParams.get('bookId');
   }
 
-  ngOnInit() {
+
+  ionViewWillEnter() {
     setTimeout(() => {
       this.isShow = true;
-    }, 100);
-    console.log(this.bookId)
+    }, 80);
+  }
+  ionViewWillUnload(){
+    this.isShow = false;
+    // this.navCtrl.popAll()
+    // this.close()
   }
 
   private close(): void {
     this.isShow = false;
-    this.event.emit("")
+    this.viewCtrl.dismiss();
   }
-
   private openBook(id) {
-    id = 3;
-    this.navCtrl.push('BookAbstractPage');
+    this.navCtrl.push('BookAbstractPage', { bookId: this.bookId });
   }
 }
 

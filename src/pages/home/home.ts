@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { PopoverController } from 'ionic-angular/components/popover/popover-controller';
 
+import { BookModalComponent } from './../../components/book-modal/book-modal';
 import { BookServicesProvider } from '../../providers/book-services/book.services';
 import { HttpProvider } from './../../providers/http/http';
 import { HomePopComponent } from '../../components/home-pop/home-pop';
@@ -17,8 +18,6 @@ import { NativeProvider } from '../../providers/native/native';
 
 
 export class HomePage {
-  bookId: any;
-  tabBarElement: any;
   title: string = '我的书架';
   constructor(
     public navCtrl: NavController,
@@ -31,7 +30,6 @@ export class HomePage {
   }
 
   ionViewDidEnter() {
-    this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
     // this.bookCtrl.getBookList().subscribe(f => {
     //   console.log('结果是', f)
     // }, err => {
@@ -40,9 +38,6 @@ export class HomePage {
     this.getUserInfo()
   }
 
-  ionViewDidLeave() {
-    this.getClose('');
-  }
 
   /**
    * 获取存储在本地的信息
@@ -61,28 +56,29 @@ export class HomePage {
 
 
   showPop(ev): void {
-    this.popCtrl.create(HomePopComponent).present({
+    this.popCtrl.create('HomePopComponent').present({
       ev: ev
     })
   }
 
-
-  clickBook(bookInfo) {
-    this.tabBarElement.style.display = "none"
-    this.bookId = 3;
+  pressBook(ev, id): void {
+    this.openAbs(ev, id)
   }
 
-  openAbs(bookInfo): void {
-    this.tabBarElement.style.display = "none"
-    this.bookId = 3;
-    this.native.shake()
+  clickBook(ev, id): void {
+    this.openAbs(ev, id)
   }
 
-  getClose(e): void {
-    setTimeout(() => {
-      this.bookId = e;
-      this.tabBarElement.style.display = "flex"
-    }, 100);
+  openAbs(ev, id): void {
+    if (this.native.isMobile()) {
+      this.native.shake()
+    }
+    this.popCtrl.create(BookModalComponent, { bookId: id }, {
+      cssClass: 'bookAbs',
+      showBackdrop: false
+    }).present({
+      ev: ev,
+    })
   }
 
 

@@ -1,6 +1,6 @@
 page-home {
-    ion-title{
-        padding-bottom:5px;
+    ion-title {
+        padding-bottom: 5px;
     }
     ion-list {
         ion-item {
@@ -11,7 +11,7 @@ page-home {
                 bottom: 0;
                 left: -45%;
                 height: 0;
-                border-bottom: 1px solid color($colors,fineLineColor);
+                border-bottom: 1px solid color($colors, fineLineColor);
                 transform: scale(0.5)
             }
             ion-thumbnail {
@@ -48,4 +48,5 @@ page-home {
     .popover-content {
         width: 100%!important;
     }
+
 }

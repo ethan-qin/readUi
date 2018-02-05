@@ -36,7 +36,11 @@ import { PipesModule } from '../pipes/pipes.module';
     HttpClientModule,
     IonicModule.forRoot(MyApp, {
       tabsHideOnSubPages: 'true',
-      backButtonText: ""
+      backButtonText: "",
+      // modalEnter:''
+      pageTransition: 'ios-transition',
+      pageTransitionDelay: 30,
+      backButtonIcon: 'md-arrow-back'
     }),
     IonicStorageModule.forRoot()
   ],
