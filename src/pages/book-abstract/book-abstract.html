@@ -11,8 +11,16 @@
         <ion-icon name="md-more"></ion-icon>
       </button>
     </ion-buttons>
+    <ion-title [style.transform]="titlePosition">
+        风起紫罗峡
+    </ion-title>
   </ion-navbar>
-  <ion-toolbar color="lucency">
+</ion-header>
+
+
+<ion-content (ionScroll)="scrollHandler($event)">
+
+  <section [style.background-image]="bg" class="bookPro" #bookPro>
     <ion-list no-lines no-margin>
       <ion-item>
         <ion-thumbnail item-start>
@@ -30,11 +38,8 @@
         <p>52万字 &nbsp;|&nbsp; 日更9K+</p>
       </ion-item>
     </ion-list>
-  </ion-toolbar>
-</ion-header>
+  </section>
 
-
-<ion-content>
   <section margin-bottom class="dataList">
     <div class="item">
       <h5>4529

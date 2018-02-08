@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
-import { Element } from '@angular/compiler';
 /**
  * Generated class for the BookAbstractPage page.
  *
@@ -16,9 +15,12 @@ import { Element } from '@angular/compiler';
 })
 export class BookAbstractPage {
   @ViewChild('abstract') abstract: any;
+  @ViewChild('bookPro') bookPro: any;
   bg: string
+  bookProHeight: number;
   content: string;
   showMore: boolean = false;
+  titlePosition: string = 'translateY(50px)';
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -32,7 +34,6 @@ export class BookAbstractPage {
       战二群：12962047骷髅的微信公共号：kuloujingling00新浪微博：骷髅精灵
     `
   }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad BookAbstractPage');
 
@@ -47,5 +48,9 @@ export class BookAbstractPage {
   ionViewDidLeave() {
     this.statusBar.overlaysWebView(false);
     this.statusBar.backgroundColorByHexString('#d23e3b');
+  }
+
+  scrollHandler(e) {
+    console.log(e)
   }
 }

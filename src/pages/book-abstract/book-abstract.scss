@@ -1,57 +1,68 @@
     page-book-abstract {
         ion-header {
             background-size: cover;
+            overflow: hidden;
             ion-navbar {
                 padding-top: 25px!important;
             }
             .back-button {
                 color: #fff!important;
             }
-            ion-item {
-                background: transparent!important;
-                color: #fff!important;
-                overflow: hidden;
-                h2 {
-                    font-weight: lighter!important;
-                    margin: 0!important;
-                    padding-bottom: 0.4rem
-                }
-                p {
-                    color: #fff!important;
-                    font-size: 1.2rem!important;
-                    font-weight: lighter!important;
-                    margin: 0!important;
-                    padding-bottom: 0.3rem;
-                }
-                ion-thumbnail {
-                    margin-top: 0!important;
-                    img {
-                        height: 10.5rem!important;
-                    }
-                }
-                .label-md {
-                    padding: 0;
-                    margin-top: 0px;
-                    display: flex;
-                    align-content: space-between;
-                    flex-wrap: wrap;
-                    >* {
-                        width: 100%;
-                    }
-                }
-                .authorRank {
-                    display: inline-block;
-                    font-size: 1.2rem;
-                    color: #67b2fb;
-                    transform: scale(0.6);
-                    border: 1px solid #67b2fb;
-                    padding: 1px 6px;
-                    border-radius: 1rem;
-                }
+            ion-title{
+              // transform: translateY(50px);
             }
         }
         ion-content {
             background-color: color($colors, backgroundColor)!important;
+            .bookPro {
+                background-size: cover;
+                background-position-y: -61px;
+                ion-list {
+                    background-color: color($colors, lucency);
+                    ion-item {
+                        background: transparent!important;
+                        color: #fff!important;
+                        overflow: hidden;
+                        h2 {
+                            font-weight: lighter!important;
+                            margin: 0!important;
+                            padding-bottom: 0.4rem
+                        }
+                        p {
+                            color: #fff!important;
+                            font-size: 1.2rem!important;
+                            font-weight: lighter!important;
+                            margin: 0!important;
+                            padding-bottom: 0.3rem;
+                        }
+                        ion-thumbnail {
+                            margin-top: 0!important;
+                            img {
+                                height: 10.5rem!important;
+                            }
+                        }
+                        .label-md {
+                            padding: 0;
+                            margin-top: 0px;
+                            display: flex;
+                            align-content: space-between;
+                            flex-wrap: wrap;
+                            >* {
+                                width: 100%;
+                            }
+                        }
+                        .authorRank {
+                            display: inline-block;
+                            font-size: 1.2rem;
+                            color: #67b2fb;
+                            transform: scale(0.6);
+                            border: 1px solid #67b2fb;
+                            padding: 1px 6px;
+                            border-radius: 1rem;
+                        }
+                    }
+                }
+            }
             .dataList {
                 display: flex;
                 justify-content: space-between;
@@ -225,7 +236,6 @@
                         margin-bottom: 0!important;
                     }
                 }
-                ion-card-content {}
             }
             ion-card.slides {
                 width: 100%!important;
@@ -254,7 +264,7 @@
                 }
             }
             .footer {
-              width: 100%!important;
+                width: 100%!important;
                 h4 {
                     font-size: 1.6rem!important;
                 }

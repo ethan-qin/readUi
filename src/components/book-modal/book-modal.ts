@@ -10,7 +10,7 @@ import { ViewController } from 'ionic-angular/navigation/view-controller';
 
 export class BookModalComponent {
   @Output() event = new EventEmitter<any>();
-  bookId: any;
+  book: any;
   isShow: boolean = false;
   constructor(
     private navCtrl: NavController,
@@ -18,7 +18,7 @@ export class BookModalComponent {
     private popCtrl: PopoverController,
     private navParams: NavParams
   ) {
-    this.bookId = this.navParams.get('bookId');
+    this.book = this.navParams.get('bookItem');
   }
 
 
@@ -38,7 +38,7 @@ export class BookModalComponent {
     this.viewCtrl.dismiss();
   }
   private openBook(id) {
-    this.navCtrl.push('BookAbstractPage', { bookId: this.bookId });
+    this.navCtrl.push('BookAbstractPage', { bookId: this.book.id });
   }
 }
 
