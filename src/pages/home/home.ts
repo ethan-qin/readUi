@@ -50,11 +50,6 @@ export class HomePage {
   }
 
   ionViewDidEnter() {
-    // this.bookCtrl.getBookList().subscribe(f => {
-    //   console.log('结果是', f)
-    // }, err => {}
-    //   console.log(err);
-    // })
     this.getUserInfo()
   }
 
