@@ -37,7 +37,7 @@ export class HomePage {
       author: '崖画时',
       plat: '第一千七百章',
       end: '第二十四章',
-      endTitle: '妖怪啊！',
+      endTitle: '妖怪啊2！',
     }
   ]
   constructor(
