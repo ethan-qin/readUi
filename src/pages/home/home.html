@@ -18,16 +18,16 @@
 
 <ion-content>
   <ion-list no-lines no-margin>
-    <ion-item (press)="pressBook($event,32)">
+    <ion-item *ngFor="let item of bookList" (press)="pressBook($event,item)">
       <ion-thumbnail item-start>
-        <img src="https://qidian.qpic.cn/qdbimg/349573/1006635077/150" alt="幽灵骑士">
+        <img src="{{item.preview}}" alt="{{item.bookName}}">
       </ion-thumbnail>
-      <h2>幽灵骑士2</h2>
-      <p>崖画时&nbsp;&nbsp;著&nbsp;|&nbsp;未读</p>
+      <h2>{{item.bookName}}</h2>
+      <p>{{item.author}}&nbsp;&nbsp;著&nbsp;|&nbsp;{{item.plat}}</p>
       <p>
-        连载至：第二十四章&nbsp;妖怪啊！
+        连载至：{{item.end}}&nbsp;{{item.endTitle}}
       </p>
-      <button class="more" (click)="clickBook($event,32)">
+      <button class="more" (click)="clickBook($event,item)">
         <ion-icon name="md-more"></ion-icon>
       </button>
     </ion-item>

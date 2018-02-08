@@ -3,7 +3,6 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 
 import { BaseUI } from '../../common/baseUI';
-import { HttpProvider } from './../../providers/http/http';
 
 /**
  * Generated class for the SearchPage page.
@@ -35,14 +34,13 @@ export class SearchPage extends BaseUI {
     { id: 11, icon: '', type: 'book', des: '书籍', preview: {}, content: '一剑娇仙' },
   ]
 
-  searchString: string;                   //用户输入的字段
-  hasKey: boolean = false;                //是否处于autoComple页面
-  aotoCompleArr: Array<autoComplete> = [];           //自动完成提示数据组
+  searchString: string;                               //用户输入的字段
+  hasKey: boolean = false;                            //是否处于autoComple页面
+  aotoCompleArr: Array<autoComplete> = [];            //自动完成提示数据组
   target: string = "book";
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private http: HttpProvider,
     private toastCtrl: ToastController
   ) {
     super()

@@ -1,12 +1,13 @@
+import { HomePopComponent } from './../../components/home-pop/home-pop';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { PopoverController } from 'ionic-angular/components/popover/popover-controller';
 
 import { BookModalComponent } from './../../components/book-modal/book-modal';
 import { BookServicesProvider } from '../../providers/book-services/book.services';
 import { HttpProvider } from './../../providers/http/http';
-import { HomePopComponent } from '../../components/home-pop/home-pop';
 import { NativeProvider } from '../../providers/native/native';
+import { PopoverController } from 'ionic-angular/components/popover/popover-controller';
+import { StatusBar } from '@ionic-native/status-bar';
 
 
 
@@ -19,20 +20,40 @@ import { NativeProvider } from '../../providers/native/native';
 
 export class HomePage {
   title: string = '我的书架';
+  bookList = [
+    {
+      id: 1001,
+      preview: 'https://qidian.qpic.cn/qdbimg/349573/1006635077/150',
+      bookName: '幽灵骑士2',
+      author: '崖画时',
+      plat: '第一千七百章',
+      end: '第二十四章',
+      endTitle: '妖怪啊！',
+    },
+    {
+      id: 1001,
+      preview: 'https://qidian.qpic.cn/qdbimg/349573/1006635077/150',
+      bookName: '幽灵骑士2',
+      author: '崖画时',
+      plat: '第一千七百章',
+      end: '第二十四章',
+      endTitle: '妖怪啊！',
+    }
+  ]
   constructor(
     public navCtrl: NavController,
     private bookCtrl: BookServicesProvider,
     private http: HttpProvider,
+    private native: NativeProvider,
     private popCtrl: PopoverController,
-    private native: NativeProvider
   ) {
-
+    this.native.overlay(false);
   }
 
   ionViewDidEnter() {
     // this.bookCtrl.getBookList().subscribe(f => {
     //   console.log('结果是', f)
-    // }, err => {
+    // }, err => {}
     //   console.log(err);
     // })
     this.getUserInfo()
@@ -54,26 +75,50 @@ export class HomePage {
     })
   }
 
-
-  showPop(ev): void {
-    this.popCtrl.create('HomePopComponent').present({
-      ev: ev
-    })
+  ionViewWillEnter(){
+    this.native.overlay(false);
   }
 
-  pressBook(ev, id): void {
-    this.openAbs(ev, id)
+  /**
+   * 长按打开书籍弹窗
+   *
+   * @author qin
+   * @protected
+   * @param {any} ev
+   * @param {any} bookItem
+   * @memberof HomePage
+   */
+  protected pressBook(ev, bookItem): void {
+    this.openAbs(ev, bookItem)
   }
 
-  clickBook(ev, id): void {
-    this.openAbs(ev, id)
+  /**
+   * 单击打开书籍弹窗
+   *
+   * @author qin
+   * @protected
+   * @param {any} ev
+   * @param {any} bookItem
+   * @memberof HomePage
+   */
+  protected clickBook(ev, bookItem): void {
+    this.openAbs(ev, bookItem)
   }
 
-  openAbs(ev, id): void {
+  /**
+   * 打开书籍弹窗
+   *
+   * @author qin
+   * @protected
+   * @param {any} ev
+   * @param {any} bookItem
+   * @memberof HomePage
+   */
+  protected openAbs(ev, bookItem): void {
     if (this.native.isMobile()) {
       this.native.shake()
     }
-    this.popCtrl.create(BookModalComponent, { bookId: id }, {
+    this.popCtrl.create(BookModalComponent, { bookItem: bookItem }, {
       cssClass: 'bookAbs',
       showBackdrop: false
     }).present({
@@ -81,8 +126,30 @@ export class HomePage {
     })
   }
 
+  /**
+   * 打开搜索页面
+   *
+   * @author qin
+   * @protected
+   * @memberof HomePage
+   */
+  protected goSearch(): void {
+    this.navCtrl.push('SearchPage');
+  }
 
-  goSearch(): void {
-    this.navCtrl.push('SearchPage', {}, { animate: true, animation: 'transition', duration: 400, direction: 'forward' });
+
+
+  /**
+   * 打开首页设置
+   *
+   * @author qin
+   * @protected
+   * @param {any} ev
+   * @memberof HomePage
+   */
+  protected showPop(ev): void {
+    this.popCtrl.create(HomePopComponent).present({
+      ev: ev
+    })
   }
 }

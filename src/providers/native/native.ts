@@ -4,6 +4,7 @@ import { CodePush } from "@ionic-native/code-push";
 import { Injectable } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { StatusBar } from '@ionic-native/status-bar';
 import { Vibration } from '@ionic-native/vibration';
 
 import { BaseUI } from "../../common/baseUI";
@@ -23,7 +24,8 @@ export class NativeProvider extends BaseUI {
     private storage: Storage,
     private vibration: Vibration,
     private loadingCtrl: LoadingController,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    private statusBar: StatusBar
   ) {
     super()
     console.log('加载native模块');
@@ -65,7 +67,7 @@ export class NativeProvider extends BaseUI {
    * @returns {Promise<any>}
    * @memberof NativeProvider
    */
-  setStorage(name: string, data: any): Promise<any> {
+  public setStorage(name: string, data: any): Promise<any> {
     return new Promise(resolve => {
       this.storage.set(name, data).then(f => {
         resolve({
@@ -81,6 +83,22 @@ export class NativeProvider extends BaseUI {
     })
   }
 
+  /**
+   * 是否覆盖手机状态栏 状态栏默认颜色是#d23e3b
+   * true：覆盖  false：不覆盖
+   *
+   * @author qin
+   * @param {boolean} overlay
+   * @param {string} [color]
+   * @memberof NativeProvider
+   */
+  public overlay(overlay: boolean, color?: string): void {
+    this.statusBar.overlaysWebView(overlay);
+    if (!color) {
+      color = '#d23e3b'
+    }
+    this.statusBar.backgroundColorByHexString(color);
+  }
 
   /**
    * 设备震动
@@ -88,7 +106,7 @@ export class NativeProvider extends BaseUI {
    * @author qin
    * @memberof NativeProvider
    */
-  shake(): void {
+  public shake(): void {
     this.vibration.vibrate([50, 100])
   }
 
@@ -99,7 +117,7 @@ export class NativeProvider extends BaseUI {
    * @returns {boolean}
    * @memberof NativeProvider
    */
-  isMobile(): boolean {
+  public isMobile(): boolean {
     return this.platform.is('mobile') && !this.platform.is('mobileweb')
   }
 
@@ -110,7 +128,7 @@ export class NativeProvider extends BaseUI {
    * @returns {boolean}
    * @memberof NativeProvider
    */
-  isAndroid(): boolean {
+  public isAndroid(): boolean {
     return this.isMobile && this.platform.is('android');
   }
 
@@ -121,7 +139,7 @@ export class NativeProvider extends BaseUI {
    * @returns {boolean}
    * @memberof NativeProvider
    */
-  isIos(): boolean {
+  public isIos(): boolean {
     return this.isMobile && this.platform.is('ios');
   }
 
@@ -132,7 +150,7 @@ export class NativeProvider extends BaseUI {
    * @author qin
    * @memberof NativeProvider
    */
-  sync() {
+  public sync() {
     if (this.isMobile()) {
       let deploymentKey = '';
       if (this.isAndroid() && IS_DEBUG) {
@@ -171,5 +189,4 @@ export class NativeProvider extends BaseUI {
       })
     }
   }
-
 }

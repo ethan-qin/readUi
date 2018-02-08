@@ -20,7 +20,6 @@ import { SlidesComponent } from './slides/slides';
     BookModalComponent,
     HomePopComponent,
     SexPopComponent,
-
   ],
   exports: [
     BookModalComponent,
