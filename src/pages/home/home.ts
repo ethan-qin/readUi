@@ -7,7 +7,6 @@ import { BookServicesProvider } from '../../providers/book-services/book.service
 import { HttpProvider } from './../../providers/http/http';
 import { NativeProvider } from '../../providers/native/native';
 import { PopoverController } from 'ionic-angular/components/popover/popover-controller';
-import { StatusBar } from '@ionic-native/status-bar';
 
 
 
@@ -37,7 +36,7 @@ export class HomePage {
       author: '崖画时',
       plat: '第一千七百章',
       end: '第二十四章',
-      endTitle: '妖怪啊！',
+      endTitle: '妖怪啊2！',
     }
   ]
   constructor(
