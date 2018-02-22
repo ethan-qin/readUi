@@ -46,3 +46,18 @@
     transition-delay:0ms!important;
   }
 }
+
+
+.refresher-refreshing,.refresher-pulling{
+    text-align: center;
+  }
+  .refresher-refreshing-icon,.refresher-pulling-icon{
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .refresher-refreshing-text,.refresher-pulling-text{
+    display: inline-block;
+    vertical-align: middle;
+    padding-bottom: 0.1rem;
+    padding-left: 0.5rem;
+  }

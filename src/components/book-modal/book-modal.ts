@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { NavController, NavParams, Events } from 'ionic-angular';
 import { PopoverController } from 'ionic-angular/components/popover/popover-controller';
 import { ViewController } from 'ionic-angular/navigation/view-controller';
 
@@ -9,10 +9,11 @@ import { ViewController } from 'ionic-angular/navigation/view-controller';
 })
 
 export class BookModalComponent {
-  @Output() event = new EventEmitter<any>();
   book: any;
+  bg: any;
   isShow: boolean = false;
   constructor(
+    private events: Events,
     private navCtrl: NavController,
     private viewCtrl: ViewController,
     private popCtrl: PopoverController,
@@ -23,22 +24,27 @@ export class BookModalComponent {
 
 
   ionViewWillEnter() {
+    this.bg = `url('assets/imgs/bookbg1.jpg')`;
     setTimeout(() => {
       this.isShow = true;
     }, 80);
   }
-  ionViewWillUnload(){
+  ionViewWillUnload() {
     this.isShow = false;
-    // this.navCtrl.popAll()
-    // this.close()
   }
 
   private close(): void {
     this.isShow = false;
-    this.viewCtrl.dismiss();
+    this.viewCtrl.dismiss({}, '', {
+      animate: false
+    });
   }
   private openBook(id) {
-    this.navCtrl.push('BookAbstractPage', { bookId: this.book.id });
+    this.sendBookId(this.book.id)
+    this.close()
+  }
+  private sendBookId(bookId): void {
+    this.events.publish('openThisBook', bookId)
   }
 }
 

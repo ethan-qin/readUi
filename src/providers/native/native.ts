@@ -94,10 +94,10 @@ export class NativeProvider extends BaseUI {
    */
   public overlay(overlay: boolean, color?: string): void {
     this.statusBar.overlaysWebView(overlay);
-    if (!color) {
-      color = '#d23e3b'
+    if (!color && !overlay) {
+      color = '#d23e3b';
+      this.statusBar.backgroundColorByHexString(color);
     }
-    this.statusBar.backgroundColorByHexString(color);
   }
 
   /**

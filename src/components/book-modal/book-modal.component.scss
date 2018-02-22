@@ -31,11 +31,17 @@ book-modal {
         }
     }
     .bookHeadr {
-        background: #333;
-        padding: 0 1rem 0 1.4rem;
+        // background-image: url('../assets/imgs/bookbg1.jpg');
+  
         position: relative;
-        display: flex;
-        justify-content: space-between;
+        background-size: cover;
+        background-position-y: -15px;
+        .bgContainer{
+            padding: 0 1rem 0 1.4rem;
+            background: rgba(0,0,0,.8);
+            display: flex;
+            justify-content: space-between;
+        }
         .preview {
             width: 12%;
             position: absolute;

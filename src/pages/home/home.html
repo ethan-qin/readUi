@@ -17,6 +17,14 @@
 </ion-header>
 
 <ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+        pullingIcon="arrow-dropdown"
+        pullingText="下拉刷新"
+        refreshingSpinner="circles"
+        refreshingText="正在刷新">
+      </ion-refresher-content>
+      </ion-refresher>
   <ion-list no-lines no-margin>
     <ion-item *ngFor="let item of bookList" (press)="pressBook($event,item)">
       <ion-thumbnail item-start>

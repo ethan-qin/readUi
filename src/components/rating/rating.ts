@@ -27,8 +27,6 @@ export class RatingComponent {
     for (let i = 0; i < 5; i++) {
       this.ratingArr.push(this.rating > i)
     }
-    console.log(this.ratingArr);
-
   }
 
 }

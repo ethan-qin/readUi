@@ -1,6 +1,7 @@
     page-book-abstract {
         ion-header {
             background-size: cover;
+            background-repeat: no-repeat;
             overflow: hidden;
             ion-navbar {
                 padding-top: 25px!important;
@@ -8,15 +9,24 @@
             .back-button {
                 color: #fff!important;
             }
-            // ion-title{
-            //   // transform: translateY(50px);
-            // }
+            .toolbar-title{
+                padding: 0!important;
+            }
         }
         ion-content {
-            background-color: color($colors, backgroundColor)!important;
+            background-repeat: no-repeat;
+            background-size: contain!important;
+            .scroll-content{
+                background: transparent;
+                .bookDetail{
+                    background-color: color($colors, backgroundColor)!important;
+
+                }
+            }
             .bookPro {
                 background-size: cover;
-                background-position-y: -61px;
+                background-repeat: no-repeat;
+                // background-position-y: -61px;
                 ion-list {
                     background-color: color($colors, lucency);
                     ion-item {

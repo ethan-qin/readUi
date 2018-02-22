@@ -1,6 +1,6 @@
 import { HomePopComponent } from './../../components/home-pop/home-pop';
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, Events, Content } from 'ionic-angular';
 
 import { BookModalComponent } from './../../components/book-modal/book-modal';
 import { BookServicesProvider } from '../../providers/book-services/book.services';
@@ -18,6 +18,7 @@ import { PopoverController } from 'ionic-angular/components/popover/popover-cont
 
 
 export class HomePage {
+  @ViewChild(Content) content:Content;
   title: string = '我的书架';
   bookList = [
     {
@@ -41,18 +42,22 @@ export class HomePage {
   ]
   constructor(
     public navCtrl: NavController,
+    private events:Events,
     private bookCtrl: BookServicesProvider,
     private http: HttpProvider,
     private native: NativeProvider,
     private popCtrl: PopoverController,
   ) {
-    this.native.overlay(false);
+    this.openbook()
   }
 
   ionViewDidEnter() {
-    this.getUserInfo()
+    this.getUserInfo();
+    this.content.resize()
   }
-
+  ionViewCanEnter(){
+    this.native.overlay(false);
+  }
 
   /**
    * 获取存储在本地的信息
@@ -67,10 +72,6 @@ export class HomePage {
     }, err => {
       console.log(err)
     })
-  }
-
-  ionViewWillEnter(){
-    this.native.overlay(false);
   }
 
   /**
@@ -117,6 +118,7 @@ export class HomePage {
       showBackdrop: false
     }).present({
       ev: ev,
+      animate:false
     })
   }
 
@@ -131,7 +133,14 @@ export class HomePage {
     this.navCtrl.push('SearchPage');
   }
 
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
 
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete(); 
+    }, 2000);
+  }
 
   /**
    * 打开首页设置
@@ -144,6 +153,12 @@ export class HomePage {
   protected showPop(ev): void {
     this.popCtrl.create(HomePopComponent).present({
       ev: ev
+    })
+  }
+
+  private openbook(){
+    this.events.subscribe('openThisBook',(data)=>{
+      this.navCtrl.push('BookAbstractPage', { bookId: data });
     })
   }
 }

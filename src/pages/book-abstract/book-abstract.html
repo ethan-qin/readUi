@@ -4,23 +4,25 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header [style.background-image]="bg" no-border>
+<ion-header no-border>
   <ion-navbar color="lucency">
     <ion-buttons end>
       <button ion-button icon-only>
         <ion-icon name="md-more"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title [style.transform]="titlePosition">
-        风起紫罗峡
+    <!-- <ion-title [style.transform]="titlePosition"> -->
+    <ion-title>
+      <span #title [ngStyle]="titleStyle">
+        奶爸的异界餐厅
+      </span>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content (ionScroll)="scrollHandler($event)">
-
-  <section [style.background-image]="bg" class="bookPro" #bookPro>
+<ion-content [style.background-image]="bg" (ionScroll)="scrollHandler($event)" #content>
+  <section class="bookPro" #bookPro>
     <ion-list no-lines no-margin>
       <ion-item>
         <ion-thumbnail item-start>
@@ -39,160 +41,163 @@
       </ion-item>
     </ion-list>
   </section>
+  <div class="bookDetail">
 
-  <section margin-bottom class="dataList">
-    <div class="item">
-      <h5>4529
-        <small>万+</small>
-      </h5>
-      <span>月票</span>
-    </div>
-    <div class="item">
-      <h5>1803
-        <small>万+</small>
-      </h5>
-      <span>推荐票</span>
-    </div>
-    <div class="item">
-      <h5>21834
-        <small>万+</small>
-      </h5>
-      <span>打赏</span>
-    </div>
-    <div class="item">
-      <h5>123.1
-        <small>万+</small>
-      </h5>
-      <span>粉丝</span>
-    </div>
-  </section>
 
-  <section padding class="bookAbstract">
-    <h6>简介</h6>
-    <article>
-      <p #abstract [innerHTML]="content | safeHtml">
-      </p>
-      <ion-icon name="ios-arrow-down-outline"></ion-icon>
-    </article>
-  </section>
+    <section margin-bottom class="dataList">
+      <div class="item">
+        <h5>4529
+          <small>万+</small>
+        </h5>
+        <span>月票</span>
+      </div>
+      <div class="item">
+        <h5>1803
+          <small>万+</small>
+        </h5>
+        <span>推荐票</span>
+      </div>
+      <div class="item">
+        <h5>21834
+          <small>万+</small>
+        </h5>
+        <span>打赏</span>
+      </div>
+      <div class="item">
+        <h5>123.1
+          <small>万+</small>
+        </h5>
+        <span>粉丝</span>
+      </div>
+    </section>
 
-  <ion-list no-margin no-lines>
-    <button class="catelog hasLine" ion-item>
-      作品荣誉
-      <ion-note item-end>
-        连载至1257章 &nbsp;&nbsp;更新于2018-02-03
-      </ion-note>
-      <ion-icon item-end name="ios-arrow-forward-outline"></ion-icon>
-    </button>
-  </ion-list>
+    <section padding class="bookAbstract">
+      <h6>简介</h6>
+      <article>
+        <p #abstract [innerHTML]="bookcontent | safeHtml">
+        </p>
+        <ion-icon name="ios-arrow-down-outline"></ion-icon>
+      </article>
+    </section>
 
-  <ion-list margin-vertical no-lines>
-    <button class="catelog" ion-item>
-      目录
-      <ion-note item-end>
-        <ion-img [src]=""></ion-img> &nbsp;&nbsp;习惯性爆发
-      </ion-note>
-      <ion-icon item-end name="ios-arrow-forward-outline"></ion-icon>
-    </button>
-  </ion-list>
-
-  <ion-card class="comment" no-margin>
-
-    <ion-card-header no-padding>
-      <button ion-item>
-        书评
+    <ion-list no-margin no-lines>
+      <button class="catelog hasLine" ion-item>
+        作品荣誉
         <ion-note item-end>
-          11万+人评论
+          连载至1257章 &nbsp;&nbsp;更新于2018-02-03
         </ion-note>
         <ion-icon item-end name="ios-arrow-forward-outline"></ion-icon>
       </button>
-    </ion-card-header>
+    </ion-list>
 
-    <ion-card-content no-padding>
-      <ion-list>
+    <ion-list margin-vertical no-lines>
+      <button class="catelog" ion-item>
+        目录
+        <ion-note item-end>
+          <ion-img [src]=""></ion-img> &nbsp;&nbsp;习惯性爆发
+        </ion-note>
+        <ion-icon item-end name="ios-arrow-forward-outline"></ion-icon>
+      </button>
+    </ion-list>
+
+    <ion-card class="comment" no-margin>
+
+      <ion-card-header no-padding>
+        <button ion-item>
+          书评
+          <ion-note item-end>
+            11万+人评论
+          </ion-note>
+          <ion-icon item-end name="ios-arrow-forward-outline"></ion-icon>
+        </button>
+      </ion-card-header>
+
+      <ion-card-content no-padding>
+        <ion-list>
+          <ion-item>
+            <ion-avatar item-start>
+              <img src="assets/imgs/22-33-36.jpg">
+            </ion-avatar>
+            <h2>我的小开心果</h2>
+            <p text-wrap>不要呀……怎么能为了存搞而抠文了………………板砖伺候………………一丈红！！！！</p>
+            <p class="platform">2367回复 &nbsp;&nbsp;54分钟前&nbsp;&nbsp;来自Android客户端</p>
+          </ion-item>
+          <ion-item>
+            <ion-avatar item-start>
+              <img src="assets/imgs/22-33-36.jpg">
+            </ion-avatar>
+            <h2>我的小开心果</h2>
+            <p text-wrap>不要呀……怎么能为了存搞而抠文了………………板砖伺候………………一丈红！！！！</p>
+            <p class="platform">2367回复 &nbsp;&nbsp;54分钟前&nbsp;&nbsp;来自Android客户端</p>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+
+    </ion-card>
+
+    <ion-card class="author" no-margin margin-top>
+
+      <ion-card-header no-padding>
         <ion-item>
           <ion-avatar item-start>
-            <img src="../../assets/imgs/22-33-36.jpg">
+            <img src="assets/imgs/defult_avatar.png">
           </ion-avatar>
-          <h2>我的小开心果</h2>
-          <p text-wrap>不要呀……怎么能为了存搞而抠文了………………板砖伺候………………一丈红！！！！</p>
-          <p class="platform">2367回复 &nbsp;&nbsp;54分钟前&nbsp;&nbsp;来自Android客户端</p>
+          <h2>寒武纪</h2>
+          <p>作品&nbsp;8&nbsp;&nbsp;|&nbsp;粉丝&nbsp;193万</p>
+          <ion-icon item-end name="ios-arrow-forward-outline"></ion-icon>
         </ion-item>
+      </ion-card-header>
+
+      <ion-card-content padding-horizal color="dark">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit nihil, reprehenderit persp Lorem ipsum dolor sit amet consectetur,
+        adipisicing elit. Impedit nihil, reprehenderit persp
+      </ion-card-content>
+
+    </ion-card>
+
+
+    <ion-card class="slides" no-margin margin-top>
+
+      <ion-card-header no-padding>
         <ion-item>
-          <ion-avatar item-start>
-            <img src="../../assets/imgs/22-33-36.jpg">
-          </ion-avatar>
-          <h2>我的小开心果</h2>
-          <p text-wrap>不要呀……怎么能为了存搞而抠文了………………板砖伺候………………一丈红！！！！</p>
-          <p class="platform">2367回复 &nbsp;&nbsp;54分钟前&nbsp;&nbsp;来自Android客户端</p>
+          书友还看过
+          <ion-icon item-end name="ios-arrow-forward-outline"></ion-icon>
         </ion-item>
-      </ion-list>
-    </ion-card-content>
+      </ion-card-header>
 
-  </ion-card>
+      <ion-card-content padding-horizal>
+        <ion-slides slidesPerView="5">
+          <ion-slide>
+            <ion-img src="https://qidian.qpic.cn/qdbimg/349573/1009596368/150"></ion-img>
+          </ion-slide>
+          <ion-slide>
+            <ion-img src="https://qidian.qpic.cn/qdbimg/349573/1009923440/150"></ion-img>
+          </ion-slide>
+          <ion-slide>
+            <ion-img src="https://qidian.qpic.cn/qdbimg/349573/1004871398/150"></ion-img>
+          </ion-slide>
+          <ion-slide>
+            <ion-img src="https://qidian.qpic.cn/qdbimg/349573/3483321/150"></ion-img>
+          </ion-slide>
+          <ion-slide>
+            <ion-img src="https://qidian.qpic.cn/qdbimg/349573/1009596368/150"></ion-img>
+          </ion-slide>
+          <ion-slide>
+            <ion-img src="https://qidian.qpic.cn/qdbimg/349573/1009596368/150"></ion-img>
+          </ion-slide>
+        </ion-slides>
+      </ion-card-content>
 
-  <ion-card class="author" no-margin margin-top>
+    </ion-card>
 
-    <ion-card-header no-padding>
-      <ion-item>
-        <ion-avatar item-start>
-          <img src="../../assets/imgs/defult_avatar.png">
-        </ion-avatar>
-        <h2>寒武纪</h2>
-        <p>作品&nbsp;8&nbsp;&nbsp;|&nbsp;粉丝&nbsp;193万</p>
-        <ion-icon item-end name="ios-arrow-forward-outline"></ion-icon>
-      </ion-item>
-    </ion-card-header>
+    <ion-card class="footer" no-margin margin-top>
+      <ion-card-content padding-horizal>
+        <h4>版权信息</h4>
+        <p>2017-07-08 上架</p>
+        <p>版权信息版权信息版权信息版权信息</p>
+        <p>版权信息版权信息</p>
+      </ion-card-content>
 
-    <ion-card-content padding-horizal color="dark">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit nihil, reprehenderit persp Lorem ipsum dolor sit amet consectetur,
-      adipisicing elit. Impedit nihil, reprehenderit persp
-    </ion-card-content>
-
-  </ion-card>
-
-
-  <ion-card class="slides" no-margin margin-top>
-
-    <ion-card-header no-padding>
-      <ion-item>
-        书友还看过
-        <ion-icon item-end name="ios-arrow-forward-outline"></ion-icon>
-      </ion-item>
-    </ion-card-header>
-
-    <ion-card-content padding-horizal>
-      <ion-slides slidesPerView="5">
-        <ion-slide>
-          <ion-img src="https://qidian.qpic.cn/qdbimg/349573/1009596368/150"></ion-img>
-        </ion-slide>
-        <ion-slide>
-          <ion-img src="https://qidian.qpic.cn/qdbimg/349573/1009923440/150"></ion-img>
-        </ion-slide>
-        <ion-slide>
-          <ion-img src="https://qidian.qpic.cn/qdbimg/349573/1004871398/150"></ion-img>
-        </ion-slide>
-        <ion-slide>
-          <ion-img src="https://qidian.qpic.cn/qdbimg/349573/3483321/150"></ion-img>
-        </ion-slide>
-        <ion-slide>
-          <ion-img src="https://qidian.qpic.cn/qdbimg/349573/1009596368/150"></ion-img>
-        </ion-slide>
-        <ion-slide>
-          <ion-img src="https://qidian.qpic.cn/qdbimg/349573/1009596368/150"></ion-img>
-        </ion-slide>
-      </ion-slides>
-    </ion-card-content>
-
-  </ion-card>
-
-  <ion-card class="footer" no-margin margin-top>
-    <ion-card-content padding-horizal>
-      <h4>版权信息</h4>
-      <p>2017-07-08 上架</p>
-      <p>版权信息版权信息版权信息版权信息</p>
-      <p>版权信息版权信息</p>
-    </ion-card-content>
-
-  </ion-card>
+    </ion-card>
+  </div>
 </ion-content>
