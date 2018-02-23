@@ -27,4 +27,7 @@ export class FindPage {
   goSearch(): void {
     this.navCtrl.push('SearchPage', {}, { animate: true, animation: 'transition', duration: 500, direction: 'forward' });
   }
+  openRank():void{
+   this.navCtrl.push('RankPage') 
+  }
 }

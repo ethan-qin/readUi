@@ -152,7 +152,7 @@ export class HomePage {
    */
   protected showPop(ev): void {
     this.popCtrl.create(HomePopComponent).present({
-      ev: ev
+      ev: ev,
     })
   }
 

@@ -1,0 +1,20 @@
+time-pop {
+    .checked{
+            color: color($colors,danger);
+            ion-icon{
+                color:color($colors,danger)
+            }
+    }
+    button{
+        ion-icon{
+            font-size: 4rem;
+            vertical-align: middle;
+            margin-right: 0.5rem;
+            margin-top: -0.3rem;
+            color:color($colors,iconGray)
+        }
+        .label{
+            margin: 0!important;
+        }
+    }
+}
