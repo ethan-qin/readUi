@@ -31,4 +31,7 @@ export class SettingPage {
   checkUpdate() {
     this.native.sync()
   }
+  go():void{
+    this.navCtrl.push('TestPage')
+  }
 }

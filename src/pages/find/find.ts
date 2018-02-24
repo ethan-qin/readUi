@@ -30,4 +30,7 @@ export class FindPage {
   openRank():void{
    this.navCtrl.push('RankPage') 
   }
+  openClassification():void{
+    this.navCtrl.push('ClassificationPage')
+  }
 }

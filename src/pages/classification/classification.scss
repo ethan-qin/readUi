@@ -1,0 +1,72 @@
+page-classification {
+    ion-card{
+        width: 100%!important;
+        box-shadow: none!important;
+        ion-card-header{
+            border-left: 2px solid color($colors,danger);
+            // margin-left: 0.65rem;
+            padding-left: 0.5rem!important;
+            margin-bottom:0!important;
+        }
+        ion-card-content{
+            padding-bottom:0!important;
+            ul{
+                padding: 0;
+                margin: 0;
+                list-style-type: none;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                li{
+                    width: 45%;
+                    padding: 0.8rem;
+                    display: flex;
+                    margin-top: 0.7rem;
+                    justify-content: flex-start;
+                    .classPreview{
+                        width: 30%;
+                        img{
+                            width: 100%;
+                        }
+                    }
+                    .classInfo{
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-content: center;
+                        h3{
+                            width: 100%;
+                            margin: 0;
+                            margin-bottom: 0.6rem;
+                            padding-left: 1rem;
+                            color:color($colors,fontBlack)
+                        }
+                        p{
+                            width: 100%;
+                            padding-left: 1rem;
+                            color:color($colors,fontGray)
+                        }
+                    };
+                    &:nth-child(odd){
+                        margin-right: 10%;
+                        position: relative;
+                        &::before{
+                            content: "";
+                            display: inline-block;
+                            width: 1px;
+                            height: 70%;
+                            background: color($colors,fineLineColor);
+                            // background: color($colors,fineLineColor);
+                            position: absolute;
+                            right: -12%;
+                            top: 15%;
+                            transform: scaleX(0.5)
+                        }
+                    };
+                    &:active{
+                        background: color($colors,backgroundColor)
+                    }
+                }
+            }
+        }
+    }
+}

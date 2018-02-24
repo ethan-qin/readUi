@@ -48,8 +48,8 @@
 
     </ion-list>
   </ion-scroll>
-  <ion-scroll float-left col-9 no-padding scrollY="true">
-    <ion-list class="rankContainer" no-lines>
+  <ion-scroll class="rankContainer" #scroll float-left col-9 no-padding scrollY="true">
+    <ion-list no-lines>
       <button ion-item *ngFor="let item of items">
         <div class="bookListItem">
           <div class="bookPreview">
@@ -65,16 +65,20 @@
               <ion-icon name="ios-person-outline"></ion-icon>
               黑暗荔枝
               <span>
-                  二次元
-                </span>
-              <span>
-                147万字
+                <em>147万字</em>
               </span>
+              <span>
+                <em>二次元</em>
+              </span>
+
             </p>
           </div>
         </div>
         <div class="fineLine"></div>
       </button>
     </ion-list>
+    <ion-row [ngClass]="{'loadMore': !hasMore}" align-items-center justify-content-center #spinner>
+        <ion-spinner name="circles"></ion-spinner>加载中
+    </ion-row>
   </ion-scroll>
 </ion-content>

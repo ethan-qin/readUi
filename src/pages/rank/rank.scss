@@ -20,9 +20,12 @@ page-rank {
     }
     .rankList{
         ion-item{
+            color: color($colors,fontBlack);
             border-width: 2px;
             background: color($colors,backgroundColor);
             border-left: 2px solid color($colors,backgroundColor);
+            font-weight: 600;
+            font-size: 1.5rem;
             &.checked{
                 background:#fff;
                 border-left: 2px solid color($colors,danger)
@@ -33,95 +36,114 @@ page-rank {
         }
     }
     .rankContainer{
-        .fineLine {
-            display: block;
-            position: absolute;
-            width: 200%;
-            bottom: 0;
-            left: -48%;
-            transform: scale(0.5);
-            background: color($colors, fineLineColor);
-            height: 1px;
-        }
-        .bookListItem {
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
-            .bookPreview {
-                position: relative;
-                width: 18%;
-                padding-left: 0.1rem;
-                padding-top: 0.1rem;
-                img {
-                    box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
-                    vertical-align: middle;
-                }
-                .ranking {
-                    position: absolute;
-                    font-size: 1.2rem;
-                    background: #cc3642;
-                    color: #fff;
-                    padding: 0.2rem 0.2rem 0.1rem 0.2rem;
-                    left: 0;
-                    top: 0.5rem;
-                }
+        background: #fff;
+        ion-list{
+            margin-bottom:0;
+            .fineLine {
+                display: block;
+                position: absolute;
+                width: 200%;
+                bottom: 0;
+                left: -50%;
+                transform: scale(0.5);
+                background: color($colors, fineLineColor);
+                height: 1px;
             }
-            .bookContainer {
+            .bookListItem {
                 display: flex;
-                width: 80%;
-                flex-wrap: wrap;
-                padding-left: 0.8rem;
-                align-content: space-between;
-                >* {
-                    width: 100%;
+                width: 100%;
+                justify-content: space-between;
+                .bookPreview {
+                    position: relative;
+                    width: 18%;
+                    padding-left: 0.1rem;
+                    padding-top: 0.1rem;
+                    img {
+                        box-shadow: 0 0 1px 1px rgba(0, 0, 0, .1);
+                        vertical-align: middle;
+                        width: 100%;
+                        height: 100%;
+                    }
+                    .ranking {
+                        position: absolute;
+                        font-size: 1.1rem;
+                        background: #cc3642;
+                        color: #fff;
+                        padding: 0.2rem 0.2rem 0.1rem 0.2rem;
+                        left: 0;
+                        top: 0.5rem;
+                    }
                 }
-                h2 {
-                    font-size: 1.3rem;
-                    font-weight: normal;
-                    color: color($colors,fontBlack);
-                    span {
-                        float: right;
+                .bookContainer {
+                    display: flex;
+                    width: 80%;
+                    flex-wrap: wrap;
+                    padding-left: 0.8rem;
+                    align-content: space-between;
+                    >* {
+                        width: 100%;
+                    }
+                    h2 {
+                        font-size: 1.3rem;
+                        font-weight: normal;
+                        color: color($colors,fontBlack);
+                        span {
+                            float: right;
+                            font-size: 1.2rem;
+                            color: #7ca2de;
+                        }
+                    }
+                    .intro {
+                        font-size: 1.3rem;
+                        // text-shadow: 1px 1px 1px rgba(162, 179, 206, .4);
+                        color:rgb(168,168,168)!important;
+                    }
+                    .tag {
                         font-size: 1.2rem;
-                        color: #7ca2de;
-                    }
-                }
-                .intro {
-                    font-size: 1.3rem;
-                    // text-shadow: 1px 1px 1px rgba(162, 179, 206, .4);
-                    color:rgb(168,168,168)!important;
-                }
-                .tag {
-                    font-size: 1.2rem;
-                    height: 1.6rem;
-                    line-height: 1.6rem;
-                    padding-right: 10px;
-                    margin-bottom: 0;
-                    overflow: hidden;
-                    color:rgb(168,168,168)!important;
-                    ion-icon {
-                        font-size: 2rem;
-                        vertical-align: top;
-                        margin-top: -0.1rem;
-                        text-shadow: none;
-                    }
-                    span {
-                        float: right;
-                        text-shadow: none;
-                        transform: scale(0.5);
-                        font-size: 2rem;
-                        padding: 0.6rem 0.8rem;
-                        border: 1px solid rgba(162, 179, 206, .9);
-                        border-radius: 0.3rem;
-                        color: #a2b3ce;
-                        margin-top: -0.7rem;
-                        margin-right: -3rem;
-                        &:nth-child(3){
-                          color: #d4b185;
-                          border-color: #d4b185;
+                        height: 1.6rem;
+                        line-height: 1.6rem;
+                        // padding-right: 10px;
+                        margin-bottom: 0;
+                        overflow: hidden;
+                        white-space:nowrap; 
+                        color:rgb(168,168,168)!important;
+                        ion-icon {
+                            font-size: 2rem;
+                            vertical-align: top;
+                            margin-top: -0.1rem;
+                            text-shadow: none;
+                        }
+                        span {
+                            float: right;
+                            max-width: 5rem;
+                            overflow: hidden;
+                            margin-top: -0.5rem;
+                            text-align: right;
+                            &:nth-child(2){
+                                em{
+                                    border-color: #d4b185;
+                                }
+                            }
+                            em{
+                                float: right;
+                                font-style: normal;
+                                color: #a2b3ce;
+                                text-shadow: none;
+                                transform: scale(0.5);
+                                transform-origin: right center;
+                                font-size: 2rem;
+                                padding: 0.5rem 0.4rem;
+                                border: 1px solid rgba(162, 179, 206, .9);
+                                // border-radius: 0.3rem;
+                            }
                         }
                     }
                 }
             }
-        }   
+        }
+        .loadMore{
+            height:1px;
+            opacity: 0;
+        }
     }
 }
