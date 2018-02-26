@@ -1,4 +1,7 @@
 page-setting {
+    .toolbar-title-md{
+        padding: 0;
+      }
     ion-content {
       background-color: color($colors,backgroundColor)!important;
     }

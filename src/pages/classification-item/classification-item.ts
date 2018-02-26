@@ -14,7 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'classification-item.html',
 })
 export class ClassificationItemPage {
-
+  where:string = 'recommend'
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
