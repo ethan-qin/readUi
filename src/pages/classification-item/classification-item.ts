@@ -15,6 +15,38 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ClassificationItemPage {
   where:string = 'recommend'
+  bookList:any = {
+    listName:'本周强推',
+    books:[
+      {
+        bookPreview:'https://qidian.qpic.cn/qdbimg/349573/1006635077/150',
+        title:'罪域的骨终为王',
+        intro:'民风淳朴的燕南真，热情好客',
+        author:'黑暗荔枝',
+        bookSize:'147万字',
+        bookStu:'连载',
+        tag:'二次元'
+      },
+      {
+        bookPreview:'https://qidian.qpic.cn/qdbimg/349573/1006635077/150',
+        title:'罪域的骨终为王',
+        intro:'民风淳朴的燕南真，热情好客',
+        author:'黑暗荔枝',
+        bookSize:'147万字',
+        bookStu:'连载',
+        tag:'二次元'
+      },
+      {
+        bookPreview:'https://qidian.qpic.cn/qdbimg/349573/1006635077/150',
+        title:'罪域的骨终为王',
+        intro:'民风淳朴的燕南真，热情好客',
+        author:'黑暗荔枝',
+        bookSize:'147万字',
+        bookStu:'连载',
+        tag:'二次元'
+      }
+    ]
+  }
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

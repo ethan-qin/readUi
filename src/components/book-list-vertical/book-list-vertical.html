@@ -1,0 +1,36 @@
+<!-- Generated template for the BookListVerticalComponent component -->
+<ion-list no-lines class="bookList">
+  <button class="listHead" ion-item>
+    <span item-start class="listTitle">{{bookList.listName}}</span>
+    <span class="more" item-end icon-right>
+      更多
+      <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+    </span>
+  </button>
+  <button ion-item *ngFor='let book of bookList.books'>
+    <div class="bookListItem">
+      <div class="bookPreview">
+        <img [src]="book.bookPreview">
+      </div>
+      <div class="bookContainer">
+        <h2>{{book.title}}</h2>
+        <p class="intro">{{book.intro}}</p>
+        <p class="tag">
+          <ion-icon name="ios-person-outline"></ion-icon>
+            {{book.author}}
+          <span>
+            {{book.bookSize}}
+          </span>
+
+          <span>
+            {{book.bookStu}}
+          </span>
+          <span>
+            {{book.tag}}
+          </span>
+        </p>
+      </div>
+    </div>
+    <div class="fineLine"></div>
+  </button>
+</ion-list>
