@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 /**
  * Generated class for the BookListRankComponent component.
@@ -10,14 +10,12 @@ import { Component, Input } from '@angular/core';
   selector: 'book-list-rank',
   templateUrl: 'book-list-rank.html'
 })
-export class BookListRankComponent {
+export class BookListRankComponent implements OnInit {
   @Input() hasRank: boolean;
   @Input() hasSearch: boolean;
   text: string;
   bookList: Array<any> = [];
   constructor() {
-    console.log('Hello BookListRankComponent Component');
-    this.text = 'Hello World';
     this.getRankList();
   }
 
@@ -36,5 +34,10 @@ export class BookListRankComponent {
   }
   getMoreRankList(e): void {
     this.getRankList(e);
+  }
+  ngOnInit() {    
+    console.log('this', this);
+    console.log('hasRank', this.hasRank);
+    console.log('hasSearch', this.hasSearch);
   }
 }

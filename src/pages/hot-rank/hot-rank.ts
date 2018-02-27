@@ -16,18 +16,19 @@ import { SexPopComponent } from '../../components/sex-pop/sex-pop';
   templateUrl: 'hot-rank.html',
 })
 export class HotRankPage {
-
+  stu:boolean;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private popCtrl: PopoverController
   ) {
-
+    this.stu =false;
   }
 
   ionViewDidLoad() {
+   console.log('ionic');
+   
   }
-
   /**
    * 切换性别分类
    *
