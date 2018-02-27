@@ -7,7 +7,7 @@
       <ion-icon name="ios-arrow-forward-outline"></ion-icon>
     </span>
   </button>
-  <button ion-item *ngFor='let book of bookList.books'>
+  <button class="bookItemContainer" ion-item *ngFor='let book of bookList.books'>
     <div class="bookListItem">
       <div class="bookPreview">
         <img [src]="book.bookPreview">

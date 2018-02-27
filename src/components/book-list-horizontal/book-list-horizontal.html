@@ -1,15 +1,17 @@
 <!-- Generated template for the BookListHorizontalComponent component -->
 <ion-list no-lines class="bookList">
   <button class="listHead" ion-item>
-    <span item-start class="listTitle">小编力荐</span>
+    <span item-start class="listTitle">{{bookList.listName}}</span>
     <span class="more" item-end icon-right>
       更多
       <ion-icon name="ios-arrow-forward-outline"></ion-icon>
     </span>
   </button>
-  <ul class="bookListContainer">
-    <li class="bookListItem">
-      <img src="" alt="">
+  <ul padding class="bookListContainer">
+    <li *ngFor="let book of bookList.books" class="bookListItem">
+      <img [src]="book.bookPreview" alt="">
+      <h5>{{book.title}}</h5>
+      <p>{{book.author}}</p>
     </li>
   </ul>
 </ion-list>

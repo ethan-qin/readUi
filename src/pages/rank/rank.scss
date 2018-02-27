@@ -45,10 +45,10 @@ page-rank {
             .fineLine {
                 display: block;
                 position: absolute;
-                width: 200%;
+                width: 400%;
                 bottom: 0;
-                left: -50%;
-                transform: scale(0.5);
+                left: -140%;
+                transform: scale(0.3);
                 background: color($colors, fineLineColor);
                 height: 1px;
             }
@@ -108,7 +108,7 @@ page-rank {
                         // padding-right: 10px;
                         margin-bottom: 0;
                         overflow: hidden;
-                        white-space:nowrap; 
+                        white-space:nowrap;
                         color:rgb(168,168,168)!important;
                         ion-icon {
                             font-size: 2rem;

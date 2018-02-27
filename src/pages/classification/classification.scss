@@ -56,13 +56,13 @@ page-classification {
                             content: "";
                             display: inline-block;
                             width: 1px;
-                            height: 70%;
+                            height: 50%;
                             background: color($colors,fineLineColor);
                             // background: color($colors,fineLineColor);
                             position: absolute;
                             right: -12%;
-                            top: 15%;
-                            transform: scaleX(0.5)
+                            top: 25%;
+                            transform: scaleX(0.3)
                         }
                     };
                     &:active{

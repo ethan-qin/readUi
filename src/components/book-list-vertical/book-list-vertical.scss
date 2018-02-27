@@ -17,12 +17,14 @@ book-list-vertical {
         .fineLine {
             display: block;
             position: absolute;
-            width: 200%;
+            width: 400%;
             bottom: 0;
-            left: -48%;
-            transform: scale(0.5);
+            left: -136%;
+            transform: scale(0.3);
             background: color($colors, fineLineColor);
+            // background: color($colors, danger);
             height: 1px;
+
         }
     }
     .bookListItem {
@@ -35,7 +37,7 @@ book-list-vertical {
             padding-left: 0.1rem;
             padding-top: 0.1rem;
             img {
-                box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+                box-shadow: 0 0 1px 1px rgba(0, 0, 0, .2);
                 vertical-align: middle;
             }
         }
@@ -87,5 +89,14 @@ book-list-vertical {
                 }
             }
         }
+
+    }
+
+    .bookItemContainer{
+      &:last-child{
+        .fineLine {
+          background: transparent;
+      }
+      }
     }
 }

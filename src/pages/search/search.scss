@@ -119,12 +119,12 @@ page-search {
             &::before {
                 content: "";
                 display: block;
-                width: 200%;
+                width: 400%;
                 height: 1px;
                 background: color($colors, fineLineColor);
-                transform: scale(0.5);
+                transform: scale(0.3);
                 position: absolute;
-                left: -47%;
+                left: -136%;
                 bottom: 0;
             }
             &:last-child::before {
@@ -248,11 +248,12 @@ page-search {
         .fineLine {
             display: block;
             position: absolute;
-            width: 200%;
+            width: 400%;
             bottom: 0;
-            left: -48%;
-            transform: scale(0.5);
+            left: -136%;
+            transform: scale(0.3);
             background: color($colors, fineLineColor);
+            // background: color($colors, danger);
             height: 1px;
         }
     }

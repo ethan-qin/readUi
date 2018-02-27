@@ -1,0 +1,36 @@
+<!-- Generated template for the BookListRankComponent component -->
+<ion-list no-lines class="bookList">
+  <button ion-item *ngFor="let book of bookList;index as i">
+    <div class="bookListItem">
+      <div class="bookPreview">
+        <img src="https://qidian.qpic.cn/qdbimg/349573/1006635077/150">
+        <span *ngIf="hasRank" class="ranking">{{i+1}}</span>
+      </div>
+      <div class="bookContainer">
+        <h2>罪域的骨终为王
+          <span *ngIf="hasSearch">1742搜索</span>
+        </h2>
+        <p class="intro">民风淳朴的燕南真，热情好客</p>
+        <p class="tag">
+          <ion-icon name="ios-person-outline"></ion-icon>
+          黑暗荔枝
+          <span>
+            147万字
+          </span>
+          <span>
+            连载
+          </span>
+          <span>
+            二次元
+          </span>
+        </p>
+      </div>
+    </div>
+    <div class="fineLine"></div>
+  </button>
+  <ion-infinite-scroll (ionInfinite)="getMoreRankList($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载中">
+
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-list>

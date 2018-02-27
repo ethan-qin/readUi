@@ -17,6 +17,7 @@ export class BookListVerticalComponent {
   constructor() {
     console.log('Hello BookListVerticalComponent Component');
     this.text = 'Hello World';
+    console.log('这是的',this.bookList)
   }
 
 }
