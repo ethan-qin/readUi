@@ -1,0 +1,93 @@
+search-filtrate {
+    ul {
+        padding: 0;
+        margin: 0;
+        li {
+            display: flex;
+            position: relative;
+            justify-content: space-between;
+            &::before {
+                content: "";
+                display: block;
+                width: 400%;
+                height: 1px;
+                background: color($colors, fineLineColor);
+                position: absolute;
+                bottom: 0;
+                left: -140%;
+                transform: scale(0.3)
+            }
+            .left {
+                display: flex;
+                padding: 0 1.5rem;
+                background: #f5f2ec;
+                min-width: 20%;
+                span {
+                    margin: auto;
+                    color: colors($colors, dark);
+                }
+            }
+            .content {
+                display: flex;
+                padding: 0.5rem 0.4rem;
+                flex: 1;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                .filtrateItem {
+                    position: relative;
+                    color: colors($colors, dark);
+                    border: 1px solid transparent;
+                    padding: 0.3rem 0.8rem;
+                    margin: 0.4rem 0.8rem;
+                    &::before {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        content: "";
+                        display: block;
+                        width: 200%;
+                        height: 200%;
+                        border: 1px solid color($colors, fineLineColor);
+                        transform: scale(0.5);
+                        transform-origin: top left;
+                        background: transparent;
+                        border-radius: 0.3rem;
+                    }
+                    &.checked {
+                      color: color($colors, danger);
+                        &::before {
+                            border: 1px solid color($colors, danger);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .btnContainer {
+        position: relative;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        &::before {
+            content: "";
+            display: block;
+            width: 400%;
+            height: 1px;
+            position: absolute;
+            background: color($colors, fineLineDark);
+            left: -140%;
+            bottom: 0;
+            transform: scale(0.3)
+        }
+        &::after {
+            content: "";
+            display: block;
+            width: 400%;
+            height: 1px;
+            position: absolute;
+            background: color($colors, fineLineDark);
+            left: -140%;
+            top: 0;
+            transform: scale(0.3)
+        }
+    }
+}

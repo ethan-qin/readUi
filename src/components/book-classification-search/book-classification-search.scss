@@ -1,3 +1,91 @@
 book-classification-search {
-
+    ion-grid {
+        background: #fff;
+        padding: 0!important;
+        position: relative;
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: -150%;
+            width: 400%;
+            height: 1px;
+            background: color($colors, fineLineDark);
+            transform: scale(0.3)
+        }
+        ion-row {
+            ion-col {
+              padding-bottom: 0.8rem!important;
+              overflow: hidden;
+                button {
+                    color: color($colors, dark);
+                    font-size: 1.4rem;
+                    width: 100%;
+                    height: 100%;
+                    background: transparent;
+                    ion-icon {
+                        font-size: 1.2rem;
+                        vertical-align: middle;
+                        color: #d5b285;
+                    }
+                }
+                &::after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    background: color($colors, fineLineDark);
+                    right: 0;
+                    top: -40%;
+                    width: 1px;
+                    height: 180%;
+                    transform: scale(0.3)
+                }
+                &:last-child {
+                    &::after {
+                        display: none;
+                    }
+                }
+                .iconTag {
+                    display: block;
+                    position: absolute;
+                    width: 4rem;
+                    height: 4rem;
+                    bottom: 0rem;
+                    left: 50%;
+                    margin-left: -2.5rem;
+                    background: #fff;
+                    overflow: hidden;
+                    transform: scale(0.3);
+                    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+                    // background: red;
+                    transform-origin: center bottom;
+                    &::before {
+                        position: absolute;
+                        top: 1rem;
+                        left: 2rem;
+                        content: "";
+                        display: block;
+                        width: 100%;
+                        height: 1px;
+                        background: color($colors, fineLineDark);
+                        transform: rotate(126deg);
+                        transform-origin: center left;
+                    }
+                    &::after {
+                        position: absolute;
+                        top: 1rem;
+                        left: -2rem;
+                        content: "";
+                        display: block;
+                        width: 100%;
+                        height: 1px;
+                        background: color($colors, fineLineDark);
+                        transform: rotate(-126deg);
+                        transform-origin: center right;
+                    }
+                }
+            }
+        }
+    }
 }

@@ -1,0 +1,12 @@
+<!-- Generated template for the SearchCheckboxComponent component -->
+<ion-list no-lines no-margin>
+    <ion-item *ngFor="let item of searchList" text-center (click)="setValue(item)">
+      <span ion-text [ngClass]="{'red': item.checked}">{{item.class}}
+        <ion-icon *ngIf="item.checked" color="danger" name="md-checkbox"></ion-icon>
+      </span>
+      <em [ngClass]="{'line': true, 'red': item.checked}"></em>
+    </ion-item>
+  </ion-list>
+  <div class="btnContainer" padding-horizontal>
+    <button ion-button color="danger" block>完成</button>
+  </div>

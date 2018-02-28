@@ -22,12 +22,12 @@ export class HotRankPage {
     public navParams: NavParams,
     private popCtrl: PopoverController
   ) {
-    this.stu =false;
+    this.stu =true;
   }
 
   ionViewDidLoad() {
    console.log('ionic');
-   
+
   }
   /**
    * 切换性别分类

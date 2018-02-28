@@ -1,78 +1,84 @@
 page-classification-item {
-    .toolbar-title-md{
-        padding: 0;
-      }
-      .toolbar-content{
-          width: 50%;
-          position: absolute;
-          left: 25%;
-      }
-      .segment{
-        transform: translateY(1px)
-      }
-      .segment-button{
-          color: rgba(255,255,255,.7)!important;
-          border-bottom-color:rgba(0,0,0,0)!important;
-          font-size: 1.6rem!important;
-          &.segment-activated{
-            border-color: #eed49e!important;
-          }
-          &.segment-activated{
-            color: rgba(255,255,255,1)!important;
-          }
-      }
-      ion-card.slides {
-        width: 100%!important;
-        box-shadow: none!important;
-        ion-item {
-            color: color($colors, fontBlack);
-            font-size: 1.6rem;
+    .toggleBar {
+        .toolbar-title-md {
+            padding: 0;
         }
-        ion-icon {
-            display: flex;
-            font-size: 1.8rem!important;
-            color: color($colors, iconGray);
-            &::before {
-                margin: auto;
+        .toolbar-content {
+            width: 50%;
+            position: absolute;
+            left: 25%;
+        }
+        .segment {
+            transform: translateY(1px)
+        }
+        .segment-button {
+            color: rgba(255, 255, 255, .7)!important;
+            border-bottom-color: rgba(0, 0, 0, 0)!important;
+            font-size: 1.6rem!important;
+            &.segment-activated {
+                border-color: #eed49e!important;
+            }
+            &.segment-activated {
+                color: rgba(255, 255, 255, 1)!important;
             }
         }
-        .bookList{
-            display: flex;
-            justify-content: space-between;
-            .bookItem{
-                width: 22%;
-                img{
-                    box-shadow: 0 0 1px rgba(0,0,0,.3)
+        ion-card.slides {
+            width: 100%!important;
+            box-shadow: none!important;
+            ion-item {
+                color: color($colors, fontBlack);
+                font-size: 1.6rem;
+            }
+            ion-icon {
+                display: flex;
+                font-size: 1.8rem!important;
+                color: color($colors, iconGray);
+                &::before {
+                    margin: auto;
                 }
-                h3{
-                    margin-top: 0.8rem;
-                    text-align: left;
-                    color:color($colors,fontBlack)
-                }
-                p{
-                    text-align: left;
-                    color:color($colors,fontGray);
-                    transform: scale(0.7);
-                    transform-origin: left top;
+            }
+            .bookList {
+                display: flex;
+                justify-content: space-between;
+                .bookItem {
+                    width: 22%;
+                    img {
+                        box-shadow: 0 0 1px rgba(0, 0, 0, .3)
+                    }
+                    h3 {
+                        margin-top: 0.8rem;
+                        text-align: left;
+                        color: color($colors, fontBlack)
+                    }
+                    p {
+                        text-align: left;
+                        color: color($colors, fontGray);
+                        transform: scale(0.7);
+                        transform-origin: left top;
+                    }
                 }
             }
         }
-
-
+    }
+    .searchBar {
+        min-height: 1rem;
+        background: blue!important;
+        .toolbar-title {
+            padding: 0;
+        }
     }
     ion-content {
-        background-color: color($colors,backgroundColor)!important;
-        .pageContainer{
+        background-color: color($colors, backgroundColor)!important;
+        .pageContainer {
             background: transparent;
-            .recommend{
+            .recommend {
                 align-items: flex-start!important;
                 overflow-y: auto;
             }
-            .all{
-              align-items: flex-start!important;
-              overflow-y: auto;
-          }
+            .all {
+                align-items: flex-start!important;
+                overflow-y: auto;
+            }
         }
     }
-
 }

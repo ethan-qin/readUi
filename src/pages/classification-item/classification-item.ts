@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Slides, Content } from 'ionic-angular';
 
 /**
  * Generated class for the ClassificationItemPage page.
@@ -14,8 +14,11 @@ import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
   templateUrl: 'classification-item.html',
 })
 export class ClassificationItemPage {
-  @ViewChild('pageContainer') pageContainer: Slides
-  where: string = 'recommend'
+  @ViewChild('pageContainer') pageContainer: Slides;
+  @ViewChild(Content) content: Content;
+  where: string = 'recommend';
+  stu: boolean;
+  search: boolean = false;;
   bookList: any = {
     listName: '本周强推',
     books: [
@@ -57,21 +60,39 @@ export class ClassificationItemPage {
       }
     ]
   }
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams
+  ) {
+    this.stu = false;
   }
 
   ionViewDidLoad() {
     console.log(this.pageContainer);
   }
-  fun(): void {
+  toggle(): void {
     if (this.pageContainer.isBeginning()) {
-      this.pageContainer.lockSwipeToNext(false);
-      this.pageContainer.lockSwipeToPrev(true);
-      this.where='recommend'
+      this.goToRecommend()
     } else {
-      this.pageContainer.lockSwipeToNext(true);
-      this.pageContainer.lockSwipeToPrev(false);
-      this.where='all'
+      this.goToAll()
     }
+  }
+
+
+  goToRecommend(): void {
+    this.pageContainer.slidePrev()
+    this.pageContainer.lockSwipeToNext(false);
+    this.pageContainer.lockSwipeToPrev(true);
+    this.where = 'recommend'
+    this.search = false;
+    this.content.resize();
+  }
+  goToAll(): void {
+    this.pageContainer.slideNext()
+    this.pageContainer.lockSwipeToNext(true);
+    this.pageContainer.lockSwipeToPrev(false);
+    this.where = 'all'
+    this.search = true;
+    this.content.resize()
   }
 }

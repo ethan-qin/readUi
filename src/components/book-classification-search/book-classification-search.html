@@ -1,4 +1,26 @@
 <!-- Generated template for the BookClassificationSearchComponent component -->
-<div>
-  {{text}}
-</div>
+<ion-grid>
+  <ion-row>
+    <ion-col (click)=fun($event)>
+      <button>
+        类型
+        <ion-icon name="ios-arrow-down"></ion-icon>
+      </button>
+      <span class="iconTag"></span>
+    </ion-col>
+    <ion-col (click)=fun1($event)>
+      <button>
+        人气排序
+        <ion-icon name="ios-arrow-down"></ion-icon>
+      </button>
+      <span class="iconTag"></span>
+    </ion-col>
+    <ion-col (click)=fun3($event)>
+      <button>
+        筛选
+        <ion-icon name="ios-arrow-down"></ion-icon>
+      </button>
+      <span class="iconTag"></span>
+    </ion-col>
+  </ion-row>
+</ion-grid>
