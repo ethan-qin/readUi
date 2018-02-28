@@ -1,37 +1,11 @@
 <!-- Generated template for the SearchFiltrateComponent component -->
 <ul>
-  <li>
+  <li *ngFor="let items of searchList">
     <div class="left">
-      <span>字数</span>
+      <span>{{items.title}}</span>
     </div>
     <div class="content">
-      <span class="filtrateItem checked">不限</span>
-      <span class="filtrateItem">30万以下</span>
-      <span class="filtrateItem">30万-50万</span>
-      <span class="filtrateItem">50万-100万</span>
-      <span class="filtrateItem">100万-200万</span>
-      <span class="filtrateItem">200万以上</span>
-    </div>
-  </li>
-  <li>
-    <div class="left">
-      <span>进度</span>
-    </div>
-    <div class="content">
-      <span class="filtrateItem checked">全部</span>
-      <span class="filtrateItem">连载</span>
-      <span class="filtrateItem">完本</span>
-    </div>
-  </li>
-  <li>
-    <div class="left">
-      <span>状态</span>
-    </div>
-    <div class="content">
-      <span class="filtrateItem checked">不限</span>
-      <span class="filtrateItem">只看免费</span>
-      <span class="filtrateItem">只看VIP</span>
-      <span class="filtrateItem">只看A级签约</span>
+      <span *ngFor="let item of items.list" (click)="toggle(item)" [ngClass]="{'filtrateItem': true,'checked':item.checked}">{{item.class}}</span>
     </div>
   </li>
 </ul>

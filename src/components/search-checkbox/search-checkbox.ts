@@ -1,5 +1,6 @@
 import { Component, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { NavController, NavParams } from 'ionic-angular';
 /**
  * Generated class for the SearchCheckboxComponent component.
  *
@@ -22,46 +23,12 @@ export class SearchCheckboxComponent implements ControlValueAccessor {
   content: string;
   onChanged: Function;
   onTouched: Function;
-  constructor() {
-    this.searchList = [
-      {
-        idCode: 1,
-        class: '上古蛮荒',
-        checked: true
-      },
-      {
-        idCode: 2,
-        class: '热血江湖',
-        checked: false
-      },
-      {
-        idCode: 3,
-        class: '古代情缘',
-        checked: false
-      },
-      {
-        idCode: 4,
-        class: '宫闱宅斗',
-        checked: false
-      },
-      {
-        idCode: 5,
-        class: '经商种田',
-        checked: false
-      },
-      {
-        idCode: 6,
-        class: '古典架空',
-        checked: false
-      },
-      {
-        idCode: 7,
-        class: '女尊王朝',
-        checked: false
-      }
-    ]
+  constructor(
+    private navCtrl: NavController,
+    public navParams: NavParams,
+  ) {
+    this.searchList = navParams.get('list');
   }
-
   writeValue(obj: any): void {
     this.content = obj;
   }
