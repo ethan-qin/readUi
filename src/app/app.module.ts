@@ -1,4 +1,3 @@
-import { SafeHtmlPipe } from './../pipes/safe-html/safe-html';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -11,22 +10,16 @@ import { CodePush } from "@ionic-native/code-push";
 
 import { BookServicesProvider } from '../providers/book-services/book.services';
 import { ComponentsModule } from './../components/components.module';
-import { ContactPage } from '../pages/contact/contact';
-import { FindPage } from '../pages/find/find';
-import { HomePage } from '../pages/home/home';
 import { HttpProvider } from '../providers/http/http';
 import { MyApp } from './app.component';
 import { TabsPage } from '../pages/tabs/tabs';
 import { NativeProvider } from '../providers/native/native';
 import { UserServicesProvider } from '../providers/user-services/user-services';
-import { PipesModule } from '../pipes/pipes.module';
+import { BookProvider } from '../providers/book/book';
 
 
 @NgModule({
   declarations: [
-    FindPage,
-    ContactPage,
-    HomePage,
     MyApp,
     TabsPage,
   ],
@@ -38,6 +31,8 @@ import { PipesModule } from '../pipes/pipes.module';
       tabsHideOnSubPages: 'true',
       backButtonText: "",
       // modalEnter:''
+      mode: 'md',
+      activator: 'highlight',
       pageTransition: 'ios-transition',
       pageTransitionDelay: 30,
       backButtonIcon: 'md-arrow-back'
@@ -46,9 +41,6 @@ import { PipesModule } from '../pipes/pipes.module';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    FindPage,
-    ContactPage,
-    HomePage,
     MyApp,
     TabsPage
   ],
@@ -61,7 +53,8 @@ import { PipesModule } from '../pipes/pipes.module';
     NativeProvider,
     UserServicesProvider,
     Vibration,
-    CodePush
+    CodePush,
+    BookProvider
   ]
 })
 export class AppModule { }

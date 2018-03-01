@@ -1,3 +1,4 @@
+import { NavController } from 'ionic-angular';
 import { Component, Input } from '@angular/core';
 
 /**
@@ -14,10 +15,14 @@ export class BookListVerticalComponent {
   @Input() bookList: any;
   text: string;
 
-  constructor() {
-    console.log('Hello BookListVerticalComponent Component');
-    this.text = 'Hello World';
-    console.log('这是的',this.bookList)
+  constructor(
+    private navCtrl: NavController
+  ) {
   }
-
+  openBook(data) {
+    this.navCtrl.push('BookAbstractPage', { bookId: data });
+  }
+  openMore(listId, title) {
+    this.navCtrl.push('ListMorePage', { listId: listId, title: title });
+  }
 }

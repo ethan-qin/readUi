@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { Component, Input } from '@angular/core';
 
 /**
  * Generated class for the BookListSlidesComponent component.
@@ -11,12 +12,18 @@ import { Component } from '@angular/core';
   templateUrl: 'book-list-slides.html'
 })
 export class BookListSlidesComponent {
+  @Input() bookList: any;
+  constructor(
+    private navCtrl: NavController
+  ) {
 
-  text: string;
-
-  constructor() {
-    console.log('Hello BookListSlidesComponent Component');
-    this.text = 'Hello World';
   }
-
+  ionViewDidEnter() {
+    setTimeout(() => {
+      console.log(this.bookList)
+    }, 3000);
+  }
+  openBook(data) {
+    this.navCtrl.push('BookAbstractPage', { bookId: data });
+  }
 }

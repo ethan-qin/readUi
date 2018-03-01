@@ -1,5 +1,6 @@
+import { ViewController } from 'ionic-angular/navigation/view-controller';
 import { Component } from '@angular/core';
-import { NavParams } from 'ionic-angular';
+import { NavParams, Events } from 'ionic-angular';
 
 /**
  * Generated class for the SearchRadioComponent component.
@@ -15,6 +16,8 @@ export class SearchRadioComponent {
   searchList: Array<any> = [];
   constructor(
     public navParams: NavParams,
+    private events: Events,
+    private viewCtrl: ViewController
   ) {
     this.searchList = navParams.get('list');
   }
@@ -26,6 +29,10 @@ export class SearchRadioComponent {
         element.checked = false;
       }
     });
+    this.done()
   }
-
+  private done(): void {
+    this.events.publish('search:change', { 'key': 'searchRadio', "searchList": this.searchList });
+    this.viewCtrl.dismiss()
+  }
 }

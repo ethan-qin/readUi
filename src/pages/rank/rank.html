@@ -50,7 +50,7 @@
   </ion-scroll>
   <ion-scroll class="rankContainer" #scroll float-left col-9 no-padding scrollY="true">
     <ion-list no-lines>
-      <button ion-item *ngFor="let item of items">
+      <button ion-item *ngFor="let item of items" (click)="openBook(item)">
         <div class="bookListItem">
           <div class="bookPreview">
             <img src="https://qidian.qpic.cn/qdbimg/349573/1006635077/150">

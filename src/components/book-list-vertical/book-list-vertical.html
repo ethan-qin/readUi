@@ -1,13 +1,13 @@
 <!-- Generated template for the BookListVerticalComponent component -->
 <ion-list no-lines class="bookList">
-  <button class="listHead" ion-item>
+  <button class="listHead" ion-item (click)="openMore('more',bookList.listName)">
     <span item-start class="listTitle">{{bookList.listName}}</span>
     <span class="more" item-end icon-right>
       更多
       <ion-icon name="ios-arrow-forward-outline"></ion-icon>
     </span>
   </button>
-  <button class="bookItemContainer" ion-item *ngFor='let book of bookList.books'>
+  <button class="bookItemContainer" ion-item *ngFor='let book of bookList.books' (click)="openBook(book)">
     <div class="bookListItem">
       <div class="bookPreview">
         <img [src]="book.bookPreview">
@@ -17,7 +17,7 @@
         <p class="intro">{{book.intro}}</p>
         <p class="tag">
           <ion-icon name="ios-person-outline"></ion-icon>
-            {{book.author}}
+          {{book.author}}
           <span>
             {{book.bookSize}}
           </span>

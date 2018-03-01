@@ -1,5 +1,6 @@
+import { ViewController } from 'ionic-angular/navigation/view-controller';
 import { Component } from '@angular/core';
-import { NavParams } from 'ionic-angular';
+import { NavParams, Events } from 'ionic-angular';
 
 /**
  * Generated class for the SearchFiltrateComponent component.
@@ -15,6 +16,8 @@ export class SearchFiltrateComponent {
   searchList: Array<any> = [];
   constructor(
     public navParams: NavParams,
+    private events: Events,
+    private viewCtrl: ViewController
   ) {
     this.searchList = navParams.get('list');
   }
@@ -35,11 +38,8 @@ export class SearchFiltrateComponent {
     })
   }
 
-  ionViewDidLoad():void{
-    console.log('页面初始化了',this.searchList);
-  }
-
-  ionViewWillLeave():void{
-    console.log('销毁页面')
+  private done(): void {
+    this.events.publish('search:change', { 'key': 'searchFiltrate', "searchList": this.searchList });
+    this.viewCtrl.dismiss()
   }
 }

@@ -17,10 +17,12 @@ book-classification-search {
         ion-row {
             ion-col {
               padding-bottom: 0.8rem!important;
+              padding-left: 0!important;
+              padding-right: 0!important;
               overflow: hidden;
                 button {
                     color: color($colors, dark);
-                    font-size: 1.4rem;
+                    font-size: 1.3rem;
                     width: 100%;
                     height: 100%;
                     background: transparent;

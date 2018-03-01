@@ -15,8 +15,7 @@ import { BaseUI } from '../../common/baseUI';
 export class BookServicesProvider extends BaseUI {
 
   constructor(
-    public http: HttpProvider,
-    private loaddingCtrl: LoadingController
+    public http: HttpProvider
   ) {
     super()
   }

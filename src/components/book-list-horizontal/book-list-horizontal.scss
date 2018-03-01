@@ -1,6 +1,6 @@
 book-list-horizontal {
     .bookList {
-      background: #fff;
+        background: #fff;
         .listHead {
             padding-top: 1rem;
             min-height: 2rem!important;
@@ -16,28 +16,33 @@ book-list-horizontal {
             color: #9b9b9b;
         }
     }
-    .bookListContainer{
-      margin: 0;
-      list-style-type: none;
-      display: flex;
-      justify-content: space-between;
-      .bookListItem{
-        width: 20%;
-        img{
-          box-shadow: 0 0 1px 1px rgba(0,0,0,.2)
+    .bookListContainer {
+        margin: 0;
+        list-style-type: none;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        .bookListItem {
+            width: 20%;
+            margin-right: 6.666%;
+            &:last-child {
+                margin-right: 0;
+            }
+            img {
+                box-shadow: 0 0 1px 1px rgba(0, 0, 0, .2)
+            }
+            h5 {
+                font-size: 1.2rem;
+                text-align: left;
+                margin: 0.2rem 0;
+                color: color($colors, fontBlack);
+            }
+            p {
+                margin: 0;
+                font-size: 1.1rem;
+                text-align: left;
+                color: color($colors, fontGray);
+            }
         }
-        h5{
-          font-size: 1.2rem;
-          text-align: left;
-          margin: 0.2rem 0;
-          color:color($colors,fontBlack);
-        }
-        p{
-          margin: 0;
-          font-size: 1.1rem;
-          text-align: left;
-          color:color($colors,fontGray);
-        }
-      }
     }
 }

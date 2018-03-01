@@ -1,24 +1,25 @@
+import { IonicPage } from 'ionic-angular';
 import { HomePopComponent } from './../../components/home-pop/home-pop';
 import { Component, ViewChild } from '@angular/core';
 import { NavController, Events, Content } from 'ionic-angular';
 
 import { BookModalComponent } from './../../components/book-modal/book-modal';
-import { BookServicesProvider } from '../../providers/book-services/book.services';
-import { HttpProvider } from './../../providers/http/http';
 import { NativeProvider } from '../../providers/native/native';
 import { PopoverController } from 'ionic-angular/components/popover/popover-controller';
+/**
+ * Generated class for the BookrackPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
-
-
+@IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-bookrack',
+  templateUrl: 'bookrack.html',
 })
-
-
-
-export class HomePage {
-  @ViewChild(Content) content:Content;
+export class BookrackPage {
+  @ViewChild(Content) content: Content;
   title: string = '我的书架';
   bookList = [
     {
@@ -42,9 +43,7 @@ export class HomePage {
   ]
   constructor(
     public navCtrl: NavController,
-    private events:Events,
-    private bookCtrl: BookServicesProvider,
-    private http: HttpProvider,
+    private events: Events,
     private native: NativeProvider,
     private popCtrl: PopoverController,
   ) {
@@ -55,7 +54,7 @@ export class HomePage {
     this.getUserInfo();
     this.content.resize()
   }
-  ionViewCanEnter(){
+  ionViewCanEnter() {
     this.native.overlay(false);
   }
 
@@ -118,7 +117,7 @@ export class HomePage {
       showBackdrop: false
     }).present({
       ev: ev,
-      animate:false
+      animate: false
     })
   }
 
@@ -138,7 +137,7 @@ export class HomePage {
 
     setTimeout(() => {
       console.log('Async operation has ended');
-      refresher.complete(); 
+      refresher.complete();
     }, 2000);
   }
 
@@ -156,9 +155,10 @@ export class HomePage {
     })
   }
 
-  private openbook(){
-    this.events.subscribe('openThisBook',(data)=>{
+  private openbook() {
+    this.events.subscribe('openThisBook', (data) => {
       this.navCtrl.push('BookAbstractPage', { bookId: data });
     })
   }
+
 }

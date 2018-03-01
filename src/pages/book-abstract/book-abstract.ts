@@ -1,6 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
 
 import { NativeProvider } from './../../providers/native/native';
 /**
@@ -19,7 +18,7 @@ export class BookAbstractPage {
   @ViewChild('abstract') abstract: any;
   @ViewChild('bookPro') bookPro: any;
   @ViewChild('content') content : any;
-  @ViewChild('title') title: any; 
+  @ViewChild('title') title: any;
   bg: string
   bookcontent: string;
   showMore: boolean = false;
@@ -31,8 +30,7 @@ export class BookAbstractPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private native: NativeProvider,
-    private statusBar: StatusBar
+    private native: NativeProvider
   ) {
 
     this.bg = `url('assets/imgs/bookbg1.jpg')`;

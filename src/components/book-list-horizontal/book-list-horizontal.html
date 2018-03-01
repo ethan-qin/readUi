@@ -1,6 +1,6 @@
 <!-- Generated template for the BookListHorizontalComponent component -->
 <ion-list no-lines class="bookList">
-  <button class="listHead" ion-item>
+  <button class="listHead" ion-item (click)="openMore('more',bookList.listName)">
     <span item-start class="listTitle">{{bookList.listName}}</span>
     <span class="more" item-end icon-right>
       更多
@@ -8,7 +8,7 @@
     </span>
   </button>
   <ul padding class="bookListContainer">
-    <li *ngFor="let book of bookList.books" class="bookListItem">
+    <li *ngFor="let book of bookList.books" class="bookListItem" (click)="openBook(book)">
       <img [src]="book.bookPreview" alt="">
       <h5>{{book.title}}</h5>
       <p>{{book.author}}</p>

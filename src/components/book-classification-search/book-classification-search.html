@@ -1,23 +1,23 @@
 <!-- Generated template for the BookClassificationSearchComponent component -->
 <ion-grid>
   <ion-row>
-    <ion-col (click)=fun($event,0)>
+    <ion-col (click)=checkBox($event,0)>
       <button>
-        类型
+        {{checkBoxTitle|searchTitle}}
         <ion-icon name="ios-arrow-down"></ion-icon>
       </button>
       <span *ngIf="index==0" class="iconTag"></span>
     </ion-col>
-    <ion-col (click)=fun1($event,1)>
+    <ion-col (click)=radio($event,1)>
       <button>
-        人气排序
+        {{radioTitle|searchTitle}}
         <ion-icon name="ios-arrow-down"></ion-icon>
       </button>
       <span *ngIf="index==1" class="iconTag"></span>
     </ion-col>
-    <ion-col (click)=fun3($event,2)>
+    <ion-col (click)=flitrate($event,2)>
       <button>
-        筛选
+        {{filtrateTitle|searchTitleFiltrate}}
         <ion-icon name="ios-arrow-down"></ion-icon>
       </button>
       <span *ngIf="index==2" class="iconTag"></span>

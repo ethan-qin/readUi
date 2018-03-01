@@ -1,8 +1,8 @@
+import { User } from './../../pages/person/person';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { HttpProvider } from '../http/http';
-import { User } from '../../pages/contact/contact';
 
 /*
   Generated class for the UserServicesProvider provider.
@@ -20,10 +20,10 @@ export class UserServicesProvider {
 
   /**
    * 用户登录
-   * 
+   *
    * @author qin
-   * @param {Login} body 
-   * @returns {Observable<User>} 
+   * @param {Login} body
+   * @returns {Observable<User>}
    * @memberof UserServicesProvider
    */
   userLogin(body: Login): Observable<User> {
@@ -39,7 +39,7 @@ export class UserServicesProvider {
 
 /**
  * 登录表单
- * 
+ *
  * @author qin
  * @export
  * @class Login

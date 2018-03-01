@@ -284,4 +284,18 @@
                 }
             }
         }
+
+        ion-footer{
+          ion-icon{
+            font-size: 2.5rem;
+          }
+          button{
+            height: 5rem!important;
+          }
+          .buttonIcon{
+            font-size: 1.1rem;
+            font-weight: 300;
+            color:color($colors,iconGray)
+          }
+        }
     }

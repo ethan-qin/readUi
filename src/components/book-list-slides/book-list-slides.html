@@ -1,51 +1,11 @@
 <!-- Generated template for the BookListSlidesComponent component -->
 <ion-list no-lines class="bookList">
   <ion-item class="listHead">
-    <span item-start class="listTitle">畅销榜</span>
+    <span item-start class="listTitle">{{bookList.listName}}</span>
   </ion-item>
   <ion-slides class="slidesContainer" slidesPerView='4' padding>
-    <ion-slide>
-      <div class="bookListItem">
-        <div class="bookPreview">
-          <span class="rank">1</span>
-          <img src="https://qidian.qpic.cn/qdbimg/349573/1006635077/150" alt="">
-        </div>
-        <h5>韶光满</h5>
-        <p>寻找失落的亚特兰蒂斯大陆</p>
-      </div>
-    </ion-slide>
-    <ion-slide>
-      <div class="bookListItem">
-        <div class="bookPreview">
-          <span class="rank">2</span>
-          <img src="https://qidian.qpic.cn/qdbimg/349573/1006635077/150" alt="">
-        </div>
-        <h5>韶光满</h5>
-        <p>寻找失落的亚特兰蒂斯大陆</p>
-      </div>
-    </ion-slide>
-    <ion-slide>
-      <div class="bookListItem">
-        <div class="bookPreview">
-          <span class="rank">3</span>
-          <img src="https://qidian.qpic.cn/qdbimg/349573/1006635077/150" alt="">
-        </div>
-        <h5>韶光满</h5>
-        <p>寻找失落的亚特兰蒂斯大陆</p>
-      </div>
-    </ion-slide>
-    <ion-slide>
-      <div class="bookListItem">
-        <div class="bookPreview">
-          <span class="rank">5</span>
-          <img src="https://qidian.qpic.cn/qdbimg/349573/1006635077/150" alt="">
-        </div>
-        <h5>韶光满</h5>
-        <p>寻找失落的亚特兰蒂斯大陆</p>
-      </div>
-    </ion-slide>
-    <ion-slide>
-      <div class="bookListItem">
+    <ion-slide *ngFor="let item of bookList.books">
+      <div class="bookListItem" (click)="openBook(item)">
         <div class="bookPreview">
           <span class="rank">1</span>
           <img src="https://qidian.qpic.cn/qdbimg/349573/1006635077/150" alt="">

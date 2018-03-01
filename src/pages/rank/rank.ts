@@ -67,10 +67,6 @@ export class RankPage {
       infiniteScroll.complete();
     }, 500);
   }
-
-  a(e): void {
-    console.log(e)
-  }
   addScrollEventListener(): void {
     this.scroll._scrollContent.nativeElement.onscroll = (event) => {
       let top = this.spinner.nativeElement.getBoundingClientRect().top;
@@ -80,5 +76,9 @@ export class RankPage {
         console.log('加载数据中...');
       }
     }
+  }
+
+  openBook(data): void {
+    this.navCtrl.push('BookAbstractPage', { bookId: data });
   }
 }

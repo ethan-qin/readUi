@@ -1,10 +1,10 @@
+import { Component, Input } from '@angular/core';
+import { NavController, Events } from 'ionic-angular';
+import { PopoverController } from 'ionic-angular/components/popover/popover-controller';
+
+import { SearchFiltrateComponent } from '../search-filtrate/search-filtrate';
 import { SearchRadioComponent } from './../search-radio/search-radio';
 import { SearchCheckboxComponent } from './../search-checkbox/search-checkbox';
-import { PopoverController } from 'ionic-angular/components/popover/popover-controller';
-import { Component } from '@angular/core';
-import { SearchFiltrateComponent } from '../search-filtrate/search-filtrate';
-import { NavController } from 'ionic-angular';
-
 /**
  * Generated class for the BookClassificationSearchComponent component.
  *
@@ -16,195 +16,30 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'book-classification-search.html'
 })
 export class BookClassificationSearchComponent {
-  searchCheckBox: Array<any> = [
-    {
-      idCode: 1,
-      class: '上古蛮荒',
-      checked: true
-    },
-    {
-      idCode: 2,
-      class: '热血江湖',
-      checked: false
-    },
-    {
-      idCode: 3,
-      class: '古代情缘',
-      checked: false
-    },
-    {
-      idCode: 4,
-      class: '宫闱宅斗',
-      checked: false
-    },
-    {
-      idCode: 5,
-      class: '经商种田',
-      checked: false
-    },
-    {
-      idCode: 6,
-      class: '古典架空',
-      checked: false
-    },
-    {
-      idCode: 7,
-      class: '女尊王朝',
-      checked: false
-    }
-  ]
-  searchRadio: Array<any> = [
-    {
-      idCode: 1,
-      class: '人气排序',
-      checked: true
-    },
-    {
-      idCode: 2,
-      class: '更新时间排序',
-      checked: false
-    },
-    {
-      idCode: 3,
-      class: '总推荐排序',
-      checked: false
-    },
-    {
-      idCode: 4,
-      class: '总收藏排序',
-      checked: false
-    },
-    {
-      idCode: 5,
-      class: '总月票排序',
-      checked: false
-    },
-    {
-      idCode: 6,
-      class: '会员周点击排序',
-      checked: false
-    },
-    {
-      idCode: 7,
-      class: '会员月点击排序',
-      checked: false
-    },
-    {
-      idCode: 8,
-      class: '会员总点击排序',
-      checked: false
-    },
-    {
-      idCode: 9,
-      class: '字数排序',
-      checked: false
-    }
-  ]
-  searchFiltrate: Array<any> = [
-    {
-      code: 1,
-      title: '字数',
-      list: [
-        {
-          code: 1,
-          idCode: 1,
-          class: '不限',
-          checked: true
-        },
-        {
-          code: 1,
-          idCode: 2,
-          class: '30万以下',
-          checked: false
-        },
-        {
-          code: 1,
-          idCode: 3,
-          class: '30万-50万',
-          checked: false
-        },
-        {
-          code: 1,
-          idCode: 4,
-          class: '50万-100万',
-          checked: false
-        },
-        {
-          code: 1,
-          idCode: 5,
-          class: '100万-200万',
-          checked: false
-        },
-        {
-          code: 1,
-          idCode: 6,
-          class: '200万以上',
-          checked: false
-        }
-      ]
-    },
-    {
-      code: 2,
-      title: '进度',
-      list: [
-        {
-          code: 2,
-          idCode: 7,
-          class: '全部',
-          checked: true
-        },
-        {
-          code: 2,
-          idCode: 8,
-          class: '连载',
-          checked: false
-        },
-        {
-          code: 2,
-          idCode: 9,
-          class: '完本',
-          checked: false
-        }
-      ]
-    },
-    {
-      code: 3,
-      title: '状态',
-      list: [
-        {
-          code: 3,
-          idCode: 10,
-          class: '不限',
-          checked: true
-        },
-        {
-          code: 3,
-          idCode: 11,
-          class: '只看免费',
-          checked: false
-        },
-        {
-          code: 3,
-          idCode: 12,
-          class: '只看VIP',
-          checked: false
-        },
-        {
-          code: 3,
-          idCode: 13,
-          class: '只看A级签约',
-          checked: false
-        }
-      ]
-    },
-  ];
+  @Input() searchCheckBox: Array<any>;
+  @Input() searchRadio: Array<any>;
+  @Input() searchFiltrate: Array<any>;
+  checkBoxTitle: Array<any> = [];
+  radioTitle: Array<any> = [];
+  filtrateTitle: Array<any> = [];
   index: number;
   constructor(
     private popCtrl: PopoverController,
     public navCtrl: NavController,
+    private events: Events
   ) {
+
   }
-  fun(e, index): void {
+
+  ngOnInit() {
+    console.log(this.searchCheckBox[0]);
+
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.setTitle();
+    this.addListenSetTitle();
+  }
+  checkBox(e, index): void {
     let pop = this.popCtrl.create(SearchCheckboxComponent, { list: this.searchCheckBox }, { cssClass: 'searchPop' });
     pop.present({
       ev: e,
@@ -215,7 +50,7 @@ export class BookClassificationSearchComponent {
     })
     this.toggleIcon(index)
   }
-  fun1(e, index): void {
+  radio(e, index): void {
     let pop = this.popCtrl.create(SearchRadioComponent, { list: this.searchRadio }, { cssClass: 'searchPop' });
     pop.present({
       ev: e,
@@ -226,7 +61,7 @@ export class BookClassificationSearchComponent {
     })
     this.toggleIcon(index)
   }
-  fun3(e, index): void {
+  flitrate(e, index): void {
     let pop = this.popCtrl.create(SearchFiltrateComponent, { list: this.searchFiltrate }, { cssClass: 'searchPop' });
     pop.present({
       ev: e,
@@ -245,5 +80,42 @@ export class BookClassificationSearchComponent {
       this.index = index;
 
     }
+  }
+  ngOnDestroy() {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    console.log('尝试取消订阅')
+    this.events.unsubscribe('search:change',()=>[
+      console.log('取消订阅')
+    ])
+  }
+  private setTitle(): void {
+    this.checkBoxTitle = [];
+    this.radioTitle = [];
+    this.filtrateTitle = [];
+    this.searchCheckBox.forEach(element => {
+      if (element.checked) {
+        console.log('放入一个');
+        this.checkBoxTitle.push(element)
+      }
+    });
+    this.searchRadio.forEach(element => {
+      if (element.checked) {
+        this.radioTitle.push(element)
+      }
+    });
+    this.searchFiltrate.forEach(Element => {
+      Element.list.forEach(element => {
+        if (element.checked) {
+          this.filtrateTitle.push(element)
+        }
+      });
+    });
+  }
+
+  private addListenSetTitle(): void {
+    this.events.subscribe('search:change', () => {
+      this.setTitle()
+    })
   }
 }

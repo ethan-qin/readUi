@@ -1,12 +1,20 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { UserServicesProvider, Login } from '../../providers/user-services/user-services';
+/**
+ * Generated class for the PersonPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
+@IonicPage()
 @Component({
-  selector: 'page-contact',
-  templateUrl: 'contact.html'
+  selector: 'page-person',
+  templateUrl: 'person.html',
 })
-export class ContactPage {
+export class PersonPage {
+
   login: Login = {
     phone: 15826548556,
     password: '+35asd5a45'
@@ -26,10 +34,8 @@ export class ContactPage {
   open(): void {
     this.navCtrl.push('SettingPage')
   }
+
 }
-
-
-
 /**
  * 用户基本信息
  *

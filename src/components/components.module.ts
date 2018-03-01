@@ -8,12 +8,14 @@ import { BookListVerticalComponent } from './book-list-vertical/book-list-vertic
 import { BookListSlidesComponent } from './book-list-slides/book-list-slides';
 import { BookListRankComponent } from './book-list-rank/book-list-rank';
 import { HomePopComponent } from './home-pop/home-pop';
+import { PipesModule } from './../pipes/pipes.module';
 import { SexPopComponent } from './sex-pop/sex-pop';
 import { SlidesComponent } from './slides/slides';
 import { TimePopComponent } from './time-pop/time-pop';
 import { SearchCheckboxComponent } from './search-checkbox/search-checkbox';
 import { SearchRadioComponent } from './search-radio/search-radio';
 import { SearchFiltrateComponent } from './search-filtrate/search-filtrate';
+
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { SearchFiltrateComponent } from './search-filtrate/search-filtrate';
     SearchFiltrateComponent,
   ],
   imports: [
+    PipesModule,
     IonicModule,
   ],
   entryComponents: [

@@ -1,6 +1,7 @@
+import { ViewController } from 'ionic-angular/navigation/view-controller';
 import { Component, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavParams, Events } from 'ionic-angular';
 /**
  * Generated class for the SearchCheckboxComponent component.
  *
@@ -24,8 +25,9 @@ export class SearchCheckboxComponent implements ControlValueAccessor {
   onChanged: Function;
   onTouched: Function;
   constructor(
-    private navCtrl: NavController,
-    public navParams: NavParams,
+    private viewCtrl: ViewController,
+    private navParams: NavParams,
+    private events: Events
   ) {
     this.searchList = navParams.get('list');
   }
@@ -39,11 +41,8 @@ export class SearchCheckboxComponent implements ControlValueAccessor {
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
-  setDisabledState?(isDisabled: boolean): void {
-    throw new Error("Method not implemented.");
-  }
 
-  setValue(val: any): void {
+  private setValue(val: any): void {
     this.content += val;
     if (this.content) {
       // this.onChanged(this.content)
@@ -61,6 +60,11 @@ export class SearchCheckboxComponent implements ControlValueAccessor {
         }
       });
     }
+  }
+
+  private done(): void {
+    this.events.publish('search:change', { 'key': 'searchCheckBox', "searchList": this.searchList });
+    this.viewCtrl.dismiss()
   }
 
 }

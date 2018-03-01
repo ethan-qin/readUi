@@ -1,14 +1,21 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PopoverController } from 'ionic-angular/components/popover/popover-controller';
 
 import { SexPopComponent } from '../../components/sex-pop/sex-pop';
+/**
+ * Generated class for the FindsPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
+@IonicPage()
 @Component({
-  selector: 'page-find',
-  templateUrl: 'find.html'
+  selector: 'page-finds',
+  templateUrl: 'finds.html',
 })
-export class FindPage {
+export class FindsPage {
   title = '发现';
   bookList:any = {
     listName:'小编力荐',
@@ -44,9 +51,13 @@ export class FindPage {
   }
   constructor(
     public navCtrl: NavController,
+    public navParams: NavParams,
     private popCtrl: PopoverController
   ) {
+  }
 
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad FindsPage');
   }
   toggleSex(e): void {
     console.log(e)

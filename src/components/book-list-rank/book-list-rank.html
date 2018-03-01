@@ -1,6 +1,6 @@
 <!-- Generated template for the BookListRankComponent component -->
 <ion-list no-lines class="bookList">
-  <button ion-item *ngFor="let book of bookList;index as i">
+  <button ion-item *ngFor="let book of bookList;index as i" (click)='openBook(book)'>
     <div class="bookListItem">
       <div class="bookPreview">
         <img src="https://qidian.qpic.cn/qdbimg/349573/1006635077/150">

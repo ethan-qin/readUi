@@ -1,0 +1,73 @@
+page-finds {
+  .sexToggle {
+    vertical-align: middle;
+    box-shadow: none;
+    border-radius: 30px;
+    font-weight: normal;
+    background: #b32727;
+    letter-spacing: 0.2rem;
+    &.activated {
+        background: #b32727;
+        box-shadow: none;
+    }
+    ion-icon {
+        padding-left: 8px;
+    }
+}
+ion-content {
+    background-color: color($colors,backgroundColor)!important;
+    .card {
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    ion-grid {
+        background: #fff;
+        .rank {
+            margin-bottom: 0.2rem;
+            button {
+                width: 100%;
+                height: 100%;
+                font-size: 1.1rem;
+                color: #4b4b4b;
+                background: transparent;
+                &.activated {
+                    background: #f1f1f1;
+                }
+                ion-icon {
+                    font-size: 3.4rem;
+                    margin-bottom: 0.5rem;
+                    color: color($colors, danger)
+                }
+            }
+        }
+        .notice {
+            display: flex;
+            padding: 0.4rem 0.8rem;
+            overflow: hidden;
+            border-radius: 20px;
+            width: 100%;
+            background: #f6f7f9;
+            justify-content: flex-start;
+            &:active {
+                background: #eee;
+            }
+            ion-icon {
+                color: #a2b3ce;
+                font-size: 2.4rem;
+            }
+            ion-col {
+                display: flex;
+                span {
+                    color: #4b4b4b;
+                    width: 100%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    font-size: 1.3rem;
+                    margin: auto;
+                }
+            }
+        }
+    }
+}
+}

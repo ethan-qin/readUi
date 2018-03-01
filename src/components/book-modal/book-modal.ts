@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, NavParams, Events } from 'ionic-angular';
 import { PopoverController } from 'ionic-angular/components/popover/popover-controller';
 import { ViewController } from 'ionic-angular/navigation/view-controller';
@@ -14,9 +14,7 @@ export class BookModalComponent {
   isShow: boolean = false;
   constructor(
     private events: Events,
-    private navCtrl: NavController,
     private viewCtrl: ViewController,
-    private popCtrl: PopoverController,
     private navParams: NavParams
   ) {
     this.book = this.navParams.get('bookItem');

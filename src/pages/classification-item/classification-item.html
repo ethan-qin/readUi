@@ -18,7 +18,11 @@
   </ion-navbar>
   <ion-toolbar *ngIf="search" no-padding class="searchBar">
     <ion-title>
-      <book-classification-search></book-classification-search>
+      <book-classification-search
+      [searchCheckBox]="searchCheckBox"
+      [searchRadio]="searchRadio"
+      [searchFiltrate]="searchFiltrate">
+    </book-classification-search>
     </ion-title>
   </ion-toolbar>
 
@@ -33,7 +37,7 @@
       <book-list-horizontal [bookList]='bookList'></book-list-horizontal>
       <book-list-vertical [bookList]='bookList'></book-list-vertical>
       <book-list-horizontal [bookList]='bookList'></book-list-horizontal>
-      <!-- <book-list-slides></book-list-slides> -->
+      <book-list-slides [bookList]='bookList'></book-list-slides>
     </ion-slide>
 
     <ion-slide class="all">

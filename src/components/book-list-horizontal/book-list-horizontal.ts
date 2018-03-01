@@ -1,4 +1,5 @@
-import { Component, Input  } from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { Component, Input } from '@angular/core';
 
 /**
  * Generated class for the BookListHorizontalComponent component.
@@ -11,8 +12,17 @@ import { Component, Input  } from '@angular/core';
   templateUrl: 'book-list-horizontal.html'
 })
 export class BookListHorizontalComponent {
-  @Input() bookList:any;
-  constructor() {
+  @Input() bookList: any;
+  constructor(
+    private navCtrl: NavController
+  ) {
     console.log('Hello BookListHorizontalComponent Component');
+  }
+
+  openBook(data) {
+    this.navCtrl.push('BookAbstractPage', { bookId: data });
+  }
+  openMore(listId, title) {
+    this.navCtrl.push('ListMorePage', { listId: listId, title: title });
   }
 }
