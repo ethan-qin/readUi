@@ -1,4 +1,3 @@
-import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 

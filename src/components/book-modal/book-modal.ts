@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, Events } from 'ionic-angular';
-import { PopoverController } from 'ionic-angular/components/popover/popover-controller';
+import { NavParams, Events } from 'ionic-angular';
 import { ViewController } from 'ionic-angular/navigation/view-controller';
 
 @Component({

@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { NativeProvider } from './../../providers/native/native';
 /**
  * Generated class for the BookAbstractPage page.
  *
@@ -30,7 +29,6 @@ export class BookAbstractPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private native: NativeProvider
   ) {
 
     this.bg = `url('assets/imgs/bookbg1.jpg')`;

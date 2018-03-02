@@ -4,7 +4,7 @@ import { CodePush } from "@ionic-native/code-push";
 import { Injectable } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import { StatusBar } from '@ionic-native/status-bar';
+// import { StatusBar } from '@ionic-native/status-bar';
 import { Vibration } from '@ionic-native/vibration';
 
 import { BaseUI } from "../../common/baseUI";
@@ -25,7 +25,7 @@ export class NativeProvider extends BaseUI {
     private vibration: Vibration,
     private loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
-    private statusBar: StatusBar
+    // private statusBar: StatusBar
   ) {
     super()
     console.log('加载native模块');
@@ -92,14 +92,14 @@ export class NativeProvider extends BaseUI {
    * @param {string} [color]
    * @memberof NativeProvider
    */
-  public overlay(overlay: boolean, color?: string): void {
-    console.log('状态栏是否覆盖', overlay)
-    this.statusBar.overlaysWebView(overlay);
-    if (!color && !overlay) {
-      color = '#d23e3b';
-      this.statusBar.backgroundColorByHexString(color);
-    }
-  }
+  // public overlay(overlay: boolean, color?: string): void {
+  //   console.log('状态栏是否覆盖', overlay)
+  //   this.statusBar.overlaysWebView(overlay);
+  //   if (!color && !overlay) {
+  //     color = '#d23e3b';
+  //     this.statusBar.backgroundColorByHexString(color);
+  //   }
+  // }
 
   /**
    * 设备震动
