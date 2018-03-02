@@ -1,0 +1,29 @@
+page-book-honor {
+    ion-content {
+        background-color: color($colors, backgroundColor)!important;
+        ion-thumbnail{
+          min-width: 50px!important;
+          min-height: 50px!important;
+          margin-top: 0!important;
+          margin-bottom: 0!important;
+          img{
+            width: 50px!important;
+            height: 50px!important;
+          }
+        }
+        ion-row {
+            background: #fff;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            ion-col {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+        .time{
+          font-size: 1.4rem;
+          padding-right: 0!important;
+          color:color($colors,fontGray)
+        }
+    }
+}

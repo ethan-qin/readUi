@@ -291,17 +291,17 @@ export class ClassificationItemPage extends BaseUI {
 
 
   goToRecommend(): void {
+    // this.pageContainer.lockSwipeToPrev(true);
     this.pageContainer.slidePrev()
-    this.pageContainer.lockSwipeToNext(false);
-    this.pageContainer.lockSwipeToPrev(true);
+    // this.pageContainer.lockSwipeToNext(false);
     this.where = 'recommend'
     this.search = false;
     this.content.resize();
   }
   goToAll(): void {
+    // this.pageContainer.lockSwipeToNext(true);
     this.pageContainer.slideNext()
-    this.pageContainer.lockSwipeToNext(true);
-    this.pageContainer.lockSwipeToPrev(false);
+    // this.pageContainer.lockSwipeToPrev(false);
     this.where = 'all'
     this.search = true;
     if (this.isFrist) {

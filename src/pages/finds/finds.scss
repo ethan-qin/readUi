@@ -3,6 +3,8 @@ page-finds {
     vertical-align: middle;
     box-shadow: none;
     border-radius: 30px;
+    height: 24px!important;
+    margin: 0 0 0 0.5rem!important;
     font-weight: normal;
     background: #b32727;
     letter-spacing: 0.2rem;
@@ -11,7 +13,7 @@ page-finds {
         box-shadow: none;
     }
     ion-icon {
-        padding-left: 8px;
+        padding-left: 2px;
     }
 }
 ion-content {

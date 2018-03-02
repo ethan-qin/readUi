@@ -81,8 +81,8 @@
     </section>
 
     <ion-list no-margin no-lines>
-      <button class="catelog hasLine" ion-item>
-        作品荣誉
+      <button class="catelog hasLine" ion-item (click)="openCatalog()">
+        目录
         <ion-note item-end>
           连载至1257章 &nbsp;&nbsp;更新于2018-02-03
         </ion-note>
@@ -91,8 +91,8 @@
     </ion-list>
 
     <ion-list margin-vertical no-lines>
-      <button class="catelog" ion-item>
-        目录
+      <button class="catelog" ion-item (click)="openHonor()">
+        作品荣誉
         <ion-note item-end>
           <ion-img [src]=""></ion-img> &nbsp;&nbsp;习惯性爆发
         </ion-note>

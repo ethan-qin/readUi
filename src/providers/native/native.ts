@@ -93,6 +93,7 @@ export class NativeProvider extends BaseUI {
    * @memberof NativeProvider
    */
   public overlay(overlay: boolean, color?: string): void {
+    console.log('状态栏是否覆盖', overlay)
     this.statusBar.overlaysWebView(overlay);
     if (!color && !overlay) {
       color = '#d23e3b';

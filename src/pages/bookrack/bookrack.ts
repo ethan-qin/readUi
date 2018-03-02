@@ -52,10 +52,6 @@ export class BookrackPage {
 
   ionViewDidEnter() {
     this.getUserInfo();
-    this.content.resize()
-  }
-  ionViewCanEnter() {
-    this.native.overlay(false);
   }
 
   /**

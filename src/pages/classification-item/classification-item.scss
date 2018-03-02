@@ -7,6 +7,20 @@ page-classification-item {
             width: 50%;
             position: absolute;
             left: 25%;
+            // &::before{
+            //   content: "";
+            //   display: block;
+            //   height: 2 px;
+            //   width: 100%;
+            //   position: absolute;
+            //   bottom: 0;
+            //   background: #eed49e;
+            //   transform: translateY(-11px)
+            // }
+        }
+        ion-segment-button{
+          height:3.1rem!important;
+          line-height:3.1rem!important;
         }
         .segment {
             transform: translateY(1px)
