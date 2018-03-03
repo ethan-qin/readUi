@@ -156,5 +156,7 @@ export class BookrackPage {
       this.navCtrl.push('BookAbstractPage', { bookId: data });
     })
   }
-
+  test(){
+    this.navCtrl.push('TestsPage')
+  }
 }

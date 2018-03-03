@@ -17,7 +17,7 @@ export class BookCatalogPage {
   @ViewChild('bookHeade') bookHeade: any;
   @ViewChild('scroll') scroll: any;
   @ViewChildren('list') list: any;
-  offserTopArr: Array<any> = [];
+  cacheArr: Array<any> = [];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -26,21 +26,24 @@ export class BookCatalogPage {
   }
   ionViewDidEnter() {
     let top = this.list['_results'][0].nativeElement.getBoundingClientRect().top;
+    let translateY = this.bookHeade.nativeElement.offsetHeight;
     this.scroll._scrollContent.nativeElement.onscroll = () => {
-      this.offserTopArr = [];
+      this.cacheArr = [];
       if (this.list) {
         this.list['_results'].forEach(element => {
-          this.offserTopArr.push({ 'obj': element, 'top': element.nativeElement.getBoundingClientRect().top - top });
+          this.cacheArr.push({ 'obj': element, 'top': element.nativeElement.getBoundingClientRect().top - top });
         });
       }
-      this.offserTopArr.forEach(element => {
-        if (element.top > 0 && element.top <= 38) {
-          console.log(this.bookHeade)
-          // this.title.nativeElement.style.transform = "translateY(" + (this.titlePosition - e.scrollTop) + "px)")
+      this.cacheArr.forEach((element, index) => {
+        if (element.top > 0 && element.top <= translateY) {
           this.bookHeade.nativeElement.style.transform = "translateY(" + (element.top) + "px)"
+        } else {
+          if (this.cacheArr[index].top <= 0) {
+            this.bookHeade.nativeElement.style.transform = "translateY("+translateY+"px)";
+            this.bookHeade.nativeElement.innerHTML = this.cacheArr[index].obj.nativeElement.children[0].innerText;
+          }
         }
       })
-      console.log(this.offserTopArr)
     }
   }
 }
