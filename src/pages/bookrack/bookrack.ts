@@ -13,7 +13,10 @@ import { PopoverController } from 'ionic-angular/components/popover/popover-cont
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage({
+  // name:'home'
+  // segment:'aaa'
+})
 @Component({
   selector: 'page-bookrack',
   templateUrl: 'bookrack.html',
