@@ -46,7 +46,7 @@ export class BookAbstractPage {
       this.showMore = true;
     }
   }
-  ionViewWillLeave(){
+  ionViewWillLeave() {
     // this.native.overlay(false)
   }
   scrollHandler(e) {

@@ -14,8 +14,8 @@ import { PopoverController } from 'ionic-angular/components/popover/popover-cont
  */
 
 @IonicPage({
-  // name:'home'
-  // segment:'aaa'
+  name:'BookrackPage',
+  segment:'BookrackPage'
 })
 @Component({
   selector: 'page-bookrack',
@@ -156,7 +156,7 @@ export class BookrackPage {
 
   private openbook() {
     this.events.subscribe('openThisBook', (data) => {
-      this.navCtrl.push('BookAbstractPage', { bookId: data });
+      this.navCtrl.push('BookAbstractPage', { id: data });
     })
   }
   test(){

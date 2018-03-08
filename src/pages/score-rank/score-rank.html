@@ -1,5 +1,5 @@
 <!--
-  Generated template for the BookCatalogPage page.
+  Generated template for the ScoreRankPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,28 +7,21 @@
 <ion-header no-border>
 
   <ion-navbar color="danger">
-    <ion-title style="transform:translateY(50px)">目录</ion-title>
+    <ion-title>积分榜</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content>
   <ion-row>
-    <ion-col padding>
-      共791章
-    </ion-col>
-    <ion-col padding text-right>
-      倒叙
-      <ion-icon name="md-more"></ion-icon>
-    </ion-col>
-    <ion-col #bookHeade no-padding padding-left class="catalogHeader" col-12>
-      作品相关
+    <ion-col #bookHeade no-padding padding-left class="catalogHeader" text-center col-12>
+      03月04日 - 03月11日
     </ion-col>
   </ion-row>
   <ion-scroll #scroll scrollY="true">
     <ion-list #list no-lines>
-      <ion-list-header no-margin>
-        作品相关
+      <ion-list-header text-center no-margin>
+        03月04日 - 03月11日
       </ion-list-header>
       <button ion-item>
         <h5>作品相关</h5>
@@ -53,8 +46,8 @@
       </button>
     </ion-list>
     <ion-list #list no-lines>
-      <ion-list-header no-margin>
-        第一章
+      <ion-list-header text-center no-margin>
+        02月25日 - 03月04日
       </ion-list-header>
       <button ion-item>
         <h5>第一章 穿越</h5>
@@ -129,8 +122,8 @@
 
     </ion-list>
     <ion-list #list no-lines>
-      <ion-list-header no-margin>
-        第二章
+      <ion-list-header text-center no-margin>
+        03月18日 - 03月25日
       </ion-list-header>
       <button ion-item>
         <h5>第一章 穿越</h5>
@@ -205,10 +198,4 @@
 
     </ion-list>
   </ion-scroll>
-  <ion-footer>
-    <button ion-item text-center>
-      <ion-icon color="danger" name="ios-download-outline"></ion-icon>
-      批量下载
-    </button>
-  </ion-footer>
 </ion-content>

@@ -1,0 +1,68 @@
+page-score-rank {
+    ion-row {
+        overflow: initial;
+        position: relative;
+        ion-col {
+            z-index: 1000;
+            background: #fff;
+        }
+        .catalogHeader {
+            height: 38px;
+            color: color($colors, fontGray);
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            transform: translateY(38px);
+            z-index: 999;
+            height: 38px;
+            line-height: 38px;
+            font-size: 1.6rem;
+            background: #f0f1f3;
+        }
+    }
+    ion-content {
+        background: #fff!important;
+        ion-scroll {
+            width: 100%;
+            height: 100%;
+            ion-list {
+                margin-top: 0!important;
+                ion-list-header {
+                    color: color($colors, fontGray)!important;
+                    border-top: none!important;
+                    min-height: 30px!important;
+                    height: 38px;
+                    font-size: 1.6rem!important;
+                    padding-top: 0.3rem;
+                    padding-bottom: 0.3rem;
+                    background: #f0f1f3!important;
+                    ion-label {
+                        margin: 0!important;
+                    }
+                }
+                button {
+                    position: relative;
+                    min-height: 2rem!important;
+                    .label-md {
+                        margin-top: 8px;
+                        margin-bottom: 8px;
+                    }
+                    p {
+                        font-size: 1.1rem!important;
+                    }
+                    &::before {
+                        content: "";
+                        display: block;
+                        width: 200%;
+                        position: absolute;
+                        transform: scaleY(0.3);
+                        height: 1px;
+                        background: color($colors, fineLineColor);
+                        bottom: 0;
+                        left: -20%;
+                    }
+                }
+            }
+        }
+    }
+}

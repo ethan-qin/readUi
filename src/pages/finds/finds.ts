@@ -17,35 +17,35 @@ import { SexPopComponent } from '../../components/sex-pop/sex-pop';
 })
 export class FindsPage {
   title = '发现';
-  bookList:any = {
-    listName:'小编力荐',
-    books:[
+  bookList: any = {
+    listName: '小编力荐',
+    books: [
       {
-        bookPreview:'https://qidian.qpic.cn/qdbimg/349573/1006635077/150',
-        title:'罪域的骨终为王',
-        intro:'民风淳朴的燕南真，热情好客',
-        author:'黑暗荔枝',
-        bookSize:'147万字',
-        bookStu:'连载',
-        tag:'二次元'
+        bookPreview: 'https://qidian.qpic.cn/qdbimg/349573/1006635077/150',
+        title: '罪域的骨终为王',
+        intro: '民风淳朴的燕南真，热情好客',
+        author: '黑暗荔枝',
+        bookSize: '147万字',
+        bookStu: '连载',
+        tag: '二次元'
       },
       {
-        bookPreview:'https://qidian.qpic.cn/qdbimg/349573/1006635077/150',
-        title:'罪域的骨终为王',
-        intro:'民风淳朴的燕南真，热情好客',
-        author:'黑暗荔枝',
-        bookSize:'147万字',
-        bookStu:'连载',
-        tag:'二次元'
+        bookPreview: 'https://qidian.qpic.cn/qdbimg/349573/1006635077/150',
+        title: '罪域的骨终为王',
+        intro: '民风淳朴的燕南真，热情好客',
+        author: '黑暗荔枝',
+        bookSize: '147万字',
+        bookStu: '连载',
+        tag: '二次元'
       },
       {
-        bookPreview:'https://qidian.qpic.cn/qdbimg/349573/1006635077/150',
-        title:'罪域的骨终为王',
-        intro:'民风淳朴的燕南真，热情好客',
-        author:'黑暗荔枝',
-        bookSize:'147万字',
-        bookStu:'连载',
-        tag:'二次元'
+        bookPreview: 'https://qidian.qpic.cn/qdbimg/349573/1006635077/150',
+        title: '罪域的骨终为王',
+        intro: '民风淳朴的燕南真，热情好客',
+        author: '黑暗荔枝',
+        bookSize: '147万字',
+        bookStu: '连载',
+        tag: '二次元'
       }
     ]
   }
@@ -70,10 +70,16 @@ export class FindsPage {
   goSearch(): void {
     this.navCtrl.push('SearchPage', {}, { animate: true, animation: 'transition', duration: 500, direction: 'forward' });
   }
-  openRank():void{
-   this.navCtrl.push('RankPage')
+  openRank(): void {
+    this.navCtrl.push('RankPage')
   }
-  openClassification():void{
+  openClassification(): void {
     this.navCtrl.push('ClassificationPage')
+  }
+  openScore(): void {
+    this.navCtrl.push('ScoreRankPage')
+  }
+  openSpecial(): void {
+    this.navCtrl.push('SpecialTopicPage')
   }
 }
