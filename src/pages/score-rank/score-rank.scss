@@ -17,15 +17,37 @@ page-score-rank {
             height: 38px;
             line-height: 38px;
             font-size: 1.6rem;
-            background: #f0f1f3;
+            &::before {
+                content: "";
+                display: block;
+                width: 100%;
+                bottom: 0;
+                left: 0;
+                position: absolute;
+                height: 38px;
+                background: transparent;
+                box-shadow: 0 10px 60px color($colors, fineLineDark);
+            }
+            &:after {
+                position: absolute;
+                bottom: 0;
+                left: -140%;
+                content: "";
+                display: block;
+                width: 400%;
+                height: 1px;
+                background: color($colors, fineLineDark);
+                transform: scale(0.3);
+            }
         }
     }
     ion-content {
-        background: #fff!important;
+        background: color($colors, backgroundColor)!important;
         ion-scroll {
             width: 100%;
             height: 100%;
             ion-list {
+                margin-bottom: 32px!important;
                 margin-top: 0!important;
                 ion-list-header {
                     color: color($colors, fontGray)!important;
@@ -35,31 +57,71 @@ page-score-rank {
                     font-size: 1.6rem!important;
                     padding-top: 0.3rem;
                     padding-bottom: 0.3rem;
-                    background: #f0f1f3!important;
                     ion-label {
                         margin: 0!important;
                     }
-                }
-                button {
-                    position: relative;
-                    min-height: 2rem!important;
-                    .label-md {
-                        margin-top: 8px;
-                        margin-bottom: 8px;
-                    }
-                    p {
-                        font-size: 1.1rem!important;
-                    }
-                    &::before {
+                    &:after {
+                        position: absolute;
+                        bottom: 0;
+                        left: -140%;
                         content: "";
                         display: block;
-                        width: 200%;
-                        position: absolute;
-                        transform: scaleY(0.3);
+                        width: 400%;
                         height: 1px;
-                        background: color($colors, fineLineColor);
-                        bottom: 0;
-                        left: -20%;
+                        background: color($colors, fineLineDark); // background: color($colors,danger);
+                        transform: scale(0.3)
+                    }
+                }
+                ion-item {
+                    ion-label {
+                        padding: 0;
+                        margin-top: 0!important;
+                        margin-bottom: 0!important;
+                    }
+                    ion-icon {
+                        display: block;
+                        font-size: 3rem;
+                    }
+                    .bookItem {
+                        display: flex;
+                        padding: 0.6rem;
+                        background: color($colors, backgroundColor); // justify-content: space-between;
+                        .imgPreview {
+                            width: 4rem;
+                            img {
+                                width: 100%;
+                                vertical-align: bottom;
+                            }
+                        }
+                        .bookInfo {
+                            display: flex;
+                            padding-left: 0.6rem;
+                            flex-wrap: wrap;
+                            align-content: space-between;
+                            flex: 1;
+                            h5 {
+                                width: 100%;
+                                text-align: left;
+                                font-size: 1.2rem;
+                            }
+                            p {
+                                width: 100%;
+                                font-size: 1.1rem;
+                                text-align: left;
+                                em {
+                                    font-style: normal;
+                                }
+                            }
+                        }
+                    }
+                    .buttons {
+                        button {
+                            width: 100%;
+                            text-align: center;
+                            background: #fff;
+                            padding: 0.5rem 0;
+                            font-size: 1.5rem;
+                        }
                     }
                 }
             }

@@ -15,7 +15,7 @@ export class BookListVerticalComponent {
   @Input() bookList: any;
   text: string;
 
-  constructor(
+  constructor( 
     private navCtrl: NavController
   ) {
   }
