@@ -8,29 +8,6 @@
     </span>
   </button>
   <button class="bookItemContainer" ion-item *ngFor='let book of bookList.books' (click)="openBook(book)">
-    <div class="bookListItem">
-      <div class="bookPreview">
-        <img [src]="book.bookPreview">
-      </div>
-      <div class="bookContainer">
-        <h2>{{book.title}}</h2>
-        <p class="intro">{{book.intro}}</p>
-        <p class="tag">
-          <ion-icon name="ios-person-outline"></ion-icon>
-          {{book.author}}
-          <span>
-            {{book.bookSize}}
-          </span>
-
-          <span>
-            {{book.bookStu}}
-          </span>
-          <span>
-            {{book.tag}}
-          </span>
-        </p>
-      </div>
-    </div>
-    <div class="fineLine"></div>
+    <book-item [itemData]="book"></book-item>
   </button>
 </ion-list>

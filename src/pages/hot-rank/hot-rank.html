@@ -19,5 +19,9 @@
 
 
 <ion-content>
-  <book-list-rank [hasRank]="stu" [hasSearch]="stu"></book-list-rank>
+  <ion-list [virtualScroll]="list" no-lines>
+    <button ion-item *virtualItem="let item">
+      <book-item [itemData]=item></book-item>
+    </button>
+  </ion-list>
 </ion-content>

@@ -1,0 +1,30 @@
+<!-- Generated template for the BookItemComponent component -->
+<!-- <button ion-item (click)='openBook(book)'>
+
+</button> -->
+<div class="bookListItem">
+  <div class="bookPreview">
+    <img [src]="item.img">
+    <span *ngIf="item.hasRank" class="ranking">{{item.rank}}</span>
+  </div>
+  <div class="bookContainer">
+    <h2>{{item.title}}
+      <span *ngIf="hasSearch">{{item.searchNum}}搜索</span>
+    </h2>
+    <p class="intro">{{item.content}}</p>
+    <p class="tags">
+      <ion-icon name="ios-person-outline"></ion-icon>
+      <span class="author">{{item.author}}</span>
+      <span class="num">
+        {{item.num}}万字
+      </span>
+      <span class="stu">
+        {{item.stu}}
+      </span>
+      <span class="tag">
+        {{item.tag}}
+      </span>
+    </p>
+  </div>
+</div>
+<div class="fineLine"></div>

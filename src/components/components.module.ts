@@ -6,7 +6,6 @@ import { BookClassificationSearchComponent } from './book-classification-search/
 import { BookListHorizontalComponent } from './book-list-horizontal/book-list-horizontal';
 import { BookListVerticalComponent } from './book-list-vertical/book-list-vertical';
 import { BookListSlidesComponent } from './book-list-slides/book-list-slides';
-import { BookListRankComponent } from './book-list-rank/book-list-rank';
 import { HomePopComponent } from './home-pop/home-pop';
 import { PipesModule } from './../pipes/pipes.module';
 import { SexPopComponent } from './sex-pop/sex-pop';
@@ -15,6 +14,7 @@ import { TimePopComponent } from './time-pop/time-pop';
 import { SearchCheckboxComponent } from './search-checkbox/search-checkbox';
 import { SearchRadioComponent } from './search-radio/search-radio';
 import { SearchFiltrateComponent } from './search-filtrate/search-filtrate';
+import { BookItemComponent } from './book-item/book-item';
 
 
 @NgModule({
@@ -27,11 +27,11 @@ import { SearchFiltrateComponent } from './search-filtrate/search-filtrate';
     BookListHorizontalComponent,
     BookListVerticalComponent,
     BookListSlidesComponent,
-    BookListRankComponent,
     BookClassificationSearchComponent,
     SearchCheckboxComponent,
     SearchRadioComponent,
     SearchFiltrateComponent,
+    BookItemComponent,
   ],
   imports: [
     PipesModule,
@@ -44,7 +44,7 @@ import { SearchFiltrateComponent } from './search-filtrate/search-filtrate';
     TimePopComponent,
     SearchCheckboxComponent,
     SearchRadioComponent,
-    SearchFiltrateComponent
+    SearchFiltrateComponent,
   ],
   exports: [
     BookModalComponent,
@@ -55,11 +55,11 @@ import { SearchFiltrateComponent } from './search-filtrate/search-filtrate';
     BookListHorizontalComponent,
     BookListVerticalComponent,
     BookListSlidesComponent,
-    BookListRankComponent,
     BookClassificationSearchComponent,
     SearchCheckboxComponent,
     SearchRadioComponent,
     SearchFiltrateComponent,
+    BookItemComponent,
   ]
 })
 export class ComponentsModule { }

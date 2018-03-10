@@ -1,3 +1,4 @@
+import { ComponentsModule } from './../../components/components.module';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { BookrackPage } from './bookrack';
@@ -7,6 +8,7 @@ import { BookrackPage } from './bookrack';
     BookrackPage,
   ],
   imports: [
+    ComponentsModule,
     IonicPageModule.forChild(BookrackPage),
   ],
 })

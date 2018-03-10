@@ -7,27 +7,27 @@ page-score-rank {
             background: #fff;
         }
         .catalogHeader {
-            height: 38px;
+            // height: 38px;
             color: color($colors, fontGray);
             position: absolute;
             left: 0;
             bottom: 0;
-            transform: translateY(38px);
+            transform: translateY(43px);
             z-index: 999;
-            height: 38px;
-            line-height: 38px;
-            font-size: 1.6rem;
-            &::before {
-                content: "";
-                display: block;
-                width: 100%;
-                bottom: 0;
-                left: 0;
-                position: absolute;
-                height: 38px;
-                background: transparent;
-                box-shadow: 0 10px 60px color($colors, fineLineDark);
-            }
+            height: 43px;
+            line-height: 43px;
+            font-size: 1.5rem;
+            // &::before {
+            //     content: "";
+            //     display: block;
+            //     width: 100%;
+            //     bottom: 0;
+            //     left: 0;
+            //     position: absolute;
+            //     height: 38px;
+            //     background: transparent;
+            //     box-shadow: 0 10px 60px color($colors, fineLineDark);
+            // }
             &:after {
                 position: absolute;
                 bottom: 0;
@@ -53,7 +53,7 @@ page-score-rank {
                     color: color($colors, fontGray)!important;
                     border-top: none!important;
                     min-height: 30px!important;
-                    height: 38px;
+                    height: 43px;
                     font-size: 1.6rem!important;
                     padding-top: 0.3rem;
                     padding-bottom: 0.3rem;
@@ -68,7 +68,7 @@ page-score-rank {
                         display: block;
                         width: 400%;
                         height: 1px;
-                        background: color($colors, fineLineDark); // background: color($colors,danger);
+                        background: color($colors, fineLineDark);
                         transform: scale(0.3)
                     }
                 }
@@ -82,10 +82,13 @@ page-score-rank {
                         display: block;
                         font-size: 3rem;
                     }
+                    .comment{
+                      font-style:"SimSun"!important;
+                      color: red;
+                    }
                     .bookItem {
                         display: flex;
-                        padding: 0.6rem;
-                        background: color($colors, backgroundColor); // justify-content: space-between;
+                        background: #f3f3f3;
                         .imgPreview {
                             width: 4rem;
                             img {

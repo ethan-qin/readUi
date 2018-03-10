@@ -9,7 +9,7 @@
   </button>
   <ul padding class="bookListContainer">
     <li *ngFor="let book of bookList.books" class="bookListItem" (click)="openBook(book)">
-      <img [src]="book.bookPreview" alt="">
+      <img [src]="book.img" alt="">
       <h5>{{book.title}}</h5>
       <p>{{book.author}}</p>
     </li>

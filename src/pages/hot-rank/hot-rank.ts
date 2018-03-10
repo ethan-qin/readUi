@@ -16,18 +16,18 @@ import { SexPopComponent } from '../../components/sex-pop/sex-pop';
   templateUrl: 'hot-rank.html',
 })
 export class HotRankPage {
-  stu:boolean;
+  stu: boolean;
+  list: Array<bookItem> = [];
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private popCtrl: PopoverController
   ) {
-    this.stu =true;
+    this.stu = true;
   }
 
   ionViewDidLoad() {
-   console.log('ionic');
-
+    this.addArray()
   }
   /**
    * 切换性别分类
@@ -44,17 +44,21 @@ export class HotRankPage {
     })
   }
 
-
-/**
- * 无限滚动下拉加载新的数据
- *
- * @author qin
- * @param {any} e
- * @memberof HotRankPage
- */
-doInfinite(e): void {
-    setTimeout(() => {
-      e.complete()
-    }, 3000);
+  addArray() {
+    for (let i = 0; i < 100; i++) {
+      this.list.push({
+        bookId: 58896 + i,
+        img: 'https://qidian.qpic.cn/qdbimg/349573/1006635077/150',
+        title: `测试书籍${i}测试书籍${i}`,
+        content: `测试书籍${i}测试书籍${i}测试书籍${i}测试书籍${i}测试书籍${i}测试书籍${i}测试书籍${i}测试书籍${i}测试书籍${i}测试书籍${i}测试书籍${i}测试书籍${i}测试书籍${i}测试书籍${i}测试书籍${i}测试书籍${i}`,
+        searchNum: 1200,
+        author: `测试作者${i}`,
+        num: 150 + i,
+        stu: '连载',
+        tag: '二齿缘',
+        rank: i + 1,
+        hasRank: false,
+      });
+    }
   }
 }

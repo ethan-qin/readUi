@@ -1,0 +1,125 @@
+book-item {
+    .fineLine {
+        display: block;
+        position: absolute;
+        width: 400%;
+        bottom: 0;
+        left: -136%;
+        transform: scale(0.3);
+        background: color($colors, fineLineColor);
+        height: 1px;
+    }
+    .bookListItem {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        .bookPreview {
+            position: relative;
+            width: 20%;
+            padding-left: 0.1rem;
+            padding-top: 0.1rem;
+            img {
+                width: 100%;
+                box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+                vertical-align: middle;
+            }
+            .ranking {
+                position: absolute;
+                font-size: 1.3rem;
+                background: #cc3642;
+                color: #fff;
+                padding: 0.2rem 0.2rem 0.1rem 0.2rem;
+                left: 0;
+                top: 0.7rem;
+            }
+        }
+        .bookContainer {
+            display: flex;
+            width: 80%;
+            flex-wrap: wrap;
+            padding: 0.2rem 0 0.2rem 0.8rem;
+            align-content: space-between;
+            >* {
+                width: 100%;
+            }
+            h2 {
+                font-size: 1.5rem;
+                color: color($colors, fontBlack);
+                margin: 0;
+                span {
+                    float: right;
+                    font-size: 1.3rem;
+                    color: #4a90e2;
+                }
+            }
+            .intro {
+                margin: 0;
+                white-space: initial;
+                font-size: 1.3rem;
+                color: rgb(168, 168, 168)!important;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
+            }
+            .tags {
+                margin: 0;
+                font-size: 1.3rem;
+                margin-bottom: 0;
+                overflow: hidden;
+                max-height: 2rem;
+                color: rgb(168, 168, 168)!important;
+                vertical-align: bottom;
+                padding-right: 0.2rem;
+                &::before {
+                    display: inline-block;
+                    content: '';
+                    width: 0;
+                    height: 100%;
+                    vertical-align: middle;
+                }
+                ;
+                ion-icon {
+                    font-size: 2rem;
+                    vertical-align: bottom; // margin-top: -0.3rem;
+                    text-shadow: none;
+                }
+                span.author {
+                    vertical-align: middle;
+                    display: inline-block;
+                }
+                span.num,
+                span.stu,
+                span.tag {
+                    float: right;
+                    position: relative;
+                    text-shadow: none;
+                    font-size: 9px;
+                    padding: 0.1rem 0.3rem;
+                    margin-left: 0.5rem;
+                    color: #a2b3ce;
+                    vertical-align: bottom;
+                    transform: translateY(3px);
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        width: 250%;
+                        height: 250%;
+                        border-radius: 0.5rem;
+                        transform: scale(0.4);
+                        top: 0;
+                        left: 0;
+                        transform-origin: left top;
+                        border: 1px solid rgba(162, 179, 206, .9);
+                    }
+                }
+                span.stu {
+                    color: #d5b388;
+                    &::before {
+                        border: 1px solid rgba(213, 179, 136, .9);
+                    }
+                }
+            }
+        }
+    }
+}

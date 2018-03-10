@@ -18,18 +18,16 @@ import { TimePopComponent } from '../../components/time-pop/time-pop';
 export class RankPage {
   @ViewChild('scroll') scroll: any;
   @ViewChild('spinner') spinner: any;
-  items: Array<any> = [];
+  list: Array<bookItem> = [];
   scrollHeight: number;
-  hasMore: boolean = false;
+  hasMore: boolean = true;
   isLoading: boolean = false;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private popCtrl: PopoverController
   ) {
-    for (let i = 1; i < 21; i++) {
-      this.items.push({ rank: i })
-    }
+    this.addArray()
   }
 
   ionViewDidLoad() {
@@ -57,22 +55,15 @@ export class RankPage {
       animate: false
     })
   }
-  doInfinite(infiniteScroll) {
-    console.log('开始加载');
-
-    setTimeout(() => {
-      for (let i = 0; i < 20; i++) {
-        this.items.push({ rank: this.items.length });
-      }
-      infiniteScroll.complete();
-    }, 500);
-  }
   addScrollEventListener(): void {
     this.scroll._scrollContent.nativeElement.onscroll = (event) => {
       let top = this.spinner.nativeElement.getBoundingClientRect().top;
-      if (top <= this.scrollHeight && !this.isLoading) {
+      if (top <= this.scrollHeight && !this.isLoading && this.hasMore) {
+        console.log(this.hasMore)
         this.isLoading = true;
-        this.hasMore = true;
+        setTimeout(() => {
+          this.addArray()
+        }, 1500);
         console.log('加载数据中...');
       }
     }
@@ -80,5 +71,29 @@ export class RankPage {
 
   openBook(data): void {
     this.navCtrl.push('BookAbstractPage', { bookId: data });
+  }
+
+  addArray() {
+    this.isLoading = true;
+    for (let i = 0; i < 10; i++) {
+      this.list.push({
+        bookId: 58896+i,
+        img: 'https://qidian.qpic.cn/qdbimg/349573/1006635077/150',
+        title: `测试书籍${this.list.length}测试书籍${this.list.length}`,
+        content: `测试书籍${this.list.length}测试书籍${this.list.length}测试书籍${this.list.length}测试书籍${this.list.length}测试书籍${this.list.length}测试书籍${this.list.length}测试书籍${this.list.length}测试书籍${this.list.length}测试书籍${this.list.length}测试书籍${this.list.length}测试书籍${this.list.length}测试书籍${this.list.length}测试书籍${this.list.length}测试书籍${this.list.length}测试书籍${this.list.length}测试书籍${this.list.length}`,
+        searchNum: 1200 + this.list.length,
+        author: `测试作者${this.list.length}`,
+        num: 150 + this.list.length,
+        stu: '连载',
+        tag: '二齿缘',
+        rank: this.list.length + 1,
+        hasRank: true,
+      });
+      if (this.list.length >= 100) {
+        this.hasMore = false;
+        return false;
+      }
+    }
+    this.isLoading = false;
   }
 }

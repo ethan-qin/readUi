@@ -160,6 +160,6 @@ export class BookrackPage {
     })
   }
   test(){
-    this.navCtrl.push('TestsPage')
+    this.navCtrl.push('TestPage')
   }
 }

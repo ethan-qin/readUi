@@ -50,27 +50,26 @@
   </ion-scroll>
   <ion-scroll class="rankContainer" #scroll float-left col-9 no-padding scrollY="true">
     <ion-list no-lines>
-      <button ion-item *ngFor="let item of items" (click)="openBook(item)">
+      <button ion-item *ngFor="let item of list" (click)="openBook(item)">
         <div class="bookListItem">
           <div class="bookPreview">
-            <img src="https://qidian.qpic.cn/qdbimg/349573/1006635077/150">
-            <span class="ranking">{{item.rank}}</span>
+            <img [src]="item.img">
+            <span *ngIf="item.hasRank" class="ranking">{{item.rank}}</span>
           </div>
           <div class="bookContainer">
-            <h2>罪域的骨终为王
-              <span>1742搜索</span>
+            <h2>{{item.title}}
+              <span *ngIf="hasSearch">{{item.searchNum}}搜索</span>
             </h2>
-            <p class="intro">民风淳朴的燕南真，热情好客</p>
-            <p class="tag">
+            <p class="intro">{{item.content}}</p>
+            <p class="tags">
               <ion-icon name="ios-person-outline"></ion-icon>
-              黑暗荔枝
-              <span>
-                <em>147万字</em>
+              <span class="author">{{item.author}}</span>
+              <span class="num">
+                {{item.num}}万字
               </span>
-              <span>
-                <em>二次元</em>
+              <span class="tag">
+                {{item.tag}}
               </span>
-
             </p>
           </div>
         </div>

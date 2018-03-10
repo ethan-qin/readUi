@@ -17,35 +17,47 @@ import { SexPopComponent } from '../../components/sex-pop/sex-pop';
 })
 export class FindsPage {
   title = '发现';
-  bookList: any = {
+  bookList: bookList = {
     listName: '小编力荐',
     books: [
       {
-        bookPreview: 'https://qidian.qpic.cn/qdbimg/349573/1006635077/150',
-        title: '罪域的骨终为王',
-        intro: '民风淳朴的燕南真，热情好客',
-        author: '黑暗荔枝',
-        bookSize: '147万字',
-        bookStu: '连载',
-        tag: '二次元'
+        bookId: 58896,
+        img: 'https://qidian.qpic.cn/qdbimg/349573/1009596368/150',
+        title: `测试书籍测试书籍`,
+        content: `测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍`,
+        searchNum: 0,
+        author: `测试作者`,
+        num: 150,
+        stu: '连载',
+        tag: '二齿缘',
+        rank: 0,
+        hasRank: false,
       },
       {
-        bookPreview: 'https://qidian.qpic.cn/qdbimg/349573/1006635077/150',
-        title: '罪域的骨终为王',
-        intro: '民风淳朴的燕南真，热情好客',
-        author: '黑暗荔枝',
-        bookSize: '147万字',
-        bookStu: '连载',
-        tag: '二次元'
+        bookId: 58896,
+        img: 'https://qidian.qpic.cn/qdbimg/349573/1004871398/150',
+        title: `测试书籍测试书籍`,
+        content: `测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍`,
+        searchNum: 0,
+        author: `测试作者`,
+        num: 150,
+        stu: '连载',
+        tag: '二齿缘',
+        rank: 0,
+        hasRank: false,
       },
       {
-        bookPreview: 'https://qidian.qpic.cn/qdbimg/349573/1006635077/150',
-        title: '罪域的骨终为王',
-        intro: '民风淳朴的燕南真，热情好客',
-        author: '黑暗荔枝',
-        bookSize: '147万字',
-        bookStu: '连载',
-        tag: '二次元'
+        bookId: 58896,
+        img: 'https://qidian.qpic.cn/qdbimg/349573/1006635077/150',
+        title: `测试书籍测试书籍`,
+        content: `测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍测试书籍`,
+        searchNum: 0,
+        author: `测试作者`,
+        num: 150,
+        stu: '连载',
+        tag: '二齿缘',
+        rank: 0,
+        hasRank: false,
       }
     ]
   }

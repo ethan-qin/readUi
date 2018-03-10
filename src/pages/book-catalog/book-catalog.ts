@@ -18,6 +18,84 @@ export class BookCatalogPage {
   @ViewChild('scroll') scroll: any;
   @ViewChildren('list') list: any;
   cacheArr: Array<any> = [];
+  date: Date = new Date();
+  catalogArr: Array<catalog> = [
+    {
+      headerName: '第一卷',
+      catalog: [
+        {
+          catalogId: 1,
+          title: '第一章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 2,
+          title: '第二章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 3,
+          title: '第三章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 3,
+          title: '第四章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 3,
+          title: '第五章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 3,
+          title: '第六章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 3,
+          title: '第七章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 3,
+          title: '第八章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 3,
+          title: '第九章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 3,
+          title: '第十章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        }
+      ]
+    }
+  ];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -39,7 +117,7 @@ export class BookCatalogPage {
           this.bookHeade.nativeElement.style.transform = "translateY(" + (element.top) + "px)"
         } else {
           if (this.cacheArr[index].top <= 0) {
-            this.bookHeade.nativeElement.style.transform = "translateY("+translateY+"px)";
+            this.bookHeade.nativeElement.style.transform = "translateY(" + translateY + "px)";
             this.bookHeade.nativeElement.innerHTML = this.cacheArr[index].obj.nativeElement.children[0].innerText;
           }
         }
