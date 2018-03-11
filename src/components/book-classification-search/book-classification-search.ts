@@ -84,7 +84,6 @@ export class BookClassificationSearchComponent {
   ngOnDestroy() {
     //Called once, before the instance is destroyed.
     //Add 'implements OnDestroy' to the class.
-    console.log('尝试取消订阅')
     this.events.unsubscribe('search:change',()=>[
       console.log('取消订阅')
     ])
@@ -95,7 +94,6 @@ export class BookClassificationSearchComponent {
     this.filtrateTitle = [];
     this.searchCheckBox.forEach(element => {
       if (element.checked) {
-        console.log('放入一个');
         this.checkBoxTitle.push(element)
       }
     });

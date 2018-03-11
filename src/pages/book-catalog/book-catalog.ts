@@ -94,7 +94,157 @@ export class BookCatalogPage {
           time: this.date
         }
       ]
-    }
+    },
+    {
+      headerName: '第二卷',
+      catalog: [
+        {
+          catalogId: 1,
+          title: '第一章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 2,
+          title: '第二章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 3,
+          title: '第三章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 3,
+          title: '第四章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 3,
+          title: '第五章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 3,
+          title: '第六章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 3,
+          title: '第七章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 3,
+          title: '第八章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 3,
+          title: '第九章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 3,
+          title: '第十章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        }
+      ]
+    },
+    {
+      headerName: '第三卷',
+      catalog: [
+        {
+          catalogId: 1,
+          title: '第一章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 2,
+          title: '第二章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 3,
+          title: '第三章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 3,
+          title: '第四章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 3,
+          title: '第五章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 3,
+          title: '第六章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 3,
+          title: '第七章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 3,
+          title: '第八章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 3,
+          title: '第九章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        },
+        {
+          catalogId: 3,
+          title: '第十章',
+          isVip: false,
+          bookmark: false,
+          time: this.date
+        }
+      ]
+    },
   ];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

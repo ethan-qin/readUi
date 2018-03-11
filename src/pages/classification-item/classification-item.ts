@@ -25,45 +25,48 @@ export class ClassificationItemPage extends BaseUI {
   stu: boolean;
   search: boolean = false;          //是否显示搜索栏
   searchContent: Array<any> = [];   //当前搜索条件
-  bookList: any = {
+  bookList: bookList = {
     listName: '本周强推',
     books: [
       {
-        bookPreview: 'https://qidian.qpic.cn/qdbimg/349573/1006635077/150',
+        bookId: 1,
+        img: 'https://qidian.qpic.cn/qdbimg/349573/1009596368/150',
         title: '罪域的骨终为王',
-        intro: '民风淳朴的燕南真，热情好客',
+        content: '民风淳朴的燕南真，热情好客',
+        searchNum: 0,
         author: '黑暗荔枝',
-        bookSize: '147万字',
-        bookStu: '连载',
-        tag: '二次元'
+        num: 147,
+        stu: '连载',
+        tag: '二次元',
+        rank: 0,
+        hasRank: false
       },
       {
-        bookPreview: 'https://qidian.qpic.cn/qdbimg/349573/1006635077/150',
+        bookId: 1,
+        img: 'https://qidian.qpic.cn/qdbimg/349573/1004871398/150',
         title: '罪域的骨终为王',
-        intro: '民风淳朴的燕南真，热情好客',
+        content: '民风淳朴的燕南真，热情好客',
+        searchNum: 0,
         author: '黑暗荔枝',
-        bookSize: '147万字',
-        bookStu: '连载',
-        tag: '二次元'
+        num: 147,
+        stu: '连载',
+        tag: '二次元',
+        rank: 0,
+        hasRank: false
       },
       {
-        bookPreview: 'https://qidian.qpic.cn/qdbimg/349573/1006635077/150',
-        title: '罪域的',
-        intro: '民风淳朴的燕南真，热情好客',
-        author: '黑暗荔枝',
-        bookSize: '147万字',
-        bookStu: '连载',
-        tag: '二次元'
-      },
-      {
-        bookPreview: 'https://qidian.qpic.cn/qdbimg/349573/1006635077/150',
+        bookId: 1,
+        img: 'https://qidian.qpic.cn/qdbimg/349573/1006635077/150',
         title: '罪域的骨终为王',
-        intro: '民风淳朴的燕南真，热情好客',
+        content: '民风淳朴的燕南真，热情好客',
+        searchNum: 0,
         author: '黑暗荔枝',
-        bookSize: '147万字',
-        bookStu: '连载',
-        tag: '二次元'
-      }
+        num: 147,
+        stu: '连载',
+        tag: '二次元',
+        rank: 0,
+        hasRank: false
+      },
     ]
   }
   constructor(
@@ -272,13 +275,13 @@ export class ClassificationItemPage extends BaseUI {
         ]
       },
     ];
-    this.changSearch();
   }
 
-  ionViewDidEnter(){
-   this.stu=false;
+  ionViewDidEnter() {
+    this.stu = false;
+    this.changSearch()
   }
-  ionViewDidLeave(){
+  ionViewDidLeave() {
     this.events.unsubscribe('search:change')
   }
   toggle(): void {

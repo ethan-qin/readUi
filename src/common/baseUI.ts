@@ -44,7 +44,7 @@ export abstract class BaseUI {
     let toast = toastCtrl.create({
       message: message,
       duration: 2500,
-      dismissOnPageChange: true,
+      dismissOnPageChange: false,
       position: site
     });
     toast.present();

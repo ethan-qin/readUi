@@ -13,7 +13,6 @@ export class SearchTitlePipe implements PipeTransform {
    * Takes a value and makes it lowercase.
    */
   transform(value: Array<string>, ...args) {
-    console.log(value)
     if (value.length == 0) {
       return '类型'
     } else if (value.length == 1) {

@@ -1,4 +1,3 @@
-import { User } from './../../pages/person/person';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
@@ -35,16 +34,4 @@ export class UserServicesProvider {
       })
     })
   }
-}
-
-/**
- * 登录表单
- *
- * @author qin
- * @export
- * @class Login
- */
-export class Login {
-  phone: number;     // 手机号
-  password: string;  // 密码
 }

@@ -32,7 +32,7 @@ export class ListMorePage {
     this.addArray()
   }
   addArray() {
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 20; i++) {
       this.list.push({
         bookId: 58896+i,
         img: 'https://qidian.qpic.cn/qdbimg/349573/1006635077/150',
