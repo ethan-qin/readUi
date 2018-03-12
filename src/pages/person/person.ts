@@ -1,3 +1,4 @@
+import { Login, User } from './../../model/model';
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { UserServicesProvider } from '../../providers/user-services/user-services';
@@ -38,6 +39,8 @@ export class PersonPage {
   openPayment(): void {
     this.navCtrl.push('PaymentPage')
   }
-
+  openMessage(): void {
+    this.navCtrl.push('MessagePage')
+  }
 }
 

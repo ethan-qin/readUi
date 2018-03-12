@@ -1,3 +1,4 @@
+import { User, Login } from './../../model/model';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 

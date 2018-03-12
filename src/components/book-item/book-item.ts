@@ -1,3 +1,4 @@
+import { bookItem } from './../../model/model';
 import { Component, Input } from '@angular/core';
 
 /**

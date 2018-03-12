@@ -12,10 +12,12 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+::-webkit-scrollbar {
+    display: none !important;
+}
 .sexPop {
     .popover-content {
         width: 10rem!important;
-        // top: 1.3rem!important;
         left: 7rem!important;
     }
 }
@@ -23,7 +25,6 @@
 .RankPopClass {
     .popover-content {
         width: 10rem!important;
-        // top: 1.3rem!important;
         left: 13rem!important;
     }
 }
@@ -31,7 +32,6 @@
 .RankPopTime {
     .popover-content {
         width: 10rem!important;
-        // top: 1.3rem!important;
         right: 1rem!important;
     }
 }
@@ -39,7 +39,6 @@
 .hotPop {
     .popover-content {
         width: 10rem!important;
-        // top: 1.3rem!important;
         right: 7rem!important;
     }
 }
@@ -47,9 +46,8 @@
 .searchPop {
     .popover-content {
         width: 100%!important;
-        // height: 40%!important;
         left: 0!important;
-        top: 104px!important;
+        bottom: auto!important;
         box-shadow: none;
         overflow: inherit;
     }
@@ -93,7 +91,8 @@
     padding-bottom: 0.1rem;
     padding-left: 0.5rem;
 }
-ion-navbar{
-  padding-top: 33px!important;
-  padding-bottom: 5px!important;
+
+ion-navbar {
+    padding-top: 33px!important;
+    padding-bottom: 5px!important;
 }

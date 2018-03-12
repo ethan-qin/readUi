@@ -1,5 +1,6 @@
-import { Component, ViewChild, ViewChildren } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { catalog } from './../../model/model';
+import { Component, ViewChild, ViewChildren, ElementRef } from '@angular/core';
+import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 
 /**
  * Generated class for the BookCatalogPage page.
@@ -14,9 +15,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'book-catalog.html',
 })
 export class BookCatalogPage {
-  @ViewChild('bookHeade') bookHeade: any;
+  @ViewChild('bookHeade') bookHeade: ElementRef;
   @ViewChild('scroll') scroll: any;
-  @ViewChildren('list') list: any;
+  @ViewChildren('list') list: ElementRef;
   cacheArr: Array<any> = [];
   date: Date = new Date();
   catalogArr: Array<catalog> = [
@@ -253,6 +254,7 @@ export class BookCatalogPage {
 
   }
   ionViewDidEnter() {
+    console.log()
     let top = this.list['_results'][0].nativeElement.getBoundingClientRect().top;
     let translateY = this.bookHeade.nativeElement.offsetHeight;
     this.scroll._scrollContent.nativeElement.onscroll = () => {

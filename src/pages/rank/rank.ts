@@ -1,3 +1,4 @@
+import { bookItem } from './../../model/model';
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-angular';
 import { SexPopComponent } from '../../components/sex-pop/sex-pop';

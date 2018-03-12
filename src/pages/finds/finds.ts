@@ -1,3 +1,4 @@
+import { bookList } from './../../model/model';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PopoverController } from 'ionic-angular/components/popover/popover-controller';

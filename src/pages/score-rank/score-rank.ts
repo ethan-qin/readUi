@@ -1,4 +1,4 @@
-import { Component,ViewChild, ViewChildren } from '@angular/core';
+import { Component, ViewChild, ViewChildren, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
@@ -14,9 +14,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'score-rank.html',
 })
 export class ScoreRankPage {
-  @ViewChild('bookHeade') bookHeade: any;
+  @ViewChild('bookHeade') bookHeade: ElementRef;
   @ViewChild('scroll') scroll: any;
-  @ViewChildren('list') list: any;
+  @ViewChildren('list') list: ElementRef;
   cacheArr: Array<any> = [];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -39,7 +39,7 @@ export class ScoreRankPage {
           this.bookHeade.nativeElement.style.transform = "translateY(" + (element.top) + "px)"
         } else {
           if (this.cacheArr[index].top <= 0) {
-            this.bookHeade.nativeElement.style.transform = "translateY("+translateY+"px)";
+            this.bookHeade.nativeElement.style.transform = "translateY(" + translateY + "px)";
             this.bookHeade.nativeElement.innerHTML = this.cacheArr[index].obj.nativeElement.children[0].innerText;
           }
         }

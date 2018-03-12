@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { NavController, Events } from 'ionic-angular';
 import { PopoverController } from 'ionic-angular/components/popover/popover-controller';
 
@@ -16,9 +16,11 @@ import { SearchCheckboxComponent } from './../search-checkbox/search-checkbox';
   templateUrl: 'book-classification-search.html'
 })
 export class BookClassificationSearchComponent {
+  @ViewChild('searchContainer') searchContainer: any;
   @Input() searchCheckBox: Array<any>;
   @Input() searchRadio: Array<any>;
   @Input() searchFiltrate: Array<any>;
+  top: string = '95'
   checkBoxTitle: Array<any> = [];
   radioTitle: Array<any> = [];
   filtrateTitle: Array<any> = [];
@@ -28,21 +30,31 @@ export class BookClassificationSearchComponent {
     public navCtrl: NavController,
     private events: Events
   ) {
-
   }
 
   ngOnInit() {
-    console.log(this.searchCheckBox[0]);
-
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
     this.setTitle();
     this.addListenSetTitle();
   }
+  ngAfterViewInit() {
+    this.top = this.searchContainer.nativeElement.getBoundingClientRect().top + this.searchContainer.nativeElement.offsetHeight
+  }
+  ionViewDidLoad() {
+    console.log('视图加载完成')
+  }
   checkBox(e, index): void {
+    let ev = {
+      target: {
+        getBoundingClientRect: () => {
+          return {
+            top: this.top,
+          };
+        }
+      }
+    };
     let pop = this.popCtrl.create(SearchCheckboxComponent, { list: this.searchCheckBox }, { cssClass: 'searchPop' });
     pop.present({
-      ev: e,
+      ev: ev,
       animate: false
     })
     pop.onWillDismiss(() => {
@@ -51,9 +63,18 @@ export class BookClassificationSearchComponent {
     this.toggleIcon(index)
   }
   radio(e, index): void {
+    let ev = {
+      target: {
+        getBoundingClientRect: () => {
+          return {
+            top: this.top,
+          };
+        }
+      }
+    };
     let pop = this.popCtrl.create(SearchRadioComponent, { list: this.searchRadio }, { cssClass: 'searchPop' });
     pop.present({
-      ev: e,
+      ev: ev,
       animate: false
     })
     pop.onWillDismiss(() => {
@@ -62,9 +83,18 @@ export class BookClassificationSearchComponent {
     this.toggleIcon(index)
   }
   flitrate(e, index): void {
+    let ev = {
+      target: {
+        getBoundingClientRect: () => {
+          return {
+            top: this.top,
+          };
+        }
+      }
+    };
     let pop = this.popCtrl.create(SearchFiltrateComponent, { list: this.searchFiltrate }, { cssClass: 'searchPop' });
     pop.present({
-      ev: e,
+      ev: ev,
       animate: false
     });
     pop.onWillDismiss(() => {
@@ -73,7 +103,6 @@ export class BookClassificationSearchComponent {
     this.toggleIcon(index)
   }
   toggleIcon(index): void {
-    console.log('这个index是', index)
     if (this.index && this.index == index) {
       this.index == -1;
     } else {
@@ -84,7 +113,7 @@ export class BookClassificationSearchComponent {
   ngOnDestroy() {
     //Called once, before the instance is destroyed.
     //Add 'implements OnDestroy' to the class.
-    this.events.unsubscribe('search:change',()=>[
+    this.events.unsubscribe('search:change', () => [
       console.log('取消订阅')
     ])
   }

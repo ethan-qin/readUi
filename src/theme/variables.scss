@@ -112,6 +112,45 @@ $tabs-md-tab-icon-transform-y-active:0;
 // The premium icon font for Ionic. For more info, please see:
 // http://ionicframework.com/docs/ionicons/
 
+
+@font-face {font-family: "Ionicons";
+  src: url('../assets/font/iconfont.eot?t=1520841547886'); /* IE9*/
+  src: url('../assets/font/iconfont.eot?t=1520841547886#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  // url('../assets/font/data:application/x-font-woff;charset=utf-8;base64,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') format('woff'),
+  url('../assets/font/iconfont.ttf?t=1520841547886') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../assets/font/iconfont.svg?t=1520841547886#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+// 上引号
+.ion-md-quotation:before { content: "\e63d"; }
+.ion-ios-quotation:before { content: "\e63d"; }
+.ion-ios-quotation-outline:before { content: "\e63d"; }
+
+// 书本
+.ion-md-book:before { content: "\e6ca"; }
+.ion-ios-book:before { content: "\e6ca"; }
+.ion-ios-book-outline:before { content: "\e6ca"; }
+
+// 砖石图标
+.ion-md-fans:before { content: "\e633"; }
+.ion-ios-fans:before { content: "\e633"; }
+.ion-ios-fans-outline:before { content: "\e633"; }
+
+//钢笔尖
+.ion-md-pen:before { content: "\e625"; }
+.ion-ios-pen:before { content: "\e625"; }
+.ion-ios-pen-outline:before { content: "\e625"; }
+
+// 徽章
+.ion-md-badge:before { content: "\e671"; }
+.ion-ios-badge:before { content: "\e671"; }
+.ion-ios-badge-outline:before { content: "\e671"; }
+
+// 签到
+.ion-md-sign:before { content: "\e603"; }
+.ion-ios-sign:before { content: "\e603"; }
+.ion-ios-sign-outline:before { content: "\e603"; }
+
 @import "ionic.ionicons";
 
 

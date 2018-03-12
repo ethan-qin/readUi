@@ -1,3 +1,4 @@
+import { bookList } from './../../model/model';
 import { ToastController } from 'ionic-angular/components/toast/toast-controller';
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides, Content, Events } from 'ionic-angular';

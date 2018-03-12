@@ -1,6 +1,6 @@
 
 // 书籍信息
-interface bookItem {
+export interface bookItem {
   bookId: number,
   img: string,        // 封面
   title: string,      // 书籍名称
@@ -14,13 +14,13 @@ interface bookItem {
   hasRank: boolean    // 是否展示排名
 }
 // 书籍列表信息
-interface bookList {
+export interface bookList {
   listName: string;
   books: Array<bookItem>
 }
 
 // 书籍目录
-interface catalog {
+export interface catalog {
   headerName?: string;        // 卷名
   catalog: Array<{
     catalogId: number,      // 章节id
@@ -33,14 +33,14 @@ interface catalog {
 
 // 登录表单
 
-interface Login {
+export interface Login {
   phone: number;     // 手机号
   password: string;  // 密码
 }
 
 // 用户个人信息
 
-interface User {
+export interface User {
   nickName: string;         // 昵称
   token: string;            // token
   avatar: string;           // 头像
