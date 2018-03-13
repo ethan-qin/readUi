@@ -17,7 +17,6 @@ import { NativeProvider } from '../providers/native/native';
 import { UserServicesProvider } from '../providers/user-services/user-services';
 import { BookProvider } from '../providers/book/book';
 
-
 @NgModule({
   declarations: [
     MyApp,
