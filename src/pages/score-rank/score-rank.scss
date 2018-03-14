@@ -7,7 +7,6 @@ page-score-rank {
             background: #fff;
         }
         .catalogHeader {
-            // height: 38px;
             color: color($colors, fontGray);
             position: absolute;
             left: 0;
@@ -16,17 +15,7 @@ page-score-rank {
             z-index: 999;
             height: 43px;
             line-height: 43px;
-            font-size: 1.5rem; // &::before {
-            //     content: "";
-            //     display: block;
-            //     width: 100%;
-            //     bottom: 0;
-            //     left: 0;
-            //     position: absolute;
-            //     height: 38px;
-            //     background: transparent;
-            //     box-shadow: 0 10px 60px color($colors, fineLineDark);
-            // }
+            font-size: 1.5rem;
             &:after {
                 position: absolute;
                 bottom: 0;
@@ -41,7 +30,7 @@ page-score-rank {
         }
     }
     ion-content {
-        background: color($colors, backgroundColor)!important;
+        background: #eeeeee!important;
         ion-scroll {
             width: 100%;
             height: 100%;
@@ -53,7 +42,7 @@ page-score-rank {
                     border-top: none!important;
                     min-height: 30px!important;
                     height: 43px;
-                    font-size: 1.6rem!important;
+                    font-size: 1.5rem!important;
                     padding-top: 0.3rem;
                     padding-bottom: 0.3rem;
                     ion-label {
@@ -69,61 +58,6 @@ page-score-rank {
                         height: 1px;
                         background: color($colors, fineLineDark);
                         transform: scale(0.3)
-                    }
-                }
-                ion-item {
-                    ion-label {
-                        padding: 0;
-                        margin-top: 0!important;
-                        margin-bottom: 0!important;
-                    }
-                    ion-icon {
-                        display: block;
-                        font-size: 3rem;
-                    }
-                    .comment {
-                        font-family: 'Comic Neue', sans-serif;
-                        color: red;
-                    }
-                    .bookItem {
-                        display: flex;
-                        background: #f3f3f3;
-                        .imgPreview {
-                            width: 4rem;
-                            img {
-                                width: 100%;
-                                vertical-align: bottom;
-                            }
-                        }
-                        .bookInfo {
-                            display: flex;
-                            padding-left: 0.6rem;
-                            flex-wrap: wrap;
-                            align-content: space-between;
-                            flex: 1;
-                            h5 {
-                                width: 100%;
-                                text-align: left;
-                                font-size: 1.2rem;
-                            }
-                            p {
-                                width: 100%;
-                                font-size: 1.1rem;
-                                text-align: left;
-                                em {
-                                    font-style: normal;
-                                }
-                            }
-                        }
-                    }
-                    .buttons {
-                        button {
-                            width: 100%;
-                            text-align: center;
-                            background: #fff;
-                            padding: 0.5rem 0;
-                            font-size: 1.5rem;
-                        }
                     }
                 }
             }

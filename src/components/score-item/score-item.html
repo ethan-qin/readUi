@@ -1,0 +1,33 @@
+<!-- Generated template for the ScoreItemComponent component -->
+<ion-item>
+  <p class="comment" text-wrap>
+    <ion-icon color="fineLineColor" block name="quotation"></ion-icon>
+    {{data.comment}}
+  </p>
+  <div class="bookItem">
+    <div class="imgPreview">
+      <img src={{data.bookCover}} alt="">
+    </div>
+    <div class="bookInfo">
+      <h5>{{data.bookTitle}}</h5>
+      <p>{{data.bookIntro}}</p>
+      <p class="tag">
+        <ion-icon name="ios-person-outline"></ion-icon>
+        {{data.bookAuthor}}
+        <span float-right>
+          <em> {{data.bookTag}}</em>
+          <em>{{data.bookStu}}</em>
+          <em>{{data.bookNum}}万字</em>
+        </span>
+      </p>
+    </div>
+  </div>
+</ion-item>
+<ion-row margin-bottom class="buttons">
+  <ion-col col-6>
+    <button (click)="openBook(data.bookId)">立即阅读</button>
+  </ion-col>
+  <ion-col col-6>
+    <button (click)="collectBook(data.bookId)" class="add">加入书架</button>
+  </ion-col>
+</ion-row>

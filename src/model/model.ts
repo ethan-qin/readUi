@@ -51,3 +51,23 @@ export interface User {
   payRank: string;          // 等级
 }
 
+// 积分榜 单条数据
+export interface scoreItem {
+  comment: string,      // 评语
+  bookId: number,       // 书籍id
+  bookCover: string,    // 书籍封面
+  bookTitle: string,    // 书籍名称
+  bookIntro: string,    // 书籍简介
+  bookAuthor: string,   // 书籍作者
+  bookStu: string,      // 书籍状态
+  bookTag: string,      // 书籍标签分类
+  bookNum: number,      // 书籍字数
+  isCollect: boolean,   // 是否已经收藏
+}
+
+// 一周积分榜数据
+export interface scoreList {
+  startTime: number,            // 榜单开始日期
+  endTime: number,              // 榜单结束日期
+  bookList: Array<scoreItem>  // 榜单数据
+}

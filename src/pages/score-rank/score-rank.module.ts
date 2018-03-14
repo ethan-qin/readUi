@@ -1,3 +1,4 @@
+import { ComponentsModule } from './../../components/components.module';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { ScoreRankPage } from './score-rank';
@@ -7,6 +8,7 @@ import { ScoreRankPage } from './score-rank';
     ScoreRankPage,
   ],
   imports: [
+    ComponentsModule,
     IonicPageModule.forChild(ScoreRankPage),
   ],
 })

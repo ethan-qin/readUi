@@ -1,0 +1,106 @@
+score-item {
+    ion-item {
+        background-color: #fafafa!important;
+        ion-label {
+            padding: 0;
+            margin-top: 0!important;
+            margin-bottom: 0!important;
+        }
+        ion-icon {
+            display: block;
+            font-size: 1.7rem;
+        }
+        .comment {
+            padding-top: 18px;
+            font-family: 'Comic Neue', sans-serif;
+            color: color($colors, fontBlack);
+        }
+        .bookItem {
+            width: 100%;
+            margin-top: 10px;
+            display: flex;
+            padding: 10px;
+            background: #f3f3f3;
+            justify-content: space-between;
+            .imgPreview {
+                width: 4.3rem;
+                img {
+                    width: 100%;
+                    vertical-align: bottom;
+                }
+            }
+            .bookInfo {
+                width: 80%;
+                display: flex;
+                flex-wrap: wrap;
+                align-content: space-between;
+                padding-left: 0.6rem;
+                flex: 1;
+                h5 {
+                    width: 100%;
+                    text-align: left;
+                    font-size: 1.2rem;
+                }
+                p {
+                    width: 100%;
+                    font-size: 1.2rem;
+                    text-align: left;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    color: color($colors, fontGray);
+                    &.tag {
+                        padding-top: 3px;
+                        ion-icon {
+                            font-size: 1.6rem;
+                            vertical-align: middle;
+                            display: inline-block;
+                            transform: translateY(-1px)
+                        }
+                        span {
+                            transform: translateY(2px);
+                            em {
+                                position: relative;
+                                font-style: normal;
+                                font-size: 0.9rem;
+                                padding: 1px 2px;
+                                color: #a8b8d1;
+                                &::before {
+                                    content: "";
+                                    display: inline-block;
+                                    position: absolute;
+                                    width: 500%;
+                                    height: 500%;
+                                    border: 1px solid #a8b8d1;
+                                    transform: scale(0.2);
+                                    transform-origin: left top;
+                                    left: 0;
+                                    top: -1px;
+                                    border-radius: 8px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .buttons {
+        ion-col {
+            padding: 0;
+            button {
+                width: 100%;
+                text-align: center;
+                background: #fff;
+                padding: 1.4rem 0;
+                font-size: 1.4rem;
+                color: color($colors, fontGray);
+                &.add {
+                    color: color($colors, danger);
+                }
+                &:active {
+                    background: color($colors, backgroundColor);
+                }
+            }
+        }
+    }
+}
