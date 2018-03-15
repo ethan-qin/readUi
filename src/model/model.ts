@@ -67,7 +67,7 @@ export interface scoreItem {
 
 // 一周积分榜数据
 export interface scoreList {
-  startTime: number,            // 榜单开始日期
-  endTime: number,              // 榜单结束日期
+  startTime: Date,            // 榜单开始日期
+  endTime: Date,              // 榜单结束日期
   bookList: Array<scoreItem>  // 榜单数据
 }

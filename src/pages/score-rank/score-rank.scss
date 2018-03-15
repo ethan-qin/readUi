@@ -1,53 +1,43 @@
 page-score-rank {
-    ion-row {
-        overflow: initial;
-        position: relative;
-        ion-col {
-            z-index: 1000;
-            background: #fff;
+    ion-header {
+        ion-navbar {
+            position: relative;
+            z-index: 99;
         }
-        .catalogHeader {
-            color: color($colors, fontGray);
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            transform: translateY(43px);
-            z-index: 999;
-            height: 43px;
-            line-height: 43px;
-            font-size: 1.5rem;
-            &:after {
-                position: absolute;
-                bottom: 0;
-                left: -140%;
-                content: "";
-                display: block;
-                width: 400%;
-                height: 1px;
-                background: color($colors, fineLineDark);
-                transform: scale(0.3);
+        ion-toolbar {
+            padding: 0!important;
+            height: 43px!important;
+            line-height: 43px!important;
+            min-height: 1rem!important;
+            position: absolute!important;
+            bottom: -43px;
+            contain: none!important;
+            overflow: visible!important;
+            .toolbar-content {
+                height: 43px;
+                line-height: 43px;
             }
-        }
-    }
-    ion-content {
-        background: #eeeeee!important;
-        ion-scroll {
-            width: 100%;
-            height: 100%;
-            ion-list {
-                margin-bottom: 32px!important;
-                margin-top: 0!important;
-                ion-list-header {
-                    color: color($colors, fontGray)!important;
-                    border-top: none!important;
-                    min-height: 30px!important;
+            .toolbar-background {
+                background: transparent;
+            }
+            ion-row {
+                height: 43px;
+                line-height: 43px;
+                overflow: initial;
+                position: relative; // transform: translateY(43px);
+                ion-col {
+                    z-index: 1000;
+                    background: #fff;
+                }
+                .catalogHeader {
+                    color: color($colors, fontGray);
+                    position: absolute;
+                    left: 0;
+                    bottom: 0; // transform: translateY(43px);
+                    z-index: 999;
                     height: 43px;
-                    font-size: 1.5rem!important;
-                    padding-top: 0.3rem;
-                    padding-bottom: 0.3rem;
-                    ion-label {
-                        margin: 0!important;
-                    }
+                    line-height: 43px;
+                    font-size: 1.5rem;
                     &:after {
                         position: absolute;
                         bottom: 0;
@@ -57,8 +47,55 @@ page-score-rank {
                         width: 400%;
                         height: 1px;
                         background: color($colors, fineLineDark);
-                        transform: scale(0.3)
+                        transform: scale(0.3);
                     }
+                }
+            }
+        }
+    }
+    .boxshadow {
+        position: relative;
+        &::before {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(rgba(190, 190, 190, .8), rgba(190, 190, 190, .1));
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            z-index: 99999;
+        }
+    }
+    ion-content {
+        background: #eeeeee!important; // ion-scroll {
+        //     width: 100%;
+        //     height: 100%;
+        // }
+        ion-list {
+            margin-bottom: 32px!important;
+            margin-top: 0!important;
+            ion-list-header {
+                color: color($colors, fontGray)!important;
+                border-top: none!important;
+                min-height: 30px!important;
+                height: 43px;
+                font-size: 1.5rem!important;
+                padding-top: 0.3rem;
+                padding-bottom: 0.3rem;
+                ion-label {
+                    margin: 0!important;
+                }
+                &:after {
+                    position: absolute;
+                    bottom: 0;
+                    left: -140%;
+                    content: "";
+                    display: block;
+                    width: 400%;
+                    height: 1px;
+                    background: color($colors, fineLineDark);
+                    transform: scale(0.3)
                 }
             }
         }
