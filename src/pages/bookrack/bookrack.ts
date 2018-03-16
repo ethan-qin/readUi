@@ -14,8 +14,8 @@ import { PopoverController } from 'ionic-angular/components/popover/popover-cont
  */
 
 @IonicPage({
-  name:'BookrackPage',
-  segment:'BookrackPage'
+  name: 'BookrackPage',
+  segment: 'BookrackPage'
 })
 @Component({
   selector: 'page-bookrack',
@@ -128,7 +128,7 @@ export class BookrackPage {
    * @memberof HomePage
    */
   protected goSearch(): void {
-    this.navCtrl.push('SearchPage');
+    this.native.pageGo(this.navCtrl,'SearchPage');
   }
 
   doRefresh(refresher) {
@@ -159,7 +159,7 @@ export class BookrackPage {
       this.navCtrl.push('BookAbstractPage', { id: data });
     })
   }
-  test(){
+  test() {
     // this.navCtrl.push('TestPage')
   }
 }

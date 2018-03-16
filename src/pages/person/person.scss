@@ -1,6 +1,6 @@
 page-person {
     ion-content {
-        background-color: color($colors, backgroundColor)!important;
+        background-color: #f0f1f3!important;
     }
     .button-md {
         box-shadow: none;
@@ -38,7 +38,7 @@ page-person {
     }
     .userInfo {
         padding: 0.7rem 0.8rem;
-        background-color: color($colors, backgroundColor);
+        background-color: #f0f1f3;
         color: #ccc;
         margin-top: -0.2rem;
         span {
@@ -50,7 +50,7 @@ page-person {
         .item {
             font-size: 1.4rem!important;
             min-height: 4rem;
-            color: color($colors, fontBlack)
+            color: #4a4a4a;
         }
         ion-icon {
             font-size: 2.5rem;

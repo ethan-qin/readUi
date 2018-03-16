@@ -41,12 +41,12 @@ page-classification {
                             margin: 0;
                             margin-bottom: 0.6rem;
                             padding-left: 1rem;
-                            color:color($colors,fontBlack)
+                            color:#4a4a4a;
                         }
                         p{
                             width: 100%;
                             padding-left: 1rem;
-                            color:color($colors,fontGray)
+                            color:#8c8c8c
                         }
                     };
                     &:nth-child(odd){
@@ -66,7 +66,7 @@ page-classification {
                         }
                     };
                     &:active{
-                        background: color($colors,backgroundColor)
+                        background: #f0f1f3;
                     }
                 }
             }

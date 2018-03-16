@@ -2,7 +2,9 @@ import { ToastController } from 'ionic-angular/components/toast/toast-controller
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 
+import { autoComplete } from './../../model/model';
 import { BaseUI } from '../../common/baseUI';
+import { NativeProvider } from './../../providers/native/native';
 
 /**
  * Generated class for the SearchPage page.
@@ -33,7 +35,7 @@ export class SearchPage extends BaseUI {
     { id: 10, icon: '', type: 'book', des: '书籍', preview: {}, content: '一剑逍遥行' },
     { id: 11, icon: '', type: 'book', des: '书籍', preview: {}, content: '一剑娇仙' },
   ]
-
+  // isBack: boolean = true;
   searchString: string;                               //用户输入的字段
   hasKey: boolean = false;                            //是否处于autoComple页面
   aotoCompleArr: Array<autoComplete> = [];            //自动完成提示数据组
@@ -41,17 +43,25 @@ export class SearchPage extends BaseUI {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    private native: NativeProvider
   ) {
     super()
   }
 
-  ionViewDidLoad() {
-    this.search.lockSwipes(true)
+
+  ionViewWillLeave() {
+    this.search.lockSwipes(true);
+    // if (this.isBack) {
+    //   this.native.nativeTransition('slide:back')
+    // }
   }
 
+  ionViewWillUnload(){
+    console.log('我明确被销毁了')
+  }
   goRank() {
-    this.navCtrl.push('HotRankPage')
+    this.native.pageGo(this.navCtrl, 'HotRankPage');
   }
 
 
@@ -188,21 +198,4 @@ export class SearchPage extends BaseUI {
 }
 
 
-/**
- * 搜索自动完成接口格式
- *
- * @author qin
- * @export
- * @class autoComplete
- */
-export class autoComplete {
-  id: number;       //顺序id
-  icon: string;     //图标 默认为空
-  type: string;     //类型 bookList:书单; author:作者; book:书籍;
-  des: string;      //类型描述
-  preview: {        //书单前两本书的封面
-    face?: string;
-    back?: string;
-  };
-  content: string;   //内容 bookList：书单名; author:作者名; book:书籍名
-}
+

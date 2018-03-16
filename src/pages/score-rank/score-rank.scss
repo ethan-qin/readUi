@@ -30,7 +30,7 @@ page-score-rank {
                     background: #fff;
                 }
                 .catalogHeader {
-                    color: color($colors, fontGray);
+                    color: #8c8c8c;
                     position: absolute;
                     left: 0;
                     bottom: 0; // transform: translateY(43px);
@@ -76,7 +76,7 @@ page-score-rank {
             margin-bottom: 32px!important;
             margin-top: 0!important;
             ion-list-header {
-                color: color($colors, fontGray)!important;
+                color: #8c8c8c!important;
                 border-top: none!important;
                 min-height: 30px!important;
                 height: 43px;

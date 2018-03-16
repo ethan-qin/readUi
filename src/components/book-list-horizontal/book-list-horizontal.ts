@@ -13,10 +13,7 @@ import { Component, Input } from '@angular/core';
 })
 export class BookListHorizontalComponent {
   @Input() bookList: any;
-  constructor(
-    private navCtrl: NavController
-  ) {
-    console.log('Hello BookListHorizontalComponent Component');
+  constructor( private navCtrl: NavController) {
   }
 
   openBook(data) {

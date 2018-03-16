@@ -10,7 +10,7 @@
     <ion-title>积分榜</ion-title>
   </ion-navbar>
   <ion-toolbar>
-    <ion-row #title [ngClass]="{'header':true,'boxshadow':isTouch||isScroll}">
+    <ion-row #title [ngClass]="{'header':true,'boxshadow':true}">
       <ion-col no-padding padding-left class="catalogHeader" text-center col-12>
         <!-- {{bookLists[0].startTime||2014}} -->
         初始标题
@@ -20,9 +20,9 @@
 </ion-header>
 
 
-<ion-content (ionScroll)="srollIng($event)" (ionScrollStart)="srollSrart()" (ionScrollEnd)="srollEnd()">
+<ion-content (ionScroll)="srollIng($event)">
   <ion-list *ngFor="let items of bookLists" #list no-lines>
-    <ion-list-header text-center no-margin [ngClass]="{'boxshadow':isTouch||isScroll}">
+    <ion-list-header text-center no-margin>
       {{items.startTime | date: 'MM-dd'}}&nbsp;-&nbsp;{{items.endTime | time: 'MM-dd'}}
     </ion-list-header>
     <score-item *ngFor="let item of items.bookList" [data]=item (collect)="openBook($event)" (open)="openBook($event)"></score-item>

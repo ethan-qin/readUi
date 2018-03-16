@@ -71,3 +71,23 @@ export interface scoreList {
   endTime: Date,              // 榜单结束日期
   bookList: Array<scoreItem>  // 榜单数据
 }
+
+
+/**
+ * 搜索提示栏
+ * 
+ * @author qin
+ * @export
+ * @interface autoComplete
+ */
+export interface autoComplete {
+  id: number;       //顺序id
+  icon: string;     //图标 默认为空
+  type: string;     //类型 bookList:书单; author:作者; book:书籍;
+  des: string;      //类型描述
+  preview: {        //书单前两本书的封面
+    face?: string;
+    back?: string;
+  };
+  content: string;   //内容 bookList：书单名; author:作者名; book:书籍名
+}

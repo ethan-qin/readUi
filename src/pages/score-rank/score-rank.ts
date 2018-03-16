@@ -1,5 +1,5 @@
 import { scoreList, bookList } from './../../model/model';
-import { Component, ViewChild, ViewChildren, ElementRef, NgZone } from '@angular/core';
+import { Component, ViewChild, ViewChildren, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 
 /**
@@ -22,14 +22,19 @@ export class ScoreRankPage {
 
   bottom: number;
   top: number;
-  isScroll: Boolean = false;
-  isTouch: Boolean = false;
   bookLists: Array<scoreList> = [];
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public zone: NgZone,
   ) {
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad ScoreRankPage');
+  }
+  ionViewDidEnter() {
+    this.top = this.header.nativeElement.clientHeight;
+    this.bottom = this.title.nativeElement.clientHeight + this.header.nativeElement.clientHeight;
     for (let i = 0; i < 10; i++) {
       let item = [];
       var timeStimp = 24 * 60 * 60 * 1000;
@@ -56,17 +61,7 @@ export class ScoreRankPage {
         endTime: new Date(nowTimp - i * timeStimp),
         bookList: item
       })
-
-
     }
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ScoreRankPage');
-  }
-  ionViewDidEnter() {
-    this.top = this.header.nativeElement.clientHeight;
-    this.bottom = this.title.nativeElement.clientHeight + this.header.nativeElement.clientHeight;
   }
 
   srollIng(): void {
@@ -82,16 +77,6 @@ export class ScoreRankPage {
       }
     });
 
-  }
-  srollSrart(): void {
-    this.zone.run(() => {
-      this.isScroll = true;
-    })
-  }
-  srollEnd(): void {
-    this.zone.run(() => {
-      this.isScroll = false;
-    })
   }
   openBook(bookId: number): void {
     console.log(bookId)

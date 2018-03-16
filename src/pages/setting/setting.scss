@@ -3,7 +3,7 @@ page-setting {
         padding: 0;
       }
     ion-content {
-      background-color: color($colors,backgroundColor)!important;
+      background-color: #f0f1f3!important;
     }
     ion-item {
         position: relative;
@@ -21,7 +21,7 @@ page-setting {
             left: -47%;
         }
         button.item {
-            color:color($colors,fontBlack);
+            color:#4a4a4a;
             font-size: 1.4rem!important;
             min-height: 4rem;
             &:last-child::after{

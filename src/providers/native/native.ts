@@ -2,10 +2,10 @@ import { ToastController } from 'ionic-angular/components/toast/toast-controller
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 import { CodePush } from "@ionic-native/code-push";
 import { Injectable } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Platform, NavController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-// import { StatusBar } from '@ionic-native/status-bar';
 import { Vibration } from '@ionic-native/vibration';
+import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 
 import { BaseUI } from "../../common/baseUI";
 import { IS_DEBUG, CODE_PUSH_key } from './../api/api';
@@ -20,12 +20,12 @@ export class NativeProvider extends BaseUI {
 
   constructor(
     private codePush: CodePush,
+    private loadingCtrl: LoadingController,
+    private nativePageTransition: NativePageTransitions,
     private platform: Platform,
     private storage: Storage,
-    private vibration: Vibration,
-    private loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
-    // private statusBar: StatusBar
+    private vibration: Vibration,
   ) {
     super()
     console.log('加载native模块');
@@ -82,24 +82,6 @@ export class NativeProvider extends BaseUI {
       })
     })
   }
-
-  /**
-   * 是否覆盖手机状态栏 状态栏默认颜色是#d23e3b
-   * true：覆盖  false：不覆盖
-   *
-   * @author qin
-   * @param {boolean} overlay
-   * @param {string} [color]
-   * @memberof NativeProvider
-   */
-  // public overlay(overlay: boolean, color?: string): void {
-  //   console.log('状态栏是否覆盖', overlay)
-  //   this.statusBar.overlaysWebView(overlay);
-  //   if (!color && !overlay) {
-  //     color = '#d23e3b';
-  //     this.statusBar.backgroundColorByHexString(color);
-  //   }
-  // }
 
   /**
    * 设备震动
@@ -189,5 +171,65 @@ export class NativeProvider extends BaseUI {
         }
       })
     }
+  }
+
+
+  /**
+   * 原生页面转换
+   *
+   * @author qin
+   * @param {string} animation
+   * @returns
+   * @memberof NativeProvider
+   */
+  public nativeTransition(animation: string) {
+    if (!this.isMobile()) {
+      return;
+    }
+    let options: NativeTransitionOptions = {
+      androiddelay: 100,
+      direction: 'left',
+      duration: 350,
+      slowdownfactor: 4,
+    };
+
+    if (!animation) {
+      console.error('参数类型错误');
+      return;
+    } else if (animation == 'flip:go') {
+      this.nativePageTransition.flip(options).then(f => {
+        console.log('flip进入成功');
+      }).catch();
+      return;
+    } else if (animation == 'flip:back') {
+      this.nativePageTransition.flip(options).then(f => {
+        console.log('flip返回成功');
+      }).catch();
+      return;
+    } else if (animation == 'slide:go') {
+      options.direction = 'left'
+      this.nativePageTransition.slide(options).then(f => {
+        console.log('slide进入成功');
+      }).catch()
+    } else if (animation == 'slide:back') {
+      options.direction = 'right'
+      this.nativePageTransition.slide(options).then(f => {
+        console.log('slide返回成功');
+      }).catch()
+    }
+
+  }
+
+  /**
+   * 页面跳转 isBack为页面是否使用返回动画
+   *
+   * @author qin
+   * @param {string} page
+   * @param {*} [params]
+   * @memberof NativeProvider
+   */
+  public pageGo(navCtrl: NavController, page: string, params?: any) {
+    this.nativeTransition('slide:go');
+    navCtrl.push(page, params)
   }
 }

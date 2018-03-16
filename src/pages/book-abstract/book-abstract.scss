@@ -5,6 +5,9 @@
             overflow: hidden;
             ion-navbar {
                 padding-top: 25px!important;
+                .toolbar-background{
+                  background: rgba(0,0,0,.6)!important;
+                }
             }
             .back-button {
                 color: #fff!important;
@@ -19,7 +22,7 @@
             .scroll-content{
                 background: transparent;
                 .bookDetail{
-                    background-color: color($colors, backgroundColor)!important;
+                    background-color: #f0f1f3!important;
 
                 }
             }
@@ -28,7 +31,7 @@
                 background-repeat: no-repeat;
                 // background-position-y: -61px;
                 ion-list {
-                    background-color: color($colors, lucency);
+                    background-color: rgba(0,0,0,.6);
                     ion-item {
                         background: transparent!important;
                         color: #fff!important;
@@ -88,7 +91,7 @@
                         font-weight: normal;
                         margin-top: 1.2rem;
                         margin-bottom: 0.3rem;
-                        color: color($colors, fontBlack);
+                        color: #4a4a4a;
                         small {
                             font-size: 1.1rem;
                         }
@@ -98,7 +101,7 @@
                         width: 100%;
                         font-size: 1.3rem;
                         font-weight: lighter;
-                        color: color($colors, fontGray);
+                        color: #8c8c8c;
                         margin-bottom: 1.2rem;
                     }
                 }
@@ -106,7 +109,7 @@
             .bookAbstract {
                 background: #fff;
                 h6 {
-                    color: color($colors, fontBlack);
+                    color: #4a4a4a;
                     font-size: 1.5rem;
                     margin-bottom: 0rem;
                 }
@@ -117,12 +120,12 @@
                         line-height: 2rem;
                         height: 6rem;
                         overflow: hidden;
-                        color: color($colors, fontGray);
+                        color: #8c8c8c;
                         margin-top: 0.5rem;
                     }
                     ion-icon {
                         position: absolute;
-                        color: color($colors, fontGray);
+                        color: #8c8c8c;
                         right: 0;
                         bottom: 0;
                         height: 2rem;
@@ -135,7 +138,7 @@
             }
             .catelog {
                 position: relative;
-                color: color($colors, fontBlack);
+                color: #4a4a4a;
                 &.hasLine {
                     &::after {
                         content: "";
@@ -158,7 +161,7 @@
                 ion-icon {
                     display: flex;
                     font-size: 1.8rem;
-                    color: color($colors, iconGray);
+                    color: #a5a1a1;
                     &::before {
                         margin: auto;
                     }
@@ -168,7 +171,7 @@
                 width: 100%!important;
                 box-shadow: none!important;
                 button {
-                    color: color($colors, fontBlack);
+                    color: #4a4a4a;
                 }
                 ion-card-header {
                     ion-note {
@@ -177,7 +180,7 @@
                     ion-icon {
                         display: flex;
                         font-size: 1.8rem!important;
-                        color: color($colors, iconGray);
+                        color: #a5a1a1;
                         &::before {
                             margin: auto;
                         }
@@ -232,12 +235,12 @@
             ion-card.author {
                 width: 100%!important;
                 box-shadow: none!important;
-                color: color($colors, fontBlack);
+                color: #4a4a4a;
                 ion-card-header {
                     ion-icon {
                         display: flex;
                         font-size: 1.8rem!important;
-                        color: color($colors, iconGray);
+                        color: #a5a1a1;
                         &::before {
                             margin: auto;
                         }
@@ -251,13 +254,13 @@
                 width: 100%!important;
                 box-shadow: none!important;
                 ion-item {
-                    color: color($colors, fontBlack);
+                    color: #4a4a4a;
                     font-size: 1.6rem;
                 }
                 ion-icon {
                     display: flex;
                     font-size: 1.8rem!important;
-                    color: color($colors, iconGray);
+                    color: #a5a1a1;
                     &::before {
                         margin: auto;
                     }
@@ -280,7 +283,7 @@
                 }
                 p {
                     font-size: 1.2rem!important;
-                    color: color($colors, fontGray)
+                    color: #8c8c8c;
                 }
             }
         }
@@ -288,14 +291,19 @@
         ion-footer{
           ion-icon{
             font-size: 2.5rem;
+            color: #a5a1a1;
           }
           button{
             height: 5rem!important;
+            &.downBtn,
+            &.addRack{
+              background-color: #fff!important;
+            }
           }
           .buttonIcon{
             font-size: 1.1rem;
             font-weight: 300;
-            color:color($colors,iconGray)
+            color:#a5a1a1
           }
         }
     }

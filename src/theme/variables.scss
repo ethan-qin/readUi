@@ -38,15 +38,9 @@ $colors: (
   secondary:       #32db64,
   danger:          #d23e3b,
   light:           #f4f4f4,
-  heightLight:     #ffffff,
   dark:            #222,
-  iconGray:        #a5a1a1,
-  fontBlack:       #4a4a4a,
-  fontGray:        #8c8c8c,
-  backgroundColor: #f0f1f3,
   fineLineColor:   #e6e6e6,
   fineLineDark:    #bebebe,
-  lucency:         rgba(0,0,0,.6)
 );
 
 // App Global Variables
@@ -55,9 +49,9 @@ $colors: (
 
 $tabs-background:#fff;
 $text-input-placeholder-color:#d2d3d5;
-$refresher-icon-color:color($colors,iconGray);
-$refresher-icon-color:color($colors,iconGray);
-$refresher-text-color:color($colors,iconGray);
+$refresher-icon-color:#a5a1a1;
+$refresher-icon-color:#a5a1a1;
+$refresher-text-color:#a5a1a1;
 
 
 

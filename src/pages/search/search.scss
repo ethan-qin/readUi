@@ -1,6 +1,6 @@
 page-search {
     ion-content {
-        background-color: color($colors, backgroundColor)!important;
+        background-color: #f0f1f3!important;
     }
     ion-input {
         font-size: 1.3rem;
@@ -30,12 +30,12 @@ page-search {
             text-align: left;
             position: relative;
             padding-bottom: 8px!important;
-            color: color($colors, fontGray)!important;
+            color: #8c8c8c!important;
             button {
                 padding: 0.3rem 0.5rem;
                 float: right;
                 font-size: 1.3rem;
-                color: color($colors, fontBlack);
+                color: #4a4a4a;
                 background: transparent;
             }
             ;
@@ -60,7 +60,7 @@ page-search {
                     white-space: nowrap;
                     background: transparent;
                     font-size: 12px;
-                    color: color($colors, fontGray);
+                    color: #8c8c8c;
                     &:active::after {
                         border-color: color($colors, dark)
                     }
@@ -70,7 +70,7 @@ page-search {
                         display: block;
                         width: 200%;
                         height: 200%;
-                        border: 1px solid color($colors, fontGray);
+                        border: 1px solid #8c8c8c;
                         position: absolute;
                         top: 0;
                         left: 0;
@@ -100,6 +100,9 @@ page-search {
         }
         .hotRank {
             font-size: 1.4rem!important;
+            .forwardIcon{
+              color: #8c8c8c;
+            }
         }
         ion-thumbnail {
             width: 3.5rem!important;
@@ -132,7 +135,7 @@ page-search {
             }
         }
         p {
-            color: color($colors, fontBlack)!important
+            color: #4a4a4a!important
         }
     }
     .swiper-slide {
@@ -172,14 +175,14 @@ page-search {
                 padding-left: 0.8rem;
                 margin-bottom: -0.6rem;
                 overflow: hidden;
-                color: color($colors, iconGray)
+                color: #a5a1a1
             }
             .label-md {
                 margin: 0 8px 0 0;
             }
             .tag {
                 font-size: 1.1rem;
-                color: color($colors, fontGray);
+                color: #8c8c8c;
                 max-width: 80%;
                 overflow: hidden;
                 display: inline-block;
@@ -197,7 +200,7 @@ page-search {
             &.more {
                 font-size: 1.2rem;
                 position: relative;
-                color: color($colors, fontGray);
+                color: #8c8c8c;
                 &::after {
                     position: absolute;
                     content: "";
@@ -216,7 +219,7 @@ page-search {
         background: #fff;
     }
     .segment-button {
-        color: color($colors, fontGray)!important;
+        color: #8c8c8c!important;
         font-size: 1.5rem!important;
         font-weight: 600!important;
     }

@@ -1,21 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { CodePush } from "@ionic-native/code-push";
 import { ErrorHandler, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler, NavController } from 'ionic-angular';
+import { NativePageTransitions } from '@ionic-native/native-page-transitions';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Vibration } from '@ionic-native/vibration';
-import { CodePush } from "@ionic-native/code-push";
 
+import { BookProvider } from '../providers/book/book';
 import { BookServicesProvider } from '../providers/book-services/book.services';
 import { ComponentsModule } from './../components/components.module';
 import { HttpProvider } from '../providers/http/http';
 import { MyApp } from './app.component';
-import { TabsPage } from '../pages/tabs/tabs';
 import { NativeProvider } from '../providers/native/native';
+import { TabsPage } from '../pages/tabs/tabs';
 import { UserServicesProvider } from '../providers/user-services/user-services';
-import { BookProvider } from '../providers/book/book';
+
 
 @NgModule({
   declarations: [
@@ -44,16 +46,17 @@ import { BookProvider } from '../providers/book/book';
     TabsPage
   ],
   providers: [
+    BookProvider,
+    BookServicesProvider,
+    CodePush,
+    HttpProvider,
+    NativePageTransitions,
+    NativeProvider,
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
-    HttpProvider,
-    BookServicesProvider,
-    NativeProvider,
     UserServicesProvider,
     Vibration,
-    CodePush,
-    BookProvider
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
   ]
 })
 export class AppModule { }

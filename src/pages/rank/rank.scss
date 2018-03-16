@@ -19,14 +19,14 @@ page-rank {
       }
     ion-scroll{
         height: 100%;
-        background: color($colors,backgroundColor)
+        background: #f0f1f3;
     }
     .rankList{
         ion-item{
-            color: color($colors,fontBlack);
+            color: #4a4a4a;
             border-width: 2px;
-            background: color($colors,backgroundColor);
-            border-left: 2px solid color($colors,backgroundColor);
+            background: #f0f1f3;
+            border-left: 2px solid #f0f1f3;
             font-weight: 600;
             font-size: 1.5rem;
             &.checked{
@@ -87,7 +87,7 @@ page-rank {
                   }
                   h2 {
                       font-size: 1.5rem;
-                      color: color($colors, fontBlack);
+                      color: #4a4a4a;
                       margin: 0;
                       span {
                           float: right;

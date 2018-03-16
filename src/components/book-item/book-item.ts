@@ -1,5 +1,5 @@
 import { bookItem } from './../../model/model';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 
 /**
  * Generated class for the BookItemComponent component.
@@ -11,9 +11,11 @@ import { Component, Input } from '@angular/core';
   selector: 'book-item',
   templateUrl: 'book-item.html'
 })
-export class BookItemComponent {
+export class BookItemComponent implements OnInit {
   @Input('itemData') item: bookItem;
   constructor() {
+  }
+  ngOnInit(){
     if (!this.item) {
       this.item = {
         bookId: 0,

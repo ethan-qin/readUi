@@ -1,3 +1,4 @@
+import { NativeProvider } from './../../providers/native/native';
 import { catalog } from './../../model/model';
 import { Component, ViewChild, ViewChildren, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
@@ -247,14 +248,17 @@ export class BookCatalogPage {
       ]
     },
   ];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private native: NativeProvider
+  ) {
   }
 
   ionViewDidLoad() {
 
   }
   ionViewDidEnter() {
-    console.log()
     let top = this.list['_results'][0].nativeElement.getBoundingClientRect().top;
     let translateY = this.bookHeade.nativeElement.offsetHeight;
     this.scroll._scrollContent.nativeElement.onscroll = () => {
@@ -275,5 +279,8 @@ export class BookCatalogPage {
         }
       })
     }
+  }
+  read(item: catalog): void {
+    this.native.pageGo(this.navCtrl, 'ReadPage', item);
   }
 }

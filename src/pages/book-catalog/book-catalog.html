@@ -30,7 +30,7 @@
       <ion-list-header no-margin>
         {{items.headerName}}
       </ion-list-header>
-      <button ion-item  *ngFor="let item of items.catalog">
+      <button ion-item  *ngFor="let item of items.catalog" (click)="read(item)">
         <h5>{{item.title}}</h5>
         <p>{{item.time | date: 'yyyy-MM-dd HH:mm'}}</p>
         <span ion-text item-end>

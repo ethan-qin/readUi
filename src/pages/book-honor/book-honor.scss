@@ -1,6 +1,9 @@
 page-book-honor {
     ion-content {
-        background-color: color($colors, backgroundColor)!important;
+        background-color: #f0f1f3!important;
+        .grayItem{
+          color:#8c8c8c;
+        }
         ion-thumbnail{
           min-width: 50px!important;
           min-height: 50px!important;
@@ -23,7 +26,7 @@ page-book-honor {
         .time{
           font-size: 1.4rem;
           padding-right: 0!important;
-          color:color($colors,fontGray)
+          color:#8c8c8c
         }
     }
 }

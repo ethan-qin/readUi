@@ -32,7 +32,7 @@ book-modal {
     }
     .bookHeadr {
         // background-image: url('../assets/imgs/bookbg1.jpg');
-  
+
         position: relative;
         background-size: cover;
         background-position-y: -15px;
@@ -137,6 +137,9 @@ book-modal {
         justify-content: space-between;
         flex-wrap: wrap;
         padding: 0 1rem 1rem 1rem;
+        .grayIcon{
+          color: #a5a1a1;
+        }
         button {
             display: inline-block;
             font-size: 1.3rem;

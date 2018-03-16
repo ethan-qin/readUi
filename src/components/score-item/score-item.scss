@@ -13,7 +13,7 @@ score-item {
         .comment {
             padding-top: 18px;
             font-family: 'Comic Neue', sans-serif;
-            color: color($colors, fontBlack);
+            color: #4a4a4a;
         }
         .bookItem {
             width: 100%;
@@ -47,9 +47,10 @@ score-item {
                     text-align: left;
                     text-overflow: ellipsis;
                     overflow: hidden;
-                    color: color($colors, fontGray);
+                    color: #8c8c8c;
                     &.tag {
                         padding-top: 3px;
+                        overflow: visible;
                         ion-icon {
                             font-size: 1.6rem;
                             vertical-align: middle;
@@ -93,12 +94,12 @@ score-item {
                 background: #fff;
                 padding: 1.4rem 0;
                 font-size: 1.4rem;
-                color: color($colors, fontGray);
+                color: #8c8c8c;
                 &.add {
                     color: color($colors, danger);
                 }
                 &:active {
-                    background: color($colors, backgroundColor);
+                    background: #f0f1f3;
                 }
             }
         }

@@ -8,17 +8,11 @@ import { NavParams, Events } from 'ionic-angular';
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
-export const BOOK_SEARCH_ACCESSOR: any = {
-  provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => SearchCheckboxComponent),
-  multi: true
-}
 @Component({
   selector: 'search-checkbox',
   templateUrl: 'search-checkbox.html',
-  providers: [BOOK_SEARCH_ACCESSOR]
 })
-export class SearchCheckboxComponent implements ControlValueAccessor {
+export class SearchCheckboxComponent {
 
   searchList: Array<any> = [];
   content: string;
@@ -30,16 +24,6 @@ export class SearchCheckboxComponent implements ControlValueAccessor {
     private events: Events
   ) {
     this.searchList = navParams.get('list');
-  }
-  writeValue(obj: any): void {
-    this.content = obj;
-  }
-  registerOnChange(fn: any): void {
-    this.onChanged = fn;
-    this.setValue(this.content)
-  }
-  registerOnTouched(fn: any): void {
-    this.onTouched = fn;
   }
 
   private setValue(val: any): void {

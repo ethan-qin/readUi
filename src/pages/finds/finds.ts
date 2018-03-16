@@ -1,3 +1,4 @@
+import { NativeProvider } from './../../providers/native/native';
 import { bookList } from './../../model/model';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -65,7 +66,8 @@ export class FindsPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private popCtrl: PopoverController
+    private popCtrl: PopoverController,
+    private native: NativeProvider
   ) {
   }
 
@@ -81,18 +83,19 @@ export class FindsPage {
     })
   }
   goSearch(): void {
-    this.navCtrl.push('SearchPage', {}, { animate: true, animation: 'transition', duration: 500, direction: 'forward' });
+    this.native.pageGo(this.navCtrl, 'SearchPage');
+    // this.navCtrl.push('SearchPage', {}, { animate: true, animation: 'transition', duration: 500, direction: 'forward' });
   }
   openRank(): void {
-    this.navCtrl.push('RankPage')
+    this.native.pageGo(this.navCtrl, 'RankPage');
   }
   openClassification(): void {
-    this.navCtrl.push('ClassificationPage')
+    this.native.pageGo(this.navCtrl, 'ClassificationPage');
   }
   openScore(): void {
-    this.navCtrl.push('ScoreRankPage')
+    this.native.pageGo(this.navCtrl, 'ScoreRankPage');
   }
   openSpecial(): void {
-    this.navCtrl.push('SpecialTopicPage')
+    this.native.pageGo(this.navCtrl, 'SpecialTopicPage');
   }
 }

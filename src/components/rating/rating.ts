@@ -15,8 +15,6 @@ export class RatingComponent {
   text: string;
   ratingArr: Array<boolean>
   constructor() {
-    console.log('Hello RatingComponent Component');
-    this.text = 'Hello World';
   }
 
   ngAfterViewInit() {

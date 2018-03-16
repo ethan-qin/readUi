@@ -7,16 +7,6 @@ page-classification-item {
             width: 50%;
             position: absolute;
             left: 25%;
-            // &::before{
-            //   content: "";
-            //   display: block;
-            //   height: 2 px;
-            //   width: 100%;
-            //   position: absolute;
-            //   bottom: 0;
-            //   background: #eed49e;
-            //   transform: translateY(-11px)
-            // }
         }
         ion-segment-button{
           height:3.9rem!important;
@@ -40,13 +30,13 @@ page-classification-item {
             width: 100%!important;
             box-shadow: none!important;
             ion-item {
-                color: color($colors, fontBlack);
+                color: #4a4a4a;
                 font-size: 1.6rem;
             }
             ion-icon {
                 display: flex;
                 font-size: 1.8rem!important;
-                color: color($colors, iconGray);
+                color: #a5a1a1;
                 &::before {
                     margin: auto;
                 }
@@ -62,11 +52,11 @@ page-classification-item {
                     h3 {
                         margin-top: 0.8rem;
                         text-align: left;
-                        color: color($colors, fontBlack)
+                        color: #4a4a4a;
                     }
                     p {
                         text-align: left;
-                        color: color($colors, fontGray);
+                        color: #8c8c8c;
                         transform: scale(0.7);
                         transform-origin: left top;
                     }
@@ -81,7 +71,7 @@ page-classification-item {
         }
     }
     ion-content {
-        background-color: color($colors, backgroundColor)!important;
+        background-color: #f0f1f3!important;
         .pageContainer {
             background: transparent;
             .recommend {

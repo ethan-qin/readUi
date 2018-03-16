@@ -47,7 +47,7 @@ book-list-slides {
                     margin: 0;
                     font-size: 1.2rem;
                     text-align: left;
-                    color: color($colors, fontBlack)
+                    color: #4a4a4a;
                 }
                 p {
                     margin: 0;
@@ -59,7 +59,7 @@ book-list-slides {
                     text-overflow: ellipsis;
                     transform: scale(0.5);
                     transform-origin: left top;
-                    color: color($colors, fontGray)
+                    color: #8c8c8c
                 }
             }
         }

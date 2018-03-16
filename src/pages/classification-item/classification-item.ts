@@ -77,7 +77,9 @@ export class ClassificationItemPage extends BaseUI {
     private toastCtrl: ToastController,
   ) {
     super();
-    this.stu = true;
+  }
+
+  ionViewDidEnter() {
     this.searchCheckBox = [
       {
         code: 0,
@@ -276,9 +278,6 @@ export class ClassificationItemPage extends BaseUI {
         ]
       },
     ];
-  }
-
-  ionViewDidEnter() {
     this.stu = false;
     this.changSearch()
   }
