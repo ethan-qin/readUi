@@ -1,3 +1,34 @@
 page-read {
-
+    ion-header{
+        ion-toolbar {
+            padding-top: 33px!important;
+            padding-bottom: 5px!important;
+            .eye{
+                background: #5c5c5c;
+                border-radius: 10px;
+                height: 1.8rem;;
+                ion-icon{
+                    font-size: 1.5rem;
+                }
+                font-size: 1.2rem;
+            }
+        }
+        .toolbar-background{
+            background: rgba(0,0,0,.9)!important;
+        }
+        transition: all 200ms;
+        &.hidden{
+            transform: translate3d(0,-74px,0);
+        }
+    }
+    ion-content{
+        .scroll-content,
+        .fixed-content{
+            margin-top: 0!important;
+        }
+        .scroll-content{
+            background: url('/assets/imgs/qd.jpg');
+            background-size: cover;
+        }
+    }
 }

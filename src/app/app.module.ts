@@ -8,6 +8,7 @@ import { NativePageTransitions } from '@ionic-native/native-page-transitions';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Vibration } from '@ionic-native/vibration';
+import { Toast } from '@ionic-native/toast';
 
 import { BookProvider } from '../providers/book/book';
 import { BookServicesProvider } from '../providers/book-services/book.services';
@@ -56,6 +57,7 @@ import { UserServicesProvider } from '../providers/user-services/user-services';
     SplashScreen,
     UserServicesProvider,
     Vibration,
+    Toast,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
   ]
 })

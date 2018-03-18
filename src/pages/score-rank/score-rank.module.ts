@@ -10,7 +10,6 @@ import { ScoreRankPage } from './score-rank';
   ],
   imports: [
     ComponentsModule,
-    PipesModule,
     IonicPageModule.forChild(ScoreRankPage),
   ],
 })

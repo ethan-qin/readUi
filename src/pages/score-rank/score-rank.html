@@ -12,8 +12,11 @@
   <ion-toolbar>
     <ion-row #title [ngClass]="{'header':true,'boxshadow':true}">
       <ion-col no-padding padding-left class="catalogHeader" text-center col-12>
-        <!-- {{bookLists[0].startTime||2014}} -->
-        初始标题
+        <!-- {{bookLists[0].startTime | date: 'MM'}}月{{bookLists[0].startTime | date: 'dd'}}日 -->
+        03月04日
+        &nbsp;-&nbsp;
+        03月08日
+        <!-- {{bookLists[0].endTime | date: 'MM'}}月{{bookLists[0].startTime | date: 'dd'}}日 -->
       </ion-col>
     </ion-row>
   </ion-toolbar>
@@ -23,7 +26,9 @@
 <ion-content (ionScroll)="srollIng($event)">
   <ion-list *ngFor="let items of bookLists" #list no-lines>
     <ion-list-header text-center no-margin>
-      {{items.startTime | date: 'MM-dd'}}&nbsp;-&nbsp;{{items.endTime | time: 'MM-dd'}}
+      {{items.startTime | date: 'MM'}}月{{items.startTime | date: 'dd'}}日
+      &nbsp;-&nbsp;
+      {{items.endTime | date: 'MM'}}月{{items.startTime | date: 'dd'}}日
     </ion-list-header>
     <score-item *ngFor="let item of items.bookList" [data]=item (collect)="openBook($event)" (open)="openBook($event)"></score-item>
   </ion-list>

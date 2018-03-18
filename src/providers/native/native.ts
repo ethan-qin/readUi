@@ -6,7 +6,7 @@ import { Platform, NavController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { Vibration } from '@ionic-native/vibration';
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
-
+import { Toast } from '@ionic-native/toast';
 import { BaseUI } from "../../common/baseUI";
 import { IS_DEBUG, CODE_PUSH_key } from './../api/api';
 /*
@@ -26,11 +26,20 @@ export class NativeProvider extends BaseUI {
     private storage: Storage,
     private toastCtrl: ToastController,
     private vibration: Vibration,
+    private toast: Toast
   ) {
     super()
     console.log('加载native模块');
   }
 
+
+  showNativeToast() {
+    this.toast.show(`I'm a toast`, '5000', 'bottom').subscribe(
+      toast => {
+        console.log(toast);
+      }
+    );
+  }
 
   /**
    * 获取本地存储

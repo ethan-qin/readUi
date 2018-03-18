@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { StatusBar } from '@ionic-native/status-bar';
 
 /**
  * Generated class for the ReadPage page.
@@ -14,12 +15,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'read.html',
 })
 export class ReadPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  showBar: boolean = true;
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private statusBar: StatusBar
+  ) {
+    this.statusBar.hide()
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ReadPage');
+    setInterval(() => {
+      this.showBar = !this.showBar;
+    }, 2000)
   }
 
 }

@@ -4,15 +4,50 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header no-border>
-
-  <ion-navbar>
-
-  </ion-navbar>
-
+<ion-header [ngClass]="{'hidden': showBar}" no-border>
+  <ion-toolbar color="dark">
+    <ion-buttons left>
+      <button ion-button icon-only>
+        <ion-icon name="ios-arrow-back-outline"></ion-icon>
+        返回
+      </button>
+    </ion-buttons>
+    <ion-buttons left padding-horizontal>
+      <button ion-button icon-only>
+        <ion-icon name="ios-download-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons left padding-horizontal>
+      <button ion-button icon-only>
+        <ion-icon name="ios-headset-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons left padding-horizontal>
+      <button ion-button icon-only>
+        <ion-icon name="ios-chatboxes-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons left padding-horizontal>
+      <button class="eye" ion-button icon-left>
+        <ion-icon name="md-eye"></ion-icon>
+        本章说
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="md-more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <p>
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta, quaerat a cupiditate dignissimos neque vero doloremque assumenda quo at rerum dolores aliquam eos eaque, libero cumque? Optio velit maiores rerum?
+    Ex vero et quas vel sint porro nobis, quasi suscipit iusto doloribus hic dolorem? Sapiente non sed nesciunt esse eligendi minima. Autem cupiditate ab ipsam quos qui officiis dolor repellendus.
+    Adipisci dolorum perspiciatis dignissimos? Hic unde praesentium veniam animi expedita officiis sequi labore quos, molestiae cupiditate pariatur nobis dolorum tempore facilis magni cumque esse impedit. Vel quas dolore odit amet!
+    Pariatur ab obcaecati dignissimos dolorum dolores libero mollitia, aspernatur quod sit voluptate. Rem modi possimus voluptate, magnam hic iste fugiat maiores quidem? Commodi sit qui pariatur voluptate nostrum quis expedita?
+    Tempore non architecto maxime, consequatur mollitia officia repudiandae voluptatibus deserunt totam nobis. Incidunt aliquid exercitationem consectetur rem, dicta architecto officia quibusdam, facere magnam, vitae corrupti beatae voluptatibus tenetur aspernatur sed!
+  </p>
 </ion-content>
