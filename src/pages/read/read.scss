@@ -73,7 +73,11 @@ page-read {
     }
 
     ion-footer{
-        background: rgba(0,0,0,.95)!important;
+        .toolbar-background{
+            background: rgba(0,0,0,.95)!important;
+        }
+
+
         ion-item{
             background: transparent!important;
             ion-range{

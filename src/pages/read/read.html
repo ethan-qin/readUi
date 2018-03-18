@@ -61,38 +61,40 @@
   </div>
 </ion-content>
 <ion-footer no-border>
-  <ion-list no-lines no-margin>
-    <ion-item class="nextPrev">
-      <ion-range min="1" max="500" (ionChange)="change()" [(ngModel)]="saturation" color="danger">
-        <ion-label range-left>上一章</ion-label>
-        <ion-label range-right>下一章</ion-label>
-      </ion-range>
-    </ion-item>
-  </ion-list>
-  <ion-row padding-horizontal>
-    <ion-col no-padding text-center>
-      <div float-left>
-        <div>
-          <ion-icon name="ios-list-outline"></ion-icon>
+  <ion-toolbar>
+    <ion-list no-lines no-margin>
+      <ion-item class="nextPrev">
+        <ion-range min="1" max="500" (ionChange)="change()" [(ngModel)]="saturation" color="danger">
+          <ion-label range-left>上一章</ion-label>
+          <ion-label range-right>下一章</ion-label>
+        </ion-range>
+      </ion-item>
+    </ion-list>
+    <ion-row padding-horizontal>
+      <ion-col no-padding text-center>
+        <div float-left>
+          <div>
+            <ion-icon name="ios-list-outline"></ion-icon>
+          </div>
+          <label class="buttonIcon">目录</label>
         </div>
-        <label class="buttonIcon">目录</label>
-      </div>
-    </ion-col>
-    <ion-col no-padding text-center>
-      <div>
+      </ion-col>
+      <ion-col no-padding text-center>
         <div>
-          <ion-icon name="ios-moon-outline"></ion-icon>
+          <div>
+            <ion-icon name="ios-moon-outline"></ion-icon>
+          </div>
+          <label class="buttonIcon">夜间模式</label>
         </div>
-        <label class="buttonIcon">夜间模式</label>
-      </div>
-    </ion-col>
-    <ion-col no-padding text-center>
-      <div float-right>
-        <div>
-          <ion-icon name="ios-settings-outline"></ion-icon>
+      </ion-col>
+      <ion-col no-padding text-center>
+        <div float-right>
+          <div>
+            <ion-icon name="ios-settings-outline"></ion-icon>
+          </div>
+          <label class="buttonIcon">设置</label>
         </div>
-        <label class="buttonIcon">设置</label>
-      </div>
-    </ion-col>
-  </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
 </ion-footer>
