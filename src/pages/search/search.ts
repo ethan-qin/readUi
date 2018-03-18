@@ -56,7 +56,6 @@ export class SearchPage extends BaseUI {
     //   this.native.nativeTransition('slide:back')
     // }
   }
-
   ionViewWillUnload(){
     console.log('我明确被销毁了')
   }

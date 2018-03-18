@@ -4,7 +4,7 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header [ngClass]="{'hidden': showBar}" no-border>
+<ion-header [ngClass]="{'hidden': !showBar}" no-border>
   <ion-toolbar color="dark">
     <ion-buttons left>
       <button ion-button icon-only>
@@ -17,7 +17,7 @@
         <ion-icon name="ios-download-outline"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-buttons left padding-horizontal>
+    <ion-buttons left>
       <button ion-button icon-only>
         <ion-icon name="ios-headset-outline"></ion-icon>
       </button>
@@ -27,7 +27,7 @@
         <ion-icon name="ios-chatboxes-outline"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-buttons left padding-horizontal>
+    <ion-buttons left>
       <button class="eye" ion-button icon-left>
         <ion-icon name="md-eye"></ion-icon>
         本章说
@@ -42,12 +42,57 @@
 </ion-header>
 
 
-<ion-content>
-  <p>
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta, quaerat a cupiditate dignissimos neque vero doloremque assumenda quo at rerum dolores aliquam eos eaque, libero cumque? Optio velit maiores rerum?
-    Ex vero et quas vel sint porro nobis, quasi suscipit iusto doloribus hic dolorem? Sapiente non sed nesciunt esse eligendi minima. Autem cupiditate ab ipsam quos qui officiis dolor repellendus.
-    Adipisci dolorum perspiciatis dignissimos? Hic unde praesentium veniam animi expedita officiis sequi labore quos, molestiae cupiditate pariatur nobis dolorum tempore facilis magni cumque esse impedit. Vel quas dolore odit amet!
-    Pariatur ab obcaecati dignissimos dolorum dolores libero mollitia, aspernatur quod sit voluptate. Rem modi possimus voluptate, magnam hic iste fugiat maiores quidem? Commodi sit qui pariatur voluptate nostrum quis expedita?
-    Tempore non architecto maxime, consequatur mollitia officia repudiandae voluptatibus deserunt totam nobis. Incidunt aliquid exercitationem consectetur rem, dicta architecto officia quibusdam, facere magnam, vitae corrupti beatae voluptatibus tenetur aspernatur sed!
-  </p>
+<ion-content no-bounce>
+  <ion-slides effect="slide" loop="true">
+    <ion-slide style="background: url('/assets/imgs/qd.jpg');">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, exercitationem iusto possimus harum expedita, accusantium
+      nihil quisquam sint, itaque aspernatur voluptate nostrum. Nemo magnam excepturi eligendi enim voluptate necessitatibus
+      omnis.
+    </ion-slide>
+    <ion-slide style="background: url('/assets/imgs/qd.jpg');"></ion-slide>
+    <ion-slide style="background: url('/assets/imgs/qd.jpg');"></ion-slide>
+  </ion-slides>
+  <div class="pageCtrl">
+    <div class="top"></div>
+    <div class="left"></div>
+    <div class="center"></div>
+    <div class="right"></div>
+    <div class="bottom"></div>
+  </div>
 </ion-content>
+<ion-footer no-border>
+  <ion-list no-lines no-margin>
+    <ion-item class="nextPrev">
+      <ion-range min="1" max="500" (ionChange)="change()" [(ngModel)]="saturation" color="danger">
+        <ion-label range-left>上一章</ion-label>
+        <ion-label range-right>下一章</ion-label>
+      </ion-range>
+    </ion-item>
+  </ion-list>
+  <ion-row padding-horizontal>
+    <ion-col no-padding text-center>
+      <div float-left>
+        <div>
+          <ion-icon name="ios-list-outline"></ion-icon>
+        </div>
+        <label class="buttonIcon">目录</label>
+      </div>
+    </ion-col>
+    <ion-col no-padding text-center>
+      <div>
+        <div>
+          <ion-icon name="ios-moon-outline"></ion-icon>
+        </div>
+        <label class="buttonIcon">夜间模式</label>
+      </div>
+    </ion-col>
+    <ion-col no-padding text-center>
+      <div float-right>
+        <div>
+          <ion-icon name="ios-settings-outline"></ion-icon>
+        </div>
+        <label class="buttonIcon">设置</label>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-footer>

@@ -25,10 +25,80 @@ page-read {
         .scroll-content,
         .fixed-content{
             margin-top: 0!important;
+            // overflow-y: hidden;
+            margin-bottom: 0!important;
         }
-        .scroll-content{
-            background: url('/assets/imgs/qd.jpg');
+        ion-slide{
+            align-items: flex-start!important;
             background-size: cover;
+            background-repeat: no-repeat;
+            .slide-zoom{
+                text-align: left;
+            }
+        }
+        article{
+            font-size: 1.6rem;
+            p{
+                line-height: 2;
+            }
+        }
+        .pageCtrl{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: 1;
+            display: flex;
+            flex-wrap: wrap;
+            .top,.bottom{
+                width: 100%;
+                height: 35%;
+                // background: blue;
+            }
+            .left,.right{
+                width: 40%;
+                height: 30%;
+                // background: yellow
+            }
+            .center{
+                width: 20%;
+                height: 30%;
+            }
+        }
+        // .scroll-content{
+
+        // }
+    }
+
+    ion-footer{
+        background: rgba(0,0,0,.95)!important;
+        ion-item{
+            background: transparent!important;
+            ion-range{
+                ion-label{
+                    color: color($colors,light)!important;
+                }
+                .range-knob{
+                    transform: scale(1)!important;
+                }
+            }
+        }
+        ion-col{
+
+            color: color($colors,light);
+            font-weight: 400;
+            font-size: 1.1rem;
+            padding-bottom: 0.3rem!important;
+            padding-top: 0.5rem!important;
+            >div{
+                display: inline-block;
+            }
+        }
+        ion-icon{
+            font-size: 3rem;
+ 
         }
     }
 }
