@@ -33,11 +33,11 @@ export class ReadPage {
   ionViewDidLoad() {
 
     console.log(this.content.enableJsScroll);
-    
+
     console.log('ionViewDidLoad ReadPage');
-    // setInterval(() => {
-    //   this.showBar = !this.showBar;
-    // }, 2000)
+    setInterval(() => {
+      this.showBar = !this.showBar;
+    }, 2000)
   }
 
 }
