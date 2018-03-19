@@ -35,15 +35,28 @@ page-read {
             top: 0;
             width: 100%;
             height: 100%; // background:red;
-            .focus,
-            .prev,
-            .next {
+            .focus{
                 position: absolute;
                 left: 0;
                 top: 0;
                 width: 100%;
                 height: 100%;
-                overflow: visible;
+                overflow: hidden;
+                z-index: 101;
+                transition: left 480ms linear;
+                box-shadow: 3px 0 3px 2px rgba(0, 0, 0, .2);
+                &.hidden{
+                    left: -600px;
+                }
+                &.lineLarge {
+                    line-height: 2.5;
+                }
+                &.lineMiddle {
+                    line-height: 2;
+                }
+                &.lineSmall {
+                    line-height: 1.5;
+                }
                 article {
                     padding: 6px 18px;
                     height: 100%;
@@ -51,48 +64,28 @@ page-read {
                     position: absolute;
                     left: 0;
                     top: 0;
+                    z-index: 999;
                     overflow: visible;
                     text-align: justify;
                     column-count: 1;
                     column-gap: 36px;
-                    div {}
-                    &.lineLarge {
-                        line-height: 2.5;
-                    }
-                    &.lineMiddle {
-                        line-height: 2;
-                    }
-                    &.lineSmall {
-                        line-height: 1.5;
-                    }
                     p {
                         margin: 0;
                         line-height: inherit;
                     }
-                    .indexP {
-                        position: absolute;
-                        padding: 0 1.5rem;
-                        width: 100%;
-                        top: 50px;
-                        left: 0;
-                        z-index: -999;
-                        opacity: 0; // background: red;
-                    }
                 }
-                &.pervTo {
-                    z-index: 99;
-                    animation: prev 1200ms linear infinite;
-                    box-shadow: 2px 0 3px 3px rgba(0, 0, 0, .3)
+                .backImg{
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 1;
                 }
-            }
-            .focus {
-                z-index: 90;
-            }
-        }
-        article {
-            font-size: 1.6rem;
-            p {
-                line-height: 2;
+                .lineMiddle,.backImg{
+                    position: absolute;
+                    top: 0;
+                }
             }
         }
         .pageCtrl {
@@ -102,22 +95,23 @@ page-read {
             width: 100%;
             height: 100%;
             background: transparent;
-            z-index: 1;
+            z-index: 9999;
             display: flex;
             flex-wrap: wrap;
             .top,
             .bottom {
                 width: 100%;
-                height: 35%; // background: blue;
+                height: 30%; // background: blue;
             }
             .left,
             .right {
                 width: 40%;
-                height: 30%; // background: yellow
+                height: 40%; 
+                // background: yellow
             }
             .center {
                 width: 20%;
-                height: 30%;
+                height: 40%;
             }
         }
     }

@@ -44,19 +44,19 @@
 
 <ion-content no-bounce>
   <div class="readCente">
-    <div #focus class="focus">
-      <div class="backImg" style="background: url('/assets/imgs/qd.jpg');"></div>
-      <article class="lineMiddle">
-        <div #containers>
+    <div #focus class="focus lineLarge" style="font-size:1.6rem" [ngClass]="{'hidden': (0<where)}">
+      <div class="backImg" [ngStyle]="{background: backUrl}"></div>
+      <article>
+        <div class="bookHtml" #containers>
           <div [innerHTML]="article | safeHtml">
           </div>
         </div>
       </article>
     </div>
-    <div style="display:none" class="focus" *ngFor="let item of testArr" [ngStyle]="{'z-index': 100-item.index,'transform':item.transform}">
-      <div [ngStyle]="{'transform':item.transform}" class="backImg" style="background: url('/assets/imgs/qd.jpg');"></div>
-      <article class="lineMiddle">
-        <div>
+    <div #focus class="focus lineLarge" style="font-size:1.6rem" [ngClass]="{'hidden': (item.index<where)}" *ngFor="let item of testArr" [ngStyle]="{'z-index': 100-item.index}">
+      <div class="backImg" [ngStyle]="{background: backUrl}"></div>
+      <article [ngStyle]="{left: item.left}">
+        <div class="bookHtml">
           <div [innerHTML]="article | safeHtml">
           </div>
         </div>
@@ -64,11 +64,11 @@
     </div>
   </div>
   <div class="pageCtrl">
-    <div class="top"></div>
-    <div class="left"></div>
-    <div class="center"></div>
-    <div class="right"></div>
-    <div class="bottom"></div>
+    <div class="top" (click)="prev()"></div>
+    <div class="left" (click)="prev()"></div>
+    <div class="center" (click)="showbar()"></div>
+    <div class="right" (click)="next()"></div>
+    <div class="bottom" (click)="next()"></div>
   </div>
 </ion-content>
 <ion-footer [ngClass]="{'hidden': !showBar}" no-border>

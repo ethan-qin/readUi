@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, ViewChildren } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, Content, Slide } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SlideContainer } from 'ionic-angular/components/slides/swiper/swiper-interfaces';
@@ -18,13 +18,15 @@ import * as data from './../../assets/mock/data';
 })
 export class ReadPage {
   @ViewChild('containers') containers: ElementRef;
-  @ViewChild('focus') focus: ElementRef;
+  @ViewChildren('focus') focus: ElementRef;
   showBar: boolean = false;
   saturation: any;
   scrollWidth: number;
   pageWidth: number;
   pageNum: number;
+  where:number=0;
   testArr: Array<any> = [];
+  backUrl:string ="url('assets/imgs/qd.jpg')"
   article: string = data.bookChapter;
   constructor(
     public navCtrl: NavController,
@@ -32,7 +34,7 @@ export class ReadPage {
     private statusBar: StatusBar
   ) {
     this.statusBar.hide();
-
+    this.statusBar.overlaysWebView(true)
   }
   change(): void {
     console.log(this.saturation)
@@ -40,14 +42,39 @@ export class ReadPage {
   ionViewWillEnter() {
     this.scrollWidth = this.containers.nativeElement.parentNode.scrollWidth + 18;
     this.pageWidth = this.containers.nativeElement.offsetParent.clientWidth;
-    this.pageNum = this.scrollWidth / this.pageWidth;
+    this.pageNum = Math.ceil(this.scrollWidth / this.pageWidth)-1;
     for (let index = 0; index < this.pageNum; index++) {
-      this.testArr.push({index:index,transform:`translateX(-${(index+1)*this.pageWidth}px)`})
+      this.testArr.push({index:index+1,left:`-${(index+1)*this.pageWidth}px`,backLeft:`${(index+1)*this.pageWidth}px`})
     }
-    console.log(this.testArr)
+    console.log('选中的内容是',this.testArr.length)
   }
   ionViewDidLoad() {
 
   }
+  next():void{
+    if(this.where<this.testArr.length&&!this.showBar){
+      this.where=this.where+1;
+      console.log(this.where);
+      return;
+    }
+  }
 
+  prev():void{
+    if(this.where>0&&!this.showBar){
+      this.where=this.where-1;
+      console.log(this.where)
+      return;
+    }
+
+  }
+
+  showbar():void{
+    if(this.showBar){
+      this.statusBar.hide();
+    }else{
+      this.statusBar.show();
+      this.statusBar.overlaysWebView(true)
+    }
+    this.showBar=!this.showBar;
+  }
 }
