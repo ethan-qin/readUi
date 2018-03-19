@@ -1,8 +1,9 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, Content, Slide } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SlideContainer } from 'ionic-angular/components/slides/swiper/swiper-interfaces';
 
+import * as data from './../../assets/mock/data';
 /**
  * Generated class for the ReadPage page.
  *
@@ -16,28 +17,37 @@ import { SlideContainer } from 'ionic-angular/components/slides/swiper/swiper-in
   templateUrl: 'read.html',
 })
 export class ReadPage {
-  @ViewChild(Content) content: Content;
-  @ViewChild(Slide) slide: SlideContainer;
-  showBar: boolean = true;
-  saturation:any;
+  @ViewChild('containers') containers: ElementRef;
+  @ViewChild('focus') focus: ElementRef;
+  showBar: boolean = false;
+  saturation: any;
+  scrollWidth: number;
+  pageWidth: number;
+  pageNum: number;
+  testArr: Array<any> = [];
+  article: string = data.bookChapter;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private statusBar: StatusBar
   ) {
-    this.statusBar.hide()
+    this.statusBar.hide();
+
   }
-  change():void{
+  change(): void {
     console.log(this.saturation)
+  }
+  ionViewWillEnter() {
+    this.scrollWidth = this.containers.nativeElement.parentNode.scrollWidth + 18;
+    this.pageWidth = this.containers.nativeElement.offsetParent.clientWidth;
+    this.pageNum = this.scrollWidth / this.pageWidth;
+    for (let index = 0; index < this.pageNum; index++) {
+      this.testArr.push({index:index,transform:`translateX(-${(index+1)*this.pageWidth}px)`})
+    }
+    console.log(this.testArr)
   }
   ionViewDidLoad() {
 
-    console.log(this.content.enableJsScroll);
-
-    console.log('ionViewDidLoad ReadPage');
-    setInterval(() => {
-      this.showBar = !this.showBar;
-    }, 2000)
   }
 
 }

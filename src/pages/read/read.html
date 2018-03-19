@@ -43,15 +43,26 @@
 
 
 <ion-content no-bounce>
-  <ion-slides effect="slide" loop="true">
-    <ion-slide style="background: url('/assets/imgs/qd.jpg');">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, exercitationem iusto possimus harum expedita, accusantium
-      nihil quisquam sint, itaque aspernatur voluptate nostrum. Nemo magnam excepturi eligendi enim voluptate necessitatibus
-      omnis.
-    </ion-slide>
-    <ion-slide style="background: url('/assets/imgs/qd.jpg');"></ion-slide>
-    <ion-slide style="background: url('/assets/imgs/qd.jpg');"></ion-slide>
-  </ion-slides>
+  <div class="readCente">
+    <div #focus class="focus">
+      <div class="backImg" style="background: url('/assets/imgs/qd.jpg');"></div>
+      <article class="lineMiddle">
+        <div #containers>
+          <div [innerHTML]="article | safeHtml">
+          </div>
+        </div>
+      </article>
+    </div>
+    <div style="display:none" class="focus" *ngFor="let item of testArr" [ngStyle]="{'z-index': 100-item.index,'transform':item.transform}">
+      <div [ngStyle]="{'transform':item.transform}" class="backImg" style="background: url('/assets/imgs/qd.jpg');"></div>
+      <article class="lineMiddle">
+        <div>
+          <div [innerHTML]="article | safeHtml">
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
   <div class="pageCtrl">
     <div class="top"></div>
     <div class="left"></div>
@@ -60,7 +71,7 @@
     <div class="bottom"></div>
   </div>
 </ion-content>
-<ion-footer no-border>
+<ion-footer [ngClass]="{'hidden': !showBar}" no-border>
   <ion-toolbar>
     <ion-list no-lines no-margin>
       <ion-item class="nextPrev">

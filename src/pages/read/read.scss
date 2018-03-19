@@ -1,48 +1,101 @@
 page-read {
-    ion-header{
+    ion-header {
         ion-toolbar {
             padding-top: 33px!important;
             padding-bottom: 5px!important;
-            .eye{
+            .eye {
                 background: #5c5c5c;
                 border-radius: 10px;
-                height: 1.8rem;;
-                ion-icon{
+                height: 1.8rem;
+                ;
+                ion-icon {
                     font-size: 1.5rem;
                 }
                 font-size: 1.2rem;
             }
         }
-        .toolbar-background{
-            background: rgba(0,0,0,.9)!important;
+        .toolbar-background {
+            background: rgba(0, 0, 0, .9)!important;
         }
         transition: all 200ms;
-        &.hidden{
-            transform: translate3d(0,-74px,0);
+        &.hidden {
+            transform: translate3d(0, -74px, 0);
         }
     }
-    ion-content{
+    ion-content {
+        height: 100%;
         .scroll-content,
-        .fixed-content{
-            margin-top: 0!important;
-            // overflow-y: hidden;
+        .fixed-content {
+            margin-top: 0!important; // overflow-y: hidden;
             margin-bottom: 0!important;
         }
-        ion-slide{
-            align-items: flex-start!important;
-            background-size: cover;
-            background-repeat: no-repeat;
-            .slide-zoom{
-                text-align: left;
+        .readCente {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%; // background:red;
+            .focus,
+            .prev,
+            .next {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: visible;
+                article {
+                    padding: 6px 18px;
+                    height: 100%;
+                    width: 100%;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    overflow: visible;
+                    text-align: justify;
+                    column-count: 1;
+                    column-gap: 36px;
+                    div {}
+                    &.lineLarge {
+                        line-height: 2.5;
+                    }
+                    &.lineMiddle {
+                        line-height: 2;
+                    }
+                    &.lineSmall {
+                        line-height: 1.5;
+                    }
+                    p {
+                        margin: 0;
+                        line-height: inherit;
+                    }
+                    .indexP {
+                        position: absolute;
+                        padding: 0 1.5rem;
+                        width: 100%;
+                        top: 50px;
+                        left: 0;
+                        z-index: -999;
+                        opacity: 0; // background: red;
+                    }
+                }
+                &.pervTo {
+                    z-index: 99;
+                    animation: prev 1200ms linear infinite;
+                    box-shadow: 2px 0 3px 3px rgba(0, 0, 0, .3)
+                }
+            }
+            .focus {
+                z-index: 90;
             }
         }
-        article{
+        article {
             font-size: 1.6rem;
-            p{
+            p {
                 line-height: 2;
             }
         }
-        .pageCtrl{
+        .pageCtrl {
             position: absolute;
             left: 0;
             top: 0;
@@ -52,57 +105,61 @@ page-read {
             z-index: 1;
             display: flex;
             flex-wrap: wrap;
-            .top,.bottom{
+            .top,
+            .bottom {
                 width: 100%;
-                height: 35%;
-                // background: blue;
+                height: 35%; // background: blue;
             }
-            .left,.right{
+            .left,
+            .right {
                 width: 40%;
-                height: 30%;
-                // background: yellow
+                height: 30%; // background: yellow
             }
-            .center{
+            .center {
                 width: 20%;
                 height: 30%;
             }
         }
-        // .scroll-content{
-
-        // }
     }
-
-    ion-footer{
-        .toolbar-background{
-            background: rgba(0,0,0,.95)!important;
+    ion-footer {
+        transition: all 200ms;
+        &.hidden {
+            transform: translate3d(0, 124px, 0);
         }
-
-
-        ion-item{
+        .toolbar-background {
+            background: rgba(0, 0, 0, .95)!important;
+        }
+        ion-item {
             background: transparent!important;
-            ion-range{
-                ion-label{
-                    color: color($colors,light)!important;
+            ion-range {
+                ion-label {
+                    color: color($colors, light)!important;
                 }
-                .range-knob{
+                .range-knob {
                     transform: scale(1)!important;
                 }
             }
         }
-        ion-col{
-
-            color: color($colors,light);
+        ion-col {
+            color: color($colors, light);
             font-weight: 400;
             font-size: 1.1rem;
             padding-bottom: 0.3rem!important;
             padding-top: 0.5rem!important;
-            >div{
+            >div {
                 display: inline-block;
             }
         }
-        ion-icon{
+        ion-icon {
             font-size: 3rem;
- 
+        }
+    }
+    @keyframes prev {
+        from {
+            left: 0;
+        }
+        to {
+            left: -100%;
         }
     }
 }
