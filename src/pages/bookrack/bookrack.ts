@@ -1,3 +1,5 @@
+import { StatusBar } from '@ionic-native/status-bar';
+import { AndroidFullScreen } from '@ionic-native/android-full-screen';
 import { IonicPage } from 'ionic-angular';
 import { HomePopComponent } from './../../components/home-pop/home-pop';
 import { Component, ViewChild } from '@angular/core';
@@ -49,8 +51,10 @@ export class BookrackPage {
     private events: Events,
     private native: NativeProvider,
     private popCtrl: PopoverController,
+    private androidFullScreen: AndroidFullScreen,
+    private statusbar: StatusBar,
   ) {
-    this.openbook()
+    this.openbook();
   }
 
   ionViewDidEnter() {
@@ -65,8 +69,8 @@ export class BookrackPage {
    * @memberof HomePage
    */
   protected getUserInfo(): void {
-    this.native.getStorage('asdas').then(f => {
-      console.log('首页拿到的是', f)
+    this.native.getStorage('data_userInfo_local').then(f => {
+      console.log('homePage get userInfo is,', f)
     }, err => {
       console.log(err)
     })
@@ -123,12 +127,12 @@ export class BookrackPage {
   /**
    * 打开搜索页面
    *
-   * @author qin
+   * @author qin!
    * @protected
    * @memberof HomePage
    */
   protected goSearch(): void {
-    this.native.pageGo(this.navCtrl,'SearchPage');
+    this.native.pageGo(this.navCtrl, 'SearchPage');
   }
 
   doRefresh(refresher) {
@@ -162,5 +166,40 @@ export class BookrackPage {
   test() {
     this.native.showNativeToast();
     this.navCtrl.push('ReadPage')
+  }
+
+  overlaysWebView(isTrue: boolean) {
+    this.statusbar.overlaysWebView(isTrue)
+  }
+  hide() {
+    this.statusbar.hide()
+  }
+  show() {
+    this.statusbar.show()
+  }
+  styleLightContent() {
+    this.statusbar.styleLightContent()
+  }
+  test1(){
+    this.statusbar.overlaysWebView(true);
+    this.statusbar.show()
+  }
+
+  test2(){
+    this.statusbar.show()
+    this.statusbar.overlaysWebView(true);
+  }
+
+  showSystemUI(){
+    this.androidFullScreen.showSystemUI()
+  }
+  showUnderStatusBar(){
+    this.androidFullScreen.showUnderStatusBar()
+  }
+  showUnderSystemUI(){
+    this.androidFullScreen.showUnderSystemUI()
+  }
+  immersiveMode(){
+    this.androidFullScreen.immersiveMode()
   }
 }

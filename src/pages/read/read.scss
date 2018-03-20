@@ -58,7 +58,7 @@ page-read {
                     line-height: 1.5;
                 }
                 article {
-                    padding: 6px 18px;
+                    padding: 8px 22px;
                     height: 100%;
                     width: 100%;
                     position: absolute;
@@ -68,7 +68,7 @@ page-read {
                     overflow: visible;
                     text-align: justify;
                     column-count: 1;
-                    column-gap: 36px;
+                    column-gap: 44px;
                     p {
                         margin: 0;
                         line-height: inherit;
@@ -81,6 +81,18 @@ page-read {
                     width: 100%;
                     height: 100%;
                     z-index: 1;
+                    .pageNum,.time{
+                      position: absolute;
+                      bottom: 0.5rem;
+                      font-size: 8px;
+                      color: #4a351a;
+                    }
+                    .pageNum{
+                      left: 22px;
+                    }
+                    .time{
+                      right: 22px;
+                    }
                 }
                 .lineMiddle,.backImg{
                     position: absolute;
@@ -106,7 +118,7 @@ page-read {
             .left,
             .right {
                 width: 40%;
-                height: 40%; 
+                height: 40%;
                 // background: yellow
             }
             .center {

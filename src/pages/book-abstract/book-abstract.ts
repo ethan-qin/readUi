@@ -49,7 +49,7 @@ export class BookAbstractPage {
     }
   }
   ionViewWillLeave() {
-    this.native.nativeTransition('slide:back');
+    // this.native.nativeTransition('slide:back');
   }
   scrollHandler(e) {
     this.content._elementRef.nativeElement.style.backgroundPositionY = -(e.scrollTop / 5) + 'px';

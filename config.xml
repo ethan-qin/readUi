@@ -91,5 +91,6 @@
     <plugin name="cordova-plugin-code-push" spec="^1.11.3" />
     <plugin name="com.telerik.plugins.nativepagetransitions" spec="^0.6.5" />
     <plugin name="cordova-plugin-x-toast" spec="^2.6.2" />
+    <plugin name="cordova-plugin-fullscreen" spec="^1.2.0" />
     <engine name="android" spec="7.0.0" />
 </widget>

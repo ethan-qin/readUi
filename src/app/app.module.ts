@@ -1,3 +1,4 @@
+import { AndroidFullScreen } from '@ionic-native/android-full-screen';
 import { BrowserModule } from '@angular/platform-browser';
 import { CodePush } from "@ionic-native/code-push";
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -47,6 +48,7 @@ import { UserServicesProvider } from '../providers/user-services/user-services';
     TabsPage
   ],
   providers: [
+    AndroidFullScreen,
     BookProvider,
     BookServicesProvider,
     CodePush,
