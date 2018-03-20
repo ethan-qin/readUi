@@ -132,33 +132,62 @@ page-read {
         &.hidden {
             transform: translate3d(0, 124px, 0);
         }
+        ion-toolbar{
+            padding-bottom: 0px!important;
+        }
         .toolbar-background {
             background: rgba(0, 0, 0, .95)!important;
         }
         ion-item {
             background: transparent!important;
+            min-height: 1rem!important;
             ion-range {
+                padding:0px!important;
                 ion-label {
+                    font-size: 1.3rem;
                     color: color($colors, light)!important;
                 }
                 .range-knob {
                     transform: scale(1)!important;
                 }
+                .range-bar,.range-bar-active{
+                    top: 19px!important;
+                    height: 6px!important;
+                    border-radius: 5px!important;
+                }
             }
         }
-        ion-col {
-            color: color($colors, light);
-            font-weight: 400;
-            font-size: 1.1rem;
-            padding-bottom: 0.3rem!important;
-            padding-top: 0.5rem!important;
-            >div {
-                display: inline-block;
+        ion-row{
+            position: relative;
+            padding-top: 8px;
+            &::before{
+                content: "";
+                display: block;
+                width: 400%;
+                height: 1px;
+                transform: scale(0.3);
+                position: absolute;
+                top: 0;
+                left: -146%;
+                background: #999;
+            }
+            ion-col {
+                color: color($colors, light);
+                font-weight: 400;
+                font-size: 1.1rem;
+                padding-bottom: 0.1rem!important;
+                >div {
+                    display: inline-block;
+                }
+            }
+            ion-icon {
+                font-size: 2.6rem;
+            }
+            .buttonIcon{
+                font-size: 1.1rem;
             }
         }
-        ion-icon {
-            font-size: 3rem;
-        }
+
     }
     @keyframes prev {
         from {

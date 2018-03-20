@@ -22,14 +22,14 @@ export class ReadPage {
   @ViewChildren('focus') focus: ElementRef;
   showBar: boolean = false;                     // 页头页脚交互栏状态
   saturation: any;                              // 字体颜色
-  scrollWidth: number;                          // 横线排版总宽度
+  article: string = data.bookChapter;           // 章节内容
+  scrollWidth: number;                          // 页面排版总宽度
   pageWidth: number;                            // 一版宽度
   pageNum: number;                              // 版数
   percent: string;                              // 阅读百分比
   where: number = 0;                            // 当前章节进度
   chapterItemArr: Array<any> = [];              // 各版定位信息
   backUrl: string = "url('assets/imgs/qd.jpg')" // 背景图片
-  article: string = data.bookChapter;           // 章节内容
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -53,6 +53,10 @@ export class ReadPage {
   }
   ionViewDidLoad() {
 
+  }
+  ionViewDidLeave(){
+    this.statusBar.show();
+    this.statusBar.overlaysWebView(true)
   }
   next(): void {
     if (this.showBar) {
