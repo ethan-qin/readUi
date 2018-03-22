@@ -6,7 +6,7 @@
 -->
 <ion-header [ngClass]="{'hidden': !showBar}" no-border>
   <ion-toolbar color="dark">
-    <ion-buttons left>
+    <ion-buttons left (click)="back()">
       <button ion-button icon-only>
         <ion-icon name="ios-arrow-back-outline"></ion-icon>
         返回
@@ -50,7 +50,7 @@
           {{1+'/'+(pageNum+1)}}&nbsp;&nbsp;{{percent}}
         </span>
         <span class="time">
-          17:32&nbsp;
+          {{time|date: 'HH:mm'}}&nbsp;<span class="battery"><battery [battery]='battery'></battery></span>
         </span>
       </div>
       <article>
@@ -66,7 +66,7 @@
           {{(i+2)+'/'+(pageNum+1)}}&nbsp;&nbsp;{{percent}}
         </span>
         <span class="time">
-          17:32&nbsp;
+          {{time|date: 'HH:mm'}}&nbsp;<span class="battery"><battery [battery]='battery'></battery></span>
         </span>
       </div>
       <article [ngStyle]="{left: item.left}">
@@ -86,6 +86,17 @@
   </div>
 </ion-content>
 <ion-footer [ngClass]="{'hidden': !showBar}" no-border>
+  <div class="catalogContainer" *ngIf="showChapter">
+    <div class="catalogInfo">
+        <div class="name">
+            <ion-icon name="ios-arrow-round-back-outline"></ion-icon>
+            <span>{{chapterName}}</span>
+          </div>
+          <div class="schedule">
+            {{percent}}
+          </div>
+    </div>
+  </div>
   <ion-toolbar>
     <ion-list no-lines no-margin>
       <ion-item class="nextPrev">
@@ -97,7 +108,7 @@
     </ion-list>
     <ion-row padding-horizontal>
       <ion-col no-padding text-center>
-        <div float-left>
+        <div float-left (click)="goCatalog()">
           <div>
             <ion-icon name="ios-list-outline"></ion-icon>
           </div>

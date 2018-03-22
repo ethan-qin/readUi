@@ -1,4 +1,5 @@
 import { AndroidFullScreen } from '@ionic-native/android-full-screen';
+import { BatteryStatus } from "@ionic-native/battery-status";
 import { BrowserModule } from '@angular/platform-browser';
 import { CodePush } from "@ionic-native/code-push";
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -50,6 +51,7 @@ import { UserServicesProvider } from '../providers/user-services/user-services';
   providers: [
     AndroidFullScreen,
     BookProvider,
+    BatteryStatus,
     BookServicesProvider,
     CodePush,
     HttpProvider,

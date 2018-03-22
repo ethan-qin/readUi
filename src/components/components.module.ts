@@ -16,6 +16,7 @@ import { SearchRadioComponent } from './search-radio/search-radio';
 import { SearchFiltrateComponent } from './search-filtrate/search-filtrate';
 import { BookItemComponent } from './book-item/book-item';
 import { ScoreItemComponent } from './score-item/score-item';
+import { BatteryComponent } from './battery/battery';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { ScoreItemComponent } from './score-item/score-item';
     SearchFiltrateComponent,
     BookItemComponent,
     ScoreItemComponent,
+    BatteryComponent,
   ],
   imports: [
     PipesModule,
@@ -63,6 +65,7 @@ import { ScoreItemComponent } from './score-item/score-item';
     SearchFiltrateComponent,
     BookItemComponent,
     ScoreItemComponent,
+    BatteryComponent,
   ]
 })
 export class ComponentsModule { }

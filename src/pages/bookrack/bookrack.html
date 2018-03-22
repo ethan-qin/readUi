@@ -25,6 +25,8 @@
         refreshingText="正在刷新">
       </ion-refresher-content>
       </ion-refresher>
+
+
   <ion-list no-lines no-margin>
     <ion-item *ngFor="let item of bookList" (press)="pressBook($event,item)">
       <ion-thumbnail item-start>
