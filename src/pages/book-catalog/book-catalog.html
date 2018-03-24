@@ -15,11 +15,11 @@
 <ion-content>
   <ion-row>
     <ion-col padding>
-      共791章
+      共<span style="padding:0 0.3rem">791</span>章
     </ion-col>
     <ion-col padding text-right>
-      倒叙
       <ion-icon name="md-more"></ion-icon>
+      倒叙
     </ion-col>
     <ion-col #bookHeade no-padding padding-left class="catalogHeader" col-12>
       {{catalogArr[0].headerName}}
@@ -31,7 +31,7 @@
         {{items.headerName}}
       </ion-list-header>
       <button ion-item  *ngFor="let item of items.catalog" (click)="read(item)">
-        <h5>{{item.title}}</h5>
+        <h5 [ngClass]="{'bookmark': item.bookmark}">{{item.title}}</h5>
         <p>{{item.time | date: 'yyyy-MM-dd HH:mm'}}</p>
         <span ion-text item-end>
           <ion-icon name="ios-cloud-download-outline"></ion-icon>

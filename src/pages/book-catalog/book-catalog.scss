@@ -5,6 +5,7 @@ page-book-catalog {
         ion-col {
             z-index: 1000;
             background: #fff;
+            vertical-align: middle;
         }
         .catalogHeader {
             height: 38px;
@@ -41,6 +42,11 @@ page-book-catalog {
             button {
                 position: relative;
                 min-height: 2rem!important;
+                h5{
+                    &.bookmark{
+                        color: color($colors,danger);
+                    }
+                }
                 .label-md {
                     margin-top: 8px;
                     margin-bottom: 8px;
