@@ -56,6 +56,7 @@ export class BookCatalogPage {
     let top = this.list['_results'][0].nativeElement.getBoundingClientRect().top;
     let translateY = this.bookHeade.nativeElement.offsetHeight;
     this.scroll._scrollContent.nativeElement.onscroll = () => {
+      console.log(11111)
       this.cacheArr = [];
       if (this.list) {
         this.list['_results'].forEach(element => {
