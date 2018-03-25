@@ -14,6 +14,7 @@ import { SlideContainer } from "ionic-angular/components/slides/swiper/swiper-in
 import { batteryStu, catalog } from "./../../model/model";
 import * as data from "./../../assets/mock/data";
 import { NativeProvider } from "../../providers/native/native";
+import { BookServicesProvider } from "../../providers/book-services/book.services";
 /**
  * Generated class for the ReadPage page.
  *
@@ -33,7 +34,7 @@ export class ReadPage {
   battery: number; //电池状态
   showBar: boolean = false; // 页头页脚交互栏状态
   saturation: any = 0; // 跳转的章节
-  article: string = data.bookChapter; // 章节内容
+  article: string=""; // 章节内容
   scrollWidth: number; // 页面排版总宽度
   pageWidth: number; // 一版宽度
   pageNum: number; // 版数
@@ -53,18 +54,36 @@ export class ReadPage {
     public navParams: NavParams,
     private statusBar: StatusBar,
     private androidFullScreen: AndroidFullScreen,
-    private native: NativeProvider
+    private native: NativeProvider,
+    private bookServe:BookServicesProvider
   ) {
     this.androidFullScreen.showUnderSystemUI(); //只在安卓下生效
     this.statusBar.hide();
     this.setDateBattery();
+    this.getChapter();
   }
   change(): void {
     console.log(this.saturation);
   }
   ionViewWillEnter() {
-    this.getChapter();
-    this.setPage();
+    this.getArticle(this.saturation)
+  }
+
+
+  /**
+   * 获取章节内容
+   * 
+   * @author qin
+   * @param {number} id 
+   * @memberof ReadPage
+   */
+  getArticle(id:number):void{
+    this.bookServe.getArticle(id+1).subscribe(f=>{
+      this.article =f.data.article;
+      setTimeout(() => {
+        this.setPage();
+      }, 1000);
+    })
   }
 
   /**
@@ -74,10 +93,11 @@ export class ReadPage {
    * @memberof ReadPage
    */
   setPage(): void {
+    this.chapterItemArr=[];
     this.scrollWidth =
       this.containers.nativeElement.parentNode.scrollWidth + 22;
     this.pageWidth = this.containers.nativeElement.offsetParent.clientWidth;
-    this.pageNum = Math.ceil(this.scrollWidth / this.pageWidth) - 1;
+    this.pageNum = Math.ceil(this.scrollWidth / this.pageWidth) - 1;    
     for (let index = 0; index < this.pageNum; index++) {
       this.chapterItemArr.push({
         index: index + 1,
@@ -94,12 +114,14 @@ export class ReadPage {
    * @memberof ReadPage
    */
   getChapter(): void {
-    setTimeout(() => {
-      this.chapterDate = data.catalogList;
+    this.bookServe.getChapterList(45).subscribe((f)=>{
+      this.chapterDate = f.data.catalog;
       this.setChapter();
-    }, 1000);
+    })
   }
+  ionViewDidEnter(){
 
+  }
   /**
    * 取出章节信息
    *
@@ -133,6 +155,11 @@ export class ReadPage {
       this.where = this.where + 1;
       this.getPercent();
       return;
+    }else{
+      this.saturation+=1;
+      this.getArticle(this.saturation);
+      this.where =0;
+      this.setChapter();
     }
   }
 
@@ -144,25 +171,25 @@ export class ReadPage {
     }
     if (this.where > 0) {
       this.where = this.where - 1;
-      this.getPercent();
+      this.getPercent('prev');
       return;
+    }else{
+      this.saturation-=1;
+      this.getArticle(this.saturation);
+      this.where =0;
+      this.setChapter();
     }
   }
 
-  getPercent() {
-    this.getChapterIndex();
-    let a = (
-      (this.chapter[this.chapterNextIndex].percent -
-        this.chapter[this.chapterNowIndex].percent) /
-      this.pageNum
-    ).toFixed(1);
-    this.percent = this.percent + parseFloat(a);
-    console.log(this.percent);
-  }
-  getChapterIndex(): void {
+  /**
+   * 设置当前章节百分比
+   * 
+   * @author qin
+   * @memberof ReadPage
+   */
+  getPercent(direction?:string): void {
+    // 取出当前章节信息
     this.chapter.forEach((element, index) => {
-      console.log(index);
-
       if (element.catalogId == this.chapterId) {
         this.chapterNowIndex = index;
         if (index != this.chapter.length - 1) {
@@ -170,7 +197,13 @@ export class ReadPage {
         }
       }
     });
-    this.percent = this.chapter[this.chapterNowIndex].percent;
+    // 当前章节一页应占百分比
+    let a = (this.chapter[this.chapterNextIndex].percent - this.chapter[this.chapterNowIndex].percent) / this.pageNum
+    if(direction=='prev'){
+      this.percent = parseFloat((this.percent-a).toFixed(1));
+    }else{
+      this.percent = parseFloat((this.percent+a).toFixed(1));
+    }
   }
 
   showbar(): void {

@@ -14,3 +14,7 @@ export const CODE_PUSH_key = {
 
 
 export const BOOKLIST = "user/test"               //获取个人书架
+
+export const ARTICLE = "articel"                  //获取章节内容
+
+export const CHAPTERLIST = "catalogList.json"     //获取书籍目录

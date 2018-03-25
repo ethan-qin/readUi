@@ -2,7 +2,7 @@ import { NativeProvider } from './../../providers/native/native';
 import { catalog } from './../../model/model';
 import { Component, ViewChild, ViewChildren, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
-import { catalogList } from '../../assets/mock/data';
+import { BookServicesProvider } from '../../providers/book-services/book.services';
 
 /**
  * Generated class for the BookCatalogPage page.
@@ -22,18 +22,37 @@ export class BookCatalogPage {
   @ViewChildren('list') list: ElementRef;
   cacheArr: Array<any> = [];
   date: Date = new Date();
-  catalogArr: Array<catalog> = catalogList;
+  catalogArr: Array<catalog> = [];
+  fristHeader:string;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private native: NativeProvider
+    private native: NativeProvider,
+    private bookServe: BookServicesProvider
   ) {
   }
 
   ionViewDidLoad() {
 
   }
+
   ionViewDidEnter() {
+    this.getCatalog()
+  }
+  getCatalog(): void {
+    this.bookServe.getChapterList(3).subscribe(f => {
+      this.catalogArr = f.data.catalog;
+      this.fristHeader=this.catalogArr[0].headerName;
+      setTimeout(() => {
+        this.setDomCss()
+      }, 1000);
+    })
+  }
+
+  setDomCss(): void {
+    // if(this.list['_results'].length<=0){
+    //   return;
+    // }
     let top = this.list['_results'][0].nativeElement.getBoundingClientRect().top;
     let translateY = this.bookHeade.nativeElement.offsetHeight;
     this.scroll._scrollContent.nativeElement.onscroll = () => {

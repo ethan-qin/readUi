@@ -37,7 +37,7 @@ export class NativeProvider extends BaseUI {
   }
 
   showNativeToast() {
-    this.toast.show(`I'm a toast`, "5000", "bottom").subscribe(toast => {
+    this.toast.show(`再按一次退出`, "5000", "bottom").subscribe(toast => {
       console.log(toast);
     });
   }
@@ -50,7 +50,7 @@ export class NativeProvider extends BaseUI {
           isPlugged: false
         })
       });
-    }
+    }    
     return new Promise(resolve => {
       this.batteryStatus.onChange().subscribe(status => {
         resolve({
