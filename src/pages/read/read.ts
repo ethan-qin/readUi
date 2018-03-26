@@ -34,7 +34,7 @@ export class ReadPage {
   battery: number; //电池状态
   showBar: boolean = false; // 页头页脚交互栏状态
   saturation: any = 0; // 跳转的章节
-  article: string=""; // 章节内容
+  article: string = ""; // 章节内容
   scrollWidth: number; // 页面排版总宽度
   pageWidth: number; // 一版宽度
   pageNum: number; // 版数
@@ -55,7 +55,7 @@ export class ReadPage {
     private statusBar: StatusBar,
     private androidFullScreen: AndroidFullScreen,
     private native: NativeProvider,
-    private bookServe:BookServicesProvider
+    private bookServe: BookServicesProvider
   ) {
     this.androidFullScreen.showUnderSystemUI(); //只在安卓下生效
     this.statusBar.hide();
@@ -66,24 +66,23 @@ export class ReadPage {
     console.log(this.saturation);
   }
   ionViewWillEnter() {
-    this.getArticle(this.saturation)
+    this.getArticle(this.saturation);
   }
-
 
   /**
    * 获取章节内容
-   * 
+   *
    * @author qin
-   * @param {number} id 
+   * @param {number} id
    * @memberof ReadPage
    */
-  getArticle(id:number):void{
-    this.bookServe.getArticle(id+1).subscribe(f=>{
-      this.article =f.data.article;
+  getArticle(id: number): void {
+    this.bookServe.getArticle(id + 1).subscribe(f => {
+      this.article = f.data.article;
       setTimeout(() => {
         this.setPage();
       }, 1000);
-    })
+    });
   }
 
   /**
@@ -93,11 +92,11 @@ export class ReadPage {
    * @memberof ReadPage
    */
   setPage(): void {
-    this.chapterItemArr=[];
+    this.chapterItemArr = [];
     this.scrollWidth =
       this.containers.nativeElement.parentNode.scrollWidth + 22;
     this.pageWidth = this.containers.nativeElement.offsetParent.clientWidth;
-    this.pageNum = Math.ceil(this.scrollWidth / this.pageWidth) - 1;    
+    this.pageNum = Math.ceil(this.scrollWidth / this.pageWidth) - 1;
     for (let index = 0; index < this.pageNum; index++) {
       this.chapterItemArr.push({
         index: index + 1,
@@ -109,19 +108,17 @@ export class ReadPage {
 
   /**
    * 获取章节信息
-   * 
+   *
    * @author qin
    * @memberof ReadPage
    */
   getChapter(): void {
-    this.bookServe.getChapterList(45).subscribe((f)=>{
+    this.bookServe.getChapterList(45).subscribe(f => {
       this.chapterDate = f.data.catalog;
       this.setChapter();
-    })
+    });
   }
-  ionViewDidEnter(){
-
-  }
+  ionViewDidEnter() {}
   /**
    * 取出章节信息
    *
@@ -145,6 +142,7 @@ export class ReadPage {
     this.statusBar.show();
     this.statusBar.overlaysWebView(true);
   }
+
   next(): void {
     this.setDateBattery();
     if (this.showBar) {
@@ -155,10 +153,10 @@ export class ReadPage {
       this.where = this.where + 1;
       this.getPercent();
       return;
-    }else{
-      this.saturation+=1;
+    } else {
+      this.saturation += 1;
       this.getArticle(this.saturation);
-      this.where =0;
+      this.where = 0;
       this.setChapter();
     }
   }
@@ -171,23 +169,23 @@ export class ReadPage {
     }
     if (this.where > 0) {
       this.where = this.where - 1;
-      this.getPercent('prev');
+      this.getPercent("prev");
       return;
-    }else{
-      this.saturation-=1;
+    } else {
+      this.saturation -= 1;
       this.getArticle(this.saturation);
-      this.where =0;
+      this.where = 0;
       this.setChapter();
     }
   }
 
   /**
    * 设置当前章节百分比
-   * 
+   *
    * @author qin
    * @memberof ReadPage
    */
-  getPercent(direction?:string): void {
+  getPercent(direction?: string): void {
     // 取出当前章节信息
     this.chapter.forEach((element, index) => {
       if (element.catalogId == this.chapterId) {
@@ -198,11 +196,14 @@ export class ReadPage {
       }
     });
     // 当前章节一页应占百分比
-    let a = (this.chapter[this.chapterNextIndex].percent - this.chapter[this.chapterNowIndex].percent) / this.pageNum
-    if(direction=='prev'){
-      this.percent = parseFloat((this.percent-a).toFixed(1));
-    }else{
-      this.percent = parseFloat((this.percent+a).toFixed(1));
+    let a =
+      (this.chapter[this.chapterNextIndex].percent -
+        this.chapter[this.chapterNowIndex].percent) /
+      (this.pageNum + 1);
+    if (direction == "prev") {
+      this.percent = parseFloat((this.percent - a).toFixed(2));
+    } else {
+      this.percent = parseFloat((this.percent + a).toFixed(2));
     }
   }
 
@@ -228,6 +229,7 @@ export class ReadPage {
   back(): void {
     this.navCtrl.pop();
   }
+
   goCatalog() {
     this.navCtrl.push("BookCatalogPage");
     this.showBar = false;
