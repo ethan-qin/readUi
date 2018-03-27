@@ -44,33 +44,17 @@
 
 <ion-content no-bounce>
   <div class="readCente">
-    <div #focus class="focus lineLarge" style="font-size:1.6rem" [ngClass]="{'hidden': (0<where)}">
+    <div class="focus lineLarge" style="font-size:1.6rem">
       <div class="backImg" [ngStyle]="{background: backUrl}">
         <span class="pageNum">
-          {{1+'/'+(pageNum+1)}}&nbsp;&nbsp;{{percent}}%
+          {{(where+1)+'/'+(pageNum+1)}}&nbsp;&nbsp;{{percent}}%
         </span>
         <span class="time">
           {{time|date: 'HH:mm'}}&nbsp;<span class="battery"><battery [battery]='battery'></battery></span>
         </span>
       </div>
-      <article>
+      <article [ngClass]="{'transition': true}" #articleContainer>
         <div class="bookHtml" #containers>
-          <div [innerHTML]="article | safeHtml">
-          </div>
-        </div>
-      </article>
-    </div>
-    <div #focus class="focus lineLarge" style="font-size:1.6rem" [ngClass]="{'hidden': (item.index<where)}" *ngFor="let item of chapterItemArr;index as i" [ngStyle]="{'z-index': 100-item.index}">
-      <div class="backImg" [ngStyle]="{background: backUrl}">
-        <span class="pageNum">
-          {{(i+2)+'/'+(pageNum+1)}}&nbsp;&nbsp;{{percent}}%
-        </span>
-        <span class="time">
-          {{time|date: 'HH:mm'}}&nbsp;<span class="battery"><battery [battery]='battery'></battery></span>
-        </span>
-      </div>
-      <article [ngStyle]="{left: item.left}">
-        <div class="bookHtml">
           <div [innerHTML]="article | safeHtml">
           </div>
         </div>

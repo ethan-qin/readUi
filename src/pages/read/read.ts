@@ -1,5 +1,5 @@
 import { AndroidFullScreen } from "@ionic-native/android-full-screen";
-import { Component, ViewChild, ElementRef, ViewChildren } from "@angular/core";
+import { Component, ViewChild, ElementRef } from "@angular/core";
 import {
   IonicPage,
   NavController,
@@ -29,7 +29,7 @@ import { BookServicesProvider } from "../../providers/book-services/book.service
 })
 export class ReadPage {
   @ViewChild("containers") containers: ElementRef;
-  @ViewChildren("focus") focus: ElementRef;
+  @ViewChild("articleContainer") articleContainer: ElementRef;
   time: Date; // 系统时间
   battery: number; //电池状态
   showBar: boolean = false; // 页头页脚交互栏状态
@@ -40,7 +40,6 @@ export class ReadPage {
   pageNum: number; // 版数
   percent: number; // 阅读百分比
   where: number = 0; // 当前章节进度
-  chapterItemArr: Array<any> = []; // 各版定位信息
   backUrl: string = "url('assets/imgs/qd.jpg')"; // 背景图片
   chapterName: string; //选中的章节名
   chapterId: number = 1; //当前章节id;
@@ -81,7 +80,7 @@ export class ReadPage {
       this.article = f.data.article;
       setTimeout(() => {
         this.setPage();
-      }, 1000);
+      }, 10);
     });
   }
 
@@ -92,18 +91,12 @@ export class ReadPage {
    * @memberof ReadPage
    */
   setPage(): void {
-    this.chapterItemArr = [];
     this.scrollWidth =
       this.containers.nativeElement.parentNode.scrollWidth + 22;
+      console.log(this.scrollWidth)
     this.pageWidth = this.containers.nativeElement.offsetParent.clientWidth;
+    console.log(this.pageWidth)
     this.pageNum = Math.ceil(this.scrollWidth / this.pageWidth) - 1;
-    for (let index = 0; index < this.pageNum; index++) {
-      this.chapterItemArr.push({
-        index: index + 1,
-        left: `-${(index + 1) * this.pageWidth}px`,
-        backLeft: `${(index + 1) * this.pageWidth}px`
-      });
-    }
   }
 
   /**
@@ -149,27 +142,29 @@ export class ReadPage {
       this.showbar();
       return;
     }
-    if (this.where < this.chapterItemArr.length) {
-      this.where = this.where + 1;
+    if (this.where < this.pageNum) {
+      this.where+=1;
+      this.articleContainer.nativeElement.style.transform=`translateX(${-this.pageWidth*this.where}px)`
       this.getPercent();
       return;
     } else {
       this.saturation += 1;
+      this.articleContainer.nativeElement.style.transform=`translateX(0px)`
       this.getArticle(this.saturation);
       this.where = 0;
       this.setChapter();
     }
   }
 
-  prev(): void {
+  prev(): void {    
     this.setDateBattery();
     if (this.showBar) {
       this.showbar();
       return;
     }
     if (this.where > 0) {
-      this.where = this.where - 1;
-      this.getPercent("prev");
+      this.where-=1;
+      this.articleContainer.nativeElement.style.transform=`translateX(${-this.pageWidth*this.where}px)`
       return;
     } else {
       this.saturation -= 1;

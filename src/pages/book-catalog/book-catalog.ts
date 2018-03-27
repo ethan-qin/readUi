@@ -36,14 +36,16 @@ export class BookCatalogPage {
   ionViewDidLoad() {}
 
   ionViewDidEnter() {
-    console.log("我完全进入了");
-
-    this.setDomCss();
   }
   getCatalog(): void {
     this.bookServe.getChapterList(3).subscribe(f => {
       this.catalogArr = f.data.catalog;
+      console.log(this.catalogArr);
+      
       this.fristHeader = this.catalogArr[0].headerName;
+      setTimeout(() => {
+        this.setDomCss();
+      }, 1000);
     });
   }
   setDomCss(): void {

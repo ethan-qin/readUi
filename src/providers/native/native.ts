@@ -36,30 +36,34 @@ export class NativeProvider extends BaseUI {
     console.log("加载native模块");
   }
 
-  showNativeToast() {
-    this.toast.show(`再按一次退出`, "5000", "bottom").subscribe(toast => {
+  showNativeToast(message?) {
+    if (!message) {
+      message = "再按一次退出";
+    }
+    this.toast.show(`${message}`, "5000", "bottom").subscribe(toast => {
       console.log(toast);
     });
   }
 
   getBatteryStatus(): Promise<any> {
-    if(!this.isMobile()){
+    if (!this.isMobile()) {
       return new Promise(resolve => {
         resolve({
           level: 100,
           isPlugged: false
-        })
-      });
-    }    
-    return new Promise(resolve => {
-      this.batteryStatus.onChange().subscribe(status => {
-        resolve({
-          level: status.level,
-          isPlugged: status.isPlugged
         });
-        console.log(status.level, status.isPlugged);
       });
-    });
+    } else {
+      return new Promise(resolve => {
+        const subscription = this.batteryStatus.onChange().subscribe(status => {
+          subscription.unsubscribe();
+          resolve({
+            level: status.level,
+            isPlugged: status.isPlugged
+          });
+        });
+      });
+    }
   }
 
   /**

@@ -36,7 +36,7 @@ export class BookServicesProvider extends BaseUI {
 
   getArticle(id: number): Observable<any> {
     return Observable.create(observable => {
-      this.http.get(api.ARTICLE + id + ".json").subscribe(f => {
+      this.http.get(`read/${id}`).subscribe(f => {
         observable.next(f)
       }, err => {
 
@@ -46,7 +46,7 @@ export class BookServicesProvider extends BaseUI {
 
   getChapterList(id:number):Observable<any>{
     return Observable.create(observable=>{
-      this.http.get(api.CHAPTERLIST).subscribe(f=>{
+      this.http.get('catalog/1').subscribe(f=>{
         observable.next(f);
       })
     })
