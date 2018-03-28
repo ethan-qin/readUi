@@ -14,7 +14,7 @@ page-read {
       }
     }
     .toolbar-background {
-      background: rgba(0, 0, 0, 0.9) !important;
+      background: rgba(0, 0, 0, 0.98) !important;
     }
     transition: all 200ms;
     &.hidden {
@@ -25,13 +25,15 @@ page-read {
     height: 100%;
     .scroll-content,
     .fixed-content {
-      margin-top: 0 !important; // overflow-y: hidden;
+      margin-top: 0 !important;
       margin-bottom: 0 !important;
     }
     .readCente {
+      display: block;
+      height: 100%;
       .focus {
+        height: 100%;
         overflow: hidden;
-        box-shadow: 3px 0 3px 2px rgba(0, 0, 0, 0.2);
         &.hidden {
           left: -600px;
         }

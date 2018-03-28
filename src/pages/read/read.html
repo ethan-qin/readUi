@@ -44,7 +44,7 @@
 
 <ion-content no-bounce>
   <div class="readCente">
-    <div class="focus lineLarge" style="font-size:1.6rem">
+    <div (click)="click($event)" #focus class="focus lineLarge" style="font-size:1.6rem">
       <div class="backImg" [ngStyle]="{background: backUrl}">
         <span class="pageNum">
           {{(where+1)+'/'+(pageNum+1)}}&nbsp;&nbsp;{{percent}}%
@@ -53,21 +53,23 @@
           {{time|date: 'HH:mm'}}&nbsp;<span class="battery"><battery [battery]='battery'></battery></span>
         </span>
       </div>
-      <article [ngClass]="{'transition': true}" #articleContainer>
+      <article style="z-index:9999" [ngClass]="{'transition': true}" #articleContainer>
         <div class="bookHtml" #containers>
           <div [innerHTML]="article | safeHtml">
           </div>
+          <div (click)="test($event)">
+          </div>
         </div>
       </article>
-    </div>
+    </div> 
   </div>
-  <div class="pageCtrl">
+  <!-- <div class="pageCtrl">
     <div class="top" (click)="prev()"></div>
     <div class="left" (click)="prev()"></div>
     <div class="center" (click)="showbar()"></div>
     <div class="right" (click)="next()"></div>
     <div class="bottom" (click)="next()"></div>
-  </div>
+  </div> -->
 </ion-content>
 <ion-footer [ngClass]="{'hidden': !showBar}" no-border>
   <div class="catalogContainer" *ngIf="showChapter">
