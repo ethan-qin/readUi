@@ -8,6 +8,9 @@ import {
   Content,
   Slide
 } from "ionic-angular";
+import { Observable } from "rxjs/Observable";
+import "rxjs/add/observable/interval";
+import "rxjs/add/operator/scan";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SlideContainer } from "ionic-angular/components/slides/swiper/swiper-interfaces";
 
@@ -41,13 +44,15 @@ export class ReadPage {
   pageHeight: number; // 一版高度
   pageNum: number; // 版数
   percent: number; // 阅读百分比
+  percentMark: number; // 阅读百分比
+  onePagePercent: number; // 阅读百分比
   where: number = 0; // 当前章节进度
   backUrl: string = "url('assets/imgs/qd.jpg')"; // 背景图片
   chapterName: string; //选中的章节名
   chapterId: number = 1; //当前章节id;
   chapterNowIndex: number; //当前章节下标;
   chapterNextIndex: number; //下一章下标
-  showChapter: boolean = true; // 是否显示跳转章节
+  showChapter: boolean = false; // 是否显示跳转章节
   chapter: Array<any> = [];
   chapterDate: Array<catalog> = [];
   constructor(
@@ -61,41 +66,41 @@ export class ReadPage {
     this.androidFullScreen.showUnderSystemUI(); //只在安卓下生效
     this.statusBar.hide();
     this.setDateBattery();
-    this.getChapter();
   }
   change(): void {
+    this.showChapter = true;
     console.log(this.saturation);
   }
   ionViewWillEnter() {
     this.getArticle(this.saturation);
     this.pageWidth = this.focus.nativeElement.scrollWidth;
     this.pageHeight = this.focus.nativeElement.scrollHeight;
-    console.log("宽度", this.pageWidth);
-    console.log("高度", this.pageHeight);
   }
 
   /**
    * 获取章节内容
    *
    * @author qin
-   * @param {number} id
+   * @param {number} id //章节id
+   * @param {string} [direction]
+   * @returns {Promise<any>}
    * @memberof ReadPage
    */
-  getArticle(id: number, direction?: string): void {
-    if (!direction) {
-      direction = "next";
-    }
-    this.articleContainer.nativeElement.style.transition = "all 0ms";
-    this.bookServe.getArticle(id + 1).subscribe(f => {
-      this.article = f.data.article;
-      if (direction == "next") {
-        this.articleContainer.nativeElement.style.transition = "all 350ms";
-      } else if (direction == "prev") {
-        this.articleContainer.nativeElement.style.transition = "all 350ms";
+  getArticle(id: number, direction?: string): Promise<any> {
+    return new Promise(resolve => {
+      if (!direction) {
+        direction = "next";
       }
-      setTimeout(() => {
-        this.setPage();
-      }, 10);
+      this.articleContainer.nativeElement.style.transition = "all 0ms";
+
+      this.bookServe.getArticle(id + 1).subscribe(f => {
+        this.article = f.data.article;
+        this.articleContainer.nativeElement.style.transition = "all 350ms";
+        setTimeout(() => {
+          this.setPage();
+          resolve();
+        }, 10);
+      });
     });
   }
 
@@ -108,8 +113,8 @@ export class ReadPage {
   setPage(): void {
     this.scrollWidth =
       this.containers.nativeElement.parentNode.scrollWidth + 22;
-    console.log(this.pageWidth);
     this.pageNum = Math.ceil(this.scrollWidth / this.pageWidth) - 1;
+    this.getChapter();
   }
 
   /**
@@ -141,7 +146,22 @@ export class ReadPage {
       }
     }
     this.chapterName = this.chapter[this.saturation].title;
-    this.percent = this.chapter[this.saturation].percent;
+    this.percentMark = this.chapter[this.saturation].percent;
+    this.chapter.forEach((element, index) => {
+      if (element.catalogId == this.chapterId) {
+        this.chapterNowIndex = index;
+        if (index != this.chapter.length - 1) {
+          this.chapterNextIndex = index + 1;
+        }
+      }
+    });
+    // 当前章节一页应占百分比
+    this.onePagePercent =
+      (this.chapter[this.chapterNextIndex].percent -
+        this.chapter[this.chapterNowIndex].percent) /
+      (this.pageNum + 1);
+    // 页面进度
+    this.getPercent();
   }
 
   ionViewDidLeave() {
@@ -149,26 +169,26 @@ export class ReadPage {
     this.statusBar.overlaysWebView(true);
   }
 
-  click(e:MouseEvent):void{
-    console.log(e);
-    
+  click(e: MouseEvent): void {
     if (e.x < this.pageWidth / 3) {
       console.log("点击左边");
       this.prev();
     } else if (e.x >= this.pageWidth / 3 && e.x / 2 <= this.pageWidth / 3) {
       console.log("点击中间");
-      this.showbar()
+      this.showbar();
     } else {
       console.log("点击右边");
-      this.next()
+      this.next();
     }
   }
-  test(e:MouseEvent){
-    console.log('点击我了，',e)
-    e.stopPropagation()
+
+  test(e: MouseEvent) {
+    console.log("点击我了，", e);
+    e.stopPropagation();
 
     return false;
   }
+
   next(): void {
     this.setDateBattery();
     if (this.showBar) {
@@ -177,15 +197,16 @@ export class ReadPage {
     }
     if (this.where < this.pageNum) {
       this.where += 1;
-      this.articleContainer.nativeElement.style.transform = `translateX(${-this.pageWidth * this.where}px)`;
+      this.articleAnimation();
       this.getPercent();
       return;
     } else {
       this.saturation += 1;
       this.articleContainer.nativeElement.style.transform = `translateX(0px)`;
-      this.getArticle(this.saturation);
-      this.where = 0;
-      this.setChapter();
+      this.getArticle(this.saturation).then(() => {
+        this.where = 0;
+        this.setChapter();
+      });
     }
   }
 
@@ -198,15 +219,37 @@ export class ReadPage {
     if (this.where > 0) {
       this.where -= 1;
       this.getPercent("prev");
-      this.articleContainer.nativeElement.style.transform = `translateX(${-this
-        .pageWidth * this.where}px)`;
+      this.articleAnimation();
       return;
-    } else {
+    }  else {
       this.saturation -= 1;
-      this.getArticle(this.saturation);
-      this.where = 0;
+      this.getArticle(this.saturation).then(() => {
+        this.removeAnimation();
+        this.where = this.pageNum;
+        this.articleAnimation().then(() => {
+          this.addAnimation();
+        });
+      });
       this.setChapter();
     }
+  }
+
+  addAnimation(): void {
+    this.articleContainer.nativeElement.style.transition = "all 350ms";
+  }
+
+  removeAnimation(): void {
+    this.articleContainer.nativeElement.style.transition = "all 0ms";
+  }
+
+  articleAnimation(): Promise<any> {
+    return new Promise(resolve => {
+      this.articleContainer.nativeElement.style.transform = `translateX(${-this
+        .pageWidth * this.where}px)`;
+      setTimeout(() => {
+        resolve();
+      }, 20);
+    });
   }
 
   /**
@@ -216,25 +259,9 @@ export class ReadPage {
    * @memberof ReadPage
    */
   getPercent(direction?: string): void {
-    // 取出当前章节信息
-    this.chapter.forEach((element, index) => {
-      if (element.catalogId == this.chapterId) {
-        this.chapterNowIndex = index;
-        if (index != this.chapter.length - 1) {
-          this.chapterNextIndex = index + 1;
-        }
-      }
-    });
-    // 当前章节一页应占百分比
-    let a =
-      (this.chapter[this.chapterNextIndex].percent -
-        this.chapter[this.chapterNowIndex].percent) /
-      (this.pageNum + 1);
-    if (direction == "prev") {
-      this.percent = parseFloat((this.percent - a).toFixed(2));
-    } else {
-      this.percent = parseFloat((this.percent + a).toFixed(2));
-    }
+    this.percent = parseFloat(
+      (this.onePagePercent * this.where + this.percentMark).toFixed(2)
+    );
   }
 
   showbar(): void {

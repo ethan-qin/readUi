@@ -1,10 +1,9 @@
 <!-- Generated template for the BookListHorizontalComponent component -->
 <ion-list no-lines class="bookList">
-  <button class="listHead" ion-item (click)="openMore('more',bookList.listName)">
+  <button class="listHead" mode="ios" ion-item (click)="openMore('more',bookList.listName)">
     <span item-start class="listTitle">{{bookList.listName}}</span>
     <span class="more" item-end icon-right>
       更多
-      <ion-icon name="ios-arrow-forward-outline"></ion-icon>
     </span>
   </button>
   <ul padding class="bookListContainer">
