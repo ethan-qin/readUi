@@ -1,98 +1,98 @@
 <ion-header no-border>
-  <ion-navbar color="danger">
-    <ion-buttons end>
-      <button (click)="openMessage()" ion-button icon-only>
+    <ion-navbar color="danger">
+        <ion-buttons end>
+            <button (click)="openMessage()" ion-button icon-only>
         <ion-icon color="light" name="ios-mail-outline"></ion-icon>
       </button>
-    </ion-buttons>
-    <ion-buttons end>
-      <button (click)="open()" margin-left ion-button icon-only>
+        </ion-buttons>
+        <ion-buttons end>
+            <button (click)="open()" margin-left ion-button icon-only>
         <ion-icon color="light" name="ios-settings-outline"></ion-icon>
       </button>
-    </ion-buttons>
-  </ion-navbar>
+        </ion-buttons>
+    </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-grid class="user">
-    <ion-row>
-      <ion-col col-8>
-        <h4 text-center no-margin>青梅煮酒</h4>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <ion-grid class="userInfo" style="position:relative">
-    <div class="avatar">
-      <img src="assets/imgs/defult_avatar.png" alt="">
-    </div>
-    <ion-row>
-      <ion-col text-center offset-2 col-5>
-        <span>3</span>月票</ion-col>
-      <ion-col text-center col-5>
-        <span>11</span>主站推荐票</ion-col>
-    </ion-row>
-  </ion-grid>
-  <ion-list no-lines>
-    <button ion-item>
+    <ion-grid class="user">
+        <ion-row>
+            <ion-col col-8>
+                <h4 text-center no-margin>青梅煮酒</h4>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid class="userInfo" style="position:relative">
+        <div class="avatar">
+            <img src="assets/imgs/defult_avatar.png" alt="">
+        </div>
+        <ion-row>
+            <ion-col text-center offset-2 col-5>
+                <span>3</span>月票</ion-col>
+            <ion-col text-center col-5>
+                <span>11</span>主站推荐票</ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-list no-lines>
+        <button ion-item>
       <div item-start>
         <span class="num">1763</span>起点币</div>
       <button item-end ion-button color="danger" (click)="openPayment()">充值</button>
-    </button>
-  </ion-list>
-  <ion-list class="personSet" margin-top no-lines>
-    <button ion-item>
+        </button>
+    </ion-list>
+    <ion-list class="personSet" margin-top no-lines>
+        <button ion-item mode="ios">
       <ion-icon color="danger" name="ios-alarm-outline" item-start></ion-icon>
       会员等级
       <ion-note item-end>高级VIP</ion-note>
       <span class="fineLine"></span>
     </button>
-    <button ion-item>
+        <button ion-item mode="ios">
       <ion-icon color="danger" name="ios-alarm-outline" item-start></ion-icon>
       我的等级
       <ion-note item-end>LV18</ion-note>
       <span class="fineLine"></span>
     </button>
-    <button ion-item>
+        <button ion-item mode="ios">
       <ion-icon color="danger" name="badge" item-start></ion-icon>
       我的徽章
       <ion-note item-end></ion-note>
       <span class="fineLine"></span>
     </button>
-    <button ion-item>
+        <button ion-item mode="ios">
       <ion-icon color="danger" name="fans" item-start></ion-icon>
       我的阅历
       <ion-note item-end>阅仙</ion-note>
       <span class="fineLine"></span>
     </button>
-    <button ion-item>
+        <button ion-item mode="ios">
       <ion-icon color="danger" name="ios-alarm-outline" item-start></ion-icon>
       阅读偏好
       <ion-note item-end></ion-note>
       <span class="fineLine"></span>
     </button>
-    <button ion-item>
+        <button ion-item mode="ios">
       <ion-icon color="danger" name="ios-alarm-outline" item-start></ion-icon>
       我的卡牌
       <ion-note item-end></ion-note>
       <span class="fineLine"></span>
     </button>
-    <button ion-item>
+        <button ion-item mode="ios">
       <ion-icon color="danger" name="sign" item-start></ion-icon>
       签到
       <ion-note item-end></ion-note>
       <span class="fineLine"></span>
     </button>
-    <button ion-item>
+        <button ion-item mode="ios">
       <ion-icon color="danger" name="ios-alarm-outline" item-start></ion-icon>
       领币
       <ion-note item-end>淘金能赚起点币</ion-note>
       <span class="fineLine"></span>
     </button>
-    <button ion-item>
+        <button ion-item mode="ios">
       <ion-icon color="danger" name="pen" item-start></ion-icon>
       成为作家
       <ion-note item-end>高级VIP</ion-note>
       <span class="fineLine"></span>
     </button>
-  </ion-list>
+    </ion-list>
 </ion-content>

@@ -1,10 +1,9 @@
 <!-- Generated template for the BookListVerticalComponent component -->
 <ion-list no-lines class="bookList">
-  <button class="listHead" ion-item (click)="openMore('more',bookList.listName)">
+  <button class="listHead" ion-item mode="ios" (click)="openMore('more',bookList.listName)">
     <span item-start class="listTitle">{{bookList.listName}}</span>
     <span class="more" item-end icon-right>
       更多
-      <ion-icon name="ios-arrow-forward-outline"></ion-icon>
     </span>
   </button>
   <button class="bookItemContainer" ion-item *ngFor='let book of bookList.books' (click)="openBook(book)">

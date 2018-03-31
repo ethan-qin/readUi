@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class HttpProvider {
-  url = 'http://localhost:8100/assets/mock';
+  url = 'http://192.168.1.134:3000';
 
   constructor(public http: HttpClient) {
   }

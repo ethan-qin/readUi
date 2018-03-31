@@ -42,9 +42,9 @@ page-book-catalog {
             button {
                 position: relative;
                 min-height: 2rem!important;
-                h5{
-                    &.bookmark{
-                        color: color($colors,danger);
+                h5 {
+                    &.bookmark {
+                        color: color($colors, danger);
                     }
                 }
                 .label-md {
@@ -67,10 +67,9 @@ page-book-catalog {
                 }
             }
             &:last-child {
-              padding-bottom: 3rem;
-          }
+                padding-bottom: 3rem;
+            }
         }
-
     }
     ion-footer {
         ion-icon {

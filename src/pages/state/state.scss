@@ -1,0 +1,37 @@
+page-state {
+    ion-item-divider {
+        border-bottom: none!important;
+        background: #ccc!important;
+    }
+    ion-list {
+        margin-bottom: 0!important;
+        ion-item-divider {
+            .label-md {
+                margin: 5px;
+            }
+        }
+        ion-item {
+            min-height: 2rem!important;
+            .label-md {
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            &::before {
+                content: "";
+                display: block;
+                width: 100%;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                height: 1px;
+                transform: scaleY(0.3);
+                background: red;
+            }
+            &:last-child {
+                &::before {
+                    display: none;
+                }
+            }
+        }
+    }
+}

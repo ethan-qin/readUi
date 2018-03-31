@@ -8,6 +8,7 @@ import { NavController, Events, Content } from 'ionic-angular';
 import { BookModalComponent } from './../../components/book-modal/book-modal';
 import { NativeProvider } from '../../providers/native/native';
 import { PopoverController } from 'ionic-angular/components/popover/popover-controller';
+import { UserServicesProvider } from '../../providers/user-services/user-services';
 /**
  * Generated class for the BookrackPage page.
  *
@@ -53,6 +54,7 @@ export class BookrackPage {
     private popCtrl: PopoverController,
     private androidFullScreen: AndroidFullScreen,
     private statusbar: StatusBar,
+    private user:UserServicesProvider
   ) {
     this.openbook();
   }
@@ -163,11 +165,17 @@ export class BookrackPage {
       this.navCtrl.push('BookAbstractPage', { id: data });
     })
   }
+
+  register():void{
+    this.user.userRejister()
+  }
   test() {
     this.native.showNativeToast();
     this.navCtrl.push('ReadPage')
   }
-
+  login():void{
+    this.navCtrl.push('LoginInPage')
+  }
   overlaysWebView(isTrue: boolean) {
     this.statusbar.overlaysWebView(isTrue)
   }
@@ -176,6 +184,9 @@ export class BookrackPage {
   }
   show() {
     this.statusbar.show()
+  }
+  showDialog(){
+    this.native.showDialog()
   }
   styleLightContent() {
     this.statusbar.styleLightContent()
