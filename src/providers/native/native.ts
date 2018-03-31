@@ -2,15 +2,14 @@ import { BatteryStatus } from "@ionic-native/battery-status";
 import { ToastController } from "ionic-angular/components/toast/toast-controller";
 import { LoadingController } from "ionic-angular/components/loading/loading-controller";
 import { CodePush } from "@ionic-native/code-push";
+import { Dialogs } from '@ionic-native/dialogs';
 import { Injectable } from "@angular/core";
+import { NativePageTransitions, NativeTransitionOptions } from "@ionic-native/native-page-transitions";
 import { Platform, NavController } from "ionic-angular";
+import { SpinnerDialog } from '@ionic-native/spinner-dialog';
 import { Storage } from "@ionic/storage";
-import { Vibration } from "@ionic-native/vibration";
-import {
-  NativePageTransitions,
-  NativeTransitionOptions
-} from "@ionic-native/native-page-transitions";
 import { Toast } from "@ionic-native/toast";
+import { Vibration } from "@ionic-native/vibration";
 import { BaseUI } from "../../common/baseUI";
 import { IS_DEBUG, CODE_PUSH_key } from "./../api/api";
 /*
@@ -23,6 +22,7 @@ import { IS_DEBUG, CODE_PUSH_key } from "./../api/api";
 export class NativeProvider extends BaseUI {
   constructor(
     private codePush: CodePush,
+    private dialogs: Dialogs,
     private loadingCtrl: LoadingController,
     private nativePageTransition: NativePageTransitions,
     private platform: Platform,
@@ -30,7 +30,8 @@ export class NativeProvider extends BaseUI {
     private toastCtrl: ToastController,
     private vibration: Vibration,
     private toast: Toast,
-    private batteryStatus: BatteryStatus
+    private batteryStatus: BatteryStatus,
+    private spinnerDialog: SpinnerDialog
   ) {
     super();
     console.log("加载native模块");
@@ -43,6 +44,22 @@ export class NativeProvider extends BaseUI {
     this.toast.show(`${message}`, "5000", "bottom").subscribe(toast => {
       console.log(toast);
     });
+  }
+  showDialog(): void {
+    this.dialogs.alert('Hello world')
+      .then(() => console.log('Dialog dismissed'))
+      .catch(e => console.log('Error displaying dialog', e));
+  }
+  showSpinnerDialog(): void {
+    this.spinnerDialog.show('你好啊', '这是一条微调设置消息', () => {
+      this.toastCtrl.create({
+        message: '取消了',
+        duration: 2000,
+        showCloseButton: true,
+        closeButtonText: 'i know',
+        position: 'top'
+      }).present()
+    })
   }
 
   getBatteryStatus(): Promise<any> {

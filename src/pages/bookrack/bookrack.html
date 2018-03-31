@@ -1,58 +1,57 @@
 <ion-header no-border>
-  <ion-navbar color="danger">
-    <ion-title>
-      {{title}}
-    </ion-title>
-    <ion-buttons end>
-      <button (click)="goSearch()" ion-button icon-only>
+    <ion-navbar color="danger">
+        <ion-title>
+            {{title}}
+        </ion-title>
+        <ion-buttons end>
+            <button (click)="goSearch()" ion-button icon-only>
         <ion-icon name="ios-search-outline"></ion-icon>
       </button>
-    </ion-buttons>
-    <ion-buttons end margin-left>
-      <button (click)="showPop($event)" ion-button icon-only>
+        </ion-buttons>
+        <ion-buttons end margin-left>
+            <button (click)="showPop($event)" ion-button icon-only>
         <ion-icon name="md-more"></ion-icon>
       </button>
-    </ion-buttons>
-  </ion-navbar>
+        </ion-buttons>
+    </ion-navbar>
 </ion-header>
 
 <ion-content>
     <ion-refresher (ionRefresh)="doRefresh($event)">
-        <ion-refresher-content
-        pullingIcon="arrow-dropdown"
-        pullingText="下拉刷新"
-        refreshingSpinner="circles"
-        refreshingText="正在刷新">
-      </ion-refresher-content>
-      </ion-refresher>
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="下拉刷新" refreshingSpinner="circles" refreshingText="正在刷新">
+        </ion-refresher-content>
+    </ion-refresher>
 
 
-  <ion-list no-lines no-margin>
-    <ion-item *ngFor="let item of bookList" (press)="pressBook($event,item)">
-      <ion-thumbnail item-start>
-        <img src="{{item.preview}}" alt="{{item.bookName}}">
-      </ion-thumbnail>
-      <h2>{{item.bookName}}</h2>
-      <p>{{item.author}}&nbsp;&nbsp;著&nbsp;|&nbsp;{{item.plat}}</p>
-      <p>
-        连载至：{{item.end}}&nbsp;{{item.endTitle}}
-      </p>
-      <button class="more" (click)="clickBook($event,item)">
+    <ion-list no-lines no-margin>
+        <ion-item *ngFor="let item of bookList" (press)="pressBook($event,item)">
+            <ion-thumbnail item-start>
+                <img src="{{item.preview}}" alt="{{item.bookName}}">
+            </ion-thumbnail>
+            <h2>{{item.bookName}}</h2>
+            <p>{{item.author}}&nbsp;&nbsp;著&nbsp;|&nbsp;{{item.plat}}</p>
+            <p>
+                连载至：{{item.end}}&nbsp;{{item.endTitle}}
+            </p>
+            <button class="more" (click)="clickBook($event,item)">
         <ion-icon name="md-more"></ion-icon>
       </button>
-    </ion-item>
-    <button margin-vertical (click)="test()" text-center ion-item color="danger">测试</button>
-    <button margin-vertical (click)="overlaysWebView(true)" text-center ion-item color="danger">覆盖状态栏</button>
-    <button margin-vertical (click)="overlaysWebView(false)" text-center ion-item color="danger">不覆盖状态栏</button>
-    <button margin-vertical (click)="hide()" text-center ion-item color="danger">隐藏状态栏</button>
-    <button margin-vertical (click)="show()" text-center ion-item color="danger">显示状态栏</button>
-    <button margin-vertical (click)="styleLightContent()" text-center ion-item color="danger">白色字体状态栏</button>
-    <button margin-vertical (click)="styleLightContent()" text-center ion-item color="danger">白色字体状态栏</button>
-    <button margin-vertical (click)="test1()" text-center ion-item color="danger">先覆盖后显示</button>
-    <button margin-vertical (click)="test2()" text-center ion-item color="danger">先显示后覆盖</button>
-    <button margin-vertical (click)="showSystemUI()" text-center ion-item color="danger">showSystemUI</button>
-    <button margin-vertical (click)="showUnderStatusBar()" text-center ion-item color="danger">showUnderStatusBar</button>
-    <button margin-vertical (click)="showUnderSystemUI()" text-center ion-item color="danger">showUnderSystemUI</button>
-    <button margin-vertical (click)="immersiveMode()" text-center ion-item color="danger">immersiveMode</button>
-  </ion-list>
+        </ion-item>
+        <button margin-vertical (click)="login()" text-center ion-item color="danger">登录</button>
+        <button margin-vertical (click)="showDialog()" text-center ion-item color="danger">showDialog</button>
+        <button margin-vertical (click)="register()" text-center ion-item color="danger">注册</button>
+        <button margin-vertical (click)="test()" text-center ion-item color="danger">测试</button>
+        <button margin-vertical (click)="overlaysWebView(true)" text-center ion-item color="danger">覆盖状态栏</button>
+        <button margin-vertical (click)="overlaysWebView(false)" text-center ion-item color="danger">不覆盖状态栏</button>
+        <button margin-vertical (click)="hide()" text-center ion-item color="danger">隐藏状态栏</button>
+        <button margin-vertical (click)="show()" text-center ion-item color="danger">显示状态栏</button>
+        <button margin-vertical (click)="styleLightContent()" text-center ion-item color="danger">白色字体状态栏</button>
+        <button margin-vertical (click)="styleLightContent()" text-center ion-item color="danger">白色字体状态栏</button>
+        <button margin-vertical (click)="test1()" text-center ion-item color="danger">先覆盖后显示</button>
+        <button margin-vertical (click)="test2()" text-center ion-item color="danger">先显示后覆盖</button>
+        <button margin-vertical (click)="showSystemUI()" text-center ion-item color="danger">showSystemUI</button>
+        <button margin-vertical (click)="showUnderStatusBar()" text-center ion-item color="danger">showUnderStatusBar</button>
+        <button margin-vertical (click)="showUnderSystemUI()" text-center ion-item color="danger">showUnderSystemUI</button>
+        <button margin-vertical (click)="immersiveMode()" text-center ion-item color="danger">immersiveMode</button>
+    </ion-list>
 </ion-content>

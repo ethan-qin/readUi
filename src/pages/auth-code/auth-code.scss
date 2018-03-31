@@ -1,0 +1,29 @@
+page-auth-code {
+    .hasBack {
+        background: #f6f7f9;
+        color: #9b9b9b;
+    }
+    .agreementContainer {
+        min-height: 1rem!important;
+        .label-md {
+            margin: 0!important;
+        }
+    }
+    .agreement {
+        font-size: 1.1rem;
+    }
+    .hasLine {
+        position: relative;
+        &::before {
+            content: "";
+            display: block;
+            background: color($colors, fineLineColor);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            transform: scaleY(0.3);
+        }
+    }
+}

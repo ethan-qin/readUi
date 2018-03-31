@@ -33,7 +33,7 @@ export class BookCatalogPage {
     this.getCatalog();
   }
 
-  ionViewDidLoad() {}
+  ionViewDidLoad() { }
 
   ionViewDidEnter() {
   }
@@ -41,7 +41,6 @@ export class BookCatalogPage {
     this.bookServe.getChapterList(3).subscribe(f => {
       this.catalogArr = f.data.catalog;
       console.log(this.catalogArr);
-      
       this.fristHeader = this.catalogArr[0].headerName;
       setTimeout(() => {
         this.setDomCss();
@@ -52,8 +51,7 @@ export class BookCatalogPage {
     // if(this.list['_results'].length<=0){
     //   return;
     // }
-    let top = this.list["_results"][0].nativeElement.getBoundingClientRect()
-      .top;
+    let top = this.list["_results"][0].nativeElement.getBoundingClientRect().top;
     let translateY = this.bookHeade.nativeElement.offsetHeight;
     this.scroll._scrollContent.nativeElement.onscroll = () => {
       this.cacheArr = [];
@@ -71,11 +69,8 @@ export class BookCatalogPage {
             "translateY(" + element.top + "px)";
         } else {
           if (this.cacheArr[index].top <= 0) {
-            this.bookHeade.nativeElement.style.transform =
-              "translateY(" + translateY + "px)";
-            this.bookHeade.nativeElement.innerHTML = this.cacheArr[
-              index
-            ].obj.nativeElement.children[0].innerText;
+            this.bookHeade.nativeElement.style.transform = "translateY(" + translateY + "px)";
+            this.bookHeade.nativeElement.innerHTML = this.cacheArr[index].obj.nativeElement.children[0].innerText;
           }
         }
       });
@@ -83,5 +78,8 @@ export class BookCatalogPage {
   }
   read(item: catalog): void {
     this.native.pageGo(this.navCtrl, "ReadPage", item);
+  }
+
+  ionViewDidLeave() {
   }
 }

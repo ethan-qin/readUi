@@ -1,0 +1,5 @@
+<!-- Generated template for the ResetAuthCodeComponent component -->
+<div (click)="sendMessage()">
+    <span *ngIf="!stu">{{time}}</span>
+    <span [innerHTML]="info | safeHtml"></span>
+</div>

@@ -4,7 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
-
+import AV from "leancloud-storage";
 @Component({
   templateUrl: 'app.html'
 })
@@ -16,6 +16,10 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       // statusBar.styleDefault();
+      AV.init({
+        appId: 'B4hAv1MFcFvMs7oGbSEpStLN-gzGzoHsz',
+        appKey: '0PydL8nrVy6EoEjt6WQmJ5RM'
+      })
       statusBar.styleLightContent()
       statusBar.overlaysWebView(true);
       splashScreen.hide();

@@ -5,118 +5,111 @@
   Ionic pages and navigation.
 -->
 <ion-header [ngClass]="{'hidden': !showBar}" no-border>
-  <ion-toolbar color="dark">
-    <ion-buttons left (click)="back()">
-      <button ion-button icon-only>
-        <ion-icon name="ios-arrow-back-outline"></ion-icon>
-        返回
-      </button>
-    </ion-buttons>
-    <ion-buttons left padding-horizontal>
-      <button ion-button icon-only>
+    <ion-toolbar color="dark">
+        <ion-buttons left (click)="back()">
+            <button ion-button icon-only>
+              <ion-icon name="ios-arrow-back-outline"></ion-icon>
+                返回
+            </button>
+        </ion-buttons>
+        <ion-buttons left padding-horizontal>
+            <button ion-button icon-only>
         <ion-icon name="ios-download-outline"></ion-icon>
       </button>
-    </ion-buttons>
-    <ion-buttons left>
-      <button ion-button icon-only>
+        </ion-buttons>
+        <ion-buttons left>
+            <button ion-button icon-only>
         <ion-icon name="ios-headset-outline"></ion-icon>
       </button>
-    </ion-buttons>
-    <ion-buttons left padding-horizontal>
-      <button ion-button icon-only>
+        </ion-buttons>
+        <ion-buttons left padding-horizontal>
+            <button ion-button icon-only>
         <ion-icon name="ios-chatboxes-outline"></ion-icon>
       </button>
-    </ion-buttons>
-    <ion-buttons left>
-      <button class="eye" ion-button icon-left>
+        </ion-buttons>
+        <ion-buttons left>
+            <button class="eye" ion-button icon-left>
         <ion-icon name="md-eye"></ion-icon>
         本章说
       </button>
-    </ion-buttons>
-    <ion-buttons end>
-      <button ion-button icon-only>
+        </ion-buttons>
+        <ion-buttons end>
+            <button ion-button icon-only>
         <ion-icon name="md-more"></ion-icon>
       </button>
-    </ion-buttons>
-  </ion-toolbar>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 
 <ion-content no-bounce>
-  <div class="readCente">
-    <div (click)="click($event)" #focus class="focus lineLarge" style="font-size:1.6rem">
-      <div class="backImg" [ngStyle]="{background: backUrl}">
-        <span class="pageNum">
-          {{(where+1)+'/'+(pageNum+1)}}&nbsp;&nbsp;{{percent}}%
-        </span>
-        <span class="time">
-          {{time|date: 'HH:mm'}}&nbsp;<span class="battery"><battery [battery]='battery'></battery></span>
-        </span>
-      </div>
-      <article style="z-index:9999" [ngClass]="{'transition': true}" #articleContainer>
-        <div class="bookHtml" #containers>
-          <div [innerHTML]="article | safeHtml">
-          </div>
-          <div (click)="test($event)">
-          </div>
+    <div class="readCente">
+        <div (click)="click($event)" #focus class="focus lineLarge">
+            <div class="backImg" [ngStyle]="{background: backUrl,'color':fontColor}">
+                <span class="pageNum">
+                    {{(where+1)+'/'+(pageNum+1)}}&nbsp;&nbsp;{{percent}}%
+                </span>
+                <span class="time">
+                    {{time|date: 'HH:mm'}}&nbsp;<span class="battery"><battery [battery]='battery'></battery></span>
+                </span>
+            </div>
+            <article style="z-index:9999" [ngStyle]="{'font-size': fontSize+'rem','line-height':lineHeight,'color':fontColor}" [ngClass]="{'transition': true}" #articleContainer>
+                <div class="bookHtml" #containers>
+                    <div [innerHTML]="article | safeHtml">
+                    </div>
+                    <div (click)="test($event)">
+                    </div>
+                </div>
+            </article>
         </div>
-      </article>
-    </div> 
-  </div>
-  <!-- <div class="pageCtrl">
-    <div class="top" (click)="prev()"></div>
-    <div class="left" (click)="prev()"></div>
-    <div class="center" (click)="showbar()"></div>
-    <div class="right" (click)="next()"></div>
-    <div class="bottom" (click)="next()"></div>
-  </div> -->
+    </div>
 </ion-content>
 <ion-footer [ngClass]="{'hidden': !showBar}" no-border>
-  <div class="catalogContainer" *ngIf="showChapter&&showChapter">
-    <div class="catalogInfo">
-        <div class="name">
-            <ion-icon name="ios-arrow-round-back-outline"></ion-icon>
-            <span>{{chapterName}}</span>
-          </div>
-          <div class="schedule">
-            {{percent}}%
-          </div>
+    <div class="catalogContainer" *ngIf="showBar&&showChapter">
+        <div class="catalogInfo">
+            <div class="name">
+                <ion-icon name="ios-arrow-round-back-outline"></ion-icon>
+                <span>{{chapterName}}</span>
+            </div>
+            <div class="schedule">
+                {{percent}}%
+            </div>
+        </div>
     </div>
-  </div>
-  <ion-toolbar>
-    <ion-list no-lines no-margin>
-      <ion-item class="nextPrev">
-        <ion-range min="1" [max]="chapter.length" (ionChange)="change()" [(ngModel)]="saturation" color="danger">
-          <ion-label range-left>上一章</ion-label>
-          <ion-label range-right>下一章</ion-label>
-        </ion-range>
-      </ion-item>
-    </ion-list>
-    <ion-row padding-horizontal>
-      <ion-col no-padding text-center>
-        <div float-left (click)="goCatalog()">
-          <div>
-            <ion-icon name="ios-list-outline"></ion-icon>
-          </div>
-          <label class="buttonIcon">目录</label>
-        </div>
-      </ion-col>
-      <ion-col no-padding text-center>
-        <div>
-          <div>
-            <ion-icon name="ios-moon-outline"></ion-icon>
-          </div>
-          <label class="buttonIcon">夜间模式</label>
-        </div>
-      </ion-col>
-      <ion-col no-padding text-center>
-        <div float-right>
-          <div>
-            <ion-icon name="ios-settings-outline"></ion-icon>
-          </div>
-          <label class="buttonIcon">设置</label>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-list no-lines no-margin>
+            <ion-item class="nextPrev">
+                <ion-range min="1" [max]="chapter.length" (ionChange)="change()" [(ngModel)]="saturation" color="danger">
+                    <ion-label range-left>上一章</ion-label>
+                    <ion-label range-right>下一章</ion-label>
+                </ion-range>
+            </ion-item>
+        </ion-list>
+        <ion-row padding-horizontal>
+            <ion-col no-padding text-center>
+                <div float-left (click)="goCatalog()">
+                    <div>
+                        <ion-icon name="ios-list-outline"></ion-icon>
+                    </div>
+                    <label class="buttonIcon">目录</label>
+                </div>
+            </ion-col>
+            <ion-col no-padding text-center>
+                <div>
+                    <div>
+                        <ion-icon name="ios-moon-outline"></ion-icon>
+                    </div>
+                    <label class="buttonIcon">夜间模式</label>
+                </div>
+            </ion-col>
+            <ion-col no-padding text-center>
+                <div float-right>
+                    <div>
+                        <ion-icon name="ios-settings-outline"></ion-icon>
+                    </div>
+                    <label class="buttonIcon">设置</label>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
 </ion-footer>

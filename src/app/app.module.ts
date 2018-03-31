@@ -2,6 +2,7 @@ import { AndroidFullScreen } from '@ionic-native/android-full-screen';
 import { BatteryStatus } from "@ionic-native/battery-status";
 import { BrowserModule } from '@angular/platform-browser';
 import { CodePush } from "@ionic-native/code-push";
+import { Dialogs } from '@ionic-native/dialogs';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
@@ -9,6 +10,7 @@ import { IonicApp, IonicModule, IonicErrorHandler, NavController } from 'ionic-a
 import { NativePageTransitions } from '@ionic-native/native-page-transitions';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { SpinnerDialog } from '@ionic-native/spinner-dialog';
 import { Vibration } from '@ionic-native/vibration';
 import { Toast } from '@ionic-native/toast';
 
@@ -54,6 +56,7 @@ import { UserServicesProvider } from '../providers/user-services/user-services';
     BatteryStatus,
     BookServicesProvider,
     CodePush,
+    Dialogs,
     HttpProvider,
     NativePageTransitions,
     NativeProvider,
@@ -62,6 +65,7 @@ import { UserServicesProvider } from '../providers/user-services/user-services';
     UserServicesProvider,
     Vibration,
     Toast,
+    SpinnerDialog,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
   ]
 })

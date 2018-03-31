@@ -1,13 +1,6 @@
 import { AndroidFullScreen } from "@ionic-native/android-full-screen";
 import { Component, ViewChild, ElementRef } from "@angular/core";
-import {
-  IonicPage,
-  NavController,
-  NavParams,
-  ViewController,
-  Content,
-  Slide
-} from "ionic-angular";
+import { IonicPage, NavController, NavParams, ViewController, Content, Slide } from "ionic-angular";
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/observable/interval";
 import "rxjs/add/operator/scan";
@@ -48,6 +41,9 @@ export class ReadPage {
   onePagePercent: number; // 阅读百分比
   where: number = 0; // 当前章节进度
   backUrl: string = "url('assets/imgs/qd.jpg')"; // 背景图片
+  fontColor: string = "";
+  fontSize: number = 1.6; // 字体大小
+  lineHeight: number = 2.5; // 行高
   chapterName: string; //选中的章节名
   chapterId: number = 1; //当前章节id;
   chapterNowIndex: number; //当前章节下标;
@@ -61,14 +57,21 @@ export class ReadPage {
     private statusBar: StatusBar,
     private androidFullScreen: AndroidFullScreen,
     private native: NativeProvider,
-    private bookServe: BookServicesProvider
+    private bookServe: BookServicesProvider,
+    private viewCtrl: ViewController
   ) {
     this.androidFullScreen.showUnderSystemUI(); //只在安卓下生效
     this.statusBar.hide();
     this.setDateBattery();
+    setTimeout(() => {
+      this.backUrl = "#1c1c1c";
+      this.fontColor = "#717171";
+    }, 5000000);
   }
   change(): void {
-    this.showChapter = true;
+    if (this.showBar) {
+      this.showChapter = true;
+    }
     console.log(this.saturation);
   }
   ionViewWillEnter() {
@@ -96,6 +99,7 @@ export class ReadPage {
       this.bookServe.getArticle(id + 1).subscribe(f => {
         this.article = f.data.article;
         this.articleContainer.nativeElement.style.transition = "all 350ms";
+
         setTimeout(() => {
           this.setPage();
           resolve();
@@ -111,8 +115,7 @@ export class ReadPage {
    * @memberof ReadPage
    */
   setPage(): void {
-    this.scrollWidth =
-      this.containers.nativeElement.parentNode.scrollWidth + 22;
+    this.scrollWidth = this.containers.nativeElement.parentNode.scrollWidth + 22;
     this.pageNum = Math.ceil(this.scrollWidth / this.pageWidth) - 1;
     this.getChapter();
   }
@@ -221,8 +224,9 @@ export class ReadPage {
       this.getPercent("prev");
       this.articleAnimation();
       return;
-    }  else {
+    } else {
       this.saturation -= 1;
+
       this.getArticle(this.saturation).then(() => {
         this.removeAnimation();
         this.where = this.pageNum;
@@ -244,8 +248,7 @@ export class ReadPage {
 
   articleAnimation(): Promise<any> {
     return new Promise(resolve => {
-      this.articleContainer.nativeElement.style.transform = `translateX(${-this
-        .pageWidth * this.where}px)`;
+      this.articleContainer.nativeElement.style.transform = `translateX(${-this.pageWidth * this.where}px)`;
       setTimeout(() => {
         resolve();
       }, 20);
@@ -288,6 +291,7 @@ export class ReadPage {
   }
 
   goCatalog() {
+    console.log('测试数据是', this.navCtrl.indexOf(this.viewCtrl))
     this.navCtrl.push("BookCatalogPage");
     this.showBar = false;
   }

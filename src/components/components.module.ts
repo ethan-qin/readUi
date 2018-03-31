@@ -17,6 +17,7 @@ import { SearchFiltrateComponent } from './search-filtrate/search-filtrate';
 import { BookItemComponent } from './book-item/book-item';
 import { ScoreItemComponent } from './score-item/score-item';
 import { BatteryComponent } from './battery/battery';
+import { ResetAuthCodeComponent } from './reset-auth-code/reset-auth-code';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { BatteryComponent } from './battery/battery';
     BookItemComponent,
     ScoreItemComponent,
     BatteryComponent,
+    ResetAuthCodeComponent,
   ],
   imports: [
     PipesModule,
@@ -66,6 +68,7 @@ import { BatteryComponent } from './battery/battery';
     BookItemComponent,
     ScoreItemComponent,
     BatteryComponent,
+    ResetAuthCodeComponent,
   ]
 })
 export class ComponentsModule { }

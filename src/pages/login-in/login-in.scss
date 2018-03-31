@@ -1,0 +1,34 @@
+page-login-in {
+    ion-icon {
+        margin-right: 0!important;
+    }
+    ion-checkbox {
+        margin: 0 5px!important;
+    }
+    ion-checkbox .item-cover {
+        display: none;
+    }
+    .agreementContainer {
+        min-height: 1rem!important;
+        .label-md {
+            margin: 0!important;
+        }
+    }
+    .hasLine {
+        position: relative;
+        &::before {
+            content: "";
+            display: block;
+            background: color($colors, fineLineColor);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            transform: scaleY(0.3);
+        }
+    }
+    .agreement {
+        font-size: 1.1rem;
+    }
+}
