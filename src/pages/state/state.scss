@@ -34,4 +34,13 @@ page-state {
             }
         }
     }
+    ion-scroll{
+        position: fixed;
+        z-index: 9999;
+        right: 0;
+        top: 100px;
+        bottom: 0;
+        width: 30px;
+        background: red;
+    }
 }

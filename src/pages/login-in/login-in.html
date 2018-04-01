@@ -18,7 +18,7 @@
         <ion-item class="hasLine">
             <ion-icon item-start name="ios-phone-portrait-outline"></ion-icon>
             <button ion-button item-start clear (click)="changeState()"><span ion-text color="danger">+86</span></button>
-            <ion-input type="number" max=11 clearInput></ion-input>
+            <ion-input type="number" max=11 clearInput [(ngModel)]="phone"></ion-input>
         </ion-item>
         <button (click)="next()" margin-vertical ion-item text-center color="danger">
           下一步

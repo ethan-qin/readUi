@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 
 import { NativeProvider } from '../../providers/native/native';
 import { BasePage } from '../../common/basePage';
+import { UserServicesProvider } from '../../providers/user-services/user-services';
+import { LoginPreviewPage } from '../login-preview/login-preview';
 
 /**
  * Generated class for the SettingPage page.
@@ -17,15 +19,16 @@ import { BasePage } from '../../common/basePage';
   selector: 'page-setting',
   templateUrl: 'setting.html',
 })
-export class SettingPage extends BasePage{
+export class SettingPage{
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private native: NativeProvider,
-    private nativePageTransition: NativePageTransitions
+    private nativePageTransition: NativePageTransitions,
+    private user:UserServicesProvider,
+    private app:App
   ) {
-    super()
   }
 
   ionViewDidLoad() {
@@ -39,5 +42,13 @@ export class SettingPage extends BasePage{
   }
   go(): void {
     this.navCtrl.push('TestPage')
+  }
+
+  loginOut():void{
+    this.user.loginOut().then(f=>{
+      this.app.getRootNav().setRoot(LoginPreviewPage)
+    },err=>{
+      this.app.getRootNav().setRoot(LoginPreviewPage)
+    })
   }
 }

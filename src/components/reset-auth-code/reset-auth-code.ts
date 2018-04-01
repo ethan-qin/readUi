@@ -20,20 +20,23 @@ export class ResetAuthCodeComponent {
   pending: string = '秒后&nbsp;重新获取';
   info: string;
   text: string;
-
   constructor(
     public userServe: UserServicesProvider
   ) {
     this.info = this.start;
   }
+
   sendMessage(): void {
     console.log(this.phone);
-    this.userServe.sendAuthCode(this.phone).then((f)=>{
-      console.log(f)
-    },err=>{
-      console.log('err',err)
-    })
+    if (!this.phone) {
+      return;
+    }
     if (this.stu) {
+      this.userServe.sendAuthCode(this.phone).then((f) => {
+        console.log(f)
+      }, err => {
+        console.log('err', err)
+      })
       this.stu = false;
       this.time = 60;
       let Time = setInterval(() => {

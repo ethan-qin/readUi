@@ -22,12 +22,14 @@ import { MyApp } from './app.component';
 import { NativeProvider } from '../providers/native/native';
 import { TabsPage } from '../pages/tabs/tabs';
 import { UserServicesProvider } from '../providers/user-services/user-services';
+import { LoginPreviewPage } from '../pages/login-preview/login-preview';
 
 
 @NgModule({
   declarations: [
     MyApp,
     TabsPage,
+    LoginPreviewPage
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ import { UserServicesProvider } from '../providers/user-services/user-services';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    TabsPage
+    TabsPage,
+    LoginPreviewPage
   ],
   providers: [
     AndroidFullScreen,

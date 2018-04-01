@@ -5,13 +5,20 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import AV from "leancloud-storage";
+import { NativeProvider } from '../providers/native/native';
+import { LoginPreviewPage } from '../pages/login-preview/login-preview';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: any = TabsPage;
+  rootPage: any;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(
+    platform: Platform,
+    statusBar: StatusBar,
+    splashScreen: SplashScreen,
+    native: NativeProvider,
+  ) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -23,6 +30,17 @@ export class MyApp {
       statusBar.styleLightContent()
       statusBar.overlaysWebView(true);
       splashScreen.hide();
+      let currentUser = AV.User.current();
+      if(currentUser){
+        this.rootPage =TabsPage
+      }else{
+        this.rootPage =LoginPreviewPage;
+      }
+      native.getStorage('_ReadUiUserInfo').then(f => {
+        console.log(f)
+      }, err => {
+        
+      })
     });
   }
 }

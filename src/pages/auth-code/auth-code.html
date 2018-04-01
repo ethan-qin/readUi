@@ -17,19 +17,19 @@
     <ion-list padding no-lines>
         <ion-item class="hasBack">
             <span item-start>+86</span>
-            <div text-center>15837776517</div>
+            <div text-center>{{phone}}</div>
         </ion-item>
         <ion-item no-padding padding-vertical class="agreementContainer">
             <ion-label class="agreement" color="danger">短信验证码已发至您的手机，请注意查收</ion-label>
         </ion-item>
         <ion-item class="hasLine">
             <ion-icon item-start name="ios-phone-portrait-outline"></ion-icon>
-            <ion-input type="number"></ion-input>
+            <ion-input type="number" [(ngModel)]="code"></ion-input>
             <button ion-button clear item-end>
               <reset-auth-code [phone]=phone></reset-auth-code>
             </button>
         </ion-item>
-        <button margin-top ion-item text-center color="danger">
+        <button margin-top ion-item text-center color="danger" (click)="login()">
           确认
         </button>
     </ion-list>
