@@ -4,6 +4,7 @@ import { LoadingController } from "ionic-angular/components/loading/loading-cont
 import { CodePush } from "@ionic-native/code-push";
 import { Dialogs } from '@ionic-native/dialogs';
 import { Injectable } from "@angular/core";
+import { ImagePicker } from '@ionic-native/image-picker';
 import { NativePageTransitions, NativeTransitionOptions } from "@ionic-native/native-page-transitions";
 import { Platform, NavController } from "ionic-angular";
 import { SpinnerDialog } from '@ionic-native/spinner-dialog';
@@ -31,7 +32,8 @@ export class NativeProvider extends BaseUI {
     private vibration: Vibration,
     private toast: Toast,
     private batteryStatus: BatteryStatus,
-    private spinnerDialog: SpinnerDialog
+    private spinnerDialog: SpinnerDialog,
+    private imgPicker: ImagePicker
   ) {
     super();
     console.log("加载native模块");
@@ -296,4 +298,32 @@ export class NativeProvider extends BaseUI {
     this.nativeTransition("slide:go");
     navCtrl.push(page, params);
   }
+
+
+  /**
+   * 选择图片
+   * 
+   * @author qin
+   * @returns {Promise<any>} 
+   * @memberof NativeProvider
+   */
+  public chooseImg(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.imgPicker.getPictures({
+        maximumImagesCount: 1,
+        outputType: 1          //1为base64， 0为本地url
+      }).then(f => {
+        if (f.length == 0) {
+          resolve({ stu: false, avatar: '' })
+          return;
+        }
+        resolve({ stu: true, avatar: f })
+      }, err => {
+        reject(err)
+      }).catch(error => {
+        reject(error)
+      })
+    })
+  }
+
 }

@@ -6,6 +6,7 @@ import { Dialogs } from '@ionic-native/dialogs';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
+import { ImagePicker } from '@ionic-native/image-picker';
 import { IonicApp, IonicModule, IonicErrorHandler, NavController } from 'ionic-angular';
 import { NativePageTransitions } from '@ionic-native/native-page-transitions';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -61,6 +62,7 @@ import { LoginPreviewPage } from '../pages/login-preview/login-preview';
     CodePush,
     Dialogs,
     HttpProvider,
+    ImagePicker,
     NativePageTransitions,
     NativeProvider,
     StatusBar,

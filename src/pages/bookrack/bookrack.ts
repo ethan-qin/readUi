@@ -173,8 +173,10 @@ export class BookrackPage {
     this.native.showNativeToast();
     this.navCtrl.push('ReadPage')
   }
-  login():void{
-    this.navCtrl.push('LoginInPage')
+  queryUser():void{
+    this.user.getUserInfo().then(f=>{
+      console.log(f);
+    })
   }
   overlaysWebView(isTrue: boolean) {
     this.statusbar.overlaysWebView(isTrue)

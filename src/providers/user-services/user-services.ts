@@ -82,7 +82,9 @@ export class UserServicesProvider {
     return new Promise((resolve, reject) => {
       AV.User.signUpOrlogInWithMobilePhone(`${phone}`, `${authCode}`).then((success: any) => {
         let userInfo = JSON.parse(JSON.stringify(success));
-        userInfo.sessionToken = success._sessionToken
+        userInfo.sessionToken = success._sessionToken;
+        console.log(JSON.stringify(success));
+
         resolve(userInfo)
       }, (error) => {
         let json = JSON.parse(JSON.stringify(error));
@@ -101,6 +103,14 @@ export class UserServicesProvider {
     })
   }
 
+
+  /**
+   * 退出登录
+   * 
+   * @author qin
+   * @returns {Promise<any>} 
+   * @memberof UserServicesProvider
+   */
   loginOut(): Promise<any> {
     return new Promise((resolve, reject) => {
       AV.User.logOut().then(success => {
@@ -112,5 +122,70 @@ export class UserServicesProvider {
       })
     }
     )
+  }
+
+  uploadAvatar(imgDate: string): Promise<any> {
+    let img = { base64: imgDate };
+    let file = new AV.File('avatar.jpg', img);
+    return new Promise((resolve, reject) => {
+      let currentUser = AV.User.current();
+      if (!currentUser) {
+        reject({
+          stu: false,
+          message: '无效的用户',
+          data: ''
+        })
+      }
+      let userCourseMapTom = new AV.Object('UserCourseMap');
+      userCourseMapTom.set('user', currentUser);
+      userCourseMapTom.set('avatar', file);
+      let map = userCourseMapTom.save();
+      let uploadImg = file.save();
+      Promise.all([uploadImg, map]).then(f => {
+        resolve({
+          stu: true,
+          message: '上传成功',
+          data: f
+        })
+      }, err => {
+        reject({
+          stu: false,
+          message: '服务器错误',
+          data: err
+        })
+      })
+    })
+  }
+
+  getUserInfo(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      let currentUser = AV.User.current();
+      currentUser.isAuthenticated().then((authenticated) => {
+        if (authenticated) {
+          let sessionToken = AV.User.current().getSessionToken();
+          AV.User.become(sessionToken).then((user: any) => {
+            // console.log(JSON.stringify(user));
+            let query = new AV.Query('_User');
+            // query.equalTo("username", "18339620640");
+            // query.find({ sessionToken: sessionToken }).then(f=>{
+            //   console.log(f);
+            // })
+            query.equalTo('mobilePhoneNumber', '18339620640');
+            query.include('avatar');
+            console.log("用户信息是",user);
+            
+            query.find().then((list: any) => {
+              list.map(todo => {
+                console.log('Todo',JSON.stringify(todo));
+                var file = todo.get('avatar');
+                console.log("file",file);
+                
+                console.log('file.url', file.url());
+              });
+            });
+          })
+        }
+      });
+    })
   }
 }

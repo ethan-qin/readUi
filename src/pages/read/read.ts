@@ -168,6 +168,7 @@ export class ReadPage {
   }
 
   ionViewDidLeave() {
+    this.androidFullScreen.showSystemUI(); //只在安卓下生效
     this.statusBar.show();
     this.statusBar.overlaysWebView(true);
   }

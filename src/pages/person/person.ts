@@ -2,6 +2,7 @@ import { Login, User } from './../../model/model';
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { UserServicesProvider } from '../../providers/user-services/user-services';
+import { NativeProvider } from '../../providers/native/native';
 /**
  * Generated class for the PersonPage page.
  *
@@ -15,14 +16,15 @@ import { UserServicesProvider } from '../../providers/user-services/user-service
   templateUrl: 'person.html',
 })
 export class PersonPage {
-
+  avatarPreview: string;
   login: Login = {
     phone: 15826548556,
     password: '+35asd5a45'
   }
   constructor(
     public navCtrl: NavController,
-    private userServe: UserServicesProvider
+    private userServe: UserServicesProvider,
+    private native: NativeProvider
   ) {
 
     this.userServe.userLogin(this.login).subscribe((f: User) => {
@@ -41,6 +43,17 @@ export class PersonPage {
   }
   openMessage(): void {
     this.navCtrl.push('MessagePage')
+  }
+
+  changeAvatar(): void {
+    this.native.chooseImg().then(f=>{
+      if(f.stu){
+        this.avatarPreview ='data:image/jpeg;base64,'+f.avatar;
+        this.userServe.uploadAvatar(this.avatarPreview)
+      }
+    },err=>{
+      console.log('读取错误,请重试')
+    })
   }
 }
 
