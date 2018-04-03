@@ -14,7 +14,7 @@ import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 })
 export class LoginPreviewPage {
   @ViewChild(Content) content:Content
-  background:string ="url('assets/imgs/loginPreview.png')";
+  background:string ="url('assets/imgs/loginPreview.jpg')";
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

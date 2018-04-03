@@ -17,13 +17,13 @@
     <ion-grid class="user">
         <ion-row>
             <ion-col col-8>
-                <h4 text-center no-margin>青梅煮酒</h4>
+                <h4 text-center no-margin>{{userName}}</h4>
             </ion-col>
         </ion-row>
     </ion-grid>
     <ion-grid class="userInfo" style="position:relative">
-        <div class="avatar" (click)="changeAvatar()">
-            <img [src]="avatarPreview || 'assets/imgs/defult_avatar.png'" alt="">
+        <div class="avatar" (click)="changeUserInfo()">
+            <img [src]="userPreview || 'assets/imgs/defult_avatar.png'" alt="">
         </div>
         <ion-row>
             <ion-col text-center offset-2 col-5>
@@ -91,7 +91,6 @@
         <button ion-item mode="ios">
       <ion-icon color="danger" name="pen" item-start></ion-icon>
       成为作家
-      <ion-note item-end>高级VIP</ion-note>
       <span class="fineLine"></span>
     </button>
     </ion-list>

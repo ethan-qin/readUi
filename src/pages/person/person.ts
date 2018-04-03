@@ -1,6 +1,6 @@
 import { Login, User } from './../../model/model';
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, Events } from 'ionic-angular';
 import { UserServicesProvider } from '../../providers/user-services/user-services';
 import { NativeProvider } from '../../providers/native/native';
 /**
@@ -16,24 +16,47 @@ import { NativeProvider } from '../../providers/native/native';
   templateUrl: 'person.html',
 })
 export class PersonPage {
-  avatarPreview: string;
-  login: Login = {
-    phone: 15826548556,
-    password: '+35asd5a45'
-  }
+  userPreview: string;
+  userName: string = 'read书友';
   constructor(
     public navCtrl: NavController,
     private userServe: UserServicesProvider,
-    private native: NativeProvider
+    private native: NativeProvider,
+    private events: Events
   ) {
-
-    this.userServe.userLogin(this.login).subscribe((f: User) => {
-      console.log('个人页面拿到的f是', f);
-    }, err => {
-      console.log(err);
+    this.updateInfo()
+  }
+  ionViewDidLoad() {
+    this.native.getStorage('_ReadUiIonicUserInfo').then((f: any) => {
+      this.userPreview = f.data.avatar.url;
+      this.userName = '书友' + f.data.user.username.substring(7)
     })
   }
 
+  /**
+   * 更新用户信息事件
+   * 
+   * @author qin
+   * @memberof PersonPage
+   */
+  updateInfo(): void {
+    this.events.subscribe('_updateUserInfo', () => {
+      this.getUserInfo();
+    })
+  }
+
+  /**
+   * 读取用户信息
+   * 
+   * @author qin
+   * @memberof PersonPage
+   */
+  getUserInfo(): void {
+    this.native.getStorage('_ReadUiIonicUserInfo').then((f: any) => {
+      this.userPreview = f.data.avatar.url;
+      this.userName = '书友' + f.data.user.username.substring(7)
+    })
+  }
   open(): void {
     this.navCtrl.push('SettingPage')
   }
@@ -45,15 +68,9 @@ export class PersonPage {
     this.navCtrl.push('MessagePage')
   }
 
-  changeAvatar(): void {
-    this.native.chooseImg().then(f=>{
-      if(f.stu){
-        this.avatarPreview ='data:image/jpeg;base64,'+f.avatar;
-        this.userServe.uploadAvatar(this.avatarPreview)
-      }
-    },err=>{
-      console.log('读取错误,请重试')
-    })
+  
+  changeUserInfo(): void {
+    this.navCtrl.push('UserInfoPage', { userPreview: this.userPreview, userName: this.userName, intro: '在看我，还在看我' })
   }
 }
 

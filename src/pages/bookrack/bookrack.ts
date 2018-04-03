@@ -54,9 +54,14 @@ export class BookrackPage {
     private popCtrl: PopoverController,
     private androidFullScreen: AndroidFullScreen,
     private statusbar: StatusBar,
-    private user:UserServicesProvider
+    private user: UserServicesProvider
   ) {
     this.openbook();
+    this.user.setUserInfo().then(f => {
+      console.log(f);
+    }, err => {
+      console.log(err);
+    })
   }
 
   ionViewDidEnter() {
@@ -134,7 +139,8 @@ export class BookrackPage {
    * @memberof HomePage
    */
   protected goSearch(): void {
-    this.native.pageGo(this.navCtrl, 'SearchPage');
+    // this.native.pageGo(this.navCtrl, 'SearchPage');
+    this.navCtrl.push('SearchPage')
   }
 
   doRefresh(refresher) {
@@ -166,15 +172,15 @@ export class BookrackPage {
     })
   }
 
-  register():void{
+  register(): void {
     this.user.userRejister()
   }
   test() {
     this.native.showNativeToast();
     this.navCtrl.push('ReadPage')
   }
-  queryUser():void{
-    this.user.getUserInfo().then(f=>{
+  queryUser(): void {
+    this.user.getUserInfo().then(f => {
       console.log(f);
     })
   }
@@ -187,32 +193,32 @@ export class BookrackPage {
   show() {
     this.statusbar.show()
   }
-  showDialog(){
+  showDialog() {
     this.native.showDialog()
   }
   styleLightContent() {
     this.statusbar.styleLightContent()
   }
-  test1(){
+  test1() {
     this.statusbar.overlaysWebView(true);
     this.statusbar.show()
   }
 
-  test2(){
+  test2() {
     this.statusbar.show()
     this.statusbar.overlaysWebView(true);
   }
 
-  showSystemUI(){
+  showSystemUI() {
     this.androidFullScreen.showSystemUI()
   }
-  showUnderStatusBar(){
+  showUnderStatusBar() {
     this.androidFullScreen.showUnderStatusBar()
   }
-  showUnderSystemUI(){
+  showUnderSystemUI() {
     this.androidFullScreen.showUnderSystemUI()
   }
-  immersiveMode(){
+  immersiveMode() {
     this.androidFullScreen.immersiveMode()
   }
 }

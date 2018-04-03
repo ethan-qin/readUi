@@ -30,9 +30,10 @@ export class BookHonorPage {
 
   }
   ionViewDidLoad() {
-    if (this.isBack) {
-      this.native.nativeTransition('slide:back')
-    }
+    // if (this.isBack) {
+      
+    //   this.native.nativeTransition('slide:back')
+    // }
     console.log('ionViewDidLoad BookHonorPage');
   }
 }

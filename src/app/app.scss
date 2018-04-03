@@ -15,6 +15,42 @@
 ::-webkit-scrollbar {
     display: none !important;
 }
+
+._alert {
+    .alert-head {
+        display: none;
+    }
+    .alert-button-group {
+        padding: 0;
+        ._text-center {
+            margin: 0!important;
+            position: relative;
+            .button-inner {
+                padding: 5px;
+                justify-content: flex-start!important;
+                color: #333;
+            }
+            ;
+            &:last-child {
+                &:before {
+                    display: none;
+                }
+            }
+            &:before {
+                content: "";
+                display: block;
+                width: 100%;
+                background: color($colors, fineLineColor);
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                height: 1px;
+                transform: scaleY(0.3);
+            }
+        }
+    }
+}
+
 .sexPop {
     .popover-content {
         width: 10rem!important;

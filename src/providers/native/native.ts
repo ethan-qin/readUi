@@ -13,6 +13,7 @@ import { Toast } from "@ionic-native/toast";
 import { Vibration } from "@ionic-native/vibration";
 import { BaseUI } from "../../common/baseUI";
 import { IS_DEBUG, CODE_PUSH_key } from "./../api/api";
+import { batteryStu } from "../../model/model";
 /*
   Generated class for the NativeProvider provider.
 
@@ -64,7 +65,14 @@ export class NativeProvider extends BaseUI {
     })
   }
 
-  getBatteryStatus(): Promise<any> {
+  /**
+   * 电池状态
+   * 
+   * @author qin
+   * @returns {Promise<batteryStu>} 
+   * @memberof NativeProvider
+   */
+  getBatteryStatus(): Promise<batteryStu> {
     if (!this.isMobile()) {
       return new Promise(resolve => {
         resolve({
@@ -127,13 +135,15 @@ export class NativeProvider extends BaseUI {
         f => {
           resolve({
             stu: true,
-            data: "数据写入完成"
+            message: "setStorage：数据写入完成",
+            data:''
           });
         },
         err => {
           resolve({
             stu: false,
-            data: "数据写入失败"
+            message: "setStorage：数据写入失败",
+            data:''
           });
         }
       );
@@ -229,75 +239,6 @@ export class NativeProvider extends BaseUI {
     }
   }
 
-  /**
-   * 原生页面转换
-   *
-   * @author qin
-   * @param {string} animation
-   * @returns
-   * @memberof NativeProvider
-   */
-  public nativeTransition(animation: string) {
-    if (!this.isMobile()) {
-      return;
-    }
-    let options: NativeTransitionOptions = {
-      androiddelay: 100,
-      direction: "left",
-      duration: 350,
-      slowdownfactor: 4
-    };
-
-    if (!animation) {
-      console.error("参数类型错误");
-      return;
-    } else if (animation == "flip:go") {
-      this.nativePageTransition
-        .flip(options)
-        .then(f => {
-          console.log("flip进入成功");
-        })
-        .catch();
-      return;
-    } else if (animation == "flip:back") {
-      this.nativePageTransition
-        .flip(options)
-        .then(f => {
-          console.log("flip返回成功");
-        })
-        .catch();
-      return;
-    } else if (animation == "slide:go") {
-      options.direction = "left";
-      this.nativePageTransition
-        .slide(options)
-        .then(f => {
-          console.log("slide进入成功");
-        })
-        .catch();
-    } else if (animation == "slide:back") {
-      options.direction = "right";
-      this.nativePageTransition
-        .slide(options)
-        .then(f => {
-          console.log("slide返回成功");
-        })
-        .catch();
-    }
-  }
-
-  /**
-   * 页面跳转 isBack为页面是否使用返回动画
-   *
-   * @author qin
-   * @param {string} page
-   * @param {*} [params]
-   * @memberof NativeProvider
-   */
-  public pageGo(navCtrl: NavController, page: string, params?: any) {
-    this.nativeTransition("slide:go");
-    navCtrl.push(page, params);
-  }
 
 
   /**

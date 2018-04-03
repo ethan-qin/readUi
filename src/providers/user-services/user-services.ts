@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import AV from "leancloud-storage";
 import { HttpProvider } from '../http/http';
+import { NativeProvider } from '../native/native';
 
 /*
   Generated class for the UserServicesProvider provider.
@@ -13,7 +14,10 @@ import { HttpProvider } from '../http/http';
 @Injectable()
 export class UserServicesProvider {
 
-  constructor(public http: HttpProvider) {
+  constructor(
+    public http: HttpProvider,
+    private native: NativeProvider
+  ) {
 
   }
 
@@ -124,6 +128,14 @@ export class UserServicesProvider {
     )
   }
 
+  /**
+   * 上传头像
+   * 
+   * @author qin
+   * @param {string} imgDate 
+   * @returns {Promise<any>} 
+   * @memberof UserServicesProvider
+   */
   uploadAvatar(imgDate: string): Promise<any> {
     let img = { base64: imgDate };
     let file = new AV.File('avatar.jpg', img);
@@ -157,35 +169,88 @@ export class UserServicesProvider {
     })
   }
 
-  getUserInfo(): Promise<any> {
+
+  /**
+   * 校验用户状态是否合法
+   * 
+   * @author qin
+   * @returns {Promise<boolean>} 
+   * @memberof UserServicesProvider
+   */
+  isAuthenticated(): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      let currentUser = AV.User.current();
+      let currentUser = AV.User.current();      // 获取当前登录的用户
       currentUser.isAuthenticated().then((authenticated) => {
-        if (authenticated) {
-          let sessionToken = AV.User.current().getSessionToken();
-          AV.User.become(sessionToken).then((user: any) => {
-            // console.log(JSON.stringify(user));
-            let query = new AV.Query('_User');
-            // query.equalTo("username", "18339620640");
-            // query.find({ sessionToken: sessionToken }).then(f=>{
-            //   console.log(f);
-            // })
-            query.equalTo('mobilePhoneNumber', '18339620640');
-            query.include('avatar');
-            console.log("用户信息是",user);
-            
-            query.find().then((list: any) => {
-              list.map(todo => {
-                console.log('Todo',JSON.stringify(todo));
-                var file = todo.get('avatar');
-                console.log("file",file);
-                
-                console.log('file.url', file.url());
-              });
-            });
-          })
-        }
-      });
+        resolve(authenticated)
+      }, err => {
+        reject(err)
+      })
     })
   }
+
+  /**
+   * 查询用户信息
+   * 
+   * @author qin
+   * @returns {Promise<any>} 
+   * @memberof UserServicesProvider
+   */
+  getUserInfo(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.isAuthenticated().then(f => {
+        if (f) {
+          let currentUser = AV.User.current();      // 获取当前登录的用户
+          let query = new AV.Query('UserCourseMap');
+          let sessionToken = AV.User.current().getSessionToken();
+          AV.User.become(sessionToken).then((user: any) => {
+            query.equalTo('user', user);        // 表明查询对象为当前用户
+            query.include('user');
+            query.descending('updatedAt');
+            query.first().then((date: any) => {
+              resolve({ stu: true, message: '查询成功', data: date.toJSON() })            // 查询结果
+            }, err => {
+              reject({ stu: false, message: '查询失败', data: err })                       // 异常信息
+            });
+          })
+        } else {
+          reject({ stu: false, message: '无效的用户', data: '' })
+        }
+      }, err => {
+        reject({ stu: false, message: '系统错误，请提交反馈', data: '' })
+      })
+    })
+  }
+
+  /**
+   * 存储登录用户信息
+   * 
+   * @author qin
+   * @returns {Promise<any>} 
+   * @memberof UserServicesProvider
+   */
+  setUserInfo(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.getUserInfo().then(f => {
+        if (f.stu) {
+          this.native.setStorage("_ReadUiIonicUserInfo", f.data).then(f => {
+            resolve(f)
+          }, err => {
+            reject({
+              stu: false,
+              message: "setUserInfo：数据写入失败",
+              data: ""
+            });
+          })
+        } else {
+          resolve({
+            stu: false,
+            message: "setUserInfo：无效的用户状态",
+            data: ""
+          });
+        }
+      })
+    })
+  }
+
+
 }

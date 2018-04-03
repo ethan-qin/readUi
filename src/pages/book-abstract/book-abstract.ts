@@ -61,9 +61,11 @@ export class BookAbstractPage {
   }
 
   openHonor(): void {
-    this.native.pageGo(this.navCtrl, "BookHonorPage", { bookId: 3528 });
+    this.navCtrl.push("BookHonorPage", { bookId: 3528 })
+    // this.native.pageGo(this.navCtrl, "BookHonorPage", { bookId: 3528 });
   }
   openCatalog(): void {
-    this.native.pageGo(this.navCtrl, "BookCatalogPage", { bookId: 3528 });
+    this.navCtrl.push("BookCatalogPage", { bookId: 3528 })
+    // this.native.pageGo(this.navCtrl, "BookCatalogPage", { bookId: 3528 });
   }
 }

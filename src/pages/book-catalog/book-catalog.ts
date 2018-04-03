@@ -78,7 +78,8 @@ export class BookCatalogPage {
     };
   }
   read(item: catalog): void {
-    this.native.pageGo(this.navCtrl, "ReadPage", item);
+    this.navCtrl.push("ReadPage", item)
+    // this.native.pageGo(this.navCtrl, "ReadPage", item);
   }
 
   ionViewDidLeave() {

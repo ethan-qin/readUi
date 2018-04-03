@@ -14,7 +14,7 @@ export class BookModalComponent {
   constructor(
     private events: Events,
     private viewCtrl: ViewController,
-    private navParams: NavParams
+    private navParams: NavParams,
   ) {
     this.book = this.navParams.get('bookItem');
   }
@@ -43,5 +43,7 @@ export class BookModalComponent {
   private sendBookId(bookId): void {
     this.events.publish('openThisBook', bookId)
   }
+
+
 }
 

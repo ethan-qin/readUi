@@ -60,7 +60,8 @@ export class SearchPage extends BaseUI {
     console.log('我明确被销毁了')
   }
   goRank() {
-    this.native.pageGo(this.navCtrl, 'HotRankPage');
+    // this.native.pageGo(this.navCtrl, 'HotRankPage');
+    this.navCtrl.push('HotRankPage')
   }
 
 

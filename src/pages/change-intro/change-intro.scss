@@ -1,0 +1,18 @@
+page-change-intro {
+    ion-buttons{
+        button{
+            font-size: 1.7rem!important;
+        }
+    }
+    ion-content {
+        background: #f0f1f3!important;
+        ion-item{
+            color: #4b4b4b!important;
+            font-size: 1.5rem!important;
+        }
+        ion-textarea{
+            min-height: 10rem;
+            // color: #4b4b4b;
+        }
+    }
+}

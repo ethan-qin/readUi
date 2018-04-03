@@ -1,0 +1,34 @@
+<!--
+  Generated template for the UserInfoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+
+    <ion-navbar color="danger">
+        <ion-title>个人资料</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-list no-lines>
+        <button ion-item mode="ios" (click)="alertSheet()">
+            头像
+            <ion-avatar item-end>
+                <img [src]="userPreview">
+            </ion-avatar>
+        </button>
+        <button ion-item mode="ios" (click)="openNickname()">
+            昵称
+            <ion-note item-end>{{userName}}</ion-note>
+        </button>
+        <button ion-item mode="ios" (click)="openIntro()">
+            简介
+            <ion-note item-end>{{intro}}</ion-note>
+        </button>
+
+    </ion-list>
+</ion-content>

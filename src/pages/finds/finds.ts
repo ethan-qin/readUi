@@ -83,19 +83,24 @@ export class FindsPage {
     })
   }
   goSearch(): void {
-    this.native.pageGo(this.navCtrl, 'SearchPage');
+    this.navCtrl.push("SearchPage")
+    // this.native.pageGo(this.navCtrl, 'SearchPage');
     // this.navCtrl.push('SearchPage', {}, { animate: true, animation: 'transition', duration: 500, direction: 'forward' });
   }
   openRank(): void {
-    this.native.pageGo(this.navCtrl, 'RankPage');
+    this.navCtrl.push("RankPage")
+    // this.native.pageGo(this.navCtrl, 'RankPage');
   }
   openClassification(): void {
-    this.native.pageGo(this.navCtrl, 'ClassificationPage');
+    this.navCtrl.push("ClassificationPage")
+    // this.native.pageGo(this.navCtrl, 'ClassificationPage');
   }
   openScore(): void {
-    this.native.pageGo(this.navCtrl, 'ScoreRankPage');
+    this.navCtrl.push("ScoreRankPage")
+    // this.native.pageGo(this.navCtrl, 'ScoreRankPage');
   }
   openSpecial(): void {
-    this.native.pageGo(this.navCtrl, 'SpecialTopicPage');
+    this.navCtrl.push("SpecialTopicPage")
+    // this.native.pageGo(this.navCtrl, 'SpecialTopicPage');
   }
 }
