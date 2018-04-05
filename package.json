@@ -92,7 +92,7 @@
       "cordova-plugin-native-spinner": {},
       "cordova-plugin-dialogs": {},
       "com.synconset.imagepicker": {
-        "PHOTO_LIBRARY_USAGE_DESCRIPTION": "请选择一张图片"
+        "PHOTO_LIBRARY_USAGE_DESCRIPTION": "选择一张照片"
       }
     },
     "platforms": [

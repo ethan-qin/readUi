@@ -14,7 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'change-nickname.html',
 })
 export class ChangeNicknamePage {
-
+  nickName:string;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

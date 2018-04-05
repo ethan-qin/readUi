@@ -14,5 +14,34 @@
 
 
 <ion-content>
+  <ion-card no-margin no-border>
+    <ion-card-content no-padding>
+      <img src="http://placehold.it/1000x300" alt="">
+    </ion-card-content>
+  </ion-card>
+  <ion-list no-lines class="_list">
+    <button margin-vertical ion-item mode="ios">
+      支付方式
+      <ion-avatar item-end>
+          <img src="assets/imgs/biao.png">
+        </ion-avatar>
+      <ion-note item-end><span ion-text color="dark">支付宝</span></ion-note>
+    </button>
 
+    <ion-item *ngFor="let item of quota" (click)="change(item)" [ngClass]="{'_activate': item.checked}">
+      <ion-icon name="ios-card-outline" item-start></ion-icon>
+      <ion-label><span ion-text color="danger">{{item.currency}}</span>&nbsp;点</ion-label>
+      <ion-note item-end *ngIf="!item.customMade"><span ion-text color="dark">￥{{item.pay}}</span></ion-note>
+      <ion-input text-right (focus)="focus(item)" (input)="input()" [(ngModel)]="customMade" type="number" item-end *ngIf="item.customMade" placeholder="自定义金额"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-list text-center>
+    <ion-item no-padding class="agreementContainer">
+      <ion-checkbox float-right checked=true color="danger"></ion-checkbox>
+      <ion-label class="agreement">我已阅读并同意使用
+        <span (click)="goAgreement()" ion-text color="danger">《注册和充值协议》</span>
+      </ion-label>
+    </ion-item>
+    <button color="danger" text-center ion-item margin-horizontal class="subBtn">立即支付：10元</button>
+  </ion-list>
 </ion-content>
