@@ -32,7 +32,7 @@
       <ion-icon name="ios-card-outline" item-start></ion-icon>
       <ion-label><span ion-text color="danger">{{item.currency}}</span>&nbsp;点</ion-label>
       <ion-note item-end *ngIf="!item.customMade"><span ion-text color="dark">￥{{item.pay}}</span></ion-note>
-      <ion-input text-right (focus)="focus(item)" (input)="input()" [(ngModel)]="customMade" type="number" item-end *ngIf="item.customMade" placeholder="自定义金额"></ion-input>
+      <ion-input text-right (focus)="focus(item)" (input)="input()" [(ngModel)]="customMade"  item-end *ngIf="item.customMade" placeholder="自定义金额"></ion-input>
     </ion-item>
   </ion-list>
   <ion-list text-center>
@@ -42,6 +42,6 @@
         <span (click)="goAgreement()" ion-text color="danger">《注册和充值协议》</span>
       </ion-label>
     </ion-item>
-    <button color="danger" text-center ion-item margin-horizontal class="subBtn">立即支付：10元</button>
+    <button color="danger" text-center ion-item margin-horizontal [disabled]=!pay.stu class="subBtn">立即支付：{{pay.num||0}}元</button>
   </ion-list>
 </ion-content>

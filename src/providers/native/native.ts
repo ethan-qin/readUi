@@ -1,3 +1,4 @@
+import { Alipay, AlipayOrder } from '@ionic-native/alipay';
 import { BatteryStatus } from "@ionic-native/battery-status";
 import { ToastController } from "ionic-angular/components/toast/toast-controller";
 import { LoadingController } from "ionic-angular/components/loading/loading-controller";
@@ -34,7 +35,8 @@ export class NativeProvider extends BaseUI {
     private toast: Toast,
     private batteryStatus: BatteryStatus,
     private spinnerDialog: SpinnerDialog,
-    private imgPicker: ImagePicker
+    private imgPicker: ImagePicker,
+    private alipay: Alipay
   ) {
     super();
     console.log("加载native模块");
@@ -136,14 +138,14 @@ export class NativeProvider extends BaseUI {
           resolve({
             stu: true,
             message: "setStorage：数据写入完成",
-            data:''
+            data: ''
           });
         },
         err => {
           resolve({
             stu: false,
             message: "setStorage：数据写入失败",
-            data:''
+            data: ''
           });
         }
       );
@@ -267,4 +269,8 @@ export class NativeProvider extends BaseUI {
     })
   }
 
+
+  public Alipay(): void {
+
+  }
 }
