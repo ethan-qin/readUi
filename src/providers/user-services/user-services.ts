@@ -67,8 +67,11 @@ export class UserServicesProvider {
     return new Promise((resolve, reject) => {
       AV.Cloud.requestSmsCode(`${phone}`).then((success) => {
         resolve(success)
+        console.log('发送短信验证码回掉信息是',success);
+        
       }, (error) => {
         reject(error)
+        console.log('发送短信验证码错误回掉信息是',error);
       });
     })
   }
@@ -87,7 +90,7 @@ export class UserServicesProvider {
       AV.User.signUpOrlogInWithMobilePhone(`${phone}`, `${authCode}`).then((success: any) => {
         let userInfo = JSON.parse(JSON.stringify(success));
         userInfo.sessionToken = success._sessionToken;
-        console.log(JSON.stringify(success));
+        console.log(JSON.stringify("返回信息",success));
 
         resolve(userInfo)
       }, (error) => {

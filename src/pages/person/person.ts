@@ -18,6 +18,62 @@ import { NativeProvider } from '../../providers/native/native';
 export class PersonPage {
   userPreview: string;
   userName: string = 'read书友';
+  list: Array<object> = [
+    {
+      title: '会员等级',
+      icon: 'ios-alarm-outline',
+      badge: '高级VIP',
+      page: 'UserLevelPage'
+    },
+    {
+      title: '我的等级',
+      icon: 'ios-alarm-outline',
+      badge: 'LV18',
+      page: 'MyLevelPage'
+    },
+    {
+      title: '我的徽章',
+      icon: 'badge',
+      badge: '',
+      page: 'MyBadgePage'
+    },
+    {
+      title: '我的阅历',
+      icon: 'fans',
+      badge: '阅仙',
+      page: 'ReadHistoryPage'
+    },
+    {
+      title: '阅读偏好',
+      icon: 'ios-alarm-outline',
+      badge: '',
+      page: ''
+    },
+    {
+      title: '我的卡牌',
+      icon: 'ios-alarm-outline',
+      badge: '',
+      page: 'MyCardPage'
+    },
+    {
+      title: '签到',
+      icon: 'sign',
+      badge: '',
+      page: 'CheckInPage'
+    },
+    {
+      title: '领币',
+      icon: 'ios-alarm-outline',
+      badge: '淘金能赚起点币',
+      page: ''
+    },
+    {
+      title: '成为作家',
+      icon: 'pen',
+      badge: '',
+      page: 'AuthorPage'
+    },
+  ]
   constructor(
     public navCtrl: NavController,
     private userServe: UserServicesProvider,
@@ -57,20 +113,16 @@ export class PersonPage {
       this.userName = '书友' + f.data.user.username.substring(7)
     })
   }
-  open(): void {
-    this.navCtrl.push('SettingPage')
+  open(page: string): boolean {
+    if (page == undefined || page == '') {
+      return false;
+    }
+    this.navCtrl.push(page)
   }
-
-  openPayment(): void {
-    this.navCtrl.push('PaymentPage')
-  }
-  openMessage(): void {
-    this.navCtrl.push('MessagePage')
-  }
-
-  
   changeUserInfo(): void {
     this.navCtrl.push('UserInfoPage', { userPreview: this.userPreview, userName: this.userName, intro: '在看我，还在看我' })
   }
+
+
 }
 

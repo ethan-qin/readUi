@@ -1,14 +1,14 @@
 <ion-header no-border>
     <ion-navbar color="danger">
         <ion-buttons end>
-            <button (click)="openMessage()" ion-button icon-only>
-        <ion-icon color="light" name="ios-mail-outline"></ion-icon>
-      </button>
+            <button (click)="open('MessagePage')" ion-button icon-only>
+                <ion-icon color="light" name="ios-mail-outline"></ion-icon>
+            </button>
         </ion-buttons>
         <ion-buttons end>
-            <button (click)="open()" margin-left ion-button icon-only>
-        <ion-icon color="light" name="ios-settings-outline"></ion-icon>
-      </button>
+            <button (click)="open('SettingPage')" margin-left ion-button icon-only>
+                <ion-icon color="light" name="ios-settings-outline"></ion-icon>
+            </button>
         </ion-buttons>
     </ion-navbar>
 </ion-header>
@@ -34,64 +34,17 @@
     </ion-grid>
     <ion-list no-lines>
         <button ion-item>
-      <div item-start>
-        <span class="num">1763</span>起点币</div>
-      <button item-end ion-button color="danger" (click)="openPayment()">充值</button>
+            <div item-start>
+                <span class="num">1763</span>起点币</div>
+            <button item-end ion-button color="danger" (click)="openPayment()">充值</button>
         </button>
     </ion-list>
     <ion-list class="personSet" margin-top no-lines>
-        <button ion-item mode="ios">
-      <ion-icon color="danger" name="ios-alarm-outline" item-start></ion-icon>
-      会员等级
-      <ion-note item-end>高级VIP</ion-note>
-      <span class="fineLine"></span>
-    </button>
-        <button ion-item mode="ios">
-      <ion-icon color="danger" name="ios-alarm-outline" item-start></ion-icon>
-      我的等级
-      <ion-note item-end>LV18</ion-note>
-      <span class="fineLine"></span>
-    </button>
-        <button ion-item mode="ios">
-      <ion-icon color="danger" name="badge" item-start></ion-icon>
-      我的徽章
-      <ion-note item-end></ion-note>
-      <span class="fineLine"></span>
-    </button>
-        <button ion-item mode="ios">
-      <ion-icon color="danger" name="fans" item-start></ion-icon>
-      我的阅历
-      <ion-note item-end>阅仙</ion-note>
-      <span class="fineLine"></span>
-    </button>
-        <button ion-item mode="ios">
-      <ion-icon color="danger" name="ios-alarm-outline" item-start></ion-icon>
-      阅读偏好
-      <ion-note item-end></ion-note>
-      <span class="fineLine"></span>
-    </button>
-        <button ion-item mode="ios">
-      <ion-icon color="danger" name="ios-alarm-outline" item-start></ion-icon>
-      我的卡牌
-      <ion-note item-end></ion-note>
-      <span class="fineLine"></span>
-    </button>
-        <button ion-item mode="ios">
-      <ion-icon color="danger" name="sign" item-start></ion-icon>
-      签到
-      <ion-note item-end></ion-note>
-      <span class="fineLine"></span>
-    </button>
-        <button ion-item mode="ios">
-      <ion-icon color="danger" name="ios-alarm-outline" item-start></ion-icon>
-      领币
-      <ion-note item-end>淘金能赚起点币</ion-note>
-      <span class="fineLine"></span>
-    </button>
-        <button ion-item mode="ios">
-      <ion-icon color="danger" name="pen" item-start></ion-icon>
-      成为作家
-      <span class="fineLine"></span>
-    </button>
+        <button ion-item mode="ios" *ngFor="let item of list" (click)="open(item.page)">
+            <ion-icon color="danger" name="{{item.icon}}" item-start></ion-icon>
+            {{item.title}}
+            <ion-note item-end>{{item.badge}}</ion-note>
+            <span class="fineLine"></span>
+        </button>
     </ion-list>
 </ion-content>

@@ -33,15 +33,13 @@ export class ChangeIntroPage {
     console.log('ionViewDidLoad ChangeIntroPage');
   }
 
-  ionViewCanLeave() {
-    // return false;
+  async ionViewCanLeave() {
     if (this.content !== this.nowContent) {
-      // return false;
-      this.alertSheet().then(f=>{
-        return f
-      })
+      let f = await this.alertSheet();
+      return f;
     }
   }
+  
   setLength() {
     this.nowLength = this.content.length;
     if (this.content !== this.nowContent) {
