@@ -1,4 +1,5 @@
 import { AndroidFullScreen } from '@ionic-native/android-full-screen';
+import { Alipay } from '@ionic-native/alipay';
 import { BatteryStatus } from "@ionic-native/battery-status";
 import { BrowserModule } from '@angular/platform-browser';
 import { CodePush } from "@ionic-native/code-push";
@@ -56,6 +57,7 @@ import { LoginPreviewPage } from '../pages/login-preview/login-preview';
   ],
   providers: [
     AndroidFullScreen,
+    Alipay,
     BookProvider,
     BatteryStatus,
     BookServicesProvider,

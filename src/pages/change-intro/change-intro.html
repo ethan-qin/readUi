@@ -9,7 +9,7 @@
   <ion-navbar color="danger">
     <ion-title>个人简介</ion-title>
     <ion-buttons end>
-      <button ion-button>
+      <button (click)="save()" ion-button [disabled]="!change">
         保存
       </button>
     </ion-buttons>
@@ -21,7 +21,7 @@
 <ion-content>
   <ion-list no-lines no-margin>
     <ion-item>
-      <ion-textarea (keydown)="setLength()" maxlength=100 rows="6" cols="8" [(ngModel)]="content"></ion-textarea>
+      <ion-textarea (input)="setLength()" maxlength=100 rows="6" cols="8" [(ngModel)]="content"></ion-textarea>
     </ion-item>
     <ion-item text-right>
       {{nowLength}}/{{maxLength}}

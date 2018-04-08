@@ -14,12 +14,28 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'change-nickname.html',
 })
 export class ChangeNicknamePage {
-  nickName:string;
+  nickName: string;
+  nowNickName: string = "";
+  change: boolean = false;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.nickName = this.navParams.get('userName');
+    this.nowNickName = this.nickName;
+    this.setStu();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChangeNicknamePage');
   }
 
+  setStu() {
+    if (this.nickName !== this.nowNickName) {
+      this.change = true;
+    } else {
+      this.change = false;
+    }
+  }
+
+  save(): void {
+    alert(1111)
+  }
 }

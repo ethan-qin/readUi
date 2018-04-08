@@ -71,8 +71,8 @@ export class UserInfoPage {
     this.native.chooseImg().then(f => {
       if (f.stu) {
         this.userPreview = 'data:image/jpeg;base64,' + f.avatar;
-        this.userServe.uploadAvatar(this.userPreview).then(f=>{
-          this.userServe.setUserInfo().then(f=>{
+        this.userServe.uploadAvatar(this.userPreview).then(f => {
+          this.userServe.setUserInfo().then(f => {
             this.updateUserInfo()
           })
         })
@@ -83,13 +83,13 @@ export class UserInfoPage {
   }
 
   updateUserInfo(): void {
-    this.events.publish('_updateUserInfo',{})
+    this.events.publish('_updateUserInfo', {})
   }
 
-  openNickname():void{
-    this.navCtrl.push('ChangeNicknamePage')
+  openNickname(): void {
+    this.navCtrl.push('ChangeNicknamePage', { userName: this.userName })
   }
-  openIntro():void{
-    this.navCtrl.push('ChangeIntroPage')
+  openIntro(): void {
+    this.navCtrl.push('ChangeIntroPage', { intro: this.intro })
   }
 }

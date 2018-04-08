@@ -22,8 +22,9 @@ page-payment {
             &._list{
                 ion-item{
                     position: relative;
+                    font-size: 1.4rem;
                     &::before{
-                        content: "0";
+                        content: "";
                         display: block;
                         width: 100%;
                         height: 1px;
@@ -44,7 +45,7 @@ page-payment {
                 }
                 ion-label{
                     span{
-                        font-size: 1.8rem;
+                        font-size: 1.5rem;
                         font-weight: 600;
                     }
                 }
@@ -68,6 +69,9 @@ page-payment {
         }
         .subBtn{
             width: 90%;
+        }
+        ion-checkbox .item-cover {
+            display: none;
         }
         .agreementContainer{
             font-size: 1.4rem;

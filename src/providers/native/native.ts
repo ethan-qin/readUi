@@ -69,7 +69,7 @@ export class NativeProvider extends BaseUI {
 
   /**
    * 电池状态
-   * 
+   * -*
    * @author qin
    * @returns {Promise<batteryStu>} 
    * @memberof NativeProvider

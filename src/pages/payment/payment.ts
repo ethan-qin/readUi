@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
 /**
  * Generated class for the PaymentPage page.
@@ -66,7 +66,11 @@ export class PaymentPage {
     num: 0,
     stu: false
   }
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private modalCtrl:ModalController
+  ) {
   }
 
   ionViewDidLoad() {
@@ -100,7 +104,7 @@ export class PaymentPage {
 
   setPay(): void {
     this.quota.forEach(element => {
-      if (element.checked) {        
+      if (element.checked) {
         this.pay.num = element.pay;
         if (element.pay > 0) {
           this.pay.stu = true;
@@ -109,5 +113,9 @@ export class PaymentPage {
         }
       }
     });
+  }
+
+  goAgreement(): void {
+    this.modalCtrl.create('AgreementPage').present()
   }
 }

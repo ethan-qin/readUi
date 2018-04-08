@@ -98,8 +98,8 @@
     <plugin name="com.synconset.imagepicker" spec="~2.1.10">
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="选择一张照片" />
     </plugin>
-    <engine name="android" spec="6.3.0" />
     <plugin name="cordova-alipay-base" spec="0.0.1">
         <variable name="ALI_PID" value="2017110709787064" />
     </plugin>
+    <engine name="android" spec="6.3.0" />
 </widget>

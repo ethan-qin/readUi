@@ -39,7 +39,7 @@
     <ion-item no-padding class="agreementContainer">
       <ion-checkbox float-right checked=true color="danger"></ion-checkbox>
       <ion-label class="agreement">我已阅读并同意使用
-        <span (click)="goAgreement()" ion-text color="danger">《注册和充值协议》</span>
+        <span (click)="goAgreement()" ion-text style="color:#549cda">《注册和充值协议》</span>
       </ion-label>
     </ion-item>
     <button color="danger" text-center ion-item margin-horizontal [disabled]=!pay.stu class="subBtn">立即支付：{{pay.num||0}}元</button>
