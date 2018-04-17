@@ -1,0 +1,42 @@
+page-img-preview-details {
+    .list{
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+    .imgContainer{
+        width: 32%;
+        margin: 5px 0;
+        &:nth-child(3n-1){
+            margin-left: 2%; 
+            margin-right: 2%; 
+        }
+        .imgItem{
+            position: relative;
+            img{
+                vertical-align: bottom;
+            };
+            &::after{
+                content: "";
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 400%;
+                height: 400%;
+                border: 1px solid color($colors,fineLineColor);
+                // border-radius: 15px;
+                transform: scale(0.25);
+                transform-origin: left top;
+            }
+        }
+        h5{
+            font-size: 1.6rem;
+            padding: 0.4rem 0;
+            color: color($colors,fineLineDark);
+            font-weight: normal;
+            text-align: center;
+        }
+    }
+}

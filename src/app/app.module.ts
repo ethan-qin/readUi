@@ -1,4 +1,5 @@
 import { AndroidFullScreen } from '@ionic-native/android-full-screen';
+import { AndroidPermissions } from '@ionic-native/android-permissions';
 import { Alipay } from '@ionic-native/alipay';
 import { BatteryStatus } from "@ionic-native/battery-status";
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,6 +11,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { IonicApp, IonicModule, IonicErrorHandler, NavController } from 'ionic-angular';
 import { NativePageTransitions } from '@ionic-native/native-page-transitions';
+import { PhotoLibrary } from '@ionic-native/photo-library';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SpinnerDialog } from '@ionic-native/spinner-dialog';
@@ -56,6 +58,7 @@ import { LoginPreviewPage } from '../pages/login-preview/login-preview';
     LoginPreviewPage
   ],
   providers: [
+    AndroidPermissions,
     AndroidFullScreen,
     Alipay,
     BookProvider,
@@ -67,6 +70,7 @@ import { LoginPreviewPage } from '../pages/login-preview/login-preview';
     ImagePicker,
     NativePageTransitions,
     NativeProvider,
+    PhotoLibrary,
     StatusBar,
     SplashScreen,
     UserServicesProvider,

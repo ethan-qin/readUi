@@ -172,6 +172,16 @@ export class BookrackPage {
     })
   }
 
+  getPhotosList(){
+    this.native.getPhotosList().subscribe(f=>{
+      console.log(f);
+    })
+  }
+  getPhotos():void{
+    this.native.getPhotoLibrary().subscribe(f=>{
+      console.log(f);
+    })
+  }
   register(): void {
     this.user.userRejister()
   }

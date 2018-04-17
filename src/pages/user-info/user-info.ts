@@ -68,18 +68,17 @@ export class UserInfoPage {
    * @memberof UserInfoPage
    */
   changeAvatar(): void {
-    this.native.chooseImg().then(f => {
-      if (f.stu) {
-        this.userPreview = 'data:image/jpeg;base64,' + f.avatar;
-        this.userServe.uploadAvatar(this.userPreview).then(f => {
-          this.userServe.setUserInfo().then(f => {
-            this.updateUserInfo()
-          })
-        })
-      }
-    }, err => {
-      console.log('读取错误,请重试')
-    })
+    // this.native.chooseImg().subscribe(f => {
+    //   if (f.stu) {
+    //     this.userPreview = 'data:image/jpeg;base64,' + f.avatar;
+    //     this.userServe.uploadAvatar(this.userPreview).then(f => {
+    //       this.userServe.setUserInfo().then(f => {
+    //         this.updateUserInfo()
+    //       })
+    //     })
+    //   }
+    // })
+    this.navCtrl.push('ImgPreviewPage')
   }
 
   updateUserInfo(): void {

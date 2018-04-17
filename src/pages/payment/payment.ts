@@ -14,8 +14,7 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
   templateUrl: 'payment.html',
 })
 export class PaymentPage {
-  relationship: string;
-  customMade: number = 0;
+  customMade: number = 0; //自定义金额
   quota: any = [
     {
       id: 1,
@@ -62,21 +61,31 @@ export class PaymentPage {
   ]
 
   pay: any = {
-    way: 'Alipay',
-    num: 0,
-    stu: false
+    way: 'Alipay',  // 付款方式
+    num: 0,         // 付款金额
+    stu: false      // 是否可以提交
   }
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
-    private modalCtrl:ModalController
+    private modalCtrl: ModalController
   ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PaymentPage');
+    this.setPay()
   }
-  change(item): void {
+
+  /**
+   * 切换预定义额度
+   * 
+   * @author qin
+   * @private
+   * @param {any} item 
+   * @memberof PaymentPage
+   */
+  private change(item): void {
     this.quota.forEach(element => {
       if (item.id == element.id) {
         element.checked = true
@@ -87,12 +96,27 @@ export class PaymentPage {
     this.setPay()
   }
 
-  focus(item) {
+  /**
+   * 选择自定义金额事件
+   * 
+   * @author qin
+   * @private
+   * @param {any} item 
+   * @memberof PaymentPage
+   */
+  private focus(item) {
     this.change(item);
   }
 
 
-  input(): void {
+  /**
+   * 选择自定义金额键入金额事件
+   * 
+   * @author qin
+   * @private
+   * @memberof PaymentPage
+   */
+  private input(): void {
     this.quota.forEach(element => {
       if (element.id == 6) {
         element.pay = this.customMade;
@@ -102,7 +126,14 @@ export class PaymentPage {
     this.setPay()
   }
 
-  setPay(): void {
+  /**
+   * 当前充值金额
+   * 
+   * @author qin
+   * @private
+   * @memberof PaymentPage
+   */
+  private setPay(): void {
     this.quota.forEach(element => {
       if (element.checked) {
         this.pay.num = element.pay;
@@ -115,7 +146,7 @@ export class PaymentPage {
     });
   }
 
-  goAgreement(): void {
+  private goAgreement(): void {
     this.modalCtrl.create('AgreementPage').present()
   }
 }

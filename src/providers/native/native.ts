@@ -1,4 +1,5 @@
 import { Alipay, AlipayOrder } from '@ionic-native/alipay';
+import { AndroidPermissions } from '@ionic-native/android-permissions';
 import { BatteryStatus } from "@ionic-native/battery-status";
 import { ToastController } from "ionic-angular/components/toast/toast-controller";
 import { LoadingController } from "ionic-angular/components/loading/loading-controller";
@@ -7,6 +8,7 @@ import { Dialogs } from '@ionic-native/dialogs';
 import { Injectable } from "@angular/core";
 import { ImagePicker } from '@ionic-native/image-picker';
 import { NativePageTransitions, NativeTransitionOptions } from "@ionic-native/native-page-transitions";
+import { PhotoLibrary } from '@ionic-native/photo-library';
 import { Platform, NavController } from "ionic-angular";
 import { SpinnerDialog } from '@ionic-native/spinner-dialog';
 import { Storage } from "@ionic/storage";
@@ -15,6 +17,7 @@ import { Vibration } from "@ionic-native/vibration";
 import { BaseUI } from "../../common/baseUI";
 import { IS_DEBUG, CODE_PUSH_key } from "./../api/api";
 import { batteryStu } from "../../model/model";
+import { Observer, Observable } from 'rxjs';
 /*
   Generated class for the NativeProvider provider.
 
@@ -24,11 +27,13 @@ import { batteryStu } from "../../model/model";
 @Injectable()
 export class NativeProvider extends BaseUI {
   constructor(
+    private androidPermissions: AndroidPermissions,
     private codePush: CodePush,
     private dialogs: Dialogs,
     private loadingCtrl: LoadingController,
     private nativePageTransition: NativePageTransitions,
     private platform: Platform,
+    private photoLibrary: PhotoLibrary,
     private storage: Storage,
     private toastCtrl: ToastController,
     private vibration: Vibration,
@@ -250,21 +255,28 @@ export class NativeProvider extends BaseUI {
    * @returns {Promise<any>} 
    * @memberof NativeProvider
    */
-  public chooseImg(): Promise<any> {
-    return new Promise((resolve, reject) => {
+  public chooseImg(): Observable<any> {
+    return new Observable((observable) => {
       this.imgPicker.getPictures({
         maximumImagesCount: 1,
         outputType: 1          //1为base64， 0为本地url
       }).then(f => {
-        if (f.length == 0) {
-          resolve({ stu: false, avatar: '' })
-          return;
+        console.log('选择图片的返回值是', f);
+        if (f == 'Ok') {
+          this.chooseImg()
         }
-        resolve({ stu: true, avatar: f })
+        if (f.length == 0) {
+          observable.next({ stu: false, avatar: '' })
+          return;
+        } else {
+          observable.next({ stu: true, avatar: f });
+        }
       }, err => {
-        reject(err)
+        observable.next({ stu: false, avatar: '', message: err })
+        console.log('选择图片的错误返回值是', err);
       }).catch(error => {
-        reject(error)
+        console.log('选择图片的错误catch返回值是', error);
+        observable.next({ stu: false, avatar: '', message: error })
       })
     })
   }
@@ -272,5 +284,106 @@ export class NativeProvider extends BaseUI {
 
   public Alipay(): void {
 
+  }
+
+
+  public permission(): void {
+    if (!this.isMobile) {
+      return;
+    }
+    let permission = [
+      this.androidPermissions.PERMISSION.FLASHLIGHT,
+      this.androidPermissions.PERMISSION.CLEAR_APP_CACHE,
+      this.androidPermissions.PERMISSION.CHANGE_WIFI_STATE,
+      this.androidPermissions.PERMISSION.CHANGE_NETWORK_STATE,
+      this.androidPermissions.PERMISSION.CAMERA,
+      this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION
+    ]
+    // this.androidPermissions.requestPermissions(permission).then(f => {
+    //   console.log('请求权限列表正确回掉是', f);
+    // }, err => {
+    //   console.log('请求权限列表错误回掉是', err);
+    // }).catch(error => {
+    //   console.log('请求权限程序错误回掉是', error);
+
+    // })
+    this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.CAMERA, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
+  }
+
+
+  public getPhotoLibrary(): Observable<any> {
+    let option = {
+      thumbnailWidth: 400,
+      thumbnailHeight: 400,
+      quality: 0.5,
+      useOriginalFileNames: true,
+      includeAlbumData: true
+    }
+    return new Observable(observable => {
+      this.photoLibrary.requestAuthorization().then(() => {
+        this.photoLibrary.getLibrary(option).subscribe({
+          next: library => {
+            let imgUrl = [];
+            let tempArr = [];
+            let sortedArr = [];
+            library.forEach((libraryItem) => {
+              // console.log(libraryItem.id);          // ID of the photo
+              // console.log(libraryItem.photoURL);    // Cross-platform access to photo
+              // console.log(libraryItem.thumbnailURL);// Cross-platform access to thumbnail
+              // console.log(libraryItem.fileName);
+              // console.log(libraryItem.width);
+              // console.log(libraryItem.height);
+              // console.log(libraryItem.creationDate);
+              // console.log(libraryItem.latitude);
+              // console.log(libraryItem.longitude);
+              // console.log(libraryItem.albumIds);    // array of ids of appropriate AlbumItem, only of includeAlbumsData was used
+              imgUrl.push(libraryItem)
+            });
+            imgUrl.sort(this.sortNumber('albumIds'))
+            for (let i = 0, j = imgUrl.length; i < j; i++) {
+              if (imgUrl[i + 1] && imgUrl[i].albumIds.toString() == imgUrl[i + 1].albumIds.toString()) {
+                tempArr.push(imgUrl[i]);
+              } else {
+                tempArr.push(imgUrl[i]);
+                sortedArr.push({
+                  albumIds: imgUrl[i].albumIds.toString(),
+                  imgList: tempArr.slice(0)
+                });
+                tempArr.length = 0;
+              }
+            }
+            this.getPhotosList().subscribe(f => {
+              sortedArr.forEach((element) => {
+                f.forEach(elements => {
+                  if (element.albumIds == elements.id) {
+                    element.title = elements.title
+                  }
+                });
+              })
+            })
+            observable.next(sortedArr)
+          },
+          error: err => { console.log('could not get photos'); },
+          complete: () => { console.log('done getting photos'); }
+        });
+      }).catch(err => console.log('permissions weren\'t granted'));
+    })
+  }
+  sortNumber(albumIds) {
+    return function (a: any, b: any) {
+      return a.albumIds - b.albumIds
+    }
+  }
+  public getPhotosList(): Observable<any> {
+    return new Observable(observable => {
+      this.photoLibrary.requestAuthorization().then(() => {
+        this.photoLibrary.getAlbums().then(f => {
+          console.log('相册回掉是', f);
+          observable.next(f)
+        }).catch(error => {
+          console.log(error);
+        });
+      })
+    })
   }
 }

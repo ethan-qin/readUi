@@ -123,6 +123,8 @@ export class PersonPage {
     this.navCtrl.push('UserInfoPage', { userPreview: this.userPreview, userName: this.userName, intro: '在看我，还在看我' })
   }
 
-
+  openPayment(): void {
+    this.navCtrl.push('PaymentPage')
+  }
 }
 

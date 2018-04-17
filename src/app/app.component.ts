@@ -23,6 +23,7 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       // statusBar.styleDefault();
+      native.permission()
       AV.init({
         appId: 'B4hAv1MFcFvMs7oGbSEpStLN-gzGzoHsz',
         appKey: '0PydL8nrVy6EoEjt6WQmJ5RM'

@@ -87,19 +87,21 @@
     <plugin name="cordova-sqlite-storage" spec="^2.2.0" />
     <plugin name="cordova-plugin-vibration" spec="^3.0.1" />
     <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
-    <plugin name="cordova-plugin-zip" spec="^3.1.0" />
-    <plugin name="cordova-plugin-code-push" spec="^1.11.3" />
     <plugin name="com.telerik.plugins.nativepagetransitions" spec="^0.6.5" />
     <plugin name="cordova-plugin-x-toast" spec="^2.6.2" />
     <plugin name="cordova-plugin-fullscreen" spec="^1.2.0" />
     <plugin name="cordova-plugin-battery-status" spec="^2.0.1" />
     <plugin name="cordova-plugin-native-spinner" spec="^1.1.3" />
     <plugin name="cordova-plugin-dialogs" spec="^2.0.1" />
+    <plugin name="cordova-alipay-base" spec="0.0.1">
+        <variable name="ALI_PID" value="2017110709787064" />
+    </plugin>
+    <plugin name="cordova-plugin-android-permissions" spec="^1.0.0" />
     <plugin name="com.synconset.imagepicker" spec="~2.1.10">
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="选择一张照片" />
     </plugin>
-    <plugin name="cordova-alipay-base" spec="0.0.1">
-        <variable name="ALI_PID" value="2017110709787064" />
+    <plugin name="cordova-plugin-photo-library" spec="^2.1.1">
+        <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="To choose photos" />
     </plugin>
     <engine name="android" spec="6.3.0" />
 </widget>

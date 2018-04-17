@@ -1,0 +1,38 @@
+page-img-preview {
+    .list{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .imgContainer{
+        width: 45%;
+        .imgItem{
+            padding: 5px;
+            position: relative;
+            img{
+                vertical-align: bottom;
+            };
+            &::after{
+                content: "";
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 400%;
+                height: 400%;
+                border: 1px solid color($colors,fineLineColor);
+                border-radius: 15px;
+                transform: scale(0.25);
+                transform-origin: left top;
+            }
+        }
+        h5{
+            font-size: 1.6rem;
+            padding: 0.4rem 0;
+            color: color($colors,fineLineDark);
+            font-weight: normal;
+            text-align: center;
+        }
+    }
+}
