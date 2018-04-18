@@ -310,13 +310,19 @@ export class NativeProvider extends BaseUI {
     this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.CAMERA, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
   }
 
-
+  /**
+   * 获取全部图片，按相册分类
+   * 
+   * @author qin
+   * @returns {Observable<any>} 
+   * @memberof NativeProvider
+   */
   public getPhotoLibrary(): Observable<any> {
     let option = {
       thumbnailWidth: 400,
       thumbnailHeight: 400,
-      quality: 0.5,
-      useOriginalFileNames: true,
+      quality: 0.3,
+      useOriginalFileNames: false,
       includeAlbumData: true
     }
     return new Observable(observable => {
@@ -369,20 +375,58 @@ export class NativeProvider extends BaseUI {
       }).catch(err => console.log('permissions weren\'t granted'));
     })
   }
+
+  /**
+   * 相册排序
+   * 
+   * @author qin
+   * @param {any} albumIds 
+   * @returns 
+   * @memberof NativeProvider
+   */
   sortNumber(albumIds) {
     return function (a: any, b: any) {
       return a.albumIds - b.albumIds
     }
   }
+
+  /**
+   * 获取相册
+   * 
+   * @author qin
+   * @returns {Observable<any>} 
+   * @memberof NativeProvider
+   */
   public getPhotosList(): Observable<any> {
     return new Observable(observable => {
       this.photoLibrary.requestAuthorization().then(() => {
         this.photoLibrary.getAlbums().then(f => {
-          console.log('相册回掉是', f);
           observable.next(f)
         }).catch(error => {
           console.log(error);
         });
+      })
+    })
+  }
+
+  /**
+   * 转换成base64
+   * 
+   * @author qin
+   * @param {any} libraryItem 
+   * @returns {Observable<string>} base64字符串
+   * @memberof NativeProvider
+   */
+  public getPhotoBase64(libraryItem): Observable<string> {
+    return new Observable(observable => {
+      this.photoLibrary.getPhoto(libraryItem, {
+        quality: 0.1
+      }).then(f => {
+        let reader = new FileReader();
+        reader.readAsDataURL(f);
+        reader.onloadend = function () {
+          observable.next(reader.result)
+        }
       })
     })
   }

@@ -1,0 +1,24 @@
+<!--
+  Generated template for the ImgTailorPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+
+  <ion-navbar color="danger">
+    <ion-title>裁剪</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="tailorContainer" #image>
+    <canvas #canvas></canvas>
+  </div>
+  <ion-footer padding>
+    <button (click)="back()">取消</button>
+    <button>选取</button>
+  </ion-footer>
+</ion-content>

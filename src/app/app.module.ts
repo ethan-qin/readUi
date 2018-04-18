@@ -28,7 +28,6 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { UserServicesProvider } from '../providers/user-services/user-services';
 import { LoginPreviewPage } from '../pages/login-preview/login-preview';
 
-
 @NgModule({
   declarations: [
     MyApp,

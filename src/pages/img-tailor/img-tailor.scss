@@ -1,0 +1,23 @@
+page-img-tailor {
+    .tailorContainer{
+        width: 100%;
+        height: 100%;
+        background: url('../../assets/imgs/biao.png') no-repeat;
+    }
+    ion-content{
+        overflow: hidden;
+    }
+    ion-footer{
+        display: flex;
+        justify-content: space-between;
+        overflow: hidden;
+        background: #6b6b6b;
+        button{
+            background: transparent;
+            padding: 3rem 0 1rem 0;
+            letter-spacing: 1px;
+            font-size: 1.6rem;
+            color: #fff;
+        }
+    }
+}

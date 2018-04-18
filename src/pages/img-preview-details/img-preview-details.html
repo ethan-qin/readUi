@@ -21,7 +21,7 @@
       <h5>{{item.title}}</h5>
     </div> -->
     <div class="list">
-      <div class="imgContainer" *ngFor="let item of imgList.imgList">
+      <div class="imgContainer" *ngFor="let item of imgList.imgList"  (click)="getBase64(item)">
         <div class="imgItem">
           <img [src]="item.thumbnailURL|cdvPhotoLibrary" alt="">
         </div>

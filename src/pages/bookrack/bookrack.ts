@@ -189,6 +189,9 @@ export class BookrackPage {
     this.native.showNativeToast();
     this.navCtrl.push('ReadPage')
   }
+  tailor():void{
+    this.navCtrl.push('ImgTailorPage')
+  }
   queryUser(): void {
     this.user.getUserInfo().then(f => {
       console.log(f);
