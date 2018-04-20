@@ -1,16 +1,24 @@
 page-img-tailor {
     .tailorContainer{
         width: 100%;
-        height: 100%;
-        background: url('../../assets/imgs/biao.png') no-repeat;
+        height: 80%;
+        overflow: hidden;
+        position: relative;
+        // background: url('../../assets/imgs/biao.png') no-repeat;
     }
     ion-content{
         overflow: hidden;
+        ._mask{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
     }
-    ion-footer{
+    ._footer{
         display: flex;
         justify-content: space-between;
         overflow: hidden;
+        height: 20%;
         background: #6b6b6b;
         button{
             background: transparent;

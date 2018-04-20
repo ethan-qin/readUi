@@ -14,11 +14,12 @@
 
 
 <ion-content>
-  <div class="tailorContainer" #image>
+  <div class="tailorContainer" #tailorContainer>
     <canvas #canvas></canvas>
+    <canvas class="_mask" #mask></canvas>
   </div>
-  <ion-footer padding>
+  <div class="_footer" padding>
     <button (click)="back()">取消</button>
     <button>选取</button>
-  </ion-footer>
+  </div>
 </ion-content>
