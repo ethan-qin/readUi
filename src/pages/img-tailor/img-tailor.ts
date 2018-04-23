@@ -77,9 +77,9 @@ export class ImgTailorPage {
   drawImage(img: any): void {
     this._imgs.onload = () => {
       this._CONTEXT.drawImage(img, 0, 0);
-      setTimeout(() => {
-        this.canvaScale(0.5, this._imgs)
-      }, 5000);
+      // setTimeout(() => {
+      //   this.canvaScale(0.5, this._imgs)
+      // }, 5000);
     }
   }
 
@@ -120,14 +120,33 @@ export class ImgTailorPage {
    */
   canvaScale(scale: number, img: any): void {
     let rectCenterPoint = { x: this.width / 2, y: this.height / 2 };// 矩形中心点
-    this._CONTEXT.clearRect(0, 0, this.width, this.height)
+    this._CONTEXT.clearRect(0, 0, 1000, 1000)
+    this._CONTEXT.beginPath();
     this._CONTEXT.translate(rectCenterPoint.x * (1 - scale), rectCenterPoint.y * (1 - scale));
     this._CONTEXT.scale(scale, scale);
     this._CONTEXT.drawImage(img, 0, 0);
   }
 
+  test(): void {
+    // console.log(scale);
+    let scale = parseFloat(Math.random() + 0.1.toFixed());
+    console.log(scale);
+    if (scale > 1) {
+      scale = 1 + (scale - 1) / 50;
+    } else {
+      scale = 1 - (1 - scale) / 50;
+    }
+    this.canvaScale(scale, this._imgs)
+  }
   pinch(e): void {
-    this.canvaScale(e.scale, this._imgs)
+    let scale = e.scale;
+    if (scale > 1) {
+      scale = 1 + (scale - 1) / 50
+    } else {
+      scale = 1 - (1 - scale) / 50
+    }
+    this.canvaScale(scale, this._imgs)
+
   }
   pan(e): void {
     console.log("pan" + e)

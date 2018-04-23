@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import * as api from './../api/api'
 import { HttpProvider } from './../http/http';
 import { BaseUI } from '../../common/baseUI';
+import * as mockData  from "../../assets/mock/data";
 /*
   Generated class for the BookServicesProvider provider.
 
@@ -46,6 +47,7 @@ export class BookServicesProvider extends BaseUI {
 
   getChapterList(id:number):Observable<any>{
     return Observable.create(observable=>{
+      observable.next(mockData.catalog)  // 测试数据
       this.http.get('catalog/1').subscribe(f=>{
         observable.next(f);
       })

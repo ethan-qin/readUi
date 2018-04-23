@@ -37,7 +37,7 @@ export class ImgPreviewDetailsPage {
         this.userServe.uploadAvatar(f).then(f => {
           this.userServe.setUserInfo().then(f => {
             this.updateUserInfo();
-            this.navCtrl.popAll()
+            this.navCtrl.popTo('UserInfoPage')
           })
         })
       }

@@ -9,40 +9,43 @@
     <ion-navbar color="danger">
         <ion-title style="transform:translateY(50px)">目录</ion-title>
     </ion-navbar>
+    <ion-toolbar no-padding class="_toolbar">
+        <ion-row>
+            <ion-col padding>
+                共
+                <span style="padding:0 0.3rem">791</span>章
+            </ion-col>
+            <ion-col padding text-right>
+                <ion-icon name="md-more"></ion-icon>
+                倒叙
+            </ion-col>
+            <ion-col #bookHeade no-padding padding-left class="catalogHeader" col-12>
+                {{fristHeader }} 第一章
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
 </ion-header>
 
 
 <ion-content>
-    <ion-row>
-        <ion-col padding>
-            共<span style="padding:0 0.3rem">791</span>章
-        </ion-col>
-        <ion-col padding text-right>
-            <ion-icon name="md-more"></ion-icon>
-            倒叙
-        </ion-col>
-        <ion-col #bookHeade no-padding padding-left class="catalogHeader" col-12>
-            {{fristHeader }}
-        </ion-col>
-    </ion-row>
-    <ion-scroll #scroll scrollY="true">
-        <ion-list #list no-lines *ngFor="let items of catalogArr">
-            <ion-list-header no-margin>
-                {{items.headerName}}
-            </ion-list-header>
-            <button ion-item *ngFor="let item of items.catalog" (click)="read(item)">
-        <h5 [ngClass]="{'bookmark': item.bookmark}">{{item.title}}</h5>
-        <p>{{item.time | date: 'yyyy-MM-dd HH:mm'}}</p>
-        <span ion-text item-end>
-          <ion-icon name="ios-cloud-download-outline"></ion-icon>
-        </span>
-      </button>
-        </ion-list>
-    </ion-scroll>
+    <ion-list #scroll no-lines [virtualScroll]="catalogArr" class="_list">
+        <div class="_virtualItem" *virtualItem="let item">
+            <button ion-item (click)="read(item)" *ngIf="!item.isHeader">
+                <h5 [ngClass]="{'bookmark': item.bookmark}">{{item.title}}</h5>
+                <p>{{item.time | date: 'yyyy-MM-dd HH:mm'}}</p>
+                <span ion-text item-end>
+                    <ion-icon name="ios-cloud-download-outline"></ion-icon>
+                </span>
+            </button>
+            <button class="_header" ion-item  *ngIf="item.isHeader" #chapter>
+                {{item.header}}
+            </button>
+        </div>
+    </ion-list>
     <ion-footer>
         <button ion-item text-center>
-      <ion-icon color="danger" name="ios-download-outline"></ion-icon>
-      批量下载
-    </button>
+            <ion-icon color="danger" name="ios-download-outline"></ion-icon>
+            批量下载
+        </button>
     </ion-footer>
 </ion-content>
